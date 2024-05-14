@@ -43,7 +43,17 @@ Usage
 
 ```
 
+### Layoting
+Gunakan Grid dan flexbox untuk megatur penempatan element.
+- Jadikan grid sebagai mengatur banyaknya layout atau colomn yang akan dibuat
+- Sedangkan flex untuk mengatur posisi content didalamnya 
+
+
+
 ### Breakpoint 
+Silahkan gunakan breakpoint disini untuk membuat respoinsive design
+
+![image](https://github.com/alirfanyasin/Crypshion-Ecommerce/assets/77270380/6e2e10b2-5b14-482f-a140-47871e513ffe)
 
 
 

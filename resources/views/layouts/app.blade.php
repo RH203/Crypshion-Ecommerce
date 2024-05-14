@@ -11,11 +11,14 @@
 
 <body>
 
+
+
   {{-- @livewire('components.navbar') --}}
 
   <main class="md:container-md">
     {{ $slot }}
   </main>
+
 
 
   <script src="/node_modules/preline/dist/preline.js"></script>

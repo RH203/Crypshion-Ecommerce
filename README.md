@@ -65,6 +65,15 @@ Silahkan gunakan breakpoint disini untuk membuat respoinsive design
 - Jika terjadi konflik silahkan perbaiki terlebih dahulu sebelum `push` ke project
 - Jika sudah selesai semua silahkan berikan `commit` yang jelas dan `pull request` ke branch `develop`
 
+
+## Running Project
+```bash
+php artisan serve
+
+npm run dev
+```
+
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

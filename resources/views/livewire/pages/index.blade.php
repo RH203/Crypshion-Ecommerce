@@ -64,4 +64,11 @@
       </div>
     </div>
     <!-- End Slider -->
+
+    {{-- 
+    <livewire:components.button title="Hello" class="text-white bg-green-600" />
+    <livewire:components.button title="Hello" class="text-green-600 border-2 border-green-600" />
+
+    <a href="/about" wire:navigate>About</a> --}}
+
   </div>

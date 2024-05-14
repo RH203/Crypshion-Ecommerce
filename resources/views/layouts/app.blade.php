@@ -13,14 +13,15 @@
 
 
 
-  {{-- @livewire('components.navbar') --}}
+  @livewire('components.sub-navbar')
+  @livewire('components.navbar')
 
   <main class="md:container-md">
     {{ $slot }}
   </main>
 
 
-
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
   <script src="/node_modules/preline/dist/preline.js"></script>
 </body>
 

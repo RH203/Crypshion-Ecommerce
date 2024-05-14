@@ -16,7 +16,7 @@
         <div class="hidden lg:block">
           <img src="/img/auth-img-{{ Request::is('login') ? '1' : '2' }}.png" alt="" class="w-full">
         </div>
-        <div class="pt-{{ Request::is('login') ? '32' : '20' }}">
+        <div class="{{ Request::is('login') ? 'pt-32' : 'pt-20' }}">
           <div class="w-10/12 mx-auto lg:w-6/12 md:w-8/12">
             <img src="/img/logo/logo.png" alt="Logo" class="w-4/12 mx-auto">
             {{ $slot }}

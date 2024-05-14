@@ -66,9 +66,31 @@ Silahkan gunakan breakpoint disini untuk membuat respoinsive design
 - Jika sudah selesai semua silahkan berikan `commit` yang jelas dan `pull request` ke branch `develop`
 
 
+## Instalation
+Clone Repository
+```sh
+git clone https://github.com/alirfanyasin/Crypshion-Ecommerce.git
+```
+Tulis perintah dibawah in untuk menginstal depedensi yang di perlukan 
+```sh
+composer install
+
+npm install
+```
+
+Lalu copy file .env 
+```sh
+cp .env.example .env
+```
+
+Setelah itu lakukan generate key
+```sh
+php artisan key:generate
+```
+
 ## Running Project
-```bash
-php artisan serve
+```sh
+php artisan serve    
 
 npm run dev
 ```

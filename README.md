@@ -61,10 +61,9 @@ Silahkan gunakan breakpoint disini untuk membuat respoinsive design
 
 ## Warning
 - Jangan pernah menghapus folder atau file apapun yg sudah ada atau bawaan dari laravel
-- 
-
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- Jika ingin melakukan `git push` dan pull request pada project ini silahkan lakukan `git pull` ke branch `main` terlebih dahulu di lokal komputer
+- Jika terjadi konflik silahkan perbaiki terlebih dahulu sebelum `push` ke project
+- Jika sudah selesai semua silahkan berikan `commit` yang jelas dan `pull request` ke branch `develop`
 
 ## License
 

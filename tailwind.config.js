@@ -7,7 +7,11 @@ export default {
     'node_modules/preline/dist/*.js',
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage : {
+        subscribeBg : "url('/public/img/bg-subscribe.png')"
+      }
+    },
   },
   plugins: [
     require('preline/plugin'),

@@ -197,23 +197,124 @@
 
 
     {{-- Promo section start --}}
-    <section class="pt-24 bg-green-800">
+    <section class="lg:pt-24 lg:py-0 md:py-10 py-24 bg-[#23856D] my-20">
       <div class="w-10/12 mx-auto">
         <div class="grid grid-cols-2">
           <div class="flex items-center text-white">
             <div>
-              <h1 class="mb-5 text-6xl font-bold">Vita Classic <br> Produc</h1>
+              <p class="mb-2 font-light uppercase">Summer 2024</p>
+              <h1 class="mb-5 font-bold text-7xl">Vita Classic <br> Produc</h1>
               <p class="font-light">We know how large objects will act, We know <br> how are objects will act, We know
               </p>
+              <div class="mt-5">
+                <a href="" class="inline-block px-8 py-3 font-semibold bg-green-500 rounded-md">Read More
+                  &rightarrow;</a>
+              </div>
             </div>
           </div>
-          <div class="flex justify-end">
-            <img src="/img/carousel-2.png" alt="" class="w-1/2">
+          <div class="hidden lg:block">
+            <div class="flex justify-end ">
+              <img src="/img/carousel-2.png" alt="" class="w-1/2">
+            </div>
           </div>
         </div>
       </div>
     </section>
     {{-- Promo section end --}}
 
+
+
+    {{-- No section start --}}
+    <section class="my-20">
+      <div class="w-11/12 mx-auto md:w-10/12">
+        <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
+          <div class="">
+            <img src="/img/carousel-3.png" alt="" class="w-full">
+          </div>
+          <div class="flex items-center">
+            <div class="">
+              <p class="font-semibold uppercase text-slate-400">Summer 2024</p>
+              <h1 class="my-5 text-5xl font-bold text-slate-800">Part of the Neural <br>
+                Universe</h1>
+              <p class="text-xl font-normal text-slate-400">We know how large objects will act, <br>
+                but things on a small scale.</p>
+              <div class="mt-8">
+                <a href=""
+                  class="inline-block px-8 py-4 font-bold text-white uppercase bg-green-800 rounded-lg">Buy Now</a>
+                <a href=""
+                  class="inline-block px-8 py-4 font-bold text-green-800 uppercase border border-green-800 rounded-lg">Read
+                  More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {{-- No section end --}}
+
+
+
+
+    {{-- Testimonial section start --}}
+    <section class="my-32">
+      <div class="w-11/12 mx-auto md:w-10/12">
+        <header class="mb-10 text-center">
+          <h1 class="mb-4 text-xl font-bold text-black uppercase md:text-4xl">Testimonials</h1>
+          <p class="text-sm font-normal md:text-md text-slate-500">What they say about Crypshion</p>
+        </header>
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 md:grid-cols-2">
+          <livewire:components.card-testimonial
+            message="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
+          sequi vero, suscipit dolor voluptatum
+          deserunt natus consequatur nam tempore quo!"
+            image="/img/user/user-1.png" name="Irfan Yasin" label="Programmer" rating="5" />
+          <livewire:components.card-testimonial
+            message="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
+            sequi vero, suscipit dolor voluptatum
+            deserunt natus consequatur nam tempore quo! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Laborum, et."
+            image="/img/user/user-2.png" name="Mario Achmad Taufiq" label="Crypto Developer" rating="5" />
+          <livewire:components.card-testimonial message="Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+            image="/img/user/user-3.png" name="Raihan Firdaus" rating="5" />
+        </div>
+      </div>
+    </section>
+    {{-- Testimonial section end --}}
+
+
+    {{-- Subscribe section start --}}
+    <section class="my-32 bg-center bg-no-repeat bg-cover bg-subscribeBg">
+      <div class="w-11/12 py-40 mx-auto md:w-10/12">
+        <div class="text-center text-white">
+          <h1 class="mb-5 text-3xl font-semibold capitalize md:text-5xl">Subscribe and learn <br> about us</h1>
+          <p class="text-sm font-light md:text-md">Problems trying to resolve the conflict between <br>
+            the two major realms of Classical physics: Newtonian mechanics </p>
+
+          <div class="w-10/12 mx-auto my-8 md:w-6/12">
+            <input type="text" name="" id=""
+              class="w-full px-4 py-5 font-normal rounded-lg placeholder:font-light text-slate-800"
+              placeholder="Your Email">
+          </div>
+
+          <h1 class="mb-10 text-3xl font-semibold capitalize md:text-5xl">Designing Better Experience</h1>
+
+          <div class="flex items-center justify-center text-2xl text-white">
+            <a href="" class="inline-block">
+              <iconify-icon icon="uil:twitter" class="mx-3"></iconify-icon>
+            </a>
+            <a href="" class="inline-block">
+              <iconify-icon icon="uil:facebook" class="mx-3"></iconify-icon>
+            </a>
+            <a href="" class="inline-block">
+              <iconify-icon icon="bi:instagram" class="mx-3"></iconify-icon>
+            </a>
+            <a href="" class="inline-block">
+              <iconify-icon icon="bi:linkedin" class="mx-3"></iconify-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    {{-- Subscribe section end --}}
 
   </div>

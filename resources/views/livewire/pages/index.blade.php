@@ -290,7 +290,7 @@
           <p class="text-sm font-light md:text-md">Problems trying to resolve the conflict between <br>
             the two major realms of Classical physics: Newtonian mechanics </p>
 
-          <div class="w-10/12 mx-auto my-8 md:w-6/12">
+          <div class="w-11/12 mx-auto my-8 md:w-6/12">
             <input type="text" name="" id=""
               class="w-full px-4 py-5 font-normal rounded-lg placeholder:font-light text-slate-800"
               placeholder="Your Email">

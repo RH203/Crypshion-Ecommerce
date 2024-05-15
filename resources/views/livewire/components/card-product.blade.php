@@ -1,6 +1,6 @@
 <div class="shadow-md card-product rounded-xl group">
-  <a href="/products/detail" class="inline">
-    <div class="overflow-hidden bg-red-200 rounded-xl h-96 img-product">
+  <a href="#" class="inline">
+    <div class="overflow-hidden bg-slate-200 rounded-xl h-96 img-product">
       <img src="{{ $image }}" alt="product"
         class="w-full transition duration-500 ease-linear group-hover:scale-110">
     </div>

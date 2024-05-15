@@ -4,27 +4,30 @@
   "loadingClasses": "opacity-0",
   "isAutoPlay": true
 }' class="relative">
-      <div class="relative w-full overflow-hidden min-h-[500px]">
+      <div class="relative w-full overflow-hidden md:min-h-[500px] h-80 bg-slate-200">
         <div
           class="absolute top-0 bottom-0 flex transition-transform duration-700 opacity-0 hs-carousel-body start-0 flex-nowrap">
           <div class="hs-carousel-slide">
             <div class="flex justify-center h-full">
-              <span class="relative self-center text-4xl text-gray-800 transition duration-700 dark:text-white">
-                <img src="/img/carousel-inner-1.png" alt="" class="w-full">
-              </span>
+              <div
+                class="relative self-center h-full text-4xl text-gray-800 transition duration-700 md:h-screen md:w-full dark:text-white">
+                <img src="/img/carousel-inner-1.png" alt="" class="h-full md:h-auto md:w-full">
+              </div>
             </div>
           </div>
           <div class="hs-carousel-slide">
             <div class="flex justify-center h-full ">
-              <span class="self-center text-4xl text-gray-800 transition duration-700 dark:text-white">
-                <img src="/img/carousel-inner-2.png" alt="" class="w-full">
+              <span
+                class="self-center h-full text-4xl text-gray-800 transition duration-700 md:h-scree md:w-full dark:text-white">
+                <img src="/img/carousel-inner-2.png" alt="" class="h-full md:h-auto md:w-full">
               </span>
             </div>
           </div>
           <div class="hs-carousel-slide">
             <div class="flex justify-center h-full">
-              <span class="self-center text-4xl text-gray-800 transition duration-700 dark:text-white">
-                <img src="/img/carousel-inner-3.png" alt="" class="w-full">
+              <span
+                class="self-center h-full text-4xl text-gray-800 transition duration-700 md:h-screen md:w-full dark:text-white">
+                <img src="/img/carousel-inner-3.png" alt="" class="h-full md:h-auto md:w-full">
               </span>
             </div>
           </div>
@@ -65,12 +68,93 @@
     </div>
     <!-- End Slider -->
 
-    {{-- Editor pick section start --}}
-    <section class="my-20 lg:my-40">
-      <div class="w-10/12 mx-auto">
+
+    {{-- Category product start --}}
+    <section class="my-20">
+      <div class="w-11/12 mx-auto md:w-10/12">
         <header class="mb-10 text-center">
-          <h1 class="mb-4 text-4xl font-bold text-black uppercase">EDITOR'S PICK</h1>
-          <p class="font-normal text-slate-500">Problems trying to resolve the conflict between </p>
+          <h4 class="text-lg font-normal md:text-2xl text-slate-500">Choose Your Collection</h4>
+          <h1 class="my-4 text-2xl font-bold text-black uppercase md:text-4xl">Category Products</h1>
+        </header>
+        <div class="grid grid-cols-2 gap-5 lg:grid-cols-4 xl:grid-cols-6 md:grid-cols-3 ">
+          <livewire:components.card-category image="/img/category/img-1.png" title="T-Shirt" />
+          <livewire:components.card-category image="/img/category/img-2.png" title="Trousers" />
+          <livewire:components.card-category image="/img/category/img-6.png" title="Shoe" />
+          <livewire:components.card-category image="/img/category/img-4.png" title="Jacket" />
+          <livewire:components.card-category image="/img/category/img-5.png" title="Hat" />
+          <livewire:components.card-category image="/img/category/img-3.png" title="Bag" />
+        </div>
+      </div>
+    </section>
+    {{-- Category product end --}}
+
+
+
+
+
+
+    {{-- Best seller product start --}}
+    <section class="my-36 md:my-40">
+      <div class="w-11/12 mx-auto md:w-10/12">
+        <header class="mb-10 text-center">
+          <h4 class="text-lg font-normal md:text-2xl text-slate-500">Featured Products</h4>
+          <h1 class="my-4 text-2xl font-bold text-black uppercase md:text-4xl">BESTSELLER PRODUCTS</h1>
+          <p class="text-sm font-normal md:text-md text-slate-500">Problems trying to resolve the conflict between </p>
+        </header>
+        <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <livewire:components.card-product image="/img/product/img-1.png" title="Baju Renang"
+            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
+          ipsum
+          dolor..."
+            price="500.000" />
+          <livewire:components.card-product image="/img/product/img-2.png" title="Baju Kantor"
+            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
+          ipsum
+          dolor..."
+            price="200.000" />
+          <livewire:components.card-product image="/img/product/img-3.png" title="Baju Renang"
+            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
+          ipsum
+          dolor..."
+            price="500.000" />
+          <livewire:components.card-product image="/img/product/img-4.png" title="Baju Renang"
+            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
+          ipsum
+          dolor..."
+            price="500.000" />
+          <livewire:components.card-product image="/img/product/img-5.png" title="Baju Renang"
+            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
+          ipsum
+          dolor..."
+            price="500.000" />
+          <livewire:components.card-product image="/img/product/img-6.png" title="Baju Renang"
+            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
+          ipsum
+          dolor..."
+            price="500.000" />
+          <livewire:components.card-product image="/img/product/img-7.png" title="Baju Renang"
+            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
+          ipsum
+          dolor..."
+            price="500.000" />
+          <livewire:components.card-product image="/img/product/img-8.png" title="Baju Renang"
+            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
+          ipsum
+          dolor..."
+            price="500.000" />
+        </div>
+      </div>
+    </section>
+    {{-- Best seller product end --}}
+
+
+
+    {{-- Editor pick section start --}}
+    <section class="my-20">
+      <div class="w-11/12 mx-auto md:w-10/12">
+        <header class="mb-10 text-center">
+          <h1 class="mb-4 text-xl font-bold text-black uppercase md:text-4xl">EDITOR'S PICK</h1>
+          <p class="text-sm font-normal md:text-md text-slate-500">Problems trying to resolve the conflict between </p>
         </header>
         <div class="gap-5 lg:flex">
           <div class="relative mb-5 overflow-hidden lg:mb-0 lg:basis-6/12 basis-full group ">
@@ -112,45 +196,24 @@
 
 
 
-
-    {{-- Best seller product start --}}
-    <section class="my-20 md:my-40">
+    {{-- Promo section start --}}
+    <section class="pt-24 bg-green-800">
       <div class="w-10/12 mx-auto">
-        <header class="mb-10 text-center">
-          <h4 class="text-2xl font-normal text-slate-500">Featured Products</h4>
-          <h1 class="my-4 text-4xl font-bold text-black uppercase">BESTSELLER PRODUCTS</h1>
-          <p class="font-normal text-slate-500">Problems trying to resolve the conflict between </p>
-        </header>
-        <div class="grid grid-cols-4 gap-5">
-
-          <livewire:components.card-product image="/img/product/img-1.png" title="Baju Renang"
-            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-            price="500.000" />
-          <livewire:components.card-product image="/img/product/img-2.png" title="Baju Kantor"
-            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-            price="200.000" />
-          <livewire:components.card-product image="/img/product/img-3.png" title="Baju Renang"
-            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-            price="500.000" />
-          <livewire:components.card-product image="/img/product/img-4.png" title="Baju Renang"
-            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-            price="500.000" />
-          <livewire:components.card-product image="/img/product/img-5.png" title="Baju Renang"
-            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-            price="500.000" />
+        <div class="grid grid-cols-2">
+          <div class="flex items-center text-white">
+            <div>
+              <h1 class="mb-5 text-6xl font-bold">Vita Classic <br> Produc</h1>
+              <p class="font-light">We know how large objects will act, We know <br> how are objects will act, We know
+              </p>
+            </div>
+          </div>
+          <div class="flex justify-end">
+            <img src="/img/carousel-2.png" alt="" class="w-1/2">
+          </div>
         </div>
       </div>
     </section>
-    {{-- Best seller product end --}}
+    {{-- Promo section end --}}
+
 
   </div>

@@ -12,7 +12,7 @@
 
 ## Component Rules
 ### Container
-Untuk membuat container silahkan gunakan width `w-10/12` dengan position center
+Untuk membuat container silahkan gunakan width `w-10/12` dengan position center 
 ```html
 <div class="w-10/12 mx-auto">
   ...

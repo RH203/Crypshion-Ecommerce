@@ -161,8 +161,17 @@
               <option value="">Online Payment</option>
               <option value="">Crypto Payment</option>
             </select>
+
+            <div class="flex justify-between mt-4">
+              <img src="/img/payment/qris.png" alt="" class="h-4">
+              <img src="/img/payment/gopay.png" alt="" class="h-4">
+              <img src="/img/payment/shopeepay.png" alt="" class="h-4">
+              <img src="/img/payment/bca.png" alt="" class="h-4">
+              <img src="/img/payment/bni.webp" alt="" class="h-4">
+              <img src="/img/payment/briva.png" alt="" class="h-4">
+            </div>
           </div>
-          <div class="mt-10">
+          <div class="mt-8">
             <a href="" class="block py-3 font-semibold text-center text-white rounded-lg bg-primaryBg">
               Check Out
             </a>

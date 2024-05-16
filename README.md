@@ -12,7 +12,7 @@
 
 ## Component Rules
 ### Container
-Untuk membuat container silahkan gunakan width `w-10/12` dengan position center
+Untuk membuat container silahkan gunakan width `w-10/12` dengan position center 
 ```html
 <div class="w-10/12 mx-auto">
   ...
@@ -64,6 +64,37 @@ Silahkan gunakan breakpoint disini untuk membuat respoinsive design
 - Jika ingin melakukan `git push` dan pull request pada project ini silahkan lakukan `git pull` ke branch `main` terlebih dahulu di lokal komputer
 - Jika terjadi konflik silahkan perbaiki terlebih dahulu sebelum `push` ke project
 - Jika sudah selesai semua silahkan berikan `commit` yang jelas dan `pull request` ke branch `develop`
+
+
+## Instalation
+Clone Repository
+```sh
+git clone https://github.com/alirfanyasin/Crypshion-Ecommerce.git
+```
+Tulis perintah dibawah in untuk menginstal depedensi yang di perlukan 
+```sh
+composer install
+
+npm install
+```
+
+Lalu copy file .env 
+```sh
+cp .env.example .env
+```
+
+Setelah itu lakukan generate key
+```sh
+php artisan key:generate
+```
+
+## Running Project
+```sh
+php artisan serve    
+
+npm run dev
+```
+
 
 ## License
 

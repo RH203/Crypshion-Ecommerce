@@ -10,6 +10,7 @@ class Index extends Component
 {
     #[Layout('layouts.app')]
     #[Title('Home')]
+
     public function render()
     {
         return view('livewire.pages.index');

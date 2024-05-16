@@ -39,7 +39,7 @@
     <div id="navbar-alignment"
       class="hidden overflow-hidden transition-all duration-300 hs-collapse basis-full grow sm:grow-0 sm:basis-auto sm:block sm:order-2">
       <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:mt-0 sm:ps-5">
-        <a class="font-medium text-slate-600" href="#" aria-current="page">Home</a>
+        <a class="font-medium text-slate-600" href="/" wire:navigate aria-current="page">Home</a>
         <a class="font-medium text-slate-600" href="#">
           <div class="hs-dropdown [--trigger:hover] relative inline-flex">
             <button id="hs-dropdown-hover-event" type="button"
@@ -75,7 +75,7 @@
         </a>
         <a class="font-medium text-slate-600 hover:text-gray-400" href="#">Product</a>
         <a class="font-medium text-slate-600 hover:text-gray-400" href="#">About</a>
-        <a class="font-medium text-slate-600 hover:text-gray-400" href="#">Contact</a>
+        <a class="font-medium text-slate-600 hover:text-gray-400" href="/contact" wire:navigate>Contact</a>
         <a class="font-medium text-slate-600 hover:text-gray-400 lg:hidden" href="/login" wire:navigate>Login</a>
       </div>
     </div>

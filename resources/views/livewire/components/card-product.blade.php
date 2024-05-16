@@ -18,8 +18,8 @@
         <small class="mb-1 text-yellow-500 ms-3">3.5</small>
       </div>
       <div class="text-xl font-semibold text-slate-800">Rp. {{ $price }}</div>
-      <div class="flex gap-2 mt-3">
-        <div class="basis-8/12">
+      <div class="flex mt-3">
+        <div class="basis-8/12 me-2">
           <a href="" class="flex items-center justify-center w-full h-12 text-white bg-blue-500 rounded-lg">Buy
             Now</a>
         </div>

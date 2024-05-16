@@ -2,6 +2,7 @@
 
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
+use App\Livewire\Pages\Cart;
 use App\Livewire\Pages\Contact;
 use App\Livewire\Pages\Index;
 use Illuminate\Support\Facades\Route;
@@ -12,3 +13,4 @@ Route::get('/register', Register::class);
 
 Route::get('/', Index::class);
 Route::get('/contact', Contact::class);
+Route::get('/cart', Cart::class);

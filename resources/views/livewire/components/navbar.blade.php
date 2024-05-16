@@ -14,7 +14,7 @@
         {{-- <a href="" class="inline-block mx-3">
           <iconify-icon icon="teenyicons:search-outline" class="text-xl"></iconify-icon>
         </a> --}}
-        <a href="" class="inline-block ms-3">
+        <a href="/cart" wire:navigate class="inline-block ms-3">
           <iconify-icon icon="bi:cart" class="text-xl"></iconify-icon>
         </a>
       </div>

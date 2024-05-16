@@ -7,7 +7,25 @@ export default {
     'node_modules/preline/dist/*.js',
   ],
   theme: {
+   
     extend: {
+      backgroundColor : {
+        primaryBg : '#23A6F0',
+        successBg : '#2DC071'
+      },
+
+      borderColor : {
+        primary : '#23A6F0',
+        success : '#2DC071'
+      },
+
+      textColor : {
+        primary: '#23A6F0',
+        success: '#2DC071'
+      },
+
+
+
       backgroundImage : {
         subscribeBg : "url('/public/img/bg-subscribe.png')"
       }

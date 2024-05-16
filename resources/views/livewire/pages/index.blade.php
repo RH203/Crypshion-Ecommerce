@@ -207,7 +207,7 @@
               <p class="font-light">We know how large objects will act, We know <br> how are objects will act, We know
               </p>
               <div class="mt-5">
-                <a href="" class="inline-block px-8 py-3 font-semibold bg-green-500 rounded-md">Read More
+                <a href="" class="inline-block px-8 py-3 font-semibold rounded-md bg-successBg">Read More
                   &rightarrow;</a>
               </div>
             </div>
@@ -240,9 +240,9 @@
                 but things on a small scale.</p>
               <div class="mt-8">
                 <a href=""
-                  class="inline-block px-8 py-4 font-bold text-white uppercase bg-green-800 rounded-lg">Buy Now</a>
+                  class="inline-block px-8 py-4 font-bold text-white uppercase rounded-lg bg-successBg">Buy Now</a>
                 <a href=""
-                  class="inline-block px-8 py-4 font-bold text-green-800 uppercase border border-green-800 rounded-lg">Read
+                  class="inline-block px-8 py-4 font-bold uppercase border rounded-lg text-success border-success">Read
                   More</a>
               </div>
             </div>
@@ -283,17 +283,19 @@
 
 
     {{-- Subscribe section start --}}
-    <section class="my-32 bg-center bg-no-repeat bg-cover bg-subscribeBg">
+    <section class="mt-32 bg-center bg-no-repeat bg-cover bg-subscribeBg">
       <div class="w-11/12 py-40 mx-auto md:w-10/12">
         <div class="text-center text-white">
           <h1 class="mb-5 text-3xl font-semibold capitalize md:text-5xl">Subscribe and learn <br> about us</h1>
           <p class="text-sm font-light md:text-md">Problems trying to resolve the conflict between <br>
             the two major realms of Classical physics: Newtonian mechanics </p>
 
-          <div class="w-11/12 mx-auto my-8 md:w-6/12">
+          <div class="relative w-11/12 mx-auto my-8 md:w-6/12">
             <input type="text" name="" id=""
               class="w-full px-4 py-5 font-normal rounded-lg placeholder:font-light text-slate-800"
               placeholder="Your Email">
+            <button
+              class="absolute flex items-center justify-center px-5 py-4 font-semibold text-white rounded-lg top-1 right-1 bg-primaryBg">Subscribe</button>
           </div>
 
           <h1 class="mb-10 text-3xl font-semibold capitalize md:text-5xl">Designing Better Experience</h1>
@@ -316,5 +318,9 @@
       </div>
     </section>
     {{-- Subscribe section end --}}
+
+
+
+
 
   </div>

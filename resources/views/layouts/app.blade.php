@@ -18,7 +18,7 @@
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
+<body class="bg-[#FAFAFA]">
 
 
 
@@ -28,6 +28,8 @@
   <main class="md:container-md">
     {{ $slot }}
   </main>
+
+  @livewire('components.footer')
 
 
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>

@@ -33,7 +33,19 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
-  <script src="/node_modules/preline/dist/preline.js"></script>
+  {{-- <script src="/node_modules/preline/dist/preline.js"></script> --}}
+
+  {{-- <script>
+    document.addEventListener('livewire:load', function() {
+      // preline.init();
+      console.log('livewire di load')
+    });
+
+    document.addEventListener('livewire:update', function() {
+      // preline.init();
+      console.log('livewire di update')
+    });
+  </script> --}}
 </body>
 
 </html>

@@ -1,10 +1,10 @@
 <div>
   <section class="my-10">
     <div class="w-11/12 mx-auto md:w-10/12">
-      <div class="grid grid-cols-2 gap-5">
+      <div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
         <div class="p-8 bg-white shadow-md rounded-xl">
           <div class="flex items-center justify-between mb-8">
-            <h3 class="text-2xl font-bold">Shipping Address</h3>
+            <h3 class="text-xl font-bold">Shipping Address</h3>
             <a href="" class="block">
               <iconify-icon icon="lucide:edit" class="text-xl text-slate-500"></iconify-icon>
             </a>
@@ -14,20 +14,22 @@
           <p class="my-2 text-lg uppercase text-slate-500">Kota Surabaya, Jawa Timur, 67364</p>
         </div>
         <div class="p-8 bg-white shadow-md rounded-xl">
-          <div class="flex items-center justify-between mb-8">
-            <h3 class="text-2xl font-bold">Account Information</h3>
-            <a href="" class="block">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-bold">Delivery Type</h3>
+            <button type="button"
+              class="inline-flex items-center text-sm font-semibold border border-transparent rounded-lg gap-x-2 disabled:opacity-50 disabled:pointer-events-none"
+              data-hs-overlay="#hs-vertically-centered-modal">
               <iconify-icon icon="lucide:edit" class="text-xl text-slate-500"></iconify-icon>
-            </a>
+            </button>
           </div>
           <div class="flex items-center">
-            <div class="w-32 h-32 overflow-hidden rounded-lg me-4">
-              <img src="/img/user/user-1.png" alt="" class="w-full">
+            <div class="text-7xl me-6">
+              <iconify-icon icon="hugeicons:delivery-truck-02"></iconify-icon>
             </div>
             <div>
-              <p class="text-lg font-semibold">Irfan Yasin (@irfnysn)</p>
-              <p class="text-slate-500">+62 878 5996 7039</p>
-              <p class="text-slate-500">irfanyasin@gmail.com</p>
+              <p class="text-lg font-semibold">Reguler</p>
+              <p class="text-slate-500">Date : 18 - 20</p>
+              <p class=" text-slate-500">Rp. 10.000</p>
             </div>
           </div>
         </div>
@@ -38,29 +40,32 @@
 
   <section class="my-10">
     <div class="w-11/12 mx-auto md:w-10/12">
-      <div class="flex gap-5">
-        <div class="p-8 bg-white shadow-md rounded-xl basis-8/12">
+      <div class="flex flex-col gap-5 lg:flex-row">
+        <div class="p-4 bg-white shadow-md md:p-8 rounded-xl basis-12/12 lg:basis-8/12">
           <header>
             <h3 class="text-xl font-bold">Product Cart</h3>
           </header>
 
           <div class="flex items-center justify-between my-5">
             <div class="flex">
-              <div class="w-40 h-40 overflow-hidden rounded-lg bg-slate-200">
-                <img src="/img/product/img-1.png" alt="" width="w-full">
+              <div class="w-40 h-full overflow-hidden rounded-lg md:h-40 bg-slate-200">
+                <img src="/img/product/img-9.jpg" alt="" width="w-full">
               </div>
               <div class="text-slate-800 ms-5">
-                <div class="w-10/12 mb-1">
-                  <h4 class="font-semibold text-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ...
+                <div class="w-10/12 mb-1 md:w-8/12">
+                  <h4 class="font-semibold text-md">Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit,
+                    sed do ...
                   </h4>
                 </div>
                 <p class="text-sm text-slate-500">T-Shirt</p>
                 <div>
-                  <span class="inline-block py-0 text-sm border px-7 text-slate-500 border-slate-500">XL</span>
-                  <span class="inline-block py-0 text-sm border px-7 text-slate-500 border-slate-500">Maroon</span>
+                  <span class="inline-block px-5 py-0 text-sm border md:px-7 text-slate-500 border-slate-500">XL</span>
+                  <span
+                    class="inline-block px-5 py-0 text-sm border md:px-7 text-slate-500 border-slate-500">Maroon</span>
                 </div>
                 <div class="my-1 text-sm text-slate-500">Qty : <span>1</span> x</div>
-                <div class="text-xl">
+                <div class="md:text-xl text-md">
                   Rp. <span class="font-semibold">400.000</span>
                 </div>
               </div>
@@ -74,21 +79,24 @@
           <hr class="border">
           <div class="flex items-center justify-between my-5">
             <div class="flex">
-              <div class="w-40 h-40 overflow-hidden rounded-lg bg-slate-200">
-                <img src="/img/product/img-1.png" alt="" width="w-full">
+              <div class="w-40 h-full overflow-hidden rounded-lg md:h-40 bg-slate-200">
+                <img src="/img/product/img-9.jpg" alt="" width="w-full">
               </div>
               <div class="text-slate-800 ms-5">
-                <div class="w-10/12 mb-1">
-                  <h4 class="font-semibold text-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ...
+                <div class="w-10/12 mb-1 md:w-8/12">
+                  <h4 class="font-semibold text-md">Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit,
+                    sed do ...
                   </h4>
                 </div>
                 <p class="text-sm text-slate-500">T-Shirt</p>
                 <div>
-                  <span class="inline-block py-0 text-sm border px-7 text-slate-500 border-slate-500">XL</span>
-                  <span class="inline-block py-0 text-sm border px-7 text-slate-500 border-slate-500">Maroon</span>
+                  <span class="inline-block px-5 py-0 text-sm border md:px-7 text-slate-500 border-slate-500">XL</span>
+                  <span
+                    class="inline-block px-5 py-0 text-sm border md:px-7 text-slate-500 border-slate-500">Maroon</span>
                 </div>
                 <div class="my-1 text-sm text-slate-500">Qty : <span>1</span> x</div>
-                <div class="text-xl">
+                <div class="md:text-xl text-md">
                   Rp. <span class="font-semibold">400.000</span>
                 </div>
               </div>
@@ -102,21 +110,55 @@
           <hr class="border">
           <div class="flex items-center justify-between my-5">
             <div class="flex">
-              <div class="w-40 h-40 overflow-hidden rounded-lg bg-slate-200">
-                <img src="/img/product/img-1.png" alt="" width="w-full">
+              <div class="w-40 h-full overflow-hidden rounded-lg md:h-40 bg-slate-200">
+                <img src="/img/product/img-9.jpg" alt="" width="w-full">
               </div>
               <div class="text-slate-800 ms-5">
-                <div class="w-10/12 mb-1">
-                  <h4 class="font-semibold text-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ...
+                <div class="w-10/12 mb-1 md:w-8/12">
+                  <h4 class="font-semibold text-md">Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit,
+                    sed do ...
                   </h4>
                 </div>
                 <p class="text-sm text-slate-500">T-Shirt</p>
                 <div>
-                  <span class="inline-block py-0 text-sm border px-7 text-slate-500 border-slate-500">XL</span>
-                  <span class="inline-block py-0 text-sm border px-7 text-slate-500 border-slate-500">Maroon</span>
+                  <span class="inline-block px-5 py-0 text-sm border md:px-7 text-slate-500 border-slate-500">XL</span>
+                  <span
+                    class="inline-block px-5 py-0 text-sm border md:px-7 text-slate-500 border-slate-500">Maroon</span>
                 </div>
                 <div class="my-1 text-sm text-slate-500">Qty : <span>1</span> x</div>
-                <div class="text-xl">
+                <div class="md:text-xl text-md">
+                  Rp. <span class="font-semibold">400.000</span>
+                </div>
+              </div>
+            </div>
+            <div class="text-end">
+              <a href="" class="text-2xl text-red-600">
+                <iconify-icon icon="iconamoon:trash-light"></iconify-icon>
+              </a>
+            </div>
+          </div>
+          <hr class="border">
+          <div class="flex items-center justify-between my-5">
+            <div class="flex">
+              <div class="w-40 h-full overflow-hidden rounded-lg md:h-40 bg-slate-200">
+                <img src="/img/product/img-9.jpg" alt="" width="w-full">
+              </div>
+              <div class="text-slate-800 ms-5">
+                <div class="w-10/12 mb-1 md:w-8/12">
+                  <h4 class="text-sm font-semibold md:text-md">Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit,
+                    sed do ...
+                  </h4>
+                </div>
+                <p class="text-sm text-slate-500">T-Shirt</p>
+                <div>
+                  <span class="inline-block px-5 py-0 text-sm border md:px-7 text-slate-500 border-slate-500">XL</span>
+                  <span
+                    class="inline-block px-5 py-0 text-sm border md:px-7 text-slate-500 border-slate-500">Maroon</span>
+                </div>
+                <div class="my-1 text-sm text-slate-500">Qty : <span>1</span> x</div>
+                <div class="md:text-xl text-md">
                   Rp. <span class="font-semibold">400.000</span>
                 </div>
               </div>
@@ -129,26 +171,26 @@
           </div>
         </div>
 
-        <div class="h-full p-8 bg-white shadow-md rounded-xl basis-4/12">
+        <div class="h-full p-4 bg-white shadow-md md:p-8 rounded-xl basis-12/12 lg:basis-4/12">
           <header class="pb-4">
             <h3 class="text-xl font-bold">Order Details</h3>
           </header>
           <div class="mt-5">
             <div class="flex justify-between mb-2 text-slate-800">
-              <h4 class="text-slate-500">Total Product</h4>
+              <h4 class="text-slate-500">Quantity Product</h4>
               <h4 class="font-bold">2</h4>
             </div>
             <div class="flex justify-between mb-2 text-slate-800">
-              <h4 class="text-slate-500">Total Shopping Price</h4>
+              <h4 class="text-slate-500">Subtotal Product</h4>
               <h4 class="font-bold">Rp 1.200.000</h4>
             </div>
             <div class="flex justify-between mb-2 text-slate-800">
-              <h4 class=" text-slate-500">Shipping Costs</h4>
+              <h4 class=" text-slate-500">Total Delivery</h4>
               <h4 class="font-bold">Rp 20.000</h4>
             </div>
             <div class="flex justify-between mb-2 text-slate-800">
               <h4 class=" text-slate-500">Tax</h4>
-              <h4 class="font-bold">Rp 5.000</h4>
+              <h4 class="font-bold">Rp 1.000</h4>
             </div>
             <div class="flex justify-between mb-2 text-slate-800">
               <h4 class=" text-slate-500">Total</h4>
@@ -180,5 +222,74 @@
       </div>
     </div>
   </section>
+
+
+
+
+
+
+  {{-- Modal --}}
+
+  <div id="hs-vertically-centered-modal"
+    class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none">
+    <div
+      class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto min-h-[calc(100%-3.5rem)] flex items-center">
+      <div class="flex flex-col w-full bg-white border shadow-sm pointer-events-auto rounded-xl ">
+        <div class="flex items-center justify-between px-4 py-3 border-b">
+          <h3 class="font-bold text-gray-800">
+            Change Delivery Type
+          </h3>
+          <button type="button"
+            class="flex items-center justify-center text-sm font-semibold text-gray-800 border border-transparent rounded-full size-7 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none"
+            data-hs-overlay="#hs-vertically-centered-modal">
+            <span class="sr-only">Close</span>
+            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M18 6 6 18"></path>
+              <path d="m6 6 12 12"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="p-4 overflow-y-auto">
+          <div class="grid grid-cols-3 gap-2">
+            <div class="">
+              <input type="radio" id="reguler" value="reguler" name="delivery_type" class="hidden">
+              <label for="reguler"
+                class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
+                <p class="text-lg font-semibold">Reguler</p>
+                <p class="text-slate-500">Date : 18 - 24</p>
+                <p class="text-slate-500">Rp. 10.000</p>
+              </label>
+            </div>
+            <div class="">
+              <input type="radio" id="economic" value="ecomonic" name="delivery_type" class="hidden">
+              <label for="economic"
+                class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
+                <p class="text-lg font-semibold">Economic</p>
+                <p class="text-slate-500">Date : 18 - 26</p>
+                <p class=" text-slate-500">Rp. 7.000</p>
+              </label>
+            </div>
+            <div class="">
+              <input type="radio" id="faster" value="faster" name="delivery_type" class="hidden">
+              <label for="faster"
+                class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
+                <p class="text-lg font-semibold">Faster</p>
+                <p class="text-slate-500">Date : 18 - 20</p>
+                <p class=" text-slate-500">Rp. 17.000</p>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-end px-4 py-3 border-t gap-x-2 dark:border-neutral-700">
+          <button type="button"
+            class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+            Save changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>

@@ -1,5 +1,8 @@
 <div>
-  <section class="mt-10 mb-5">
+
+  <livewire:components.breadcrumb page="Dashboard" />
+
+  <section class="mb-5">
     <div class="grid grid-cols-3 gap-5">
       <div class="p-5 bg-white rounded-lg shadow-lg">
         <h3 class="mb-3 text-xl">Total Sales</h3>

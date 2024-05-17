@@ -23,12 +23,12 @@
   <div class="flex">
     @livewire('components.sidebar')
 
-    <main class="block h-screen overflow-auto basis-9/12">
+    <main class="block h-screen overflow-auto transition-all duration-500 basis-9/12">
 
       <nav class="px-10 py-3 text-white bg-primaryBg">
         <div class="flex items-center justify-between mx-auto">
           <div>
-            <button class="text-xl">
+            <button class="text-xl humberger-menu" type="button">
               <iconify-icon icon="ri:menu-2-fill" class="font-extrabold"></iconify-icon>
             </button>
           </div>
@@ -50,6 +50,7 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
+  <script></script>
 
 </body>
 

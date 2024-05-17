@@ -18,7 +18,7 @@
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-[#FAFAFA]">
+<body class="bg-[#FAFAFA] overflow-x-hidden">
 
   <div class="flex">
     @livewire('components.sidebar')

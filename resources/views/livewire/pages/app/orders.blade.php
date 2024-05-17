@@ -1,5 +1,6 @@
 <div>
-  <section class="my-10">
+  <livewire:components.breadcrumb page="Orders" />
+  <section class="">
     <h1>Orders</h1>
   </section>
 </div>

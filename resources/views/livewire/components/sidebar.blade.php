@@ -1,4 +1,4 @@
-<aside class="h-screen p-4 px-10 bg-white shadow-lg basis-3/12">
+<aside class="h-screen p-4 px-10 transition-all duration-500 bg-white shadow-lg basis-3/12">
   <div class="flex justify-center mb-5">
     <img src="/img/logo/secon-logo.png" alt="" class="w-8/12">
   </div>

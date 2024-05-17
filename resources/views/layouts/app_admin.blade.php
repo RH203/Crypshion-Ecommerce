@@ -20,17 +20,9 @@
 
 <body class="bg-[#FAFAFA]">
 
-
-
-  @livewire('components.sub-navbar')
-  @livewire('components.navbar')
-
   <main class="md:container-md">
     {{ $slot }}
   </main>
-
-  @livewire('components.footer')
-
 
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
 

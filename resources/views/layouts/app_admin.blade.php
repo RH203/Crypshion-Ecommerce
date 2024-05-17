@@ -20,9 +20,34 @@
 
 <body class="bg-[#FAFAFA]">
 
-  <main class="md:container-md">
-    {{ $slot }}
-  </main>
+  <div class="flex">
+    @livewire('components.sidebar')
+
+    <main class="block h-screen overflow-auto basis-9/12">
+
+      <nav class="px-10 py-3 text-white bg-primaryBg">
+        <div class="flex items-center justify-between mx-auto">
+          <div>
+            <button class="text-xl">
+              <iconify-icon icon="ri:menu-2-fill" class="font-extrabold"></iconify-icon>
+            </button>
+          </div>
+          <div class="flex items-center">
+            <h4 class="me-3">Welcome, <span class="font-semibold">Irfan Yasin</span></h4>
+            <div class="w-12 h-12 overflow-hidden border-2 border-white rounded-full">
+              <img src="/img/user/user-1.png" class="w-full" alt="">
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="px-10">
+
+        {{ $slot }}
+      </div>
+    </main>
+  </div>
+
 
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
 

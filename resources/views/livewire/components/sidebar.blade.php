@@ -11,7 +11,7 @@
     </li>
     <li>
       <a href="/app/products" wire:navigate
-        class="flex items-center px-4 py-4 mb-2 bg-white rounded-md hover:bg-primaryBg {{ Request::is('app/products') ? 'active' : '' }} hover:text-white">
+        class="flex items-center px-4 py-4 mb-2 bg-white rounded-md hover:bg-primaryBg {{ Request::is('app/products') ? 'active' : '' }}{{ Request::is('app/products/*') ? 'active' : '' }} hover:text-white">
         <iconify-icon icon="tabler:shopping-bag" class="text-2xl me-3"></iconify-icon>
         Products</a>
     </li>

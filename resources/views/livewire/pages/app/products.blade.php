@@ -2,7 +2,8 @@
   <livewire:components.breadcrumb page="Products" />
 
   <section class="flex items-center justify-between mb-5">
-    <a href="" class="inline-block px-5 py-2 font-semibold text-white rounded-md bg-primaryBg">
+    <a href="/app/products/create" wire:navigate
+      class="inline-block px-5 py-2 font-semibold text-white rounded-md bg-primaryBg">
       Add Product
     </a>
     <div class="relative">

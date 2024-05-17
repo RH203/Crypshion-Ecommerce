@@ -2,7 +2,11 @@
 
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
+use App\Livewire\Pages\App\Category;
 use App\Livewire\Pages\App\Dashboard;
+use App\Livewire\Pages\App\Feedback;
+use App\Livewire\Pages\App\HelpCenter;
+use App\Livewire\Pages\App\Orders;
 use App\Livewire\Pages\App\Products;
 use App\Livewire\Pages\Cart;
 use App\Livewire\Pages\Contact;
@@ -21,4 +25,8 @@ Route::get('/cart', Cart::class);
 Route::prefix('app')->group(function () {
   Route::get('/dashboard', Dashboard::class);
   Route::get('/products', Products::class);
+  Route::get('/orders', Orders::class);
+  Route::get('/category', Category::class);
+  Route::get('/feedback', Feedback::class);
+  Route::get('/help-center', HelpCenter::class);
 });

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Crypshion - {{ $title ?? env('APP_NAME') }}</title>
+
+  {{-- Font Google Poppins --}}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  {{-- Vite --}}
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+
+<body class="bg-[#FAFAFA] overflow-x-hidden">
+
+  <div class="flex">
+    @livewire('components.sidebar')
+
+    <main class="block h-screen overflow-auto transition-all duration-500 basis-9/12">
+
+      <nav class="px-10 py-3 text-white bg-primaryBg">
+        <div class="flex items-center justify-between mx-auto">
+          <div>
+            <button class="text-xl humberger-menu" type="button">
+              <iconify-icon icon="ri:menu-2-fill" class="font-extrabold"></iconify-icon>
+            </button>
+          </div>
+          <div class="flex items-center">
+            <h4 class="me-3">Welcome, <span class="font-semibold">Irfan Yasin</span></h4>
+            <div class="w-12 h-12 overflow-hidden border-2 border-white rounded-full">
+              <img src="/img/user/user-1.png" class="w-full" alt="">
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="px-10">
+
+        {{ $slot }}
+      </div>
+    </main>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
+  <script></script>
+
+</body>
+
+</html>

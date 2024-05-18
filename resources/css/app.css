@@ -5,3 +5,15 @@
 * {
   font-family : 'Poppins', sans-serif
 }
+
+
+input[type="radio"]:checked ~ .border-label {
+  @apply border-blue-600;
+}
+input[type="checkbox"]:checked ~ .label-size {
+  @apply border-blue-600;
+}
+
+.active {
+  @apply text-white bg-primaryBg;
+}

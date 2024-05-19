@@ -89,12 +89,6 @@
     {{-- Category product end --}}
 
 
-    @foreach ($datas as $item)
-      <livewire:components.button-icon icon="{!! $item['icon'] !!}">
-    @endforeach
-
-
-
 
 
     {{-- Best seller product start --}}

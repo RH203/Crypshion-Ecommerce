@@ -6,13 +6,13 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-class Index extends Component
+class ProfileSetting extends Component
 {
-    #[Title('Home')]
+    #[Title('Profile Settings')]
     #[Layout('layouts.app')]
 
     public function render()
     {
-        return view('livewire.pages.index');
+        return view('livewire.pages.profile-setting');
     }
 }

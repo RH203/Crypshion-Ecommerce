@@ -38,4 +38,4 @@ Route::prefix('app')->group(function () {
   Route::get('/category', Category::class);
   Route::get('/feedback', Feedback::class);
   Route::get('/help-center', HelpCenter::class);
-  });
+});

@@ -6,13 +6,13 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-class Index extends Component
+class ChangePassword extends Component
 {
-    #[Title('Home')]
+    #[Title('Change Password')]
     #[Layout('layouts.app')]
 
     public function render()
     {
-        return view('livewire.pages.index');
+        return view('livewire.pages.change-password');
     }
 }

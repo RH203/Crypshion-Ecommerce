@@ -3,7 +3,7 @@
   <section>
     <div class="w-11/12 h-screen mx-auto md:w-10/12 ">
       <div class="grid grid-cols-1 md:grid-cols-2">
-        <div class="items-center order-2 my-auto text-center md:order-1 md:text-start">
+        <div class="items-center my-auto text-center md:text-start">
           <p class="text-lg font-semibold capitalize md:text-xl text-slate-500">
             About Company
           </p>
@@ -18,7 +18,7 @@
             Quote
             Now</a>
         </div>
-        <div class="order-1 mb-10 lg:justify-self-end md:order-2 md:mb-0">
+        <div class="lg:justify-self-end">
           <img src="/img/about-hero-1.png" alt="" class="my-auto">
         </div>
       </div>
@@ -67,7 +67,7 @@
       class="container w-11/12 md:w-8/12 mx-auto min-h-[500px] grid grid-cols-1 content-center justify-items-center py-20 my-20">
       <div class="w-full h-full mx-auto">
         <iframe class="min-h-96 min-w-80 lg:min-h-[500px] sm:min-w-96 w-full rounded-xl mx-auto"
-          src="https://www.youtube.com/embed/mNzenfB3OuY?si=XZEsazcxBv7dMCt6" title="YouTube video player"
+          src="https://www.youtube.com/embed/uBk8zExWvnM?si=b26mRE1rKLxp4jtl" title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

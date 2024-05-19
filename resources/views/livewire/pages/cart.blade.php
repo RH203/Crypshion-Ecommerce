@@ -28,7 +28,7 @@
             </div>
             <div>
               <p class="text-lg font-semibold">Reguler</p>
-              <p class="text-slate-500">Date : 18 - 20</p>
+              <p class="text-slate-500">Estimation : 18 - 20</p>
               <p class=" text-slate-500">Rp. 10.000</p>
             </div>
           </div>

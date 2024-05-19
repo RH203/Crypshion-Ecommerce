@@ -67,7 +67,7 @@
       class="container w-11/12 md:w-8/12 mx-auto min-h-[500px] grid grid-cols-1 content-center justify-items-center py-20 my-20">
       <div class="w-full h-full mx-auto">
         <iframe class="min-h-96 min-w-80 lg:min-h-[500px] sm:min-w-96 w-full rounded-xl mx-auto"
-          src="https://www.youtube.com/embed/mNzenfB3OuY?si=XZEsazcxBv7dMCt6" title="YouTube video player"
+          src="https://www.youtube.com/embed/uBk8zExWvnM?si=b26mRE1rKLxp4jtl" title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

@@ -5,19 +5,9 @@
       <img src="/img/logo/secon-logo.png" alt="Logo" class="w-32">
     </a>
     <div class="flex items-center sm:order-3 gap-x-2">
-      {{-- <button type="button"
-        class="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800">
-        Button
-      </button> --}}
+
       <div class="flex items-center">
         <a href="/login" wire:navigate class="hidden mb-2 font-semibold lg:block">Login</a>
-        {{-- <a href="" class="inline-block mx-3">
-          <iconify-icon icon="teenyicons:search-outline" class="text-xl"></iconify-icon>
-        </a> --}}
-        {{-- <button class="text-xl ms-3">
-          <iconify-icon icon="tdesign:notification"></iconify-icon>
-        </button> --}}
-
         {{-- Notification start --}}
         <div class="relative inline-flex mb-1 hs-dropdown ">
           <button id="hs-dropdown-with-icons" type="button"
@@ -57,56 +47,6 @@
                   <div class="ms-3">
                     <h4 class="font-semibold">Packaged</h4>
                     Your order has been packed by the seller
-                  </div>
-                </div>
-              </a>
-              <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
-                href="#">
-                <div class="flex items-center">
-                  <iconify-icon icon="ic:outline-discount" class="text-4xl text-orange-500"></iconify-icon>
-                  <div class="ms-3">
-                    <h4 class="font-semibold">Promo</h4>
-                    Hurry, there's a 50% promo.
-                  </div>
-                </div>
-              </a>
-              <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
-                href="#">
-                <div class="flex items-center">
-                  <iconify-icon icon="ic:outline-discount" class="text-4xl text-orange-500"></iconify-icon>
-                  <div class="ms-3">
-                    <h4 class="font-semibold">Promo</h4>
-                    Hurry, there's a 50% promo.
-                  </div>
-                </div>
-              </a>
-              <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
-                href="#">
-                <div class="flex items-center">
-                  <iconify-icon icon="ic:outline-discount" class="text-4xl text-orange-500"></iconify-icon>
-                  <div class="ms-3">
-                    <h4 class="font-semibold">Promo</h4>
-                    Hurry, there's a 50% promo.
-                  </div>
-                </div>
-              </a>
-              <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
-                href="#">
-                <div class="flex items-center">
-                  <iconify-icon icon="ic:outline-discount" class="text-4xl text-orange-500"></iconify-icon>
-                  <div class="ms-3">
-                    <h4 class="font-semibold">Promo</h4>
-                    Hurry, there's a 50% promo.
-                  </div>
-                </div>
-              </a>
-              <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
-                href="#">
-                <div class="flex items-center">
-                  <iconify-icon icon="ic:outline-discount" class="text-4xl text-orange-500"></iconify-icon>
-                  <div class="ms-3">
-                    <h4 class="font-semibold">Promo</h4>
-                    Hurry, there's a 50% promo.
                   </div>
                 </div>
               </a>

@@ -3,7 +3,7 @@
   <section>
     <div class="w-11/12 h-screen mx-auto md:w-10/12 ">
       <div class="grid grid-cols-1 md:grid-cols-2">
-        <div class="items-center order-2 my-auto text-center md:order-1 md:text-start">
+        <div class="items-center my-auto text-center md:text-start">
           <p class="text-lg font-semibold capitalize md:text-xl text-slate-500">
             About Company
           </p>
@@ -18,7 +18,7 @@
             Quote
             Now</a>
         </div>
-        <div class="order-1 mb-10 lg:justify-self-end md:order-2 md:mb-0">
+        <div class="lg:justify-self-end">
           <img src="/img/about-hero-1.png" alt="" class="my-auto">
         </div>
       </div>

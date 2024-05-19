@@ -88,8 +88,6 @@ input[type="checkbox"]:checked ~ .label-size {
 
 
 /* Scrollbar Notification */
-
-
 .notification-menu::-webkit-scrollbar {
   width: 4px;  
 }

@@ -14,6 +14,109 @@
         {{-- <a href="" class="inline-block mx-3">
           <iconify-icon icon="teenyicons:search-outline" class="text-xl"></iconify-icon>
         </a> --}}
+        {{-- <button class="text-xl ms-3">
+          <iconify-icon icon="tdesign:notification"></iconify-icon>
+        </button> --}}
+
+        {{-- Notification start --}}
+        <div class="relative inline-flex mb-1 hs-dropdown ">
+          <button id="hs-dropdown-with-icons" type="button"
+            class="inline-flex items-center text-xl font-medium ms-3 hs-dropdown-toggle gap-x-2 disabled:opacity-50 disabled:pointer-events-none ">
+            <iconify-icon icon="tdesign:notification"></iconify-icon>
+          </button>
+
+          <div
+            class="hs-dropdown-menu notification-menu z-10 transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 h-64 overflow-auto hidden w-full md:w-96 bg-white shadow-md rounded-lg p-2 mt-2 divide-y divide-gray-200"
+            aria-labelledby="hs-dropdown-with-icons">
+            <div class="py-2 first:pt-0 last:pb-0">
+              <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
+                href="#">
+                <div class="flex items-center">
+                  <iconify-icon icon="gg:check-o" class="text-4xl text-green-500"></iconify-icon>
+                  <div class="ms-3">
+                    <h4 class="font-semibold">Completed</h4>
+                    Your order has arrived at its destination
+                  </div>
+                </div>
+              </a>
+              <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
+                href="#">
+                <div class="flex items-center">
+                  <iconify-icon icon="hugeicons:truck-delivery" class="text-4xl text-purple-500"></iconify-icon>
+                  <div class="ms-3">
+                    <h4 class="font-semibold">Delivered</h4>
+                    Your order is being delivered
+                  </div>
+                </div>
+
+              </a>
+              <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
+                href="#">
+                <div class="flex items-center">
+                  <iconify-icon icon="ph:package" class="text-4xl text-blue-500"></iconify-icon>
+                  <div class="ms-3">
+                    <h4 class="font-semibold">Packaged</h4>
+                    Your order has been packed by the seller
+                  </div>
+                </div>
+              </a>
+              <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
+                href="#">
+                <div class="flex items-center">
+                  <iconify-icon icon="ic:outline-discount" class="text-4xl text-orange-500"></iconify-icon>
+                  <div class="ms-3">
+                    <h4 class="font-semibold">Promo</h4>
+                    Hurry, there's a 50% promo.
+                  </div>
+                </div>
+              </a>
+              <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
+                href="#">
+                <div class="flex items-center">
+                  <iconify-icon icon="ic:outline-discount" class="text-4xl text-orange-500"></iconify-icon>
+                  <div class="ms-3">
+                    <h4 class="font-semibold">Promo</h4>
+                    Hurry, there's a 50% promo.
+                  </div>
+                </div>
+              </a>
+              <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
+                href="#">
+                <div class="flex items-center">
+                  <iconify-icon icon="ic:outline-discount" class="text-4xl text-orange-500"></iconify-icon>
+                  <div class="ms-3">
+                    <h4 class="font-semibold">Promo</h4>
+                    Hurry, there's a 50% promo.
+                  </div>
+                </div>
+              </a>
+              <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
+                href="#">
+                <div class="flex items-center">
+                  <iconify-icon icon="ic:outline-discount" class="text-4xl text-orange-500"></iconify-icon>
+                  <div class="ms-3">
+                    <h4 class="font-semibold">Promo</h4>
+                    Hurry, there's a 50% promo.
+                  </div>
+                </div>
+              </a>
+              <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
+                href="#">
+                <div class="flex items-center">
+                  <iconify-icon icon="ic:outline-discount" class="text-4xl text-orange-500"></iconify-icon>
+                  <div class="ms-3">
+                    <h4 class="font-semibold">Promo</h4>
+                    Hurry, there's a 50% promo.
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        {{-- Notification end --}}
+
+
+
         <a href="/cart" wire:navigate class="inline-block ms-3">
           <iconify-icon icon="bi:cart" class="text-xl"></iconify-icon>
         </a>

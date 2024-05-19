@@ -4,8 +4,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="Crypshion">
+  <meta name="description"
+    content="Crypshon merupakan sebuah toko online penjualan fashion modern dengan menawarkan kualitas yang premium.">
+  <meta name="keywords" content="e-commerce, technology, toko online, cryptocurrency, shipping,">
+  <meta name="author" content="Irfan Yasin, Mario Achmad Taufik, Raihan Firdaus, Amore Purba">
+  <meta name="robots" content="index, follow">
+  <!-- Metadata untuk SEO (opsional) -->
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="robots" content="noarchive">
+  <meta name="robots" content="nosnippet">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
   <title>Crypshion - {{ $title ?? env('APP_NAME') }}</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="/img/logo/logo.ico" type="image/x-icon">
 
   {{-- Font Google Poppins --}}
   <link rel="preconnect" href="https://fonts.googleapis.com">

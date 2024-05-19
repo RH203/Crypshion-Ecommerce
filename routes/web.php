@@ -2,6 +2,7 @@
 
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
+use App\Livewire\Pages\About;
 use App\Livewire\Pages\App\Category;
 use App\Livewire\Pages\App\Dashboard;
 use App\Livewire\Pages\App\Feedback;
@@ -19,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/login', Login::class);
 Route::get('/register', Register::class);
+Route::get('/About', About::class);
 
 
 Route::get('/', Index::class);

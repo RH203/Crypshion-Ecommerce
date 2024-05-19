@@ -22,11 +22,11 @@
 
 
       <section class="mt-10">
-        <div class="w-11/12 mx-auto nd:w-10/12">
-          <div class="flex gap-5">
+        <div class="w-full mx-auto md:w-10/12">
+          <div class="block gap-5 lg:flex">
 
             {{-- Product start --}}
-            <div class="p-5 bg-white shadow-lg rounded-xl basis-full md:basis-8/12">
+            <div class="p-5 mb-5 bg-white shadow-lg rounded-xl lg:mb-0 md:basis-8/12">
               <header>
                 <h3 class="text-xl font-bold">Product</h3>
               </header>
@@ -147,7 +147,7 @@
 
 
             {{-- Detail order start --}}
-            <div class="basis-full lg:basis-4/12">
+            <div class="lg:basis-4/12">
               <div class="p-5 mb-5 bg-white shadow-lg rounded-xl">
                 <header class="mb-3">
                   <h3 class="text-xl font-bold">User</h3>

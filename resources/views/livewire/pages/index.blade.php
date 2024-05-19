@@ -273,7 +273,7 @@
             sequi vero, suscipit dolor voluptatum
             deserunt natus consequatur nam tempore quo! Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Laborum, et."
-            image="/img/user/user-2.png" name="Mario Achmad Taufiq" label="Crypto Developer" rating="5" />
+            image="/img/user/user-2.png" name="Mario Achmad Taufik" label="Crypto Developer" rating="5" />
           <livewire:components.card-testimonial message="Lorem ipsum dolor sit amet consectetur, adipisicing elit."
             image="/img/user/user-3.png" name="Raihan Firdaus" rating="5" />
         </div>

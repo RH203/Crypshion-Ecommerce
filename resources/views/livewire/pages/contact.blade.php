@@ -45,7 +45,7 @@
           <iconify-icon icon="ph:phone" class="mb-3 text-8xl text-primary"></iconify-icon>
           <p class="font-semibold text-md group-hover:text-white">+62 878 5996 7039</p>
           <h5 class="my-6 text-xl font-bold group-hover:text-white">Get Support</h5>
-          <a href=""
+          <a href="https://wa.me/+6282229878219" target="_blank"
             class="inline-block px-10 py-3 border-2 rounded-full hover:bg-primaryBg hover:text-white border-primary text-primary">Submit
             Request</a>
         </div>
@@ -53,7 +53,7 @@
           <iconify-icon icon="carbon:location-filled" class="mb-3 text-8xl text-primary"></iconify-icon>
           <p class="font-semibold text-white text-md">Jl. Anonym No. 23 Blok N.10</p>
           <h5 class="my-6 text-xl font-bold text-white">Get Support</h5>
-          <a href=""
+          <a href="https://maps.app.goo.gl/SJKvhUNJHZQDVGx57" target="_blank"
             class="inline-block px-10 py-3 border-2 rounded-full hover:bg-primaryBg hover:text-white border-primary text-primary">Submit
             Request</a>
         </div>
@@ -61,7 +61,8 @@
           <iconify-icon icon="uiw:mail" class="mb-3 text-8xl text-primary"></iconify-icon>
           <p class="font-semibold text-md group-hover:text-white">crypshion@gmail.com</p>
           <h5 class="my-6 text-xl font-bold group-hover:text-white">Get Support</h5>
-          <a href=""
+          <a href="mailto:example@example.com?subject=Subject of the Email&body=Hello, this is the body of the email."
+            target="_blank"
             class="inline-block px-10 py-3 border-2 rounded-full hover:bg-primaryBg hover:text-white border-primary text-primary">Submit
             Request</a>
         </div>

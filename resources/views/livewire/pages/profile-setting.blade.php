@@ -34,7 +34,7 @@
                 <input type="text" name="name" id="name" class="w-full px-3 py-1 border rounded-md">
               </div>
               <div class="mb-3">
-                <label for="name" class="text-sm text-slate-500">Distrik</label>
+                <label for="name" class="text-sm text-slate-500">Distric</label>
                 <input type="text" name="name" id="name" class="w-full px-3 py-1 border rounded-md">
               </div>
               <div class="mb-3">
@@ -43,6 +43,10 @@
               </div>
               <div class="mb-3">
                 <label for="name" class="text-sm text-slate-500">Complete Address</label>
+                <input type="text" name="name" id="name" class="w-full px-3 py-1 border rounded-md">
+              </div>
+              <div class="mb-3">
+                <label for="name" class="text-sm text-slate-500">EVM Wallet Address <i>(optional)</i></label>
                 <input type="text" name="name" id="name" class="w-full px-3 py-1 border rounded-md">
               </div>
               <div class="mb-3">

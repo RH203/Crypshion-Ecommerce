@@ -14,6 +14,8 @@ use App\Livewire\Pages\App\Products;
 use App\Livewire\Pages\Cart;
 use App\Livewire\Pages\Contact;
 use App\Livewire\Pages\Index;
+use App\Livewire\Pages\Profile;
+use App\Livewire\Pages\ProfileSetting;
 use App\Livewire\Pages\TrackingOrder;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +28,8 @@ Route::get('/', Index::class);
 Route::get('/contact', Contact::class);
 Route::get('/cart', Cart::class);
 Route::get('/tracking-order', TrackingOrder::class);
+Route::get('/profile', Profile::class);
+Route::get('/profile/settings', ProfileSetting::class);
 
 
 Route::prefix('app')->group(function () {

@@ -8,13 +8,20 @@ use Livewire\Component;
 
 class DetailProduk extends Component
 {
-    #[Layout('layouts.app')]
-    #[Title('Detail Produk')]
+  #[Layout('layouts.app')]
+  #[Title('Detail Produk')]
 
-    
 
-    public function render()
-    {
-        return view('livewire.pages.detail-produk');
-    }
+
+  public function render()
+  {
+    $dataIcon = [
+      ['icon' => '<iconify-icon icon="ic:sharp-home"></iconify-icon>'],
+      ['icon' => '<iconify-icon icon="ic:sharp-home"></iconify-icon>'],
+      ['icon' => '<iconify-icon icon="ic:sharp-home"></iconify-icon>'],
+    ];
+    return view('livewire.pages.detail-produk', [
+      'datas' => $dataIcon
+    ]);
+  }
 }

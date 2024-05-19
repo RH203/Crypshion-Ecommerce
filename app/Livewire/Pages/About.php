@@ -10,6 +10,7 @@ class About extends Component
 {
     #[Layout('layouts.app')]
     #[Title('About')]
+
     public function render()
     {
         return view('livewire.pages.about');

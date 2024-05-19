@@ -47,7 +47,7 @@
               </div>
               <div class="mb-3">
                 <button class="px-8 py-2 text-sm font-normal text-white rounded-md bg-primaryBg ">Save</button>
-                <a href=""
+                <a href="/profile/change-password" wire:navigate
                   class="px-8 py-2 text-sm font-normal border rounded-md text-primary border-primary">Change
                   Password</a>
               </div>

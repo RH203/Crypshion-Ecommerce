@@ -10,6 +10,7 @@ use Livewire\Component;
 
 class Login extends Component
 {
+
     #[Title('Login')]
     #[Layout('layouts.auth')]
 

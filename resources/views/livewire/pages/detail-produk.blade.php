@@ -1,5 +1,40 @@
 <div>
-  <!-- Product Start -->
+
+  {{-- Breadcrumb Start --}}
+  <div class="w-10/12 mx-auto mb-5">
+    <ol class="flex items-center whitespace-nowrap">
+      <li class="inline-flex items-center">
+        <a class="flex items-center text-sm text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 dark:text-neutral-500 dark:hover:text-blue-500 dark:focus:text-blue-500"
+          href="#">
+          Home
+        </a>
+        <svg class="flex-shrink-0 mx-2 overflow-visible size-4 text-gray-400 dark:text-neutral-600"
+          xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m9 18 6-6-6-6"></path>
+        </svg>
+      </li>
+      <li class="inline-flex items-center">
+        <a class="flex items-center text-sm text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 dark:text-neutral-500 dark:hover:text-blue-500 dark:focus:text-blue-500"
+          href="#">
+          App Center
+          <svg class="flex-shrink-0 mx-2 overflow-visible size-4 text-gray-400 dark:text-neutral-600"
+            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m9 18 6-6-6-6"></path>
+          </svg>
+        </a>
+      </li>
+      <li class="inline-flex items-center text-sm font-semibold text-gray-800 truncate dark:text-neutral-200"
+        aria-current="page">
+        Application
+      </li>
+    </ol>
+  </div>
+
+  {{-- Breadcrumb End --}}
+
+  {{-- Product Start --}}
   <div class="w-10/12 mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 sm:grid-cols-2 gap-5">
 
@@ -8,7 +43,8 @@
       <div class="flex flex-col gap-2 ">
         <!-- Image Product Start -->
         <div data-hs-carousel='{"loadingClasses": "opacity-0"}' class="relative">
-          <div class="hs-carousel relative overflow-hidden w-full h-[450px] bg-white rounded-lg">
+          <div
+            class="hs-carousel relative overflow-hidden w-full h-[450px] lg:h-[450px] md:h-[350px] sm:h-[200px] bg-white rounded-lg">
             <div
               class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-0">
               <div class="hs-carousel-slide">
@@ -84,10 +120,17 @@
 
           <hr class="my-3 border-gray-500 w-full">
 
+          <div class="flex flex-row gap-2 flex-wrap w-96 mb-4">
+            @for ($i = 20; $i <= 28; $i++)
+              <livewire:components.button class="border-primary border-2 font-semibold text-black p-1"
+                title="{{ $i }}" />
+            @endfor
+          </div>
+
           <div class="flex gap-3">
             <livewire:components.button class="bg-primaryBg font-semibold text-white" title="Select Options" />
             @foreach ($datas as $item)
-              <livewire:components.button-icon icon="{!! $item['icon'] !!}">
+              <livewire:components.button-icon class="text-lg px-5" icon="{!! $item['icon'] !!}">
             @endforeach
           </div>
         </div>
@@ -95,22 +138,22 @@
       <!-- Container Detail Product End -->
     </div>
   </div>
-  <!-- Product End -->
+  {{-- Product End --}}
 
-  <!-- Additional Information container Start -->
+  {{-- Additional Information container Start --}}
   <div class="w-10/12 mx-auto my-14">
     <div class="border-b border-gray-200">
       <nav class="-mb-0.5 flex justify-center space-x-6" aria-label="Tabs" role="tablist">
         <button type="button"
           class="hs-tab-active:font-semibold hs-tab-active:bg-transparent hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none active"
-          id="horizontal-alignment-item-1" data-hs-tab="#horizontal-alignment-1" aria-controls="horizontal-alignment-1"
-          role="tab">
+          id="horizontal-alignment-item-1" data-hs-tab="#horizontal-alignment-1"
+          aria-controls="horizontal-alignment-1" role="tab">
           Description
         </button>
         <button type="button"
           class="hs-tab-active:font-semibold hs-tab-active:bg-transparent hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none"
-          id="horizontal-alignment-item-2" data-hs-tab="#horizontal-alignment-2" aria-controls="horizontal-alignment-2"
-          role="tab">
+          id="horizontal-alignment-item-2" data-hs-tab="#horizontal-alignment-2"
+          aria-controls="horizontal-alignment-2" role="tab">
           Additional Information
         </button>
         <button type="button"
@@ -131,12 +174,12 @@
       <div id="horizontal-alignment-2" class="hidden" role="tabpanel" aria-labelledby="horizontal-alignment-item-2">
         <div class="w-10/12 mx-auto">
 
-          <div class="grid grid-rows-1">
+          <div class="grid grid-rows-1 lg:grid-rows-1 md:grid-rows-2 sm:grid-rows-1">
 
-            <div class="grid grid-cols-3 gap-5">
+            <div class="grid md:grid-cols-3 sm:grid-cols-1 gap-5 md:gap-3">
               <!-- Image Product Start-->
               <div class="">
-                <img src="/img/detail-product/card-item.png" alt="" class="w-full h-72">
+                <img src="/img/detail-product/card-item.png" alt="" class="w-full h-72 lg:h-72 md:h-60">
               </div>
               <!-- Image Product End-->
 
@@ -197,21 +240,29 @@
       </div>
     </div>
   </div>
-  <!-- Additional Information container End -->
+  {{-- Additional Information container End --}}
 
-  <!-- Best Seller Products Start-->
+  {{-- Best Seller Products Start --}}
   <div class="w-10/12 mx-auto">
     <header>
       <h2 class="font-bold text-blueNavy text-lg">BESTSELLER PRODUCT</h2>
     </header>
     <hr class="border-gray-500 my-5">
 
-    <div class="grid grid-rows-2 ">
-      <div class="grid grid-cols-2">
-        <livewire:components.card-product image="/img/detail-product/product-cover-1.png" title="Graphic Design"
-          description="lorem lorem lorem" price="20.000" />
+    <div class="grid grid-rows-2 gap-5">
+      <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4">
+        @for ($i = 0; $i < 4; $i++)
+          <livewire:components.card-product image="/img/detail-product/product-cover-1.png" title="Graphic Design"
+            description="lorem lorem lorem" price="20.000" />
+        @endfor
+      </div>
+      <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4">
+        @for ($i = 0; $i < 4; $i++)
+          <livewire:components.card-product image="/img/detail-product/product-cover-1.png" title="Graphic Design"
+            description="lorem lorem lorem" price="20.000" />
+        @endfor
       </div>
     </div>
   </div>
-  <!-- Best Seller Products End-->
+  {{-- Best Seller Products End --}}
 </div>

@@ -19,6 +19,7 @@ use App\Livewire\Pages\Index;
 use App\Livewire\Pages\Profile;
 use App\Livewire\Pages\ProfileSetting;
 use App\Livewire\Pages\TrackingOrder;
+use App\Livewire\Pages\Product;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/login', Login::class);
@@ -34,6 +35,7 @@ Route::get('/profile', Profile::class);
 Route::get('/profile/settings', ProfileSetting::class);
 Route::get('/profile/change-password', ChangePassword::class);
 Route::get('/detail-product', DetailProduk::class);
+Route::get('/product', Product::class);
 
 Route::prefix('app')->group(function () {
   Route::get('/dashboard', Dashboard::class);

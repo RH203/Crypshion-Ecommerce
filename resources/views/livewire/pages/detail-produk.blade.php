@@ -83,6 +83,7 @@
             Excitation venial consequent sent nostrum met.</p>
 
           <hr class="my-3 border-gray-500 w-full">
+          
 
           <div class="flex gap-3">
             <livewire:components.button class="bg-primaryBg font-semibold text-white" title="Select Options" />

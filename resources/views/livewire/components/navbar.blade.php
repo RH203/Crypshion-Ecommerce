@@ -122,7 +122,7 @@
           </div>
         </div>
         <a class="font-medium text-slate-600 hover:text-gray-400" href="#">Product</a>
-        <a class="font-medium text-slate-600 hover:text-gray-400" href="/About" wire:navigate>About</a>
+        <a class="font-medium text-slate-600 hover:text-gray-400" href="/about" wire:navigate>About</a>
         <a class="font-medium text-slate-600 hover:text-gray-400" href="/contact" wire:navigate>Contact</a>
         <a class="font-medium text-slate-600 hover:text-gray-400 lg:hidden" href="/login" wire:navigate>Login</a>
       </div>

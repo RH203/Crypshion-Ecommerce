@@ -22,32 +22,30 @@ use App\Livewire\Pages\TrackingOrder;
 use Illuminate\Support\Facades\Route;
 
 
+// Global Route
+Route::get('/', Index::class);
+Route::get('/about', About::class);
+Route::get('/contact', Contact::class);
+Route::get('/detail-product', DetailProduk::class);
 
+
+// Guest Route
 Route::middleware(['guest'])->group(function () {
-
-  Route::get('/login', fn () => view('livewire.auth.login'))->name('login');
-  // Login 
-
-  // Login Livewire
-  Route::get('/login', Login::class);
+  Route::get('/login', Login::class)->name('login');
   Route::get('/register', Register::class);
 });
 
 
+// User Route
+Route::middleware(['auth', 'role:user'])->group(function () {
+  Route::get('/cart', Cart::class);
+  Route::get('/tracking-order', TrackingOrder::class);
+  Route::get('/profile', Profile::class);
+  Route::get('/profile/settings', ProfileSetting::class);
+  Route::get('/profile/change-password', ChangePassword::class);
+});
 
-Route::get('/About', About::class);
-
-
-Route::get('/', Index::class);
-Route::get('/contact', Contact::class);
-Route::get('/cart', Cart::class);
-Route::get('/tracking-order', TrackingOrder::class);
-Route::get('/profile', Profile::class);
-Route::get('/profile/settings', ProfileSetting::class);
-Route::get('/profile/change-password', ChangePassword::class);
-Route::get('/detail-product', DetailProduk::class);
-
-
+// Admin Route
 Route::middleware(['auth', 'role:admin'])->group(function () {
   Route::prefix('app')->group(function () {
     Route::get('/dashboard', Dashboard::class);

@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Auth;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
@@ -18,12 +19,21 @@ class Login extends Component
     public function login()
     {
         $credentials = $this->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
+            'email' => ['required', 'min:6', 'email'],
+            'password' => ['required', 'min:6'],
         ]);
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/');
+            session()->regenerate();
+            if (Auth::user()->hasRole('admin')) {
+                return redirect()->intended('app/dashboard');
+            }
+            if (Auth::user()->hasRole('user')) {
+                return redirect()->intended('/');
+            }
+        } else {
+            $this->reset('password');
+            $this->addError('loginInvalid', 'Incorrect Email or Password');
         }
     }
 

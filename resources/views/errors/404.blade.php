@@ -37,8 +37,12 @@
 <body class="">
 
 
-  <div class="w-8/12 h-auto mx-auto">
-    <img src="/img/gif/404.gif" class="w-full" alt="">
+  <div class="flex items-center justify-center w-8/12 h-screen mx-auto">
+    {{-- <img src="/img/gif/404.gif" class="w-full" alt=""> --}}
+    <div class="text-center">
+      <h1 class="font-semibold text-7xl lg:text-9xl md:text-8xl">404</h1>
+      <p class="text-2xl md:text-3xl">Page Not Found</p>
+    </div>
   </div>
 
 

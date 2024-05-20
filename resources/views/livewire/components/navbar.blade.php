@@ -7,7 +7,12 @@
     <div class="flex items-center sm:order-3 gap-x-2">
 
       <div class="flex items-center">
-        <a href="/login" wire:navigate class="hidden mb-2 font-semibold lg:block">Login</a>
+        @guest
+          <a href="/login" wire:navigate class="hidden mb-2 font-semibold lg:block">Login</a>
+        @endguest
+
+
+
         {{-- Notification start --}}
         <div class="relative inline-flex mb-1 hs-dropdown ">
           <button id="hs-dropdown-with-icons" type="button"
@@ -55,9 +60,63 @@
         </div>
         {{-- Notification end --}}
 
+        {{-- Cart icon start --}}
         <a href="/cart" wire:navigate class="inline-block ms-3">
           <iconify-icon icon="bi:cart" class="text-xl"></iconify-icon>
         </a>
+        {{-- Cart icon end --}}
+
+
+        {{-- Avatar start --}}
+        @auth
+          <div class="relative inline-flex mb-1 ms-3 hs-dropdown">
+            <button id="hs-dropdown-with-header" type="button"
+              class="inline-flex items-center overflow-hidden text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-full shadow-sm w-7 h-7 hs-dropdown-toggle hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+              <img src="{{ Auth::user()->avatar }}" alt="avatar" class="w-full">
+            </button>
+
+            <div
+              class="hs-dropdown-menu z-10 transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-2 mt-2 "
+              aria-labelledby="hs-dropdown-with-header">
+              <div class="px-5 py-3 -m-2 bg-gray-200 rounded-t-lg">
+                <p class="text-sm text-gray-500">Signed in as</p>
+                <p class="text-sm font-medium text-gray-800">{{ Auth::user()->email }}</p>
+              </div>
+              <div class="py-2 mt-2 first:pt-0 last:pb-0">
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                  href="/profile" wire:navigate>
+                  <iconify-icon icon="ph:user-bold" class="text-lg"></iconify-icon>
+                  Profile
+                </a>
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                  href="/tracking-order">
+                  <iconify-icon icon="mdi:shopping-outline" class="text-lg"></iconify-icon>
+                  My Orders
+                </a>
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                  href="/tracking-order">
+                  <iconify-icon icon="system-uicons:box-open" class="text-lg"></iconify-icon>
+                  Order History
+                </a>
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                  href="/profile/settings">
+                  <iconify-icon icon="ant-design:setting-outlined" class="text-lg"></iconify-icon>
+                  Settings
+                </a>
+                <form action="/logout"
+                  class="px-3 py-2 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+                  <button type="submit" class="flex items-center gap-x-3.5 ">
+                    <iconify-icon icon="material-symbols:logout" class="text-lg"></iconify-icon>
+                    Logout
+                  </button>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        @endauth
+        {{-- Avatar end --}}
+
       </div>
       <button type="button"
         class="sm:hidden hs-collapse-toggle p-2.5 inline-flex justify-center items-center gap-x-2 rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:hover:bg-white/10"
@@ -124,7 +183,9 @@
         <a class="font-medium text-slate-600 hover:text-gray-400" href="#">Product</a>
         <a class="font-medium text-slate-600 hover:text-gray-400" href="/about" wire:navigate>About</a>
         <a class="font-medium text-slate-600 hover:text-gray-400" href="/contact" wire:navigate>Contact</a>
-        <a class="font-medium text-slate-600 hover:text-gray-400 lg:hidden" href="/login" wire:navigate>Login</a>
+        @guest
+          <a class="font-medium text-slate-600 hover:text-gray-400 lg:hidden" href="/login" wire:navigate>Login</a>
+        @endguest
       </div>
     </div>
   </nav>

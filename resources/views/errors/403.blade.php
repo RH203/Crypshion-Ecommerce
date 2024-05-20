@@ -4,6 +4,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="Crypshion">
+  <meta name="description"
+    content="Crypshon merupakan sebuah toko online penjualan fashion modern dengan menawarkan kualitas yang premium.">
+  <meta name="keywords" content="e-commerce, technology, toko online, cryptocurrency, shipping,">
+  <meta name="author" content="Irfan Yasin, Mario Achmad Taufik, Raihan Firdaus, Amore Purba">
+  <meta name="robots" content="index, follow">
   <!-- Metadata untuk SEO (opsional) -->
   <meta name="robots" content="index, follow">
   <meta name="googlebot" content="index, follow">
@@ -12,7 +18,7 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
-  <title>Crypshion - {{ $title ?? env('APP_NAME') }}</title>
+  <title>404 - Not Found</title>
 
   <!-- Favicon -->
   <link rel="icon" href="/img/logo/logo.ico" type="image/x-icon">
@@ -28,23 +34,16 @@
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
-  <main class="">
-    <section class="h-screen overflow-y-hidden ">
-      <div class="grid lg:grid-cols-2 mg:grid-cols-1">
-        <div class="hidden lg:block">
-          <img src="/img/auth-img-{{ Request::is('login') ? '1' : '2' }}.png" alt="" class="w-full">
-        </div>
-        <div class="{{ Request::is('login') ? 'pt-32' : 'pt-12' }}">
-          <div class="w-10/12 mx-auto lg:w-6/12 md:w-8/12">
-            <img src="/img/logo/logo.png" alt="Logo" class="w-4/12 mx-auto">
-            {{ $slot }}
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+<body class="">
+
+
+  <div class="w-8/12 h-auto mx-auto">
+    <img src="/img/gif/403.gif" class="w-full" alt="">
+  </div>
+
+
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
+
 </body>
 
 </html>

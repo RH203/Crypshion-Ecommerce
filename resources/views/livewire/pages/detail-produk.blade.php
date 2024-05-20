@@ -8,7 +8,7 @@
       <div class="flex flex-col gap-2 ">
         <!-- Image Product Start -->
         <div data-hs-carousel='{"loadingClasses": "opacity-0"}' class="relative">
-          <div class="hs-carousel relative overflow-hidden w-full h-[450px] bg-white rounded-lg">
+          <div class="hs-carousel relative overflow-hidden w-full h-[450px] lg:h-[450px] md:h-[350px] sm:h-[200px] bg-white rounded-lg">
             <div
               class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-0">
               <div class="hs-carousel-slide">
@@ -84,10 +84,16 @@
 
           <hr class="my-3 border-gray-500 w-full">
 
+          <div class="flex flex-row gap-2 flex-wrap w-96 mb-4">
+            @for ($i = 20; $i <= 28; $i++)
+              <livewire:components.button class="border-primary border-2 font-semibold text-black p-1" title="{{ $i }}" />
+            @endfor
+          </div>
+
           <div class="flex gap-3">
             <livewire:components.button class="bg-primaryBg font-semibold text-white" title="Select Options" />
             @foreach ($datas as $item)
-              <livewire:components.button-icon icon="{!! $item['icon'] !!}">
+              <livewire:components.button-icon class="text-lg px-5" icon="{!! $item['icon'] !!}">
             @endforeach
           </div>
         </div>
@@ -109,8 +115,8 @@
         </button>
         <button type="button"
           class="hs-tab-active:font-semibold hs-tab-active:bg-transparent hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none"
-          id="horizontal-alignment-item-2" data-hs-tab="#horizontal-alignment-2" aria-controls="horizontal-alignment-2"
-          role="tab">
+          id="horizontal-alignment-item-2" data-hs-tab="#horizontal-alignment-2"
+          aria-controls="horizontal-alignment-2" role="tab">
           Additional Information
         </button>
         <button type="button"
@@ -131,12 +137,12 @@
       <div id="horizontal-alignment-2" class="hidden" role="tabpanel" aria-labelledby="horizontal-alignment-item-2">
         <div class="w-10/12 mx-auto">
 
-          <div class="grid grid-rows-1">
+          <div class="grid grid-rows-1 lg:grid-rows-1 md:grid-rows-2 sm:grid-rows-1">
 
-            <div class="grid grid-cols-3 gap-5">
+            <div class="grid md:grid-cols-3 sm:grid-cols-1 gap-5 md:gap-3">
               <!-- Image Product Start-->
               <div class="">
-                <img src="/img/detail-product/card-item.png" alt="" class="w-full h-72">
+                <img src="/img/detail-product/card-item.png" alt="" class="w-full h-72 lg:h-72 md:h-60">
               </div>
               <!-- Image Product End-->
 
@@ -207,7 +213,23 @@
     <hr class="border-gray-500 my-5">
 
     <div class="grid grid-rows-2 ">
-      <div class="grid grid-cols-2">
+      <div class="grid grid-cols-4 gap-4">
+        <livewire:components.card-product image="/img/detail-product/product-cover-1.png" title="Graphic Design"
+          description="lorem lorem lorem" price="20.000" />
+        <livewire:components.card-product image="/img/detail-product/product-cover-1.png" title="Graphic Design"
+          description="lorem lorem lorem" price="20.000" />
+        <livewire:components.card-product image="/img/detail-product/product-cover-1.png" title="Graphic Design"
+          description="lorem lorem lorem" price="20.000" />
+        <livewire:components.card-product image="/img/detail-product/product-cover-1.png" title="Graphic Design"
+          description="lorem lorem lorem" price="20.000" />
+      </div>
+      <div class="grid grid-cols-4 gap-4">
+        <livewire:components.card-product image="/img/detail-product/product-cover-1.png" title="Graphic Design"
+          description="lorem lorem lorem" price="20.000" />
+        <livewire:components.card-product image="/img/detail-product/product-cover-1.png" title="Graphic Design"
+          description="lorem lorem lorem" price="20.000" />
+        <livewire:components.card-product image="/img/detail-product/product-cover-1.png" title="Graphic Design"
+          description="lorem lorem lorem" price="20.000" />
         <livewire:components.card-product image="/img/detail-product/product-cover-1.png" title="Graphic Design"
           description="lorem lorem lorem" price="20.000" />
       </div>

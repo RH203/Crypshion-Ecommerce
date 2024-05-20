@@ -1,5 +1,40 @@
 <div>
-  <!-- Product Start -->
+
+  {{-- Breadcrumb Start --}}
+  <div class="w-10/12 mx-auto mb-5">
+    <ol class="flex items-center whitespace-nowrap">
+      <li class="inline-flex items-center">
+        <a class="flex items-center text-sm text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 dark:text-neutral-500 dark:hover:text-blue-500 dark:focus:text-blue-500"
+          href="#">
+          Home
+        </a>
+        <svg class="flex-shrink-0 mx-2 overflow-visible size-4 text-gray-400 dark:text-neutral-600"
+          xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m9 18 6-6-6-6"></path>
+        </svg>
+      </li>
+      <li class="inline-flex items-center">
+        <a class="flex items-center text-sm text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 dark:text-neutral-500 dark:hover:text-blue-500 dark:focus:text-blue-500"
+          href="#">
+          App Center
+          <svg class="flex-shrink-0 mx-2 overflow-visible size-4 text-gray-400 dark:text-neutral-600"
+            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m9 18 6-6-6-6"></path>
+          </svg>
+        </a>
+      </li>
+      <li class="inline-flex items-center text-sm font-semibold text-gray-800 truncate dark:text-neutral-200"
+        aria-current="page">
+        Application
+      </li>
+    </ol>
+  </div>
+
+  {{-- Breadcrumb End --}}
+
+  {{-- Product Start --}}
   <div class="w-10/12 mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 sm:grid-cols-2 gap-5">
 
@@ -103,16 +138,16 @@
       <!-- Container Detail Product End -->
     </div>
   </div>
-  <!-- Product End -->
+  {{-- Product End --}}
 
-  <!-- Additional Information container Start -->
+  {{-- Additional Information container Start --}}
   <div class="w-10/12 mx-auto my-14">
     <div class="border-b border-gray-200">
       <nav class="-mb-0.5 flex justify-center space-x-6" aria-label="Tabs" role="tablist">
         <button type="button"
           class="hs-tab-active:font-semibold hs-tab-active:bg-transparent hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none active"
-          id="horizontal-alignment-item-1" data-hs-tab="#horizontal-alignment-1" aria-controls="horizontal-alignment-1"
-          role="tab">
+          id="horizontal-alignment-item-1" data-hs-tab="#horizontal-alignment-1"
+          aria-controls="horizontal-alignment-1" role="tab">
           Description
         </button>
         <button type="button"
@@ -205,9 +240,9 @@
       </div>
     </div>
   </div>
-  <!-- Additional Information container End -->
+  {{-- Additional Information container End --}}
 
-  <!-- Best Seller Products Start-->
+  {{-- Best Seller Products Start --}}
   <div class="w-10/12 mx-auto">
     <header>
       <h2 class="font-bold text-blueNavy text-lg">BESTSELLER PRODUCT</h2>
@@ -229,5 +264,5 @@
       </div>
     </div>
   </div>
-  <!-- Best Seller Products End-->
+  {{-- Best Seller Products End --}}
 </div>

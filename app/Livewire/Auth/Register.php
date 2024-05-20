@@ -17,14 +17,14 @@ class Register extends Component
 
     public $name;
     public $email;
-    public $password = '';
-    public $confirmPassword = '';
+    public $password;
+    public $confirmPassword;
 
     public function register()
     {
         $validate = $this->validate([
             'name' => 'required|min:3',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6',
             'confirmPassword' => 'required|min:6',
         ]);
@@ -40,8 +40,9 @@ class Register extends Component
             'name' => $this->name,
             'email' => $this->email,
             'password' => Hash::make($this->password),
-            'avatar' => User::AVATAR
+            'avatar' => User::AVATAR,
         ]);
+
         $user->assignRole('user');
         Auth::login($user);
         return redirect()->intended('/');

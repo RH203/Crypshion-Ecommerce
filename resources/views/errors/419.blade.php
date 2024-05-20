@@ -39,10 +39,9 @@
 
   <div class="flex items-center justify-center w-8/12 h-screen mx-auto">
     <div class="text-center">
-      <h1 class="font-semibold text-7xl lg:text-9xl md:text-8xl">403</h1>
-      <p class="text-2xl md:text-3xl">Forbidden Access</p>
+      <h1 class="font-semibold text-7xl lg:text-9xl md:text-8xl">419</h1>
+      <p class="text-2xl md:text-3xl">Page Expired</p>
     </div>
-    {{-- <img src="/img/gif/403.gif" class="w-full" alt=""> --}}
   </div>
 
 

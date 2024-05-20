@@ -5,12 +5,14 @@ namespace App\Livewire\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class Register extends Component
 {
+    use LivewireAlert;
 
     #[Title('Register')]
     #[Layout('layouts.auth')]
@@ -21,18 +23,32 @@ class Register extends Component
     public $password;
     public $confirmPassword;
 
-    public function register()
+
+    public function rules()
     {
-        $validate = $this->validate([
+        return [
             'name' => 'required|min:3',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6',
             'confirmPassword' => 'required|min:6',
-        ]);
+        ];
+    }
 
+    public function register()
+    {
+        $this->validate();
 
-        if ($validate['password'] !== $this->confirmPassword) {
-            $this->addError('confirmPasswordInvalid', 'Confirm Password is Invalid');
+        if ($this->password !== $this->confirmPassword) {
+            $this->alert('error', 'Opps', [
+                'position' => 'center',
+                'timer' => 3000,
+                'toast' => false,
+                'timerProgressBar' => true,
+                'showConfirmButton' => true,
+                'onConfirmed' => '',
+                'confirmButtonText' => 'Ok',
+                'text' => 'Confirm Password is Invalid',
+            ]);
             $this->reset(['password', 'confirmPassword']);
             return;
         }

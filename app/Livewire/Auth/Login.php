@@ -4,12 +4,15 @@ namespace App\Livewire\Auth;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class Login extends Component
 {
+
+    use LivewireAlert;
 
     #[Title('Login')]
     #[Layout('layouts.auth')]
@@ -34,7 +37,17 @@ class Login extends Component
             }
         } else {
             $this->reset('password');
-            $this->addError('loginInvalid', 'Incorrect Email or Password');
+            $this->alert('error', 'Opps', [
+                'position' => 'center',
+                'timer' => 3000,
+                'toast' => false,
+                'timerProgressBar' => true,
+                'showConfirmButton' => true,
+                'onConfirmed' => '',
+                'confirmButtonText' => 'Ok',
+                'text' => 'Incorrect Email or Password',
+            ]);
+            // $this->addError('loginInvalid', 'Incorrect Email or Password');
         }
     }
 

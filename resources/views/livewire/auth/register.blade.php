@@ -1,4 +1,5 @@
 <form wire:submit.prevent='register' method="POST" class="mt-3">
+  @csrf
   @error('confirmPasswordInvalid')
     <div class="px-4 py-4 mb-5 text-white bg-red-500 rounded-md alert-notificaation">
       <div class="flex items-center justify-center">

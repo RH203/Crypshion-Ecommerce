@@ -46,7 +46,7 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth', 'role:user'])->group(function () {
   Route::get('/cart', Cart::class);
   Route::get('/tracking-order', TrackingOrder::class);
-  Route::get('/profile', Profile::class);
+  Route::get('/profile', Profile::class)->name('profile');
   Route::get('/profile/settings', ProfileSetting::class);
   Route::get('/profile/change-password', ChangePassword::class);
 });

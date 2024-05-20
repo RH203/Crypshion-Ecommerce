@@ -4,8 +4,8 @@
       <div>
         <h4 class="text-xl font-bold">Company Info</h4>
         <ul class="mt-5 leading-10 text-slate-400">
-          <li><a href="" class="hover:text-black">About Us</a></li>
-          <li><a href="" class="hover:text-black">Carrier</a></li>
+          <li><a href="/about" wire:navigate class="hover:text-black">About Us</a></li>
+          {{-- <li><a href="" class="hover:text-black">Carrier</a></li> --}}
           <li><a href="" class="hover:text-black">We are hiring</a></li>
           <li><a href="" class="hover:text-black">Best Product</a></li>
         </ul>
@@ -15,8 +15,8 @@
         <ul class="mt-5 leading-10 text-slate-400">
           <li class="hover:text-black">Easy Payment</li>
           <li class="hover:text-black">Cryptography Payment</li>
-          <li class="hover:text-black">Help Center</li>
-          <li class="hover:text-black">Tracking Order</li>
+          <li><a href="/help-center" wire:navigate class="hover:text-black">Help Center</a></li>
+          <li><a href="/tracking-order" wire:navigate class="hover:text-black">Tracking Order</a></li>
         </ul>
       </div>
       <div>

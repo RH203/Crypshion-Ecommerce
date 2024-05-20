@@ -21,8 +21,20 @@ use App\Livewire\Pages\ProfileSetting;
 use App\Livewire\Pages\TrackingOrder;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/login', Login::class);
-Route::get('/register', Register::class);
+
+
+Route::middleware(['guest'])->group(function () {
+
+  Route::get('/login', fn () => view('livewire.auth.login'))->name('login');
+  // Login 
+
+  // Login Livewire
+  Route::get('/login', Login::class);
+  Route::get('/register', Register::class);
+});
+
+
+
 Route::get('/About', About::class);
 
 
@@ -35,13 +47,16 @@ Route::get('/profile/settings', ProfileSetting::class);
 Route::get('/profile/change-password', ChangePassword::class);
 Route::get('/detail-product', DetailProduk::class);
 
-Route::prefix('app')->group(function () {
-  Route::get('/dashboard', Dashboard::class);
-  Route::get('/products', Products::class);
-  Route::get('/products/create', ProductAdd::class);
-  Route::get('/products/edit', ProductEdit::class);
-  Route::get('/orders', Orders::class);
-  Route::get('/category', Category::class);
-  Route::get('/feedback', Feedback::class);
-  Route::get('/help-center', HelpCenter::class);
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+  Route::prefix('app')->group(function () {
+    Route::get('/dashboard', Dashboard::class);
+    Route::get('/products', Products::class);
+    Route::get('/products/create', ProductAdd::class);
+    Route::get('/products/edit', ProductEdit::class);
+    Route::get('/orders', Orders::class);
+    Route::get('/category', Category::class);
+    Route::get('/feedback', Feedback::class);
+    Route::get('/help-center', HelpCenter::class);
+  });
 });

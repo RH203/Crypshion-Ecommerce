@@ -1,4 +1,12 @@
  <form wire:submit.prevent='login' method="POST" class="mt-5">
+   @error('loginInvalid')
+     <div class="px-4 py-4 mb-5 text-white bg-red-500 rounded-md alert-notificaation">
+       <div class="flex items-center justify-center">
+         <iconify-icon icon="quill:warning-alt"></iconify-icon> &nbsp; &nbsp;
+         <h4>{{ $message }}</h4>
+       </div>
+     </div>
+   @enderror
    <div class="mb-10">
      <input type="email" name="name" wire:model='email'
        class="w-full px-5 py-3 border-[#23A6F0] border-b-2 bg-transparent rounded-xl placeholder:font-light placeholder:text-slate-400 focus:outline-0"

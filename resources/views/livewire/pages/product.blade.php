@@ -22,6 +22,58 @@
   </ol>
 </div>
 
+<div class="grid grid-cols-1 gap-4 mt-5 bg-white-200 md:grid-cols-5">
+  <div class="relative h-60 bg-white-400 flex justify-center">
+    <img src="/img/product2/col-md-4 (4).png" alt="">
+    <div class="absolute flex justify-center items-center w-full h-full ">
+    <p class="text-white font-bold">
+      CLOTHS <span class="block font-normal">
+        5 items
+      </span>
+    </p>
+    </div>
+  </div>
+  <div class="relative h-60 bg-white-400 flex justify-center">
+    <img src="/img/product2/col-md-4 (3).png" alt="">
+    <div class="absolute flex justify-center items-center w-full h-full ">
+    <p class="text-white font-bold">
+      CLOTHS <span class="block font-normal">
+        5 items
+      </span>
+    </p>
+    </div>
+  </div>
+  <div class="relative h-60 bg-white-400 flex justify-center">
+    <img src="/img/product2/col-md-4 (2).png" alt="">
+    <div class="absolute flex justify-center items-center w-full h-full ">
+    <p class="text-white font-bold">
+      CLOTHS <span class="block font-normal">
+        5 items
+      </span>
+    </p>
+    </div>
+  </div>
+  <div class="relative h-60 bg-white-400 flex justify-center">
+    <img src="/img/product2/col-md-4 (1).png" alt="">
+    <div class="absolute flex justify-center items-center w-full h-full ">
+    <p class="text-white font-bold">
+      CLOTHS <span class="block font-normal">
+        5 items
+      </span>
+    </p>
+    </div>
+  </div>
+  <div class="relative h-60 bg-white-400 flex justify-center">
+    <img src="/img/product2/col-md-4 (5).png" alt="">
+    <div class="absolute flex justify-center items-center w-full h-full ">
+    <p class="text-white font-bold">
+      CLOTHS <span class="block font-normal">
+        5 items
+      </span>
+    </p>
+    </div>
+  </div>
+</div>
 
 {{-- Product List --}}
 <section class="my-36 md:my-40">
@@ -74,22 +126,23 @@
 
 
 <!-- Pagination -->
-<nav class="flex items-center -space-x-px">
-  <button type="button" class="min-h-[38px] min-w-[38px] py-2 px-2.5 inline-flex justify-center items-center gap-x-1.5 text-sm first:rounded-s-lg last:rounded-e-lg border border-gray-200 text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10">
-    <svg class="flex-shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<nav class="flex justify-center items-center -space-x-px">
+  <button type="button" class="min-h-[42px] min-w-[42px] py-2.5 px-3 inline-flex justify-center items-center gap-x-1.5 text-base first:rounded-s-lg last:rounded-e-lg border-2 border-gray-700 text-gray-700 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:border-gray-400 dark:text-gray-400 dark:hover:bg-white/10 dark:focus:bg-white/10">
+    <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="m15 18-6-6 6-6"></path>
     </svg>
     <span class="hidden sm:block">Previous</span>
   </button>
-  <button type="button" class="min-h-[38px] min-w-[38px] flex justify-center items-center bg-gray-200 text-gray-800 border border-gray-200 py-2 px-3 text-sm first:rounded-s-lg last:rounded-e-lg focus:outline-none focus:bg-gray-300 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-600 dark:border-neutral-700 dark:text-white dark:focus:bg-neutral-500" aria-current="page">1</button>
-  <button type="button" class="min-h-[38px] min-w-[38px] flex justify-center items-center border border-gray-200 text-gray-800 hover:bg-gray-100 py-2 px-3 text-sm first:rounded-s-lg last:rounded-e-lg focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10">2</button>
-  <button type="button" class="min-h-[38px] min-w-[38px] flex justify-center items-center border border-gray-200 text-gray-800 hover:bg-gray-100 py-2 px-3 text-sm first:rounded-s-lg last:rounded-e-lg focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10">3</button>
-  <button type="button" class="min-h-[38px] min-w-[38px] py-2 px-2.5 inline-flex justify-center items-center gap-x-1.5 text-sm first:rounded-s-lg last:rounded-e-lg border border-gray-200 text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10">
+  <button type="button" class="min-h-[42px] min-w-[42px] flex justify-center items-center bg-gray-200 text-gray-700 border-2 border-gray-700 py-2.5 px-3 text-base first:rounded-s-lg last:rounded-e-lg focus:outline-none focus:bg-gray-300 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:border-gray-400 dark:text-gray-400 dark:focus:bg-neutral-600" aria-current="page">1</button>
+  <button type="button" class="min-h-[42px] min-w-[42px] flex justify-center items-center border-2 border-gray-700 text-gray-700 hover:bg-gray-200 py-2.5 px-3 text-base first:rounded-s-lg last:rounded-e-lg focus:outline-none focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:border-gray-400 dark:text-gray-400 dark:hover:bg-white/10 dark:focus:bg-white/10">2</button>
+  <button type="button" class="min-h-[42px] min-w-[42px] flex justify-center items-center border-2 border-gray-700 text-gray-700 hover:bg-gray-200 py-2.5 px-3 text-base first:rounded-s-lg last:rounded-e-lg focus:outline-none focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:border-gray-400 dark:text-gray-400 dark:hover:bg-white/10 dark:focus:bg-white/10">3</button>
+  <button type="button" class="min-h-[42px] min-w-[42px] py-2.5 px-3 inline-flex justify-center items-center gap-x-1.5 text-base first:rounded-s-lg last:rounded-e-lg border-2 border-gray-700 text-gray-700 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:border-gray-400 dark:text-gray-400 dark:hover:bg-white/10 dark:focus:bg-white/10">
     <span class="hidden sm:block">Next</span>
-    <svg class="flex-shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="m9 18 6-6-6-6"></path>
     </svg>
   </button>
 </nav>
 <!-- End Pagination -->
+
 </div>

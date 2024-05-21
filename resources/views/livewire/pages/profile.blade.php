@@ -4,7 +4,7 @@
 
       <header class="mb-10 text-center">
         <h1 class="text-4xl font-bold">My Profile</h1>
-        <p class="mt-3 font-normal text-slate-500">Monitoring the order process until completion</p>
+        <p class="mt-3 font-normal text-slate-500">Complete your profile so you can easily recognize it</p>
       </header>
 
       <div class="grid grid-cols-3 gap-5">

@@ -98,11 +98,11 @@
                   <iconify-icon icon="system-uicons:box-open" class="text-lg"></iconify-icon>
                   Order History
                 </a>
-                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                {{-- <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
                   href="/profile/settings" wire:navigate>
                   <iconify-icon icon="ant-design:setting-outlined" class="text-lg"></iconify-icon>
                   Settings
-                </a>
+                </a> --}}
                 <form action="/logout"
                   class="px-3 py-2 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
                   <button type="submit" class="flex w-full items-center gap-x-3.5 ">

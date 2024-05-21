@@ -8,10 +8,6 @@
         <div class="">
           <form wire:submit.prevent="updateProfile" method="POST" class="block gap-5 lg:flex">
             @csrf
-            <div class="w-32 h-auto mx-auto mb-10 overflow-hidden lg:mb-0 rounded-xl basis-4/12">
-              <img src="{{ Auth::user()->avatar }}" class="w-full" alt="">
-              <input type="file" name="image" id="image" class="w-full mt-3">
-            </div>
             <div class="text-start basis-8/12">
               <div class="mb-3">
                 <label for="name" class="text-sm text-slate-500">Fullname</label>

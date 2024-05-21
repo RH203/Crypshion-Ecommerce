@@ -155,6 +155,7 @@
           <p class="text-sm font-normal md:text-md text-slate-500">Problems trying to resolve the conflict between </p>
         </header>
         <div class="gap-5 lg:flex">
+
           <div class="relative mb-5 overflow-hidden lg:mb-0 lg:basis-6/12 basis-full group ">
             <img src="/img/editor-pick-1.png" alt=""
               class="w-full h-full transition duration-500 ease-linear group-hover:scale-110">
@@ -162,6 +163,7 @@
               Men
             </div>
           </div>
+
           <div class="relative mb-5 overflow-hidden lg:mb-0 lg:basis-3/12 basis-full lg:h-full h-96 group">
             <img src="/img/editor-pick-2.png" alt=""
               class="w-full transition duration-500 ease-linear group-hover:scale-110">

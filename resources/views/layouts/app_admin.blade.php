@@ -72,8 +72,8 @@
                       Settings
                     </a>
                     <form action="/logout"
-                      class="px-3 py-2 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
-                      <button type="submit" class="flex items-center gap-x-3.5 ">
+                      class="w-full px-3 py-2 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+                      <button type="submit" class="flex w-full items-center gap-x-3.5 ">
                         <iconify-icon icon="material-symbols:logout" class="text-lg"></iconify-icon>
                         Logout
                       </button>

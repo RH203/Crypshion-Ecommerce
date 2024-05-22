@@ -14,7 +14,6 @@
             <path d="m9 18 6-6-6-6"></path>
           </svg>
         </li>
-
         <li class="inline-flex items-center text-sm font-semibold text-gray-800 truncate dark:text-neutral-200"
           aria-current="page">
           Shop
@@ -89,12 +88,12 @@
     <section class="my-12">
       <div class="flex items-center justify-between">
         <div>
-          Result
+          Result 100 view
         </div>
 
         <div class="relative">
           <input type="search" name="search" id=""
-            class="px-3 py-2 pl-10 border-2 rounded-lg border-primary w-80">
+            class="px-3 py-2 pl-10 border-2 rounded-lg border-primary w-80" placeholder="Search...">
           <iconify-icon icon="uil:search" class="absolute text-2xl left-3 top-2 text-slate-500"></iconify-icon>
         </div>
       </div>
@@ -151,7 +150,7 @@
 
 
     <!-- Pagination -->
-    <nav class="flex items-center justify-center -space-x-px">
+    <nav class="flex items-center justify-center my-20 -space-x-px">
       <button type="button"
         class="min-h-[42px] min-w-[42px] py-2.5 px-3 inline-flex justify-center items-center gap-x-1.5 text-base first:rounded-s-lg last:rounded-e-lg border-2 border-gray-700 text-gray-700 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:border-gray-400 dark:text-gray-400 dark:hover:bg-white/10 dark:focus:bg-white/10">
         <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="28" height="28"

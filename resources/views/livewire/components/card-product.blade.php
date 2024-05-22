@@ -28,8 +28,19 @@
           <span class="font-normal">
             Rp. {{ $price }}
           </span>
-          <a href="" class="right-0 flex items-center justify-center font-bold text-black"><iconify-icon
-              icon="bi:cart" class="text-2xl"></iconify-icon></a>
+
+          @guest
+            <a href="" class="right-0 flex items-center justify-center font-bold text-black"><iconify-icon
+                icon="bi:cart" class="text-2xl"></iconify-icon></a>
+          @endguest
+          @auth
+            @if (!auth()->user()->hasRole('admin'))
+              <a href="" class="right-0 flex items-center justify-center font-bold text-black"><iconify-icon
+                  icon="bi:cart" class="text-2xl"></iconify-icon></a>
+            @endif
+          @endauth
+
+
         </div>
       </div>
     </div>

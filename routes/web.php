@@ -20,6 +20,7 @@ use App\Livewire\Pages\Index;
 use App\Livewire\Pages\Profile;
 use App\Livewire\Pages\ProfileSetting;
 use App\Livewire\Pages\TrackingOrder;
+use App\Livewire\Pages\Product;
 use Illuminate\Support\Facades\Route;
 
 
@@ -28,6 +29,7 @@ Route::get('/', Index::class);
 Route::get('/about', About::class);
 Route::get('/contact', Contact::class);
 Route::get('/detail-product', DetailProduk::class);
+Route::get('/product', Product::class);
 
 
 // Guest Route

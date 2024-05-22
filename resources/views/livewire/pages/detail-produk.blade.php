@@ -119,6 +119,7 @@
             Excitation venial consequent sent nostrum met.</p>
 
           <hr class="my-3 border-gray-500 w-full">
+          
 
           <div class="flex flex-row gap-2 flex-wrap w-96 mb-4">
             @for ($i = 20; $i <= 28; $i++)

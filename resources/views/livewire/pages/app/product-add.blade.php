@@ -2,70 +2,62 @@
   <livewire:components.breadcrumb page="Add Products" />
 
   <section class="my-10">
-    <form action="">
-
+    <form wire:submit.prevent='store' method="POST">
       <div class="grid grid-cols-3 gap-5">
         <div class="col-span-2 p-5 bg-white rounded-lg shadow-lg">
           <div class="mb-4">
-            <label for="" class="text-slate-500">Title Product</label>
-            <input type="text" class="w-full px-3 py-2 bg-white border rounded-lg">
+            <label for="title" class="text-slate-500">Title Product</label>
+            <input type="text" wire:model='title' name="title" id="title"
+              class="w-full px-3 py-2 bg-white border rounded-lg">
+            @error('title')
+              <small class="italic text-red-600"><iconify-icon icon="quill:warning-alt"></iconify-icon>
+                {{ $message }}</small>
+            @enderror
           </div>
           <div class="mb-4">
-            <label for="" class="text-slate-500">Description</label>
-            <textarea name="" id="" cols="30" rows="7"
+            <label for="description" class="text-slate-500">Description</label>
+            <textarea name="description" wire:model='description' id="description" cols="30" rows="7"
               class="w-full px-3 py-2 bg-white border rounded-lg"></textarea>
+            @error('description')
+              <small class="italic text-red-600"><iconify-icon icon="quill:warning-alt"></iconify-icon>
+                {{ $message }}</small>
+            @enderror
           </div>
 
           <div class="mb-4">
-            <label for="" class="text-slate-500">Category</label>
-            <select name="" id="" class="w-full px-3 py-2 bg-white border rounded-lg">
-              <option value="T-Shirt">T-Shirt</option>
-              <option value="Jacket">Jacket</option>
-              <option value="Shoe">Shoe</option>
+            <label for="category" class="text-slate-500">Category</label>
+            <select name="category_id" wire:model='category_id' id="category"
+              class="w-full px-3 py-2 bg-white border rounded-lg">
+              {{-- <option value="" selected disabled>Choose Category</option> --}}
+              @foreach ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->title }}</option>
+              @endforeach
             </select>
+            @error('category_id')
+              <small class="italic text-red-600"><iconify-icon
+                  icon="quill:warning-alt"></iconify-icon>{{ $message }}</small>
+            @enderror
           </div>
 
           <div class="mb-4">
             <label for="" class="block mb-4 text-slate-500">Size</label>
             {{-- Size T-Shirt start  --}}
             <div class="flex gap-2 mb-5">
-              <div class="relative">
-                <input type="checkbox" name="" id="S" class="absolute right-1">
-                <label for="S"
-                  class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">S</label>
-              </div>
-              <div class="relative">
-                <input type="checkbox" name="" id="M" class="absolute right-1">
-                <label for="M"
-                  class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">M</label>
-              </div>
-              <div class="relative">
-                <input type="checkbox" name="" id="L" class="absolute right-1">
-                <label for="L"
-                  class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">L</label>
-              </div>
-              <div class="relative">
-                <input type="checkbox" name="" id="xl" class="absolute right-1">
-                <label for="xl"
-                  class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">XL</label>
-              </div>
-              <div class="relative">
-                <input type="checkbox" name="" id="xxl" class="absolute right-1">
-                <label for="xxl"
-                  class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">XXL</label>
-              </div>
-              <div class="relative">
-                <input type="checkbox" name="" id="xxxl" class="absolute right-1">
-                <label for="xxxl"
-                  class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">XXXL</label>
-              </div>
+              @foreach (['S', 'M', 'L', 'XL', 'XXL', 'XXXL'] as $size)
+                <div class="relative">
+                  <input type="checkbox" name="sizes" wire:model="sizes" id="{{ $size }}"
+                    value="{{ $size }}" class="absolute right-1">
+                  <label for="{{ $size }}"
+                    class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">{{ $size }}</label>
+                </div>
+              @endforeach
             </div>
             {{-- Size T-Shirt end  --}}
 
 
 
             {{-- Size Shoe start  --}}
-            <div class="flex flex-wrap gap-2 mb-5">
+            {{-- <div class="flex flex-wrap gap-2 mb-5">
               <div class="relative mb-3">
                 <input type="checkbox" name="" id="35" class="absolute right-1">
                 <label for="35"
@@ -111,15 +103,16 @@
                 <label for="43"
                   class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">43</label>
               </div>
-            </div>
+            </div> --}}
             {{-- Size Shoe end  --}}
           </div>
 
-
+          <div class="mb-4">
+            <button type="submit" class="px-5 py-2 text-white rounded-md bg-primaryBg">Save</button>
+          </div>
 
 
         </div>
-
         <div class="bg-white rounded-lg shadow-lg">
 
         </div>

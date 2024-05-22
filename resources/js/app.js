@@ -1,4 +1,5 @@
 import './bootstrap';
+import './crypto';
 import 'preline';
 
 
@@ -24,3 +25,4 @@ document.addEventListener('livewire:navigated', () => {
     }
   });
 })
+

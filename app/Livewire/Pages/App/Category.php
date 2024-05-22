@@ -114,7 +114,6 @@ class Category extends Component
 
     public function render()
     {
-
         return view('livewire.pages.app.category', [
             'datas' => AppCategory::all()
         ]);

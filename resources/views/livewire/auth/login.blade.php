@@ -29,8 +29,7 @@
      <a href="" class="hover:text-[#23A6F0] hover:font-semibold text-black">Forgot Password?</a>
    </div>
    <div class="mb-5">
-     <button type="button" onclick="sayHello()"
-       class="h-14 w-full rounded-lg font-bold text-white text-xl bg-[#23A6F0]">Sign In</button>
+     <button type="submit" class="h-14 w-full rounded-lg font-bold text-white text-xl bg-[#23A6F0]">Sign In</button>
    </div>
    <div class="text-center">
      <span>Don't have an account? <a href="/register" wire:navigate class="text-[#23A6F0] font-bold">Sign

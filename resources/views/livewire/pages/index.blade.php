@@ -91,8 +91,6 @@
 
 
 
-
-
     {{-- Best seller product start --}}
     <section class="my-36 md:my-40">
       <div class="w-11/12 mx-auto md:w-10/12">
@@ -157,6 +155,7 @@
           <p class="text-sm font-normal md:text-md text-slate-500">Problems trying to resolve the conflict between </p>
         </header>
         <div class="gap-5 lg:flex">
+
           <div class="relative mb-5 overflow-hidden lg:mb-0 lg:basis-6/12 basis-full group ">
             <img src="/img/editor-pick-1.png" alt=""
               class="w-full h-full transition duration-500 ease-linear group-hover:scale-110">
@@ -164,6 +163,7 @@
               Men
             </div>
           </div>
+
           <div class="relative mb-5 overflow-hidden lg:mb-0 lg:basis-3/12 basis-full lg:h-full h-96 group">
             <img src="/img/editor-pick-2.png" alt=""
               class="w-full transition duration-500 ease-linear group-hover:scale-110">
@@ -273,7 +273,7 @@
             sequi vero, suscipit dolor voluptatum
             deserunt natus consequatur nam tempore quo! Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Laborum, et."
-            image="/img/user/user-2.png" name="Mario Achmad Taufiq" label="Crypto Developer" rating="5" />
+            image="/img/user/user-2.png" name="Mario Achmad Taufik" label="Crypto Developer" rating="5" />
           <livewire:components.card-testimonial message="Lorem ipsum dolor sit amet consectetur, adipisicing elit."
             image="/img/user/user-3.png" name="Raihan Firdaus" rating="5" />
         </div>

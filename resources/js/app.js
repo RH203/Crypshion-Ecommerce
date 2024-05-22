@@ -4,7 +4,7 @@ import 'preline';
 
 document.addEventListener('livewire:navigated', () => { 
   window.HSStaticMethods.autoInit();
-
+  
   
   const humbMenu = document.querySelector('.humberger-menu');
   const sidebar = document.querySelector('aside');

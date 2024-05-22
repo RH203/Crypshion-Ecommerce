@@ -3,8 +3,9 @@
 
   <section class="my-10">
     <form action="">
-      <div class="flex gap-5">
-        <div class="basis-7/12">
+
+      <div class="grid grid-cols-3 gap-5">
+        <div class="col-span-2 p-5 bg-white rounded-lg shadow-lg">
           <div class="mb-4">
             <label for="" class="text-slate-500">Title Product</label>
             <input type="text" class="w-full px-3 py-2 bg-white border rounded-lg">
@@ -14,6 +15,7 @@
             <textarea name="" id="" cols="30" rows="7"
               class="w-full px-3 py-2 bg-white border rounded-lg"></textarea>
           </div>
+
           <div class="mb-4">
             <label for="" class="text-slate-500">Category</label>
             <select name="" id="" class="w-full px-3 py-2 bg-white border rounded-lg">
@@ -22,6 +24,7 @@
               <option value="Shoe">Shoe</option>
             </select>
           </div>
+
           <div class="mb-4">
             <label for="" class="block mb-4 text-slate-500">Size</label>
             {{-- Size T-Shirt start  --}}
@@ -110,13 +113,15 @@
               </div>
             </div>
             {{-- Size Shoe end  --}}
-
           </div>
+
+
+
+
         </div>
-        <div class="basis-5/12">
-          <div class="p-5 mt-5 bg-white rounded-lg shadow-lg">
 
-          </div>
+        <div class="bg-white rounded-lg shadow-lg">
+
         </div>
       </div>
     </form>

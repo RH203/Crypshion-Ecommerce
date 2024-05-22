@@ -1,6 +1,12 @@
 <div>
   <section class="my-10">
     <div class="w-11/12 mx-auto md:w-10/12">
+
+      <header class="mb-10 text-center">
+        <h1 class="text-4xl font-bold">My Cart</h1>
+        <p class="mt-3 font-normal text-slate-500">Happy shopping at crypshion</p>
+      </header>
+
       <div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
         <div class="p-8 bg-white shadow-md rounded-xl">
           <div class="flex items-center justify-between mb-8">

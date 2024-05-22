@@ -7,19 +7,14 @@ use Livewire\Component;
 class ButtonIcon extends Component
 {
   public $icon;
-  public function mount($icon)
+  public $class;
+  public function mount($icon, $class)
   {
     $this->$icon = $icon;
+    $this->$class = $class;
   }
   public function render()
   {
-    $dataIcon = [
-      ['icon' => '<iconify-icon icon="ic:sharp-home"></iconify-icon>'],
-      ['icon' => '<iconify-icon icon="ic:sharp-home"></iconify-icon>'],
-      ['icon' => '<iconify-icon icon="ic:sharp-home"></iconify-icon>'],
-    ];
-    return view('livewire.components.button-icon', [
-      'datas' => $dataIcon
-    ]);
+    return view('livewire.components.button-icon');
   }
 }

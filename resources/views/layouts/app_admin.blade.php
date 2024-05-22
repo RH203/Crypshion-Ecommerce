@@ -43,10 +43,45 @@
             </button>
           </div>
           <div class="flex items-center">
-            <h4 class="me-3">Welcome, <span class="font-semibold">Irfan Yasin</span></h4>
-            <div class="w-12 h-12 overflow-hidden border-2 border-white rounded-full">
-              <img src="/img/user/user-1.png" class="w-full" alt="">
-            </div>
+            {{-- Avatar start --}}
+            @auth
+              <div class="relative inline-flex mb-1 ms-3 hs-dropdown">
+                <div class="flex items-center">
+                  <h4 class="me-3">Welcome, <span class="font-semibold">{{ Auth::user()->name }}</span></h4>
+                  <button id="hs-dropdown-with-header" type="button"
+                    class="inline-flex items-center w-10 h-10 overflow-hidden text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-full shadow-sm hs-dropdown-toggle hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+                    <img src="{{ Auth::user()->avatar }}" alt="avatar" class="w-full">
+                  </button>
+                </div>
+                <div
+                  class="hs-dropdown-menu z-10 transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-2 mt-2 "
+                  aria-labelledby="hs-dropdown-with-header">
+                  <div class="px-5 py-3 -m-2 bg-gray-200 rounded-t-lg">
+                    <p class="text-sm text-gray-500">Signed in as</p>
+                    <p class="text-sm font-medium text-gray-800">{{ Auth::user()->email }}</p>
+                  </div>
+                  <div class="py-2 mt-2 first:pt-0 last:pb-0">
+                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                      href="#" wire:navigate>
+                      <iconify-icon icon="ph:user-bold" class="text-lg"></iconify-icon>
+                      Profile
+                    </a>
+                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                      href="#">
+                      <iconify-icon icon="ant-design:setting-outlined" class="text-lg"></iconify-icon>
+                      Settings
+                    </a>
+                    <form action="/logout"
+                      class="w-full px-3 py-2 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+                      <button type="submit" class="flex w-full items-center gap-x-3.5 ">
+                        <iconify-icon icon="material-symbols:logout" class="text-lg"></iconify-icon>
+                        Logout
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            @endauth
           </div>
         </div>
       </nav>
@@ -59,8 +94,12 @@
   </div>
 
 
+  @livewireScripts
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <x-livewire-alert::scripts />
+
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
-  <script></script>
+  @stack('js')
 
 </body>
 

@@ -16,9 +16,9 @@ class DetailProduk extends Component
   public function render()
   {
     $dataIcon = [
-      ['icon' => '<iconify-icon icon="ic:sharp-home"></iconify-icon>'],
-      ['icon' => '<iconify-icon icon="ic:sharp-home"></iconify-icon>'],
-      ['icon' => '<iconify-icon icon="ic:sharp-home"></iconify-icon>'],
+      ['icon' => '<iconify-icon icon="carbon:favorite"></iconify-icon>'],
+      ['icon' => '<iconify-icon icon="bi:cart"></iconify-icon>'],
+      ['icon' => '<iconify-icon icon="mdi:eye"></iconify-icon>'],
     ];
     return view('livewire.pages.detail-produk', [
       'datas' => $dataIcon

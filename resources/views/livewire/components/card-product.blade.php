@@ -1,6 +1,6 @@
 <div class="shadow-md card-product rounded-xl group">
   <a href="#" class="inline">
-    <div class="overflow-hidden bg-slate-200 rounded-xl h-96 img-product">
+    <div class="h-56 overflow-hidden bg-slate-200 rounded-xl img-product">
       <img src="{{ $image }}" alt="product"
         class="w-full transition duration-500 ease-linear group-hover:scale-110">
     </div>
@@ -20,12 +20,12 @@
       <div class="text-xl font-semibold text-slate-800">Rp. {{ $price }}</div>
       <div class="flex mt-3">
         <div class="basis-8/12 me-2">
-          <a href="" class="flex items-center justify-center w-full h-12 text-white bg-blue-500 rounded-lg">Buy
+          <a href="" class="flex items-center justify-center w-full h-12 text-white rounded-lg bg-primaryBg">Buy
             Now</a>
         </div>
         <div class="basis-4/12">
           <a href=""
-            class="flex items-center justify-center w-full h-12 text-blue-500 border border-blue-500 rounded-lg"><iconify-icon
+            class="flex items-center justify-center w-full h-12 border rounded-lg text-primary border-primary"><iconify-icon
               icon="bi:cart" class="text-2xl"></iconify-icon></a>
         </div>
       </div>

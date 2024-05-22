@@ -179,15 +179,9 @@
               Bag
             </a>
           </div>
-<<<<<<< HEAD
-        </a>
-        <a class="font-medium text-slate-600 hover:text-gray-400" href="/product" wire:navigate>Product</a>
-        <a class="font-medium text-slate-600 hover:text-gray-400" href="/About" wire:navigate>About</a>
-=======
         </div>
-        <a class="font-medium text-slate-600 hover:text-gray-400" href="#">Product</a>
+        <a class="font-medium text-slate-600 hover:text-gray-400" href="/product" wire:navigate>Product</a>
         <a class="font-medium text-slate-600 hover:text-gray-400" href="/about" wire:navigate>About</a>
->>>>>>> 4340e0c312be5860a1719b71d64cca1016c8ab48
         <a class="font-medium text-slate-600 hover:text-gray-400" href="/contact" wire:navigate>Contact</a>
         @guest
           <a class="font-medium text-slate-600 hover:text-gray-400 lg:hidden" href="/login" wire:navigate>Login</a>

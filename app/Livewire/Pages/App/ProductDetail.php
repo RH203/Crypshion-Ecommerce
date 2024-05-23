@@ -30,25 +30,20 @@ class ProductDetail extends Component
 
         $this->destroySession();
 
-        // Gunakan ID sebagai bagian dari kunci session
         $product = session('product_' . $this->id);
 
         if ($product) {
             $this->product = $product;
         } else {
-            // Jika tidak ada data di session, ambil data dari database dan simpan ke session
             $product = Product::findOrFail($this->id);
 
-            // Decode JSON fields
             $product->images = json_decode($product->images, true) ?? [];
             $product->prices = json_decode($product->prices, true) ?? [];
             $product->sizes = json_decode($product->sizes, true) ?? [];
             $product->colors = json_decode($product->colors, true) ?? [];
 
-            // Get the first image and price
             $product->first_image = $product->images[0] ?? null;
 
-            // Get the lowest and highest price
             if (!empty($product->prices)) {
                 $prices = array_values($product->prices);
                 $product->lowest_price = min($prices);
@@ -63,7 +58,6 @@ class ProductDetail extends Component
             $this->product = $product;
         }
     }
-
 
     public function selectSize($size)
     {

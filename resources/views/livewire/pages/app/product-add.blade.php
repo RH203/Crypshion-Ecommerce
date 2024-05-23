@@ -39,7 +39,8 @@
           </div>
 
           <div class="mb-4">
-            <label for="" class="block mb-4 text-slate-500">Size / Type</label>
+            <label for=""
+              class="block mb-4 text-slate-500">{{ $category_id == 5 || $category_id == 6 ? 'Price' : 'Size / Type' }}</label>
             {{-- Size T-Shirt start  --}}
             @if ($category_id == 1 || $category_id == 4)
               <div class="flex flex-wrap gap-2 mb-5">
@@ -84,11 +85,26 @@
             {{-- Size shoe end  --}}
 
             {{-- Size had start  --}}
-            @if ($category_id == 6 || $category_id == 5)
+            @if ($category_id == 5)
               <div class="flex flex-wrap gap-2 mb-5">
-                @foreach (['No Size'] as $size)
+                @foreach (['5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '19'] as $size)
                   <div class="relative mb-3">
-                    <input type="checkbox" name="sizes" wire:model="sizes" id="{{ $size }}"
+                    <input type="checkbox" name="sizes" wire:model.live="sizes" id="{{ $size }}"
+                      value="{{ $size }}" class="absolute right-1">
+                    <label for="{{ $size }}"
+                      class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">{{ $size }}</label>
+                  </div>
+                @endforeach
+              </div>
+            @endif
+            {{-- Size had end  --}}
+
+            {{-- Size had start  --}}
+            @if ($category_id == 6)
+              <div class="flex flex-wrap gap-2 mb-5">
+                @foreach (['XS', 'S', 'M', 'L', 'XL', 'XXL'] as $size)
+                  <div class="relative mb-3">
+                    <input type="checkbox" name="sizes" wire:model.live="sizes" id="{{ $size }}"
                       value="{{ $size }}" class="absolute right-1">
                     <label for="{{ $size }}"
                       class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">{{ $size }}</label>
@@ -109,7 +125,7 @@
             </div>
             <ul class="flex flex-wrap mt-2 space-x-2">
               @foreach ($colors as $index => $tag)
-                <li class="flex items-center px-2 py-1 space-x-1 bg-gray-200 rounded-lg">
+                <li class="flex items-center px-2 py-1 mb-2 space-x-1 bg-gray-200 rounded-lg">
                   <span>{{ $tag }}</span>
                   <button type="button" wire:click="removeTag({{ $index }})"
                     class="text-gray-500 hover:text-gray-700">
@@ -137,8 +153,8 @@
               <div class="grid grid-cols-8 gap-2">
                 @if ($images)
                   @foreach ($images as $image)
-                    <div class="overflow-hidden rounded-md bg-slate-300">
-                      <img src="{{ $image->temporaryUrl() }}" class="w-full" alt="Preview">
+                    <div class="h-20 overflow-hidden rounded-md bg-slate-300">
+                      <img src="{{ $image->temporaryUrl() }}" class="object-cover w-full h-full" alt="Preview">
                     </div>
                   @endforeach
                 @endif

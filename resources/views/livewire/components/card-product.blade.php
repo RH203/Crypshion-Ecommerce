@@ -2,7 +2,7 @@
   <a href="{{ $url }}" wire:navigate class="inline">
     <div class="h-56 overflow-hidden bg-slate-200 rounded-xl img-product">
       <img src="{{ $image }}" alt="product"
-        class="w-full transition duration-500 ease-linear group-hover:scale-110">
+        class="object-cover w-full h-full transition duration-500 ease-linear group-hover:scale-110">
     </div>
     <div class="p-4 content">
       <h4 class="text-sm font-semibold text-slate-800">{{ $title }}</h4>

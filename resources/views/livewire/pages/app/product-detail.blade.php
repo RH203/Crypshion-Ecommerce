@@ -61,10 +61,10 @@
         @endif
       </div>
 
-      <form wire:submit.prevent='selectSize' class="flex flex-wrap my-4">
+      <form wire:submit.prevent='selectSize' class="flex flex-wrap mt-4">
         @if (is_array(session('product_' . $id . '.prices')))
           @foreach (session('product_' . $id . '.prices') as $size => $price)
-            <div>
+            <div class="mb-3">
               <input type="radio" name="size" id="{{ $size }}" value="{{ $price }}"
                 wire:model.live="size" class="hidden">
               <label for="{{ $size }}"
@@ -78,10 +78,10 @@
 
 
 
-      <form wire:submit.prevent='selectColor' class="flex flex-wrap my-4">
+      <form wire:submit.prevent='selectColor' class="flex flex-wrap">
         @if (is_array(session('product_' . $id . '.colors')))
           @foreach (session('product_' . $id . '.colors') as $color)
-            <div>
+            <div class="mb-3">
               <input type="radio" name="color" id="{{ $color }}" value="{{ $color }}"
                 wire:model.live="color" class="hidden">
               <label for="{{ $color }}"

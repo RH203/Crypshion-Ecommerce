@@ -1,4 +1,4 @@
-<div>
+<div class="mb-20">
   <livewire:components.breadcrumb page="Products" />
 
   <section class="flex items-center justify-between mb-5">
@@ -15,28 +15,14 @@
 
 
   <section class="">
-    <div class="grid grid-cols-3 gap-5">
-
-      <livewire:components.card-product image="/img/product/img-9.jpg" title="Baju Renang"
-        description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-        price="500.000" />
-      <livewire:components.card-product image="/img/product/img-9.jpg" title="Baju Renang"
-        description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-        price="500.000" />
-      <livewire:components.card-product image="/img/product/img-9.jpg" title="Baju Renang"
-        description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-        price="500.000" />
-      <livewire:components.card-product image="/img/product/img-9.jpg" title="Baju Renang"
-        description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-        price="500.000" />
+    <div class="grid grid-cols-4 gap-5">
+      @foreach ($products as $product)
+        <livewire:components.card-product
+          image="{{ isset($product->first_image) ? asset('storage/' . $product->first_image) : '' }}"
+          title="{{ Str::limit($product->title, 55) }}" description="{{ Str::limit($product->description, 64) }}"
+          price="{{ isset($product->first_price) ? number_format($product->first_price, 0, ',', '.') : '' }}"
+          url="/app/products/{{ $product->id }}/show" />
+      @endforeach
 
     </div>
   </section>

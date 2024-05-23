@@ -9,6 +9,12 @@
 input[type="radio"]:checked ~ .border-label {
     @apply border-blue-600;
 }
+
+input[type="radio"]:checked ~ .border-label-size , 
+input[type="radio"]:checked ~ .border-label-color{
+  @apply text-white border-0 bg-primaryBg;
+}
+
 input[type="checkbox"]:checked ~ .label-size {
     @apply border-blue-600;
 }
@@ -86,16 +92,59 @@ input[type="checkbox"]:checked ~ .label-size {
 
 /* Scrollbar Notification */
 
-.notification-menu::-webkit-scrollbar {
+.scrollbar-menu::-webkit-scrollbar {
     width: 4px;
+    height: 4px;
 }
 
-.notification-menu::-webkit-scrollbar-track {
+.scrollbar-menu::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 10px;
 }
 
-.notification-menu::-webkit-scrollbar-thumb {
-    @apply bg-blue-500;
+.scrollbar-menu::-webkit-scrollbar-thumb {
+    @apply bg-primaryBg;
     border-radius: 10px;
 }
+
+
+/* Tag input */
+/* 
+::selection{
+    color: #fff;
+    background: #5372F0;
+  }
+.content ul{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 7px;
+    margin: 12px 0;
+    border-radius: 5px;
+    border: 1px solid #a6a6a6;
+  }
+  .content ul  li{
+    color: #333;
+    margin: 4px 3px;
+    list-style: none;
+    border-radius: 5px;
+    background: #F2F2F2;
+    padding: 5px 8px 5px 10px;
+    border: 1px solid #e3e1e1;
+  }
+  .content ul li i{
+    height: 20px;
+    width: 20px;
+    color: #808080;
+    margin-left: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    background: #dfdfdf;
+    justify-content: center;
+  }
+  .content ul input{
+    flex: 1;
+    padding: 5px;
+    border: none;
+    outline: none;
+  }   */

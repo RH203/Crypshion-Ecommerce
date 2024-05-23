@@ -86,14 +86,10 @@
 
     {{-- Filter and search star --}}
     <section class="my-12">
-      <div class="flex items-center justify-between">
-        <div>
-          Result 100 view
-        </div>
-
+      <div class="flex items-center justify-end">
         <div class="relative">
           <input type="search" name="search" id=""
-            class="px-3 py-2 pl-10 border-2 rounded-lg border-primary w-80" placeholder="Search...">
+            class="w-full px-3 py-2 pl-10 border-2 rounded-lg border-primary md:w-80" placeholder="Search...">
           <iconify-icon icon="uil:search" class="absolute text-2xl left-3 top-2 text-slate-500"></iconify-icon>
         </div>
       </div>
@@ -102,7 +98,7 @@
 
     {{-- Product List --}}
     <section class="">
-      <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+      <div class="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-5">
         <livewire:components.card-product image="/img/product/img-1.png" title="Baju Renang"
           description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
             ipsum

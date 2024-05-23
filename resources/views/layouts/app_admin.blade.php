@@ -17,6 +17,8 @@
   <!-- Favicon -->
   <link rel="icon" href="/img/logo/logo.ico" type="image/x-icon">
 
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/thinline.css">
+
   {{-- Font Google Poppins --}}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,6 +99,10 @@
   @livewireScripts
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <x-livewire-alert::scripts />
+
+  <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
 
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
   @stack('js')

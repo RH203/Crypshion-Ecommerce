@@ -21,7 +21,7 @@
           </button>
 
           <div
-            class="hs-dropdown-menu notification-menu z-10 transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 h-64 overflow-auto hidden w-full md:w-96 bg-white shadow-md rounded-lg p-2 mt-2 divide-y divide-gray-200"
+            class="hs-dropdown-menu scrollbar-menu z-10 transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 h-64 overflow-auto hidden w-full md:w-96 bg-white shadow-md rounded-lg p-2 mt-2 divide-y divide-gray-200"
             aria-labelledby="hs-dropdown-with-icons">
             <div class="py-2 first:pt-0 last:pb-0">
               <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
@@ -44,6 +44,26 @@
                   </div>
                 </div>
 
+              </a>
+              <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
+                href="#">
+                <div class="flex items-center">
+                  <iconify-icon icon="ph:package" class="text-4xl text-blue-500"></iconify-icon>
+                  <div class="ms-3">
+                    <h4 class="font-semibold">Packaged</h4>
+                    Your order has been packed by the seller
+                  </div>
+                </div>
+              </a>
+              <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
+                href="#">
+                <div class="flex items-center">
+                  <iconify-icon icon="ph:package" class="text-4xl text-blue-500"></iconify-icon>
+                  <div class="ms-3">
+                    <h4 class="font-semibold">Packaged</h4>
+                    Your order has been packed by the seller
+                  </div>
+                </div>
               </a>
               <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
                 href="#">

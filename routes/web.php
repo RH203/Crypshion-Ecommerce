@@ -10,6 +10,7 @@ use App\Livewire\Pages\App\Feedback;
 use App\Livewire\Pages\App\HelpCenter;
 use App\Livewire\Pages\App\Orders;
 use App\Livewire\Pages\App\ProductAdd;
+use App\Livewire\Pages\App\ProductDetail;
 use App\Livewire\Pages\App\ProductEdit;
 use App\Livewire\Pages\App\Products;
 use App\Livewire\Pages\Cart;
@@ -58,6 +59,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/products', Products::class);
     Route::get('/products/create', ProductAdd::class);
     Route::get('/products/edit', ProductEdit::class);
+    Route::get('/products/{id}/show', ProductDetail::class);
     Route::get('/orders', Orders::class);
     Route::get('/category', Category::class);
     Route::get('/feedback', Feedback::class);

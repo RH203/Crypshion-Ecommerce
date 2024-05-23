@@ -2,7 +2,7 @@
   <livewire:components.breadcrumb page="Add Products" />
 
   <section class="my-10">
-    <form wire:submit.prevent='store' method="POST">
+    <form wire:submit.prevent='store' method="POST" enctype="multipart/form-data">
       <div class="grid grid-cols-3 gap-5">
         <div class="col-span-2 p-5 bg-white rounded-lg shadow-lg">
           <div class="mb-4">
@@ -26,9 +26,8 @@
 
           <div class="mb-4">
             <label for="category" class="text-slate-500">Category</label>
-            <select name="category_id" wire:model='category_id' id="category"
+            <select name="category_id" wire:model.live='category_id' id="category"
               class="w-full px-3 py-2 bg-white border rounded-lg">
-              {{-- <option value="" selected disabled>Choose Category</option> --}}
               @foreach ($categories as $category)
                 <option value="{{ $category->id }}">{{ $category->title }}</option>
               @endforeach
@@ -40,85 +39,143 @@
           </div>
 
           <div class="mb-4">
-            <label for="" class="block mb-4 text-slate-500">Size</label>
+            <label for="" class="block mb-4 text-slate-500">Size / Type</label>
             {{-- Size T-Shirt start  --}}
-            <div class="flex gap-2 mb-5">
-              @foreach (['S', 'M', 'L', 'XL', 'XXL', 'XXXL'] as $size)
-                <div class="relative">
-                  <input type="checkbox" name="sizes" wire:model="sizes" id="{{ $size }}"
-                    value="{{ $size }}" class="absolute right-1">
-                  <label for="{{ $size }}"
-                    class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">{{ $size }}</label>
-                </div>
-              @endforeach
-            </div>
+            @if ($category_id == 1 || $category_id == 4)
+              <div class="flex flex-wrap gap-2 mb-5">
+                @foreach (['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'] as $size)
+                  <div class="relative mb-3">
+                    <input type="checkbox" name="sizes" wire:model.live="sizes" id="{{ $size }}"
+                      value="{{ $size }}" class="absolute right-1">
+                    <label for="{{ $size }}"
+                      class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">{{ $size }}</label>
+                  </div>
+                @endforeach
+              </div>
+            @endif
             {{-- Size T-Shirt end  --}}
+            {{-- Size Trousers start  --}}
+            @if ($category_id == 2)
+              <div class="flex flex-wrap gap-2 mb-5">
+                @foreach (['26 - 27', '28 - 29', '30 - 31', '32 - 34', '34 - 36', '38 - 40', '42 - 44', '46 - 48'] as $size)
+                  <div class="relative mb-3">
+                    <input type="checkbox" name="sizes" wire:model.live="sizes" id="{{ $size }}"
+                      value="{{ $size }}" class="absolute right-1">
+                    <label for="{{ $size }}"
+                      class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">{{ $size }}</label>
+                  </div>
+                @endforeach
+              </div>
+            @endif
+            {{-- Size Trousers end  --}}
+            {{-- Size shoe start  --}}
+            @if ($category_id == 3)
+              <div class="flex flex-wrap gap-2 mb-5">
+                @foreach (['33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46'] as $size)
+                  <div class="relative mb-3">
+                    <input type="checkbox" name="sizes" wire:model.live="sizes" id="{{ $size }}"
+                      value="{{ $size }}" class="absolute right-1">
+                    <label for="{{ $size }}"
+                      class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">{{ $size }}</label>
+                  </div>
+                @endforeach
+              </div>
+            @endif
+            {{-- Size shoe end  --}}
 
-
-
-            {{-- Size Shoe start  --}}
-            {{-- <div class="flex flex-wrap gap-2 mb-5">
-              <div class="relative mb-3">
-                <input type="checkbox" name="" id="35" class="absolute right-1">
-                <label for="35"
-                  class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">35</label>
+            {{-- Size had start  --}}
+            @if ($category_id == 6 || $category_id == 5)
+              <div class="flex flex-wrap gap-2 mb-5">
+                @foreach (['No Size'] as $size)
+                  <div class="relative mb-3">
+                    <input type="checkbox" name="sizes" wire:model="sizes" id="{{ $size }}"
+                      value="{{ $size }}" class="absolute right-1">
+                    <label for="{{ $size }}"
+                      class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">{{ $size }}</label>
+                  </div>
+                @endforeach
               </div>
-              <div class="relative mb-3">
-                <input type="checkbox" name="" id="36" class="absolute right-1">
-                <label for="36"
-                  class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">36</label>
-              </div>
-              <div class="relative mb-3">
-                <input type="checkbox" name="" id="37" class="absolute right-1">
-                <label for="37"
-                  class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">37</label>
-              </div>
-              <div class="relative mb-3">
-                <input type="checkbox" name="" id="38" class="absolute right-1">
-                <label for="38"
-                  class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">38</label>
-              </div>
-              <div class="relative mb-3">
-                <input type="checkbox" name="" id="39" class="absolute right-1">
-                <label for="39"
-                  class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">39</label>
-              </div>
-              <div class="relative mb-3">
-                <input type="checkbox" name="" id="40" class="absolute right-1">
-                <label for="40"
-                  class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">40</label>
-              </div>
-              <div class="relative mb-3">
-                <input type="checkbox" name="" id="41" class="absolute right-1">
-                <label for="41"
-                  class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">41</label>
-              </div>
-              <div class="relative mb-3">
-                <input type="checkbox" name="" id="42" class="absolute right-1">
-                <label for="42"
-                  class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">42</label>
-              </div>
-              <div class="relative mb-3">
-                <input type="checkbox" name="" id="43" class="absolute right-1">
-                <label for="43"
-                  class="px-8 py-1 font-light border-2 label-size hover:cursor-pointer checked:border-blue-600">43</label>
-              </div>
-            </div> --}}
-            {{-- Size Shoe end  --}}
+            @endif
+            {{-- Size had end  --}}
           </div>
+          <div class="mb-4">
+            <label for="title" class="text-slate-500">Color</label>
+            <div class="flex items-center gap-2">
+              <input type="text" wire:model.debounce.300ms="newTag" wire:keydown.enter="addTag"
+                class="w-full px-3 py-2 bg-white border rounded-lg" placeholder="Press enter to continue..."
+                onkeydown="return event.key !== 'Enter';">
+              {{-- <button type="button" wire:click="addTag" class="px-2 py-1 text-white bg-blue-500 rounded-lg">Add
+                Tag</button> --}}
+            </div>
+            <ul class="flex flex-wrap mt-2 space-x-2">
+              @foreach ($colors as $index => $tag)
+                <li class="flex items-center px-2 py-1 space-x-1 bg-gray-200 rounded-lg">
+                  <span>{{ $tag }}</span>
+                  <button type="button" wire:click="removeTag({{ $index }})"
+                    class="text-gray-500 hover:text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                      stroke="currentColor" class="w-4 h-4">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </li>
+              @endforeach
+            </ul>
+          </div>
+
+
+          <div class="mb-4">
+            <label for="image" class="text-slate-500">Image</label>
+            <input type="file" name="images" multiple wire:model='images' id="image"
+              class="w-full px-3 py-2 bg-white border rounded-lg">
+            @error('images')
+              <small class="italic text-red-600"><iconify-icon icon="quill:warning-alt"></iconify-icon>
+                {{ $message }}</small>
+            @enderror
+
+            <div class="mt-2">
+              <div class="grid grid-cols-8 gap-2">
+                @if ($images)
+                  @foreach ($images as $image)
+                    <div class="overflow-hidden rounded-md bg-slate-300">
+                      <img src="{{ $image->temporaryUrl() }}" class="w-full" alt="Preview">
+                    </div>
+                  @endforeach
+                @endif
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-5">
+            <label for="stock" class="text-slate-500">Stock Product</label>
+            <input type="number" name="stock" wire:model='stock' id="stock"
+              class="w-full px-3 py-2 bg-white border rounded-lg">
+            @error('stock')
+              <small class="italic text-red-600"><iconify-icon icon="quill:warning-alt"></iconify-icon>
+                {{ $message }}</small>
+            @enderror
+          </div>
+
 
           <div class="mb-4">
             <button type="submit" class="px-5 py-2 text-white rounded-md bg-primaryBg">Save</button>
           </div>
-
-
         </div>
-        <div class="bg-white rounded-lg shadow-lg">
 
+
+        <div class="p-5 bg-white rounded-lg shadow-lg">
+          <header class="mb-4 text-lg font-semibold">
+            <h3>Product Size Price</h3>
+          </header>
+          @foreach ($sizes as $size)
+            <div class="mb-3">
+              <label for="price_{{ $size }}" class="text-slate-500">Price size {{ $size }}</label>
+              <input type="number" wire:model="prices.{{ $size }}" name="price_{{ $size }}"
+                id="price_{{ $size }}" class="w-full px-3 py-2 bg-white border rounded-lg">
+            </div>
+          @endforeach
         </div>
       </div>
     </form>
   </section>
-
-
 </div>

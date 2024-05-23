@@ -76,7 +76,7 @@
           <h4 class="text-lg font-normal md:text-2xl text-slate-500">Choose Your Collection</h4>
           <h1 class="my-4 text-2xl font-bold text-black uppercase md:text-4xl">Category Products</h1>
         </header>
-        <div class="grid grid-cols-2 gap-5 lg:grid-cols-4 xl:grid-cols-6 md:grid-cols-3 ">
+        <div class="grid grid-cols-2 gap-2 md:gap-5 lg:grid-cols-4 xl:grid-cols-6 md:grid-cols-3 ">
           <livewire:components.card-category image="/img/category/img-1.png" title="T-Shirt" />
           <livewire:components.card-category image="/img/category/img-2.png" title="Trousers" />
           <livewire:components.card-category image="/img/category/img-6.png" title="Shoe" />
@@ -99,7 +99,7 @@
           <h1 class="my-4 text-2xl font-bold text-black uppercase md:text-4xl">BESTSELLER PRODUCTS</h1>
           <p class="text-sm font-normal md:text-md text-slate-500">Problems trying to resolve the conflict between </p>
         </header>
-        <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <div class="grid grid-cols-2 gap-2 md:gap-5 md:grid-cols-2 lg:grid-cols-5">
           <livewire:components.card-product image="/img/product/img-1.png" title="Baju Renang"
             description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
           ipsum
@@ -131,6 +131,16 @@
           dolor..."
             price="500.000" />
           <livewire:components.card-product image="/img/product/img-7.png" title="Baju Renang"
+            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
+          ipsum
+          dolor..."
+            price="500.000" />
+          <livewire:components.card-product image="/img/product/img-8.png" title="Baju Renang"
+            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
+          ipsum
+          dolor..."
+            price="500.000" />
+          <livewire:components.card-product image="/img/product/img-8.png" title="Baju Renang"
             description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
           ipsum
           dolor..."

@@ -34,9 +34,14 @@
                 icon="bi:cart" class="text-lg"></iconify-icon></a>
           @endguest
           @auth
-            @if (!auth()->user()->hasRole('admin'))
-              <a href="" class="right-0 flex items-center justify-center font-bold text-black"><iconify-icon
-                  icon="bi:cart" class="text-lg"></iconify-icon></a>
+            @if (auth()->user()->hasRole('admin'))
+              <a href="#" wire:click.prevent='destroy'
+                class="right-0 flex items-center justify-center font-bold text-black"><iconify-icon
+                  icon="iconamoon:trash-light"></iconify-icon></a>
+            @else
+              <a href="{{ $urlCart }}"
+                class="right-0 flex items-center justify-center font-bold text-black"><iconify-icon icon="bi:cart"
+                  class="text-lg"></iconify-icon></a>
             @endif
           @endauth
         </div>

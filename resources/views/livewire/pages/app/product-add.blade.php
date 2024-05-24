@@ -5,29 +5,36 @@
     <form wire:submit.prevent='store' method="POST" enctype="multipart/form-data">
       <div class="grid grid-cols-3 gap-5">
         <div class="col-span-2 p-5 bg-white rounded-lg shadow-lg">
+          {{-- Title input start --}}
           <div class="mb-4">
             <label for="title" class="text-slate-500">Title Product</label>
             <input type="text" wire:model='title' name="title" id="title"
-              class="w-full px-3 py-2 bg-white border rounded-lg">
+              class="w-full px-3 py-2 bg-white border rounded-lg" required>
             @error('title')
               <small class="italic text-red-600"><iconify-icon icon="quill:warning-alt"></iconify-icon>
                 {{ $message }}</small>
             @enderror
           </div>
+          {{-- Title input end --}}
+
+
+          {{-- Description input start --}}
           <div class="mb-4">
             <label for="description" class="text-slate-500">Description</label>
             <textarea name="description" wire:model='description' id="description" cols="30" rows="7"
-              class="w-full px-3 py-2 bg-white border rounded-lg"></textarea>
+              class="w-full px-3 py-2 bg-white border rounded-lg" required></textarea>
             @error('description')
               <small class="italic text-red-600"><iconify-icon icon="quill:warning-alt"></iconify-icon>
                 {{ $message }}</small>
             @enderror
           </div>
+          {{-- Description input end --}}
 
+          {{-- Category input start --}}
           <div class="mb-4">
             <label for="category" class="text-slate-500">Category</label>
             <select name="category_id" wire:model.live='category_id' id="category"
-              class="w-full px-3 py-2 bg-white border rounded-lg">
+              class="w-full px-3 py-2 bg-white border rounded-lg" required>
               @foreach ($categories as $category)
                 <option value="{{ $category->id }}">{{ $category->title }}</option>
               @endforeach
@@ -37,7 +44,9 @@
                   icon="quill:warning-alt"></iconify-icon>{{ $message }}</small>
             @enderror
           </div>
+          {{-- Category input end --}}
 
+          {{-- Size input start --}}
           <div class="mb-4">
             <label for=""
               class="block mb-4 text-slate-500">{{ $category_id == 5 || $category_id == 6 ? 'Price' : 'Size / Type' }}</label>
@@ -114,14 +123,16 @@
             @endif
             {{-- Size had end  --}}
           </div>
+          {{-- Size input end --}}
+
+
+          {{-- Color input start --}}
           <div class="mb-4">
             <label for="title" class="text-slate-500">Color</label>
             <div class="flex items-center gap-2">
               <input type="text" wire:model.debounce.300ms="newTag" wire:keydown.enter="addTag"
                 class="w-full px-3 py-2 bg-white border rounded-lg" placeholder="Press enter to continue..."
                 onkeydown="return event.key !== 'Enter';">
-              {{-- <button type="button" wire:click="addTag" class="px-2 py-1 text-white bg-blue-500 rounded-lg">Add
-                Tag</button> --}}
             </div>
             <ul class="flex flex-wrap mt-2 space-x-2">
               @foreach ($colors as $index => $tag)
@@ -138,13 +149,15 @@
               @endforeach
             </ul>
           </div>
+          {{-- Color input end --}}
 
-
+          {{-- Image input start --}}
           <div class="mb-4">
             <label for="image" class="text-slate-500">Image</label>
             <input type="file" name="images" multiple wire:model='images' id="image"
-              class="w-full px-3 py-2 bg-white border rounded-lg">
-            @error('images')
+              class="w-full px-3 py-2 bg-white border rounded-lg" accept=".png,.jpg,.jpeg" required>
+            <small class="text-xs italic">File Type : JPG, PNG, JPEG</small>
+            @error('images.*')
               <small class="italic text-red-600"><iconify-icon icon="quill:warning-alt"></iconify-icon>
                 {{ $message }}</small>
             @enderror
@@ -161,21 +174,26 @@
               </div>
             </div>
           </div>
+          {{-- Image input end --}}
 
+          {{-- Stock input start --}}
           <div class="mb-5">
             <label for="stock" class="text-slate-500">Stock Product</label>
             <input type="number" name="stock" wire:model='stock' id="stock"
-              class="w-full px-3 py-2 bg-white border rounded-lg">
+              class="w-full px-3 py-2 bg-white border rounded-lg" required>
             @error('stock')
               <small class="italic text-red-600"><iconify-icon icon="quill:warning-alt"></iconify-icon>
                 {{ $message }}</small>
             @enderror
           </div>
+          {{-- Stock input end --}}
 
-
+          {{-- Button submit start --}}
           <div class="mb-4">
             <button type="submit" class="px-5 py-2 text-white rounded-md bg-primaryBg">Save</button>
           </div>
+          {{-- Button submit end --}}
+
         </div>
 
 
@@ -183,13 +201,15 @@
           <header class="mb-4 text-lg font-semibold">
             <h3>Product Size Price</h3>
           </header>
+          {{-- Price input start --}}
           @foreach ($sizes as $size)
             <div class="mb-3">
               <label for="price_{{ $size }}" class="text-slate-500">Price size {{ $size }}</label>
               <input type="number" wire:model="prices.{{ $size }}" name="price_{{ $size }}"
-                id="price_{{ $size }}" class="w-full px-3 py-2 bg-white border rounded-lg">
+                id="price_{{ $size }}" class="w-full px-3 py-2 bg-white border rounded-lg" required>
             </div>
           @endforeach
+          {{-- Price input end --}}
         </div>
       </div>
     </form>

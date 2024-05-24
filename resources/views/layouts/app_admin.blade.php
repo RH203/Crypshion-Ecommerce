@@ -31,6 +31,11 @@
 </head>
 
 <body class="bg-[#FAFAFA] overflow-x-hidden">
+  {{-- <div wire:offline>
+    <div class="alert alert-warning">
+      Anda sedang offline. Silakan periksa koneksi internet Anda.
+    </div>
+  </div> --}}
 
   <div class="flex">
     @livewire('components.sidebar')
@@ -89,7 +94,6 @@
       </nav>
 
       <div class="px-10">
-
         {{ $slot }}
       </div>
     </main>

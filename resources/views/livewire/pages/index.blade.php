@@ -10,24 +10,22 @@
           <div class="hs-carousel-slide">
             <div class="flex justify-center h-full">
               <div
-                class="relative self-center h-full text-4xl text-gray-800 transition duration-700 md:h-screen md:w-full dark:text-white">
-                <img src="/img/carousel-inner-1.png" alt="" class="h-full md:h-auto md:w-full">
+                class="relative self-center w-full h-full text-4xl text-gray-800 transition duration-700 dark:text-white">
+                <img src="/img/carousel-inner-1.png" alt="" class="object-cover w-full h-full">
               </div>
             </div>
           </div>
           <div class="hs-carousel-slide">
             <div class="flex justify-center h-full ">
-              <span
-                class="self-center h-full text-4xl text-gray-800 transition duration-700 md:h-scree md:w-full dark:text-white">
-                <img src="/img/carousel-inner-2.png" alt="" class="h-full md:h-auto md:w-full">
+              <span class="self-center w-full h-full text-4xl text-gray-800 transition duration-700 dark:text-white">
+                <img src="/img/carousel-inner-2.png" alt="" class="object-cover w-full h-full">
               </span>
             </div>
           </div>
           <div class="hs-carousel-slide">
             <div class="flex justify-center h-full">
-              <span
-                class="self-center h-full text-4xl text-gray-800 transition duration-700 md:h-screen md:w-full dark:text-white">
-                <img src="/img/carousel-inner-3.png" alt="" class="h-full md:h-auto md:w-full">
+              <span class="self-center w-full h-full text-4xl text-gray-800 transition duration-700 dark:text-white">
+                <img src="/img/carousel-inner-3.png" alt="" class="object-cover w-full h-full">
               </span>
             </div>
           </div>
@@ -104,52 +102,52 @@
             description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
           ipsum
           dolor..."
-            price="500.000" />
+            price="500.000" productId="1" />
           <livewire:components.card-product image="/img/product/img-2.png" title="Baju Kantor"
             description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
           ipsum
           dolor..."
-            price="200.000" />
+            price="200.000" productId="2" />
           <livewire:components.card-product image="/img/product/img-3.png" title="Baju Renang"
             description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
           ipsum
           dolor..."
-            price="500.000" />
+            price="500.000" productId="3" />
           <livewire:components.card-product image="/img/product/img-4.png" title="Baju Renang"
             description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
           ipsum
           dolor..."
-            price="500.000" />
+            price="500.000" productId="1" />
           <livewire:components.card-product image="/img/product/img-5.png" title="Baju Renang"
             description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
           ipsum
           dolor..."
-            price="500.000" />
+            price="500.000" productId="1" />
           <livewire:components.card-product image="/img/product/img-6.png" title="Baju Renang"
             description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
           ipsum
           dolor..."
-            price="500.000" />
+            price="500.000" productId="1" />
           <livewire:components.card-product image="/img/product/img-7.png" title="Baju Renang"
             description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
           ipsum
           dolor..."
-            price="500.000" />
+            price="500.000" productId="1" />
           <livewire:components.card-product image="/img/product/img-8.png" title="Baju Renang"
             description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
           ipsum
           dolor..."
-            price="500.000" />
+            price="500.000" productId="1" />
           <livewire:components.card-product image="/img/product/img-8.png" title="Baju Renang"
             description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
           ipsum
           dolor..."
-            price="500.000" />
+            price="500.000" productId="1" />
           <livewire:components.card-product image="/img/product/img-8.png" title="Baju Renang"
             description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
           ipsum
           dolor..."
-            price="500.000" />
+            price="500.000" productId="1" />
         </div>
       </div>
     </section>

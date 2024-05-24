@@ -19,10 +19,9 @@ class CardProduct extends Component
   public $price;
   public $rating;
   public $url;
-  public $urlDelete;
-  public $urlCart;
 
-  public function mount($productId, $image, $title, $description, $price, $rating = 3.5, $url = '#', $urlDelete = '#', $urlCart = '#')
+
+  public function mount($productId = null, $image, $title, $description, $price, $rating = 3.5, $url = '#')
   {
     $this->productId = $productId;
     $this->image = $image;
@@ -31,8 +30,6 @@ class CardProduct extends Component
     $this->price = $price;
     $this->rating = $rating;
     $this->url = $url;
-    $this->urlDelete = $urlDelete;
-    $this->urlCart = $urlCart;
   }
 
 

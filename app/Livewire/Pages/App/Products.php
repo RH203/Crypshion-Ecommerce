@@ -4,6 +4,7 @@ namespace App\Livewire\Pages\App;
 
 use App\Models\app\Product;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
@@ -14,6 +15,7 @@ class Products extends Component
 {
     public $products;
 
+    #[On('product-deleted')] // Listenig event product delete
     public function mount()
     {
         $this->products = Product::all()->map(function ($product) {
@@ -26,6 +28,8 @@ class Products extends Component
             return $product;
         });
     }
+
+
 
     public function render()
     {

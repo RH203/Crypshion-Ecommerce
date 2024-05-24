@@ -21,6 +21,7 @@ class ProductDetail extends Component
 
     public function mount($id)
     {
+
         $this->id = $id;
         $this->loadProduct();
     }
@@ -29,6 +30,7 @@ class ProductDetail extends Component
     {
 
         $this->destroySession();
+
 
         $product = session('product_' . $this->id);
 
@@ -54,6 +56,8 @@ class ProductDetail extends Component
             }
 
             session(['product_' . $this->id => $product]);
+
+
 
             $this->product = $product;
         }
@@ -84,12 +88,12 @@ class ProductDetail extends Component
         session()->forget('showImagePath');
         session()->forget('size');
         session()->forget('color');
+        session()->forget('success');
     }
 
 
     public function render()
     {
-
         return view('livewire.pages.app.product-detail', [
             'product' => $this->product,
             'size' => $this->size

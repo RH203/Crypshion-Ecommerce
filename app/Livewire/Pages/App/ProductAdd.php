@@ -38,10 +38,10 @@ class ProductAdd extends Component
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'category_id' => 'required|exists:categories,id',
-            'sizes' => 'array',
+            'sizes' => 'required|array',
             'prices' => 'array',
             'colors' => 'array',
-            'images.*' => 'image|max:1024',
+            'images.*' => 'required|image|max:1024',
             'stock' => 'required'
         ]);
 

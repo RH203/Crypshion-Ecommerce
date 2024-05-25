@@ -75,7 +75,7 @@
           <h1 class="my-4 text-2xl font-bold text-black uppercase md:text-4xl">Category Products</h1>
         </header>
         <div class="grid grid-cols-2 gap-2 md:gap-5 lg:grid-cols-4 xl:grid-cols-6 md:grid-cols-3 ">
-          <livewire:components.card-category image="/img/category/img-1.png" title="T-Shirt" />
+          <livewire:components.card-category image="/img/category/img-1.png" title="Clothes" />
           <livewire:components.card-category image="/img/category/img-2.png" title="Trousers" />
           <livewire:components.card-category image="/img/category/img-6.png" title="Shoe" />
           <livewire:components.card-category image="/img/category/img-4.png" title="Jacket" />
@@ -103,7 +103,7 @@
             <livewire:components.card-product image="{{ asset('storage/' . $product->first_image) }}"
               title="{{ Str::limit($product->title, 45) }}" description="{{ Str::limit($product->description, 60) }}"
               price="{{ isset($product->first_price) ? number_format($product->first_price, 0, ',', '.') : '' }}"
-              productId="{{ $product->id }}" />
+              productId="{{ $product->id }}" url="/products/{{ $product->id }}/show" />
           @endforeach
         </div>
 

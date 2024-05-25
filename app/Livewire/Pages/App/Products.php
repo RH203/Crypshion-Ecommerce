@@ -3,6 +3,7 @@
 namespace App\Livewire\Pages\App;
 
 use App\Models\app\Product;
+use App\Trait\Products as TraitProducts;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
@@ -13,23 +14,14 @@ use Livewire\Component;
 
 class Products extends Component
 {
+    use TraitProducts;
     public $products;
 
     #[On('product-deleted')] // Listenig event product delete
     public function mount()
     {
-        $this->products = Product::all()->map(function ($product) {
-            $product->images = json_decode($product->images, true);
-            $product->prices = json_decode($product->prices, true);
-            $sizes = array_keys($product->prices);
-            $first_price = $product->prices[$sizes[0]];
-            $product->first_image = isset($product->images[0]) ? $product->images[0] : null;
-            $product->first_price = $first_price;
-            return $product;
-        });
+        $this->products = $this->getProducts(null);
     }
-
-
 
     public function render()
     {

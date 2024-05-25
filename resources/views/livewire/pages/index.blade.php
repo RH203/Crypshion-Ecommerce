@@ -98,56 +98,19 @@
           <p class="text-sm font-normal md:text-md text-slate-500">Problems trying to resolve the conflict between </p>
         </header>
         <div class="grid grid-cols-2 gap-2 md:gap-5 md:grid-cols-2 lg:grid-cols-5">
-          <livewire:components.card-product image="/img/product/img-1.png" title="Baju Renang"
-            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-            price="500.000" productId="1" />
-          <livewire:components.card-product image="/img/product/img-2.png" title="Baju Kantor"
-            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-            price="200.000" productId="2" />
-          <livewire:components.card-product image="/img/product/img-3.png" title="Baju Renang"
-            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-            price="500.000" productId="3" />
-          <livewire:components.card-product image="/img/product/img-4.png" title="Baju Renang"
-            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-            price="500.000" productId="1" />
-          <livewire:components.card-product image="/img/product/img-5.png" title="Baju Renang"
-            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-            price="500.000" productId="1" />
-          <livewire:components.card-product image="/img/product/img-6.png" title="Baju Renang"
-            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-            price="500.000" productId="1" />
-          <livewire:components.card-product image="/img/product/img-7.png" title="Baju Renang"
-            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-            price="500.000" productId="1" />
-          <livewire:components.card-product image="/img/product/img-8.png" title="Baju Renang"
-            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-            price="500.000" productId="1" />
-          <livewire:components.card-product image="/img/product/img-8.png" title="Baju Renang"
-            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-            price="500.000" productId="1" />
-          <livewire:components.card-product image="/img/product/img-8.png" title="Baju Renang"
-            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-            price="500.000" productId="1" />
+
+          @foreach ($products as $product)
+            <livewire:components.card-product image="{{ asset('storage/' . $product->first_image) }}"
+              title="{{ Str::limit($product->title, 45) }}" description="{{ Str::limit($product->description, 60) }}"
+              price="{{ isset($product->first_price) ? number_format($product->first_price, 0, ',', '.') : '' }}"
+              productId="{{ $product->id }}" />
+          @endforeach
+        </div>
+
+        <div class="mt-10 text-center">
+          <a href="/products"
+            class="inline-block px-8 py-4 font-bold text-white uppercase border rounded-lg bg-primaryBg">Read
+            More &rightarrow;</a>
         </div>
       </div>
     </section>

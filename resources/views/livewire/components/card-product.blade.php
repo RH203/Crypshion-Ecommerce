@@ -30,8 +30,9 @@
           </span>
 
           @guest
-            <a href="" class="right-0 flex items-center justify-center font-bold text-black"><iconify-icon
-                icon="bi:cart" class="text-lg"></iconify-icon></a>
+            <a href="/login" wire:navigate
+              class="right-0 flex items-center justify-center font-bold text-black"><iconify-icon icon="bi:cart"
+                class="text-lg"></iconify-icon></a>
           @endguest
           @auth
             @if (auth()->user()->hasRole('admin'))

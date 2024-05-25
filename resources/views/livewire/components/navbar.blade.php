@@ -213,7 +213,7 @@
             </a>
           </div>
         </div>
-        <a class="font-medium text-slate-600 hover:text-gray-400" href="/product" wire:navigate>Product</a>
+        <a class="font-medium text-slate-600 hover:text-gray-400" href="/products" wire:navigate>Product</a>
         <a class="font-medium text-slate-600 hover:text-gray-400" href="/about" wire:navigate>About</a>
         <a class="font-medium text-slate-600 hover:text-gray-400" href="/contact" wire:navigate>Contact</a>
         @guest

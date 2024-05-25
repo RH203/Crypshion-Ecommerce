@@ -30,7 +30,7 @@ Route::get('/', Index::class);
 Route::get('/about', About::class);
 Route::get('/contact', Contact::class);
 Route::get('/detail-product', DetailProduk::class);
-Route::get('/product', Product::class);
+Route::get('/products', Product::class);
 
 
 // Guest Route

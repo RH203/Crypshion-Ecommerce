@@ -11,6 +11,7 @@ export default {
             backgroundColor: {
                 primaryBg: "#23A6F0",
                 successBg: "#2DC071",
+                blueNavyBg: "#1e293b",
             },
 
             borderColor: {

@@ -17,6 +17,10 @@ use App\Livewire\Pages\ChangePassword;
 use App\Livewire\Pages\Contact;
 use App\Livewire\Pages\DetailProduk;
 use App\Livewire\Pages\HelpCenter;
+use App\Livewire\Pages\HelpCenterBotBobi;
+use App\Livewire\Pages\HelpCenterDelivery;
+use App\Livewire\Pages\HelpCenterErrorCode;
+use App\Livewire\Pages\HelpCenterPayment;
 use App\Livewire\Pages\Index;
 use App\Livewire\Pages\Profile;
 use App\Livewire\Pages\ProfileSetting;
@@ -51,7 +55,10 @@ Route::middleware(['auth', 'role:user'])->group(function () {
   Route::get('/profile/settings', ProfileSetting::class);
   Route::get('/profile/change-password', ChangePassword::class);
   Route::get('/help-center', HelpCenter::class);
-
+  Route::get('/help-center/payment', HelpCenterPayment::class);
+  Route::get('/help-center/delivery', HelpCenterDelivery::class);
+  Route::get('/help-center/error-code', HelpCenterErrorCode::class);
+  Route::get('/help-center/ask-bobi', HelpCenterBotBobi::class);
 });
 
 // Admin Route

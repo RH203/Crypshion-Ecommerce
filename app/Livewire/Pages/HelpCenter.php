@@ -56,7 +56,7 @@ class HelpCenter extends Component
         'link' => '/help-center/payment'
       ],
       [
-        'link' => '/help-center/bug-and-issues'
+        'link' => '/help-center/error-code'
       ],
       [
         'link' => '/help-center/ask-bobi'

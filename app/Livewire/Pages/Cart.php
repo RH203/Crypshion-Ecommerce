@@ -16,9 +16,16 @@ use Livewire\Component;
 class Cart extends Component
 {
 
+
+    public $selectPayment = '1';
+
+
+
     public function mount()
     {
+        // dd($this->selectPayment);
     }
+
 
     public function destroyProduct($id)
     {
@@ -32,7 +39,7 @@ class Cart extends Component
     public function render()
     {
         // Ambil semua data keranjang untuk pengguna yang sedang login
-        $datas = ModelsCart::where('user_id', Auth::id())->get();
+        $datas = ModelsCart::orderBy('id', 'desc')->where('user_id', Auth::id())->get();
 
         foreach ($datas as $data) {
             $product = Product::find($data->product_id);

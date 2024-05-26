@@ -50,6 +50,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
   Route::get('/profile', Profile::class)->name('profile');
   Route::get('/profile/settings', ProfileSetting::class);
   Route::get('/profile/change-password', ChangePassword::class);
+  Route::get('/help-center', HelpCenter::class);
 });
 
 // Admin Route

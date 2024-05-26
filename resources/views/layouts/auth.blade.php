@@ -44,6 +44,12 @@
       </div>
     </section>
   </main>
+
+
+
+  @livewireScripts
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <x-livewire-alert::scripts />
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
 </body>
 

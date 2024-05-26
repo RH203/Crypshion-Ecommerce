@@ -43,13 +43,33 @@
 
   <main class="md:container-md">
     {{ $slot }}
+
   </main>
 
   @livewire('components.footer')
 
 
+
+  @livewireScripts
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <x-livewire-alert::scripts />
+
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
 
+
+  @stack('js')
+  {{-- 
+  <script>
+    function swall() {
+      Swal.fire({
+        title: "Good job!",
+        text: "You clicked the button!",
+        icon: "success"
+      });
+    }
+  </script> --}}
 </body>
 
 </html>

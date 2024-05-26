@@ -21,41 +21,74 @@
           </button>
 
           <div
-            class="hs-dropdown-menu notification-menu z-10 transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 h-64 overflow-auto hidden w-full md:w-96 bg-white shadow-md rounded-lg p-2 mt-2 divide-y divide-gray-200"
+            class="hs-dropdown-menu scrollbar-menu z-10 transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 h-64 overflow-auto hidden w-full md:w-96 bg-white shadow-md rounded-lg p-2 mt-2 divide-y divide-gray-200"
             aria-labelledby="hs-dropdown-with-icons">
-            <div class="py-2 first:pt-0 last:pb-0">
-              <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
-                href="#">
-                <div class="flex items-center">
-                  <iconify-icon icon="gg:check-o" class="text-4xl text-green-500"></iconify-icon>
-                  <div class="ms-3">
-                    <h4 class="font-semibold">Completed</h4>
-                    Your order has arrived at its destination
+            @auth
+              <div class="py-2 first:pt-0 last:pb-0">
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
+                  href="#">
+                  <div class="flex items-center">
+                    <iconify-icon icon="gg:check-o" class="text-4xl text-green-500"></iconify-icon>
+                    <div class="ms-3">
+                      <h4 class="font-semibold">Completed</h4>
+                      Your order has arrived at its destination
+                    </div>
                   </div>
-                </div>
-              </a>
-              <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
-                href="#">
-                <div class="flex items-center">
-                  <iconify-icon icon="hugeicons:truck-delivery" class="text-4xl text-purple-500"></iconify-icon>
-                  <div class="ms-3">
-                    <h4 class="font-semibold">Delivered</h4>
-                    Your order is being delivered
+                </a>
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
+                  href="#">
+                  <div class="flex items-center">
+                    <iconify-icon icon="hugeicons:truck-delivery" class="text-4xl text-purple-500"></iconify-icon>
+                    <div class="ms-3">
+                      <h4 class="font-semibold">Delivered</h4>
+                      Your order is being delivered
+                    </div>
                   </div>
-                </div>
 
-              </a>
-              <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
-                href="#">
-                <div class="flex items-center">
-                  <iconify-icon icon="ph:package" class="text-4xl text-blue-500"></iconify-icon>
-                  <div class="ms-3">
-                    <h4 class="font-semibold">Packaged</h4>
-                    Your order has been packed by the seller
+                </a>
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
+                  href="#">
+                  <div class="flex items-center">
+                    <iconify-icon icon="ph:package" class="text-4xl text-blue-500"></iconify-icon>
+                    <div class="ms-3">
+                      <h4 class="font-semibold">Packaged</h4>
+                      Your order has been packed by the seller
+                    </div>
                   </div>
+                </a>
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
+                  href="#">
+                  <div class="flex items-center">
+                    <iconify-icon icon="ph:package" class="text-4xl text-blue-500"></iconify-icon>
+                    <div class="ms-3">
+                      <h4 class="font-semibold">Packaged</h4>
+                      Your order has been packed by the seller
+                    </div>
+                  </div>
+                </a>
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
+                  href="#">
+                  <div class="flex items-center">
+                    <iconify-icon icon="ph:package" class="text-4xl text-blue-500"></iconify-icon>
+                    <div class="ms-3">
+                      <h4 class="font-semibold">Packaged</h4>
+                      Your order has been packed by the seller
+                    </div>
+                  </div>
+                </a>
+              </div>
+            @endauth
+
+            @guest
+              <div class="flex items-center justify-center py-2 first:pt-0 last:pb-0">
+                <div class="mt-10 text-center text-slate-500">
+                  <iconify-icon icon="hugeicons:notification-off-01" class="text-3xl"></iconify-icon>
+                  <p class="">Nothing Notification</p>
                 </div>
-              </a>
-            </div>
+              </div>
+            @endguest
+
+
           </div>
         </div>
         {{-- Notification end --}}
@@ -89,7 +122,7 @@
                   Profile
                 </a>
                 <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                  href="/tracking-order">
+                  href="/tracking-order" wire:navigate>
                   <iconify-icon icon="mdi:shopping-outline" class="text-lg"></iconify-icon>
                   My Orders
                 </a>
@@ -98,11 +131,11 @@
                   <iconify-icon icon="system-uicons:box-open" class="text-lg"></iconify-icon>
                   Order History
                 </a>
-                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                  href="/profile/settings">
+                {{-- <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                  href="/profile/settings" wire:navigate>
                   <iconify-icon icon="ant-design:setting-outlined" class="text-lg"></iconify-icon>
                   Settings
-                </a>
+                </a> --}}
                 <form action="/logout"
                   class="px-3 py-2 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
                   <button type="submit" class="flex w-full items-center gap-x-3.5 ">
@@ -152,35 +185,35 @@
             </svg>
           </button>
           <div
-            class="hs-dropdown-menu transition-[opacity,margin] z-10 duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-2  dark:border dark:border-neutral-700 dark:divide-neutral-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
+            class="hs-dropdown-menu transition-[opacity,margin] z-10 duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-2 dark:divide-neutral-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
             aria-labelledby="hs-dropdown-hover-event">
-            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100   dark:focus:bg-neutral-700"
+            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
               href="#">
               T-Shirt
             </a>
-            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100   dark:focus:bg-neutral-700"
+            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
               href="#">
               Trousers
             </a>
-            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100   dark:focus:bg-neutral-700"
+            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
               href="#">
               Shoe
             </a>
-            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100   dark:focus:bg-neutral-700"
+            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
               href="#">
               Jacket
             </a>
-            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100   dark:focus:bg-neutral-700"
+            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
               href="#">
               Hat
             </a>
-            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100   dark:focus:bg-neutral-700"
+            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
               href="#">
               Bag
             </a>
           </div>
         </div>
-        <a class="font-medium text-slate-600 hover:text-gray-400" href="#">Product</a>
+        <a class="font-medium text-slate-600 hover:text-gray-400" href="/products" wire:navigate>Product</a>
         <a class="font-medium text-slate-600 hover:text-gray-400" href="/about" wire:navigate>About</a>
         <a class="font-medium text-slate-600 hover:text-gray-400" href="/contact" wire:navigate>Contact</a>
         @guest

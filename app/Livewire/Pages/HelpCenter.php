@@ -48,9 +48,25 @@ class HelpCenter extends Component
       ],
     ];
 
+    $linkHref = [
+      [
+        'link' => '/help-center/delivery'
+      ],
+      [
+        'link' => '/help-center/payment'
+      ],
+      [
+        'link' => '/help-center/bug-and-issues'
+      ],
+      [
+        'link' => '/help-center/ask-bobi'
+      ],
+    ];
+
     return view('livewire.pages.help-center', [
       'datas' => $dataIcon,
-      'titles' => $dataTitle
+      'titles' => $dataTitle,
+      'links' => $linkHref,
     ]);
   }
 }

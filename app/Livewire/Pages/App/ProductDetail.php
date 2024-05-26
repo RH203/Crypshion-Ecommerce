@@ -25,7 +25,7 @@ class ProductDetail extends Component
     public function mount($id)
     {
         $this->id = $id;
-        $this->showProduct($this->product, $this->id);
+        $this->showProduct();
     }
 
     public function selectSize($size)

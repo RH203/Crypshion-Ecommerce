@@ -26,10 +26,11 @@ trait Products
     }
 
 
-    // Show product
-    public function showProduct($product, $id)
+    // Trait Products
+    public function showProduct()
     {
         $this->destroySession();
+
         $product = session('product_' . $this->id);
 
         if ($product) {
@@ -52,12 +53,12 @@ trait Products
                 $product->lowest_price = null;
                 $product->highest_price = null;
             }
+
             session(['product_' . $this->id => $product]);
             $this->product = $product;
         }
     }
 
-    // Destroy session product
     public function destroySession()
     {
         session()->forget('product_' . $this->id);

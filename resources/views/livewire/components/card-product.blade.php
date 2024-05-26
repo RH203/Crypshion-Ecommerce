@@ -31,7 +31,7 @@
 
           @guest
             <a href="/login" wire:navigate
-              class="right-0 flex items-center justify-center font-bold text-black"><iconify-icon icon="bi:cart"
+              class="right-0 flex items-center justify-center font-bold text-black"><iconify-icon icon="tdesign:cart"
                 class="text-lg"></iconify-icon></a>
           @endguest
           @auth
@@ -41,7 +41,7 @@
                   icon="iconamoon:trash-light"></iconify-icon></a>
             @else
               <a href="#" class="right-0 flex items-center justify-center font-bold text-black"><iconify-icon
-                  icon="bi:cart" class="text-lg"></iconify-icon></a>
+                  icon="tdesign:cart" class="text-lg"></iconify-icon></a>
             @endif
           @endauth
         </div>

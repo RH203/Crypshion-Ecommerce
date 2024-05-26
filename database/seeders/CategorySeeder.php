@@ -16,7 +16,7 @@ class CategorySeeder extends Seeder
     {
         $data = [
             [
-                'title' => 'T-Shirt',
+                'title' => 'Clothes',
                 'image' => 'img-1.png'
             ],
             [

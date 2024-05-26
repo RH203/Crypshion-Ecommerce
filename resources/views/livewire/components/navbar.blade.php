@@ -93,9 +93,17 @@
         </div>
         {{-- Notification end --}}
 
+
         {{-- Cart icon start --}}
-        <a href="/cart" wire:navigate class="inline-block ms-3">
-          <iconify-icon icon="bi:cart" class="text-xl"></iconify-icon>
+        <a href="/cart" wire:navigate class="relative inline-block ms-3">
+          <iconify-icon icon="tdesign:cart" class="text-xl"></iconify-icon>
+          @if ($cartCount > 0)
+            <span
+              class="absolute top-0 end-0 inline-flex items-center py-0.3 px-1.5 rounded-full text-xs font-medium transform -translate-y-1/2 translate-x-1/2 bg-red-500 text-white">
+              {{ $cartCount }}
+            </span>
+          @endif
+
         </a>
         {{-- Cart icon end --}}
 

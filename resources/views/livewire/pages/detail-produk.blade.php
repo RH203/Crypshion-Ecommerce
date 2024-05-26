@@ -1,49 +1,13 @@
 <div>
 
-  {{-- Breadcrumb Start --}}
-  <div class="w-10/12 mx-auto mb-5">
-    <ol class="flex items-center whitespace-nowrap">
-      <li class="inline-flex items-center">
-        <a class="flex items-center text-sm text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 dark:text-neutral-500 dark:hover:text-blue-500 dark:focus:text-blue-500"
-          href="#">
-          Home
-        </a>
-        <svg class="flex-shrink-0 mx-2 overflow-visible text-gray-400 size-4 dark:text-neutral-600"
-          xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="m9 18 6-6-6-6"></path>
-        </svg>
-      </li>
-      <li class="inline-flex items-center">
-        <a class="flex items-center text-sm text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 dark:text-neutral-500 dark:hover:text-blue-500 dark:focus:text-blue-500"
-          href="#">
-          App Center
-          <svg class="flex-shrink-0 mx-2 overflow-visible text-gray-400 size-4 dark:text-neutral-600"
-            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m9 18 6-6-6-6"></path>
-          </svg>
-        </a>
-      </li>
-      <li class="inline-flex items-center text-sm font-semibold text-gray-800 truncate dark:text-neutral-200"
-        aria-current="page">
-        Application
-      </li>
-    </ol>
-  </div>
-
-  {{-- Breadcrumb End --}}
-
-  {{-- Product Start --}}
-  <div class="w-10/12 mx-auto">
+  <div class="w-10/12 mx-auto my-10">
     {{-- Detail product section start --}}
-    <section class="grid grid-cols-3 gap-5">
+    <section class="grid grid-cols-5 gap-5">
       {{-- Image display start --}}
-      <div>
+      <div class="col-span-2">
         @if (session('product_' . $id . '.first_image') || session('showImagePath'))
-          <div class="w-full mt-0 overflow-hidden rounded-lg bg-slate-200 h-80">
-            <img
-              src="{{ asset('storage/' . (session('showImagePath') ?? session('product_' . $id . '.first_image'))) }}"
+          <div class="w-full mt-0 overflow-hidden rounded-lg bg-slate-200 h-96">
+            <img src="{{ asset('storage/' . (session('showImagePath') ?? session('product_' . $id . '.first_image'))) }}"
               alt="{{ session('product_' . $id . '.name') }}" class="object-cover w-full h-full">
           </div>
         @endif
@@ -62,7 +26,7 @@
       </div>
       {{-- Image display end --}}
 
-      <div class="col-span-2">
+      <div class="col-span-3">
         {{-- Stock, Sold and reviews start --}}
         <h1 class="text-3xl font-semibold">{{ session('product_' . $id . '.title') }}</h1>
         <div class="my-3">
@@ -92,7 +56,7 @@
         </div>
         {{-- Raings end --}}
 
-        {{-- Size start --}}
+        {{-- Price start --}}
         <div class="flex text-2xl">
           @if ($size)
             <h3>Rp <span class="font-semibold">{{ number_format($size, 0, ',', '.') }}</span></h3>
@@ -106,9 +70,9 @@
             </h3>
           @endif
         </div>
-        {{-- Size end --}}
+        {{-- Price end --}}
 
-        {{-- Price start --}}
+        {{-- Size start --}}
         <form wire:submit.prevent='selectSize' class="flex flex-wrap mt-4">
           @if (is_array(session('product_' . $id . '.prices')))
             @foreach (session('product_' . $id . '.prices') as $size => $price)
@@ -123,7 +87,8 @@
             @endforeach
           @endif
         </form>
-        {{-- Price end --}}
+
+        {{-- Size end --}}
 
 
 
@@ -143,34 +108,80 @@
           @endif
         </form>
         {{-- Color end --}}
+
+
+
+        {{-- Button start --}}
+        @guest
+          <div class="mt-5">
+            <a href="/login" wire:navigate
+              class="flex items-center px-10 py-3 font-semibold text-white rounded-lg w-52 bg-primaryBg">
+              <iconify-icon icon="tdesign:cart" class="text-xl font-bold"></iconify-icon> &nbsp; Add to cart</a>
+          </div>
+        @endguest
+        @auth
+          @if (auth()->user()->hasRole('user'))
+            <form wire:submit.prevent='addToCart' class="">
+              <div class="flex gap-3 mt-3">
+                <div>
+                  <button type="submit"
+                    class="flex items-center px-10 py-3 font-semibold text-white rounded-lg w-52 bg-primaryBg">
+                    <iconify-icon icon="tdesign:cart" class="text-xl font-bold"></iconify-icon> &nbsp; Add to
+                    cart</button>
+                </div>
+
+                <!-- Input Number -->
+                <div class="inline-block px-3 py-3 bg-white border border-gray-200 rounded-lg" data-hs-input-number="">
+                  <div class="flex items-center gap-x-1.5">
+                    <button type="button"
+                      class="inline-flex items-center justify-center text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-md shadow-sm size-6 gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                      wire:click="decrement">
+                      <svg class="flex-shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                      </svg>
+                    </button>
+                    <input class="w-6 p-0 text-center text-gray-800 bg-transparent border-0 focus:ring-0" type="text"
+                      value="1" name="quantity" wire:model='quantity' data-hs-input-number-input="">
+                    <button type="button"
+                      class="inline-flex items-center justify-center text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-md shadow-sm size-6 gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                      wire:click="increment">
+                      <svg class="flex-shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24"
+                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5v14"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <!-- End Input Number -->
+              </div>
+            </form>
+          @endif
+        @endauth
+        {{-- Button end --}}
+
       </div>
-
-
-
 
     </section>
     {{-- Detail product section end --}}
 
     {{-- Additional Information container Start --}}
-    <div class="w-10/12 mx-auto my-14">
+    <div class="my-14">
       <div class="border-b border-gray-200">
         <nav class="-mb-0.5 flex justify-center space-x-6" aria-label="Tabs" role="tablist">
           <button type="button"
-            class="inline-flex items-center px-1 py-4 text-sm text-gray-500 border-b-2 border-transparent hs-tab-active:font-semibold hs-tab-active:bg-transparent hs-tab-active:text-blue-600 gap-x-2 whitespace-nowrap hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none active"
+            class="inline-flex items-center px-1 py-4 text-sm text-gray-500 border-b-2 border-transparent hs-tab-active:font-semibold hs-tab-active:bg-transparent hs-tab-active:text-primary gap-x-2 whitespace-nowrap hover:text-primary focus:outline-none focus:text-primary disabled:opacity-50 disabled:pointer-events-none active"
             id="horizontal-alignment-item-1" data-hs-tab="#horizontal-alignment-1"
             aria-controls="horizontal-alignment-1" role="tab">
             Description
           </button>
           <button type="button"
-            class="inline-flex items-center px-1 py-4 text-sm text-gray-500 border-b-2 border-transparent hs-tab-active:font-semibold hs-tab-active:bg-transparent hs-tab-active:text-blue-600 gap-x-2 whitespace-nowrap hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none"
+            class="inline-flex items-center px-1 py-4 text-sm text-gray-500 border-b-2 border-transparent hs-tab-active:font-semibold hs-tab-active:bg-transparent hs-tab-active:text-primary gap-x-2 whitespace-nowrap hover:text-primary focus:outline-none focus:text-primary disabled:opacity-50 disabled:pointer-events-none"
             id="horizontal-alignment-item-2" data-hs-tab="#horizontal-alignment-2"
             aria-controls="horizontal-alignment-2" role="tab">
-            Additional Information
-          </button>
-          <button type="button"
-            class="inline-flex items-center px-1 py-4 text-sm text-gray-500 border-b-2 border-transparent hs-tab-active:font-semibold hs-tab-active:bg-transparent hs-tab-active:text-blue-600 gap-x-2 whitespace-nowrap hover:text-blue-600 focus:outline-none focus:text-blue-600 disabled:opacity-50 disabled:pointer-events-none"
-            id="horizontal-alignment-item-3" data-hs-tab="#horizontal-alignment-3"
-            aria-controls="horizontal-alignment-3" role="tab">
             Reviews <span>(0)</span>
           </button>
         </nav>
@@ -179,100 +190,72 @@
       <div class="mt-3">
         <div id="horizontal-alignment-1" role="tabpanel" aria-labelledby="horizontal-alignment-item-1">
           <p class="text-gray-500">
-            This is the <em class="font-semibold text-gray-800">first</em> item's tab body.
+            {{ session('product_' . $id . '.description') }}
+            {{-- {{ $products->description }} --}}
           </p>
         </div>
         <div id="horizontal-alignment-2" class="hidden" role="tabpanel"
           aria-labelledby="horizontal-alignment-item-2">
-          <div class="w-10/12 mx-auto">
-
-            <div class="grid grid-rows-1 lg:grid-rows-1 md:grid-rows-2 sm:grid-rows-1">
-
-              <div class="grid gap-5 md:grid-cols-3 sm:grid-cols-1 md:gap-3">
-                <!-- Image Product Start-->
-                <div class="">
-                  <img src="/img/detail-product/card-item.png" alt="" class="w-full h-72 lg:h-72 md:h-60">
-                </div>
-                <!-- Image Product End-->
-
-                <!-- Description Product Start 1-->
-                <div class="flex flex-col gap-3">
-                  <header>
-                    <h3 class="font-bold text-blueNavy">the quick fox jumps over</h3>
-                  </header>
-
-                  <div class="flex flex-col gap-3">
-                    <p class="text-xs font-medium text-gray-500">Met minim Mollie non desert Alamo est sit cliquey
-                      dolor
-                      do met sent. RELIT official consequent door
-                      ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.</p>
-                    <p class="text-xs font-medium text-gray-500">Met minim Mollie non desert Alamo est sit cliquey
-                      dolor
-                      do met sent. RELIT official consequent door
-                      ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.</p>
-                    <p class="text-xs font-medium text-gray-500">Met minim Mollie non desert Alamo est sit cliquey
-                      dolor
-                      do met sent. RELIT official consequent door
-                      ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.</p>
-                  </div>
-                </div>
-                <!-- Description Product End 1-->
-
-                <!-- Description Product Start 2 -->
-                <div class="flex flex-col gap-3">
-                  <header>
-                    <h3 class="font-bold text-blueNavy">the quick fox jumps over</h3>
-                  </header>
-
-                  <div class="flex flex-col gap-3">
-                    <p class="text-xs font-medium text-gray-500">Met minim Mollie non desert Alamo est sit cliquey
-                      dolor
-                      do met sent. RELIT official consequent door
-                      ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.</p>
-                    <p class="text-xs font-medium text-gray-500">Met minim Mollie non desert Alamo est sit cliquey
-                      dolor
-                      do met sent. RELIT official consequent door
-                      ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.</p>
-                    <p class="text-xs font-medium text-gray-500">Met minim Mollie non desert Alamo est sit cliquey
-                      dolor
-                      do met sent. RELIT official consequent door
-                      ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.</p>
-                  </div>
-                </div>
-                <!-- Description Product End 2 -->
-              </div>
-            </div>
-          </div>
-          <div id="horizontal-alignment-3" class="hidden" role="tabpanel"
-            aria-labelledby="horizontal-alignment-item-3">
-            <p class="text-gray-500">
-              This is the <em class="font-semibold text-gray-800">third</em> item's tab body.
-            </p>
+          <div class="grid grid-cols-3 gap-3">
+            <livewire:components.card-testimonial
+              message="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
+            sequi vero, suscipit dolor voluptatum
+            deserunt natus consequatur nam tempore quo!"
+              image="/img/user/user-1.png" name="Irfan Yasin" label="Programmer" rating="5" />
+            <livewire:components.card-testimonial
+              message="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
+            sequi vero, suscipit dolor voluptatum
+            deserunt natus consequatur nam tempore quo!"
+              image="/img/user/user-1.png" name="Irfan Yasin" label="Programmer" rating="5" />
+            <livewire:components.card-testimonial
+              message="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
+            sequi vero, suscipit dolor voluptatum
+            deserunt natus consequatur nam tempore quo!"
+              image="/img/user/user-1.png" name="Irfan Yasin" label="Programmer" rating="5" />
+            <livewire:components.card-testimonial
+              message="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
+            sequi vero, suscipit dolor voluptatum
+            deserunt natus consequatur nam tempore quo!"
+              image="/img/user/user-1.png" name="Irfan Yasin" label="Programmer" rating="5" />
+            <livewire:components.card-testimonial
+              message="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
+            sequi vero, suscipit dolor voluptatum
+            deserunt natus consequatur nam tempore quo!"
+              image="/img/user/user-1.png" name="Irfan Yasin" label="Programmer" rating="5" />
           </div>
         </div>
       </div>
     </div>
     {{-- Additional Information container End --}}
 
-
-  </div>
-  {{-- Best Seller Products Start --}}
-  <div class="w-10/12 mx-auto">
-    <header>
-      <h2 class="text-lg font-bold text-blueNavy">RECOMMENDATION PRODUCT</h2>
-    </header>
-    <hr class="my-5 border-gray-500">
-
-    <div class="grid grid-rows-2 gap-5">
+    {{-- Best Seller Products Start --}}
+    <div class="">
+      <header>
+        <h2 class="text-lg font-bold text-blueNavy">RECOMMENDATION PRODUCT</h2>
+      </header>
+      <hr class="my-5 border-gray-500">
       <div class="grid grid-cols-2 gap-2 md:gap-5 md:grid-cols-2 lg:grid-cols-5">
-        @foreach ($products as $product)
+        {{-- @foreach ($products as $product)
           <livewire:components.card-product image="{{ asset('storage/' . $product->first_image) }}"
             title="{{ Str::limit($product->title, 45) }}" description="{{ Str::limit($product->description, 60) }}"
             price="{{ isset($product->first_price) ? number_format($product->first_price, 0, ',', '.') : '' }}"
             productId="{{ $product->id }}" url="/products/{{ $product->id }}/show" />
-        @endforeach
+        @endforeach --}}
       </div>
     </div>
+    {{-- Best Seller Products End --}}
   </div>
-  {{-- Best Seller Products End --}}
+
+
+
+
+  {{-- Add to cart value start --}}
+  {{-- <form class="hidden">
+    <input type="text" name="user_id" wire:model='user_id' value="{{ auth()->user()->id }}" class="hidden">
+    <input type="text" name="product_id" wire:model='product_id' value="{{ session('product_' . $id) }}"
+      class="hidden">
+
+  </form> --}}
+  {{-- Add to cart value end --}}
+
 </div>

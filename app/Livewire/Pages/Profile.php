@@ -9,12 +9,12 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('Profile')]
+#[Layout('layouts.app')]
+
 class Profile extends Component
 {
     use LivewireAlert;
-
-    #[Title('Profile')]
-    #[Layout('layouts.app')]
 
     public $name;
     public $email;

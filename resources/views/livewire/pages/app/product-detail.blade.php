@@ -113,10 +113,6 @@
           </form>
           {{-- Color end --}}
         </div>
-
-
-
-
       </section>
       {{-- Detail product section end --}}
 

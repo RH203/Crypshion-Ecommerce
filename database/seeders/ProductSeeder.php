@@ -22,7 +22,9 @@ class ProductSeeder extends Seeder
                 'prices' => json_encode([
                     'XS' => '200000',
                     'S' => '300000',
-                    'M' => '400000'
+                    'M' => '400000',
+                    'L' => '450000',
+                    'XL' => '500000',
                 ]),
                 'colors' => json_encode(['maroon', 'green', 'yellow', 'navy']),
                 'images' => json_encode([
@@ -170,14 +172,13 @@ class ProductSeeder extends Seeder
                 'title' => 'MOVE - TSHIRT BAJU KAOS DISTRO PREMIUM COMBED PRIA WANITA CEWEK COWOK STREETWEAR KEKINIAN KEREN TERLARIS',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud',
                 'category_id' => 1,
-                'sizes' => json_encode(['37', '38', '39', '40', '41', '42']),
+                'sizes' => json_encode(['S', 'M', 'L', 'XL', 'XXL']),
                 'prices' => json_encode([
-                    '37' => '175000',
-                    '38' => '180000',
-                    '39' => '200000',
-                    '40' => '220000',
-                    '41' => '260000',
-                    '42' => '300000',
+                    'S' => '175000',
+                    'M' => '180000',
+                    'L' => '200000',
+                    'XL' => '220000',
+                    'XXL' => '260000',
                 ]),
                 'colors' => json_encode(['black', 'brown', 'maroon', 'navy', 'green', 'gray']),
                 'images' => json_encode([

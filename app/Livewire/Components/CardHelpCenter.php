@@ -8,11 +8,13 @@ class CardHelpCenter extends Component
 {
   public $icon;
   public $title;
+  public $link;
 
-  public function mount($icon, $title)
+  public function mount($icon, $title, $link)
   {
     $this->$icon = $icon;
     $this->$title = $title;
+    $this->$link = $link;
   }
   public function render()
   {

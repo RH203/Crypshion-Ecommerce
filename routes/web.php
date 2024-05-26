@@ -29,7 +29,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', Index::class);
 Route::get('/about', About::class);
 Route::get('/contact', Contact::class);
-Route::get('/detail-product', DetailProduk::class);
+Route::get('/products/{id}/show', DetailProduk::class);
 Route::get('/products', Product::class);
 
 

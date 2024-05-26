@@ -7,7 +7,6 @@ use App\Livewire\Pages\About;
 use App\Livewire\Pages\App\Category;
 use App\Livewire\Pages\App\Dashboard;
 use App\Livewire\Pages\App\Feedback;
-use App\Livewire\Pages\App\HelpCenter;
 use App\Livewire\Pages\App\Orders;
 use App\Livewire\Pages\App\ProductAdd;
 use App\Livewire\Pages\App\ProductDetail;
@@ -17,6 +16,7 @@ use App\Livewire\Pages\Cart;
 use App\Livewire\Pages\ChangePassword;
 use App\Livewire\Pages\Contact;
 use App\Livewire\Pages\DetailProduk;
+use App\Livewire\Pages\HelpCenter;
 use App\Livewire\Pages\Index;
 use App\Livewire\Pages\Profile;
 use App\Livewire\Pages\ProfileSetting;
@@ -50,6 +50,8 @@ Route::middleware(['auth', 'role:user'])->group(function () {
   Route::get('/profile', Profile::class)->name('profile');
   Route::get('/profile/settings', ProfileSetting::class);
   Route::get('/profile/change-password', ChangePassword::class);
+  Route::get('/help-center', HelpCenter::class);
+
 });
 
 // Admin Route
@@ -63,6 +65,5 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/orders', Orders::class);
     Route::get('/category', Category::class);
     Route::get('/feedback', Feedback::class);
-    Route::get('/help-center', HelpCenter::class);
   });
 });

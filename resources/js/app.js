@@ -1,12 +1,13 @@
 import './bootstrap';
 import 'preline';
+import './blockchain';
 
 
-document.addEventListener('livewire:navigated', () => { 
+document.addEventListener('livewire:navigated', () => {
   window.HSStaticMethods.autoInit();
 
 
-  
+
   const humbMenu = document.querySelector('.humberger-menu');
   const sidebar = document.querySelector('aside');
   const main = document.querySelector('main');

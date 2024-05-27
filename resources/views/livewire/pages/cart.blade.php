@@ -117,10 +117,10 @@
               </div>
             </div>
             <div class="mt-2">
-              <select name="" id="" class="w-full py-2">
+              <select name="paymentMethod" id="" wire:model.live='paymentMethod' class="w-full py-2">
                 <option selected disabled>Payment Method</option>
-                <option value="">Online Payment</option>
-                <option value="">Crypto Payment</option>
+                <option value="1" >Online Payment</option>
+                <option value="2" >Crypto Payment</option>
               </select>
 
               <div class="flex justify-between mt-4">
@@ -133,9 +133,22 @@
               </div>
             </div>
             <div class="mt-8">
+              @if ($paymentMethod == '1')
               <a href="" class="block py-3 font-semibold text-center text-white rounded-lg bg-primaryBg">
                 Check Out
               </a>
+              @endif
+              @if ($paymentMethod == '2')
+              <p class="hidden" id="hide-address">
+                Address : <span id="address"> Test </span>
+              </p>
+              <a href="#" wire:click.prevent="connectWallet" id="connect" class="block py-3 font-semibold text-center text-white rounded-lg bg-primaryBg mb-2">
+                Connect Wallet
+              </a>
+              <a href="#" id="checkout-crypto" class="hidden">
+                Check Out
+              </a>
+              @endif
             </div>
           </div>
         </div>

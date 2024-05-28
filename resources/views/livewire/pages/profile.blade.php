@@ -101,7 +101,11 @@
                   </div>
                   <div class="mb-3">
                     <label for="province" class="text-sm text-slate-500">Province</label>
-                    <input type="text" name="province" id="province" class="w-full px-3 py-1 border rounded-md">
+                    <select name="province" id="province"
+                      class="w-full px-3 py-1 border rounded-md js-example-basic-single">
+                      <option value="AL">Alabama</option>
+                      <option value="WY">Wyoming</option>
+                    </select>
                   </div>
                 </div>
 
@@ -166,3 +170,13 @@
     </div>
   </section>
 </div>
+
+
+
+@push('js')
+  <script>
+    $(document).ready(function() {
+      $('.js-example-basic-single').select2();
+    });
+  </script>
+@endpush

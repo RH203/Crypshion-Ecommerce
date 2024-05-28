@@ -46,7 +46,7 @@ class Profile extends Component
             'regencyId' => 'required',
             'districtId' => 'required',
             'villageId' => 'required',
-            'avatar' => 'image|max:1024',
+            'avatar' => 'nullable|image|max:1024',
         ];
     }
 
@@ -87,7 +87,7 @@ class Profile extends Component
             'district_id' => $this->districtId,
             'village_id' => $this->villageId,
             'zip_code' => $this->zip_code,
-            'avatar' => $imageName,
+            'avatar' => $imageName ?? Auth::user()->avatar,
         ];
 
         User::where('id', Auth::user()->id)->update($data);

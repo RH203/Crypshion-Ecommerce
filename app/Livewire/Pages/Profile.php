@@ -2,29 +2,33 @@
 
 namespace App\Livewire\Pages;
 
+use App\Models\User;
 use App\Models\Api\District;
 use App\Models\Api\Province;
 use App\Models\Api\Regency;
 use App\Models\Api\Village;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 #[Title('Profile')]
 #[Layout('layouts.app')]
 
 class Profile extends Component
 {
-    use LivewireAlert;
+    use LivewireAlert, WithFileUploads;
 
     public $name;
     public $email;
     public $phone_number = '';
     public $address = '';
     public $zip_code = '';
+    public $avatar;
 
     public $provinceId;
     public $regencyId;
@@ -42,6 +46,7 @@ class Profile extends Component
             'regencyId' => 'required',
             'districtId' => 'required',
             'villageId' => 'required',
+            'avatar' => 'nullable|image|max:1024',
         ];
     }
 
@@ -63,6 +68,15 @@ class Profile extends Component
     {
         $this->validate();
 
+        if ($this->avatar) {
+            $imageName = 'avatar_' . Str::random(5) . '.' . $this->avatar->getClientOriginalExtension();
+            $this->avatar->storeAs('file/avatar', $imageName, 'public');
+            $oldFile = Auth::user()->avatar;
+            if ($oldFile && $oldFile !== User::AVATAR) {
+                Storage::disk('public')->delete('file/avatar/' . $oldFile);
+            }
+        }
+
         $data = [
             'name' => $this->name,
             'email' => $this->email,
@@ -73,6 +87,7 @@ class Profile extends Component
             'district_id' => $this->districtId,
             'village_id' => $this->villageId,
             'zip_code' => $this->zip_code,
+            'avatar' => $imageName ?? Auth::user()->avatar,
         ];
 
         User::where('id', Auth::user()->id)->update($data);
@@ -86,6 +101,7 @@ class Profile extends Component
             'confirmButtonText' => 'Oke',
             'text' => 'Update data successfully',
         ]);
+        $this->reset('avatar');
     }
 
     public function render()
@@ -112,7 +128,7 @@ class Profile extends Component
             'selectedRegency' =>  Regency::find($this->regencyId),
             'districts' => District::where('regency_id', $this->regencyId)->get(),
             'selectedDistrict' => District::find($this->districtId),
-            'villages' => Village::where('district_id', $this->districtId)->get()
+            'villages' => Village::where('district_id', $this->districtId)->get(),
         ]);
     }
 }

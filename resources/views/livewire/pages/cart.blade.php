@@ -11,13 +11,14 @@
           <div class="p-8 bg-white shadow-md rounded-xl">
             <div class="flex items-center justify-between mb-8">
               <h3 class="text-xl font-bold">Shipping Address</h3>
-              <a href="" class="block">
+              <a href="/profile" wire:navigate class="block">
                 <iconify-icon icon="lucide:edit" class="text-xl text-slate-500"></iconify-icon>
               </a>
             </div>
             <p class="my-2 text-lg text-slate-500">Jl. Kalikepiting No. 45, Blok N. No.2</p>
             <hr>
-            <p class="my-2 text-lg uppercase text-slate-500">Kota Surabaya, Jawa Timur, 67364</p>
+            <p class="my-2 text-lg uppercase text-slate-500"> {{ $village->name }},
+              {{ $district->name }}, {{ $regency->name }}, {{ $province->name }}, {{ $zipCode->zip_code }}</p>
           </div>
           <div class="p-8 bg-white shadow-md rounded-xl">
             <div class="flex items-center justify-between mb-4">

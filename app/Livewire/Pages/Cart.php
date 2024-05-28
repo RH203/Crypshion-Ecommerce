@@ -2,6 +2,10 @@
 
 namespace App\Livewire\Pages;
 
+use App\Models\Api\District;
+use App\Models\Api\Province;
+use App\Models\Api\Regency;
+use App\Models\Api\Village;
 use App\Models\app\Product;
 use App\Models\Cart as ModelsCart;
 use App\Models\User;
@@ -19,11 +23,20 @@ class Cart extends Component
 
     public $selectPayment = '1';
 
+    public $provinceId;
+    public $regencyId;
+    public $districtId;
+    public $villageId;
+    public $zipCode;
 
 
     public function mount()
     {
-        // dd($this->selectPayment);
+        $this->provinceId = Province::find(Auth::user()->province_id);
+        $this->regencyId = Regency::find(Auth::user()->regency_id);
+        $this->districtId = District::find(Auth::user()->district_id);
+        $this->villageId = Village::find(Auth::user()->village_id);
+        $this->zipCode = User::find(Auth::user()->id);
     }
 
 
@@ -38,31 +51,28 @@ class Cart extends Component
 
     public function render()
     {
-        // Ambil semua data keranjang untuk pengguna yang sedang login
         $datas = ModelsCart::orderBy('id', 'desc')->where('user_id', Auth::id())->get();
-
         foreach ($datas as $data) {
             $product = Product::find($data->product_id);
 
             if ($product) {
-                // Decode kolom prices dari JSON ke array
                 $prices = json_decode($product->prices, true);
-
-                // Cari ukuran berdasarkan harga
                 $size = array_search($data->price, $prices);
-                $data->size = $size; // Tambahkan size ke item data keranjang
+                $data->size = $size;
             }
         }
-        // Ambil data keranjang pertama untuk pengguna yang sedang login
         $isCart = ModelsCart::where('user_id', Auth::id())->first();
 
-        // Hapus sesi 'cart_count' (opsional, tergantung pada kebutuhan aplikasi Anda)
         session()->forget('cart_count');
 
-        // Kirim data ke view
         return view('livewire.pages.cart', [
             'datas' => $datas,
             'isCart' => $isCart,
+            'province' => $this->provinceId,
+            'regency' => $this->regencyId,
+            'district' => $this->districtId,
+            'village' => $this->villageId,
+            'zipCode' => $this->zipCode,
         ]);
     }
 }

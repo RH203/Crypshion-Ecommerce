@@ -31,8 +31,6 @@
     rel="stylesheet">
   {{-- JQuery --}}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  {{-- Select 2 --}}
-  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
   {{-- Vite --}}
   @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -60,8 +58,7 @@
   <x-livewire-alert::scripts />
   {{-- Iconify --}}
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
-  {{-- Select 2 --}}
-  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
   {{-- Script JS --}}
   @stack('js')
 </body>

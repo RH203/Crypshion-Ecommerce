@@ -2,6 +2,10 @@
 
 namespace App\Livewire\Pages;
 
+use App\Models\Api\District;
+use App\Models\Api\Province;
+use App\Models\Api\Regency;
+use App\Models\Api\Village;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -20,18 +24,26 @@ class Profile extends Component
     public $email;
     public $phone_number = '';
     public $address = '';
+    public $zip_code = '';
 
+    public $provinceId;
+    public $regencyId;
+    public $districtId;
+    public $villageId;
 
     public function rules()
     {
         return [
             'name' => 'required|min:3',
-            'email' => 'email',
+            'email' => 'required|email',
             'phone_number' => 'required',
-            'address' => 'required'
+            'address' => 'required',
+            'provinceId' => 'required',
+            'regencyId' => 'required',
+            'districtId' => 'required',
+            'villageId' => 'required',
         ];
     }
-
 
     public function mount()
     {
@@ -40,32 +52,37 @@ class Profile extends Component
         $this->email = $user->email;
         $this->phone_number = $user->phone_number;
         $this->address = $user->address;
+        $this->provinceId = $user->province_id;
+        $this->regencyId = $user->regency_id;
+        $this->districtId = $user->district_id;
+        $this->villageId = $user->village_id;
+        $this->zip_code = $user->zip_code;
     }
 
     public function updateProfile()
     {
-        // Validated data
         $this->validate();
 
-        // Get data
         $data = [
             'name' => $this->name,
             'email' => $this->email,
             'phone_number' => $this->phone_number,
-            'address' => $this->address
+            'address' => $this->address,
+            'province_id' => $this->provinceId,
+            'regency_id' => $this->regencyId,
+            'district_id' => $this->districtId,
+            'village_id' => $this->villageId,
+            'zip_code' => $this->zip_code,
         ];
 
-        // Update data
         User::where('id', Auth::user()->id)->update($data);
 
-        // Notification
         $this->alert('success', 'Success', [
             'position' => 'center',
             'timer' => 3000,
             'toast' => false,
             'timerProgressBar' => true,
             'showConfirmButton' => true,
-            'onConfirmed' => '',
             'confirmButtonText' => 'Oke',
             'text' => 'Update data successfully',
         ]);
@@ -76,7 +93,8 @@ class Profile extends Component
         $dataProfile = User::where('id', Auth::user()->id)
             ->where(function ($query) {
                 $query->whereNull('phone_number')
-                    ->orWhereNull('address');
+                    ->orWhereNull('address')
+                    ->orWhereNull('province_id');
             })
             ->first();
 
@@ -85,8 +103,16 @@ class Profile extends Component
             $completeProfile = false;
         }
 
+
         return view('livewire.pages.profile', [
-            'isComplete' => $completeProfile
+            'isComplete' => $completeProfile,
+            'provinces' => Province::all(),
+            'selectedProvince' =>  Province::find($this->provinceId),
+            'regencies' =>  Regency::where('province_id', $this->provinceId)->get(),
+            'selectedRegency' =>  Regency::find($this->regencyId),
+            'districts' => District::where('regency_id', $this->regencyId)->get(),
+            'selectedDistrict' => District::find($this->districtId),
+            'villages' => Village::where('district_id', $this->districtId)->get()
         ]);
     }
 }

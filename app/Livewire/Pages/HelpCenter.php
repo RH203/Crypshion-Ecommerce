@@ -21,11 +21,11 @@ class HelpCenter extends Component
       class="text-4xl text-purple-500 group-hover:bg-white group-hover:rounded-full group-hover:border group-hover:p-2 p-2"></iconify-icon>'
       ],
       [
-        'icon' => '<iconify-icon icon="streamline:payment-10"
+        'icon' => '<iconify-icon icon="material-symbols:payments-outline"
       class="text-4xl text-purple-500 group-hover:bg-white group-hover:rounded-full group-hover:border group-hover:p-2 p-2"></iconify-icon>'
       ],
       [
-        'icon' => '<iconify-icon icon="solar:bug-bold"
+        'icon' => '<iconify-icon icon="streamline:code-analysis-solid"
       class="text-4xl text-purple-500 group-hover:bg-white group-hover:rounded-full group-hover:border group-hover:p-2 p-2"></iconify-icon>'
       ],
       [
@@ -41,7 +41,7 @@ class HelpCenter extends Component
         'title' => 'Payment'
       ],
       [
-        'title' => 'Bug and Issues'
+        'title' => 'Error Code'
       ],
       [
         'title' => 'Ask our Assistant Bobi'
@@ -56,7 +56,7 @@ class HelpCenter extends Component
         'link' => '/help-center/payment'
       ],
       [
-        'link' => '/help-center/bug-and-issues'
+        'link' => '/help-center/error-code'
       ],
       [
         'link' => '/help-center/ask-bobi'

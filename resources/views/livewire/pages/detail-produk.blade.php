@@ -246,16 +246,4 @@
     {{-- Best Seller Products End --}}
   </div>
 
-
-
-
-  {{-- Add to cart value start --}}
-  {{-- <form class="hidden">
-    <input type="text" name="user_id" wire:model='user_id' value="{{ auth()->user()->id }}" class="hidden">
-    <input type="text" name="product_id" wire:model='product_id' value="{{ session('product_' . $id) }}"
-      class="hidden">
-
-  </form> --}}
-  {{-- Add to cart value end --}}
-
 </div>

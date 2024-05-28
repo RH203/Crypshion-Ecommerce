@@ -101,26 +101,77 @@
                   </div>
                   <div class="mb-3">
                     <label for="province" class="text-sm text-slate-500">Province</label>
-                    <input type="text" name="province" id="province" class="w-full px-3 py-1 border rounded-md">
+                    <select name="provinceId" id="province" wire:model.live='provinceId'
+                      class="w-full px-3 py-1 border rounded-md js-example-basic-single">
+                      <option selected>Select Province</option>
+                      @foreach ($provinces as $province)
+                        <option value="{{ $province->id }}">{{ $province->name }}
+                        </option>
+                      @endforeach
+                    </select>
+                    @error('provinceId')
+                      <small class="italic text-red-600"><iconify-icon icon="quill:warning-alt"></iconify-icon>
+                        {{ $message }}</small>
+                    @enderror
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="mb-3">
+                    <label for="regency" class="text-sm text-slate-500">Regency</label>
+                    <select name="regencyId" id="regency" wire:model.live='regencyId'
+                      class="w-full px-3 py-1 border rounded-md js-example-basic-single">
+                      @foreach ($regencies as $regency)
+                        <option value="{{ $regency->id }}">{{ $regency->name }}
+                        </option>
+                      @endforeach
+                    </select>
+                    @error('regencyId')
+                      <small class="italic text-red-600"><iconify-icon icon="quill:warning-alt"></iconify-icon>
+                        {{ $message }}</small>
+                    @enderror
+                  </div>
+                  <div class="mb-3">
+                    <label for="district" class="text-sm text-slate-500">Distric</label>
+                    <select name="districtId" id="district" wire:model.live='districtId'
+                      class="w-full px-3 py-1 border rounded-md js-example-basic-single">
+                      @foreach ($districts as $district)
+                        <option value="{{ $district->id }}">{{ $district->name }}
+                        </option>
+                      @endforeach
+                    </select>
+                    @error('districtId')
+                      <small class="italic text-red-600"><iconify-icon icon="quill:warning-alt"></iconify-icon>
+                        {{ $message }}</small>
+                    @enderror
                   </div>
                 </div>
 
                 <div class="grid grid-cols-2 gap-3">
                   <div class="mb-3">
-                    <label for="regency" class="text-sm text-slate-500">Regence</label>
-                    <input type="text" name="regency" id="regency" class="w-full px-3 py-1 border rounded-md">
+                    <label for="village" class="text-sm text-slate-500">Village</label>
+                    <select name="villageId" id="village" wire:model.live='villageId'
+                      class="w-full px-3 py-1 border rounded-md js-example-basic-single">
+                      @foreach ($villages as $village)
+                        <option value="{{ $village->id }}">{{ $village->name }}
+                        </option>
+                      @endforeach
+                    </select>
+                    @error('villageId')
+                      <small class="italic text-red-600"><iconify-icon icon="quill:warning-alt"></iconify-icon>
+                        {{ $message }}</small>
+                    @enderror
                   </div>
                   <div class="mb-3">
-                    <label for="distric" class="text-sm text-slate-500">Distric</label>
-                    <input type="text" name="distric" id="distric" class="w-full px-3 py-1 border rounded-md">
+                    <label for="zipCode" class="text-sm text-slate-500">ZIP Code</label>
+                    <input type="text" name="zip_code" wire:model='zip_code' id="zipCode"
+                      class="w-full px-3 py-1 border rounded-md">
+                    @error('zip_code')
+                      <small class="italic text-red-600"><iconify-icon icon="quill:warning-alt"></iconify-icon>
+                        {{ $message }}</small>
+                    @enderror
                   </div>
                 </div>
 
-
-                <div class="mb-3">
-                  <label for="zipCode" class="text-sm text-slate-500">ZIP Code</label>
-                  <input type="text" name="zipCode" id="zipCode" class="w-full px-3 py-1 border rounded-md">
-                </div>
                 <div class="mb-3">
                   <label for="address" class="text-sm text-slate-500">Complete Address</label>
                   <textarea name="address" wire:model='address' id="address" cols="30" rows="5"

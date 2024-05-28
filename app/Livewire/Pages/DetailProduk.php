@@ -34,7 +34,6 @@ class DetailProduk extends Component
   {
     $this->id = $id;
     $this->showProduct();
-
     // $this->products = $this->getProducts(5);
   }
 

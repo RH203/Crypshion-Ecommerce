@@ -144,9 +144,10 @@
                     class="block py-3 mb-3 font-semibold text-center text-white rounded-lg bg-primaryBg">
                     Connect Wallet
                   </a>
-                  <a href="" class="block py-3 font-semibold text-center text-white rounded-lg bg-primaryBg">
+                  <button type="submit"
+                    class="block w-full py-3 font-semibold text-center text-white rounded-lg bg-primaryBg">
                     Check Out
-                  </a>
+                  </button>
                 @endif
 
               </div>

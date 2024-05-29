@@ -18,7 +18,7 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
-  <title>419 - Page Expired</title>
+  <title>500 - Internal Server Error</title>
 
   <!-- Favicon -->
   <link rel="icon" href="/img/logo/logo.ico" type="image/x-icon">
@@ -38,9 +38,10 @@
 
 
   <div class="flex items-center justify-center w-8/12 h-screen mx-auto">
+    {{-- <img src="/img/gif/404.gif" class="w-full" alt=""> --}}
     <div class="text-center">
-      <h1 class="font-semibold text-7xl lg:text-9xl md:text-8xl">419</h1>
-      <p class="text-2xl md:text-3xl">Page Expired</p>
+      <h1 class="font-semibold text-7xl lg:text-9xl md:text-8xl">500</h1>
+      <p class="text-2xl md:text-3xl">Internal Server Error</p>
     </div>
   </div>
 

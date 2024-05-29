@@ -7,7 +7,7 @@
     <hr class="border-gray-800 mt-4">
     {{-- Title End --}}
 
-    <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-5 my-20">
+    <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-5 my-20 group">
       @foreach ($datas as $key => $data)
         <livewire:components.card-help-center icon="{!! $data['icon'] !!}" title="{!! $titles[$key]['title'] !!}"
           link="{{ $links[$key]['link'] }}" />

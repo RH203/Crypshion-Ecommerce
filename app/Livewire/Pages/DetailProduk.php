@@ -103,7 +103,7 @@ class DetailProduk extends Component
       session()->forget('size');
       session()->forget('color');
     } catch (ValidationException $e) {
-      $this->alert('error', 'Validation Error', [
+      $this->alert('error', 'Oops...', [
         'position' => 'center',
         'timer' => 3000,
         'toast' => false,

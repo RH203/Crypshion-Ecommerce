@@ -11,7 +11,7 @@
         <span>Follow Us and get a chance to win 80% off</span>
       </div>
       <div class="flex items-center">
-        <a href="" class="flex items-center"><iconify-icon icon="material-symbols:help-outline"
+        <a wire.navigation href="/help-center" class="flex items-center"><iconify-icon icon="material-symbols:help-outline"
             class="me-1"></iconify-icon> <small class="font-light">Help Center</small></a>
         <span class="ms-3"><iconify-icon icon="mingcute:facebook-line"></iconify-icon></span>
         <span class="ms-2"><iconify-icon icon="iconoir:instagram"></iconify-icon></span>

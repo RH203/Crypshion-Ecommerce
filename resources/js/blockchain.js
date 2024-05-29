@@ -21,7 +21,4 @@ document.addEventListener("connect-wallet-event", () => {
   // console.log('Test clicked');
   connectWallet();
 });
-
-
-
 // console.log("Test");

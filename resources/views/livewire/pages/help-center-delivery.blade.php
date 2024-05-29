@@ -1,5 +1,5 @@
 <div>
-  <div class="w-10/12 mx-auto">
+  <div class="w-10/12 mx-auto mb-20">
     {{-- Title Start --}}
     <div class="w-full flex justify-center items-center mt-4">
       <p class="text-5xl text-blueNavy font-semibold">Having trouble with delivery? </p>

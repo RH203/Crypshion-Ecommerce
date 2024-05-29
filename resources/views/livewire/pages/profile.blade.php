@@ -36,17 +36,6 @@
                 <p class="text-md">{{ Auth::user()->address ?? '-' }}</p>
               </div>
               <hr class="mb-3">
-              <div class="mb-3">
-                <label for="" class="font-semibold text-gray-500">Address</label>
-                <p class="text-md">KOTA SURABAYA, JAWA TIMUR, 82918</p>
-              </div>
-              {{-- <h4 class="text-xl font-semibold">{{ Auth::user()->name }}</h4>
-              <p>{{ Auth::user()->email }}</p>
-              <p>{{ Auth::user()->phone_number ?? '-' }}</p>
-              <p class="mt-3">{{ Auth::user()->address ?? '-' }}</p> --}}
-
-              {{-- <p class="mt-3">Jl. Anonym Blok K. No.10 (Rumah warna biru)</p>
-              <p>KOTA SURABAYA, JAWA TIMUR, 672332</p> --}}
             </div>
           </div>
         </div>

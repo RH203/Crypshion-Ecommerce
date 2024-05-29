@@ -18,7 +18,7 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
-  <title>404 - Not Found</title>
+  <title>403 - Forbidden Access</title>
 
   <!-- Favicon -->
   <link rel="icon" href="/img/logo/logo.ico" type="image/x-icon">

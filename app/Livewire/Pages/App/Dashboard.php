@@ -6,10 +6,12 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('Dashboard')]
+#[Layout('layouts.app_admin')]
+
 class Dashboard extends Component
 {
-    #[Title('Dashboard')]
-    #[Layout('layouts.app_admin')]
+
 
     public function render()
     {

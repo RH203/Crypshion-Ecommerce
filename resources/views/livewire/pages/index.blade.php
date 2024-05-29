@@ -10,24 +10,22 @@
           <div class="hs-carousel-slide">
             <div class="flex justify-center h-full">
               <div
-                class="relative self-center h-full text-4xl text-gray-800 transition duration-700 md:h-screen md:w-full dark:text-white">
-                <img src="/img/carousel-inner-1.png" alt="" class="h-full md:h-auto md:w-full">
+                class="relative self-center w-full h-full text-4xl text-gray-800 transition duration-700 dark:text-white">
+                <img src="/img/carousel-inner-1.png" alt="" class="object-cover w-full h-full">
               </div>
             </div>
           </div>
           <div class="hs-carousel-slide">
             <div class="flex justify-center h-full ">
-              <span
-                class="self-center h-full text-4xl text-gray-800 transition duration-700 md:h-scree md:w-full dark:text-white">
-                <img src="/img/carousel-inner-2.png" alt="" class="h-full md:h-auto md:w-full">
+              <span class="self-center w-full h-full text-4xl text-gray-800 transition duration-700 dark:text-white">
+                <img src="/img/carousel-inner-2.png" alt="" class="object-cover w-full h-full">
               </span>
             </div>
           </div>
           <div class="hs-carousel-slide">
             <div class="flex justify-center h-full">
-              <span
-                class="self-center h-full text-4xl text-gray-800 transition duration-700 md:h-screen md:w-full dark:text-white">
-                <img src="/img/carousel-inner-3.png" alt="" class="h-full md:h-auto md:w-full">
+              <span class="self-center w-full h-full text-4xl text-gray-800 transition duration-700 dark:text-white">
+                <img src="/img/carousel-inner-3.png" alt="" class="object-cover w-full h-full">
               </span>
             </div>
           </div>
@@ -76,8 +74,8 @@
           <h4 class="text-lg font-normal md:text-2xl text-slate-500">Choose Your Collection</h4>
           <h1 class="my-4 text-2xl font-bold text-black uppercase md:text-4xl">Category Products</h1>
         </header>
-        <div class="grid grid-cols-2 gap-5 lg:grid-cols-4 xl:grid-cols-6 md:grid-cols-3 ">
-          <livewire:components.card-category image="/img/category/img-1.png" title="T-Shirt" />
+        <div class="grid grid-cols-2 gap-2 md:gap-5 lg:grid-cols-4 xl:grid-cols-6 md:grid-cols-3 ">
+          <livewire:components.card-category image="/img/category/img-1.png" title="Clothes" />
           <livewire:components.card-category image="/img/category/img-2.png" title="Trousers" />
           <livewire:components.card-category image="/img/category/img-6.png" title="Shoe" />
           <livewire:components.card-category image="/img/category/img-4.png" title="Jacket" />
@@ -91,8 +89,6 @@
 
 
 
-
-
     {{-- Best seller product start --}}
     <section class="my-36 md:my-40">
       <div class="w-11/12 mx-auto md:w-10/12">
@@ -101,47 +97,20 @@
           <h1 class="my-4 text-2xl font-bold text-black uppercase md:text-4xl">BESTSELLER PRODUCTS</h1>
           <p class="text-sm font-normal md:text-md text-slate-500">Problems trying to resolve the conflict between </p>
         </header>
-        <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
-          <livewire:components.card-product image="/img/product/img-1.png" title="Baju Renang"
-            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-            price="500.000" />
-          <livewire:components.card-product image="/img/product/img-2.png" title="Baju Kantor"
-            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-            price="200.000" />
-          <livewire:components.card-product image="/img/product/img-3.png" title="Baju Renang"
-            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-            price="500.000" />
-          <livewire:components.card-product image="/img/product/img-4.png" title="Baju Renang"
-            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-            price="500.000" />
-          <livewire:components.card-product image="/img/product/img-5.png" title="Baju Renang"
-            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-            price="500.000" />
-          <livewire:components.card-product image="/img/product/img-6.png" title="Baju Renang"
-            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-            price="500.000" />
-          <livewire:components.card-product image="/img/product/img-7.png" title="Baju Renang"
-            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-            price="500.000" />
-          <livewire:components.card-product image="/img/product/img-8.png" title="Baju Renang"
-            description="Lorem ipsum dolor sit amet elit. Recusandae, Lorem,
-          ipsum
-          dolor..."
-            price="500.000" />
+        <div class="grid grid-cols-2 gap-2 md:gap-5 md:grid-cols-2 lg:grid-cols-5">
+
+          @foreach ($products as $product)
+            <livewire:components.card-product image="{{ asset('storage/' . $product->first_image) }}"
+              title="{{ Str::limit($product->title, 45) }}" description="{{ Str::limit($product->description, 60) }}"
+              price="{{ isset($product->first_price) ? number_format($product->first_price, 0, ',', '.') : '' }}"
+              productId="{{ $product->id }}" url="/products/{{ $product->id }}/show" />
+          @endforeach
+        </div>
+
+        <div class="mt-10 text-center">
+          <a href="/products"
+            class="inline-block px-8 py-4 font-bold text-white uppercase border rounded-lg bg-primaryBg">Read
+            More &rightarrow;</a>
         </div>
       </div>
     </section>
@@ -157,6 +126,7 @@
           <p class="text-sm font-normal md:text-md text-slate-500">Problems trying to resolve the conflict between </p>
         </header>
         <div class="gap-5 lg:flex">
+
           <div class="relative mb-5 overflow-hidden lg:mb-0 lg:basis-6/12 basis-full group ">
             <img src="/img/editor-pick-1.png" alt=""
               class="w-full h-full transition duration-500 ease-linear group-hover:scale-110">
@@ -164,6 +134,7 @@
               Men
             </div>
           </div>
+
           <div class="relative mb-5 overflow-hidden lg:mb-0 lg:basis-3/12 basis-full lg:h-full h-96 group">
             <img src="/img/editor-pick-2.png" alt=""
               class="w-full transition duration-500 ease-linear group-hover:scale-110">

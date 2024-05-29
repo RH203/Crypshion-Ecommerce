@@ -20,7 +20,6 @@ use Livewire\Component;
 class Cart extends Component
 {
 
-
     public $selectPayment = '1';
 
     public $provinceId;
@@ -78,15 +77,6 @@ class Cart extends Component
                 'estimation' => '7 - 13 day',
                 'cost' => 13000
             ];
-        }
-    }
-
-    public function destroyProduct($id)
-    {
-        $data = ModelsCart::find($id);
-
-        if ($data) {
-            $data->delete();
         }
     }
 

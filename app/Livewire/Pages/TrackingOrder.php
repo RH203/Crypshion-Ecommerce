@@ -12,7 +12,7 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-#[Title('Home')]
+#[Title('Tracking Order')]
 #[Layout('layouts.app')]
 
 class TrackingOrder extends Component

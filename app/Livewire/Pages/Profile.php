@@ -35,6 +35,11 @@ class Profile extends Component
     public $districtId;
     public $villageId;
 
+    public $provinceName;
+    public $regencyName;
+    public $districtName;
+    public $villageName;
+
     public function rules()
     {
         return [
@@ -62,6 +67,13 @@ class Profile extends Component
         $this->districtId = $user->district_id;
         $this->villageId = $user->village_id;
         $this->zip_code = $user->zip_code;
+
+
+        // Show Address
+        $this->provinceName = Province::find($user->province_id);
+        $this->regencyName = Regency::find($user->regency_id);
+        $this->districtName = District::find($user->district_id);
+        $this->villageName = Village::find($user->village_id);
     }
 
     public function updateProfile()
@@ -129,6 +141,11 @@ class Profile extends Component
             'districts' => District::where('regency_id', $this->regencyId)->get(),
             'selectedDistrict' => District::find($this->districtId),
             'villages' => Village::where('district_id', $this->districtId)->get(),
+
+            'provinceName' => $this->provinceName,
+            'regencyName' => $this->regencyName,
+            'districtName' => $this->districtName,
+            'villageName' => $this->villageName,
         ]);
     }
 }

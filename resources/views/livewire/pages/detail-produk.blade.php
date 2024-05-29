@@ -130,7 +130,7 @@
                       <iconify-icon icon="tdesign:cart" class="text-xl font-bold"></iconify-icon> &nbsp; Add to
                       cart</button>
                   @else
-                    <a href="/profilea" wire:navigate
+                    <a href="/profile" wire:navigate
                       class="flex items-center px-10 py-3 font-semibold text-white rounded-lg w-52 bg-primaryBg">
                       <iconify-icon icon="tdesign:cart" class="text-xl font-bold"></iconify-icon> &nbsp; Add to
                       cart</a>

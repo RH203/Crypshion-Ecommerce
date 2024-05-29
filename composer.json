@@ -8,6 +8,7 @@
         "php": "^8.2",
         "arielmejiadev/larapex-charts": "^2.1",
         "azishapidin/indoregion": "^3.0",
+        "google-gemini-php/laravel": "^1.0",
         "jantinnerezo/livewire-alert": "^3.0",
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.9",

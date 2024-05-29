@@ -8,8 +8,11 @@ use App\Models\Api\Regency;
 use App\Models\Api\Village;
 use App\Models\app\Product;
 use App\Models\Cart as ModelsCart;
+use App\Models\Order;
 use App\Models\User;
+use Dotenv\Exception\ValidationException;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -19,32 +22,28 @@ use Livewire\Component;
 
 class Cart extends Component
 {
-
-
-    public $selectPayment = '1';
-
+    public $datas;
+    public $selectPayment = 'online';
     public $provinceId;
     public $regencyId;
     public $districtId;
     public $villageId;
     public $zipCode;
-
     public $totalQty = 0;
     public $tax = 1000;
     public $subTotalProducts = 0;
-
     public $dataDelivery = [
         'name' => '',
         'estimation' => '',
         'cost' => 0,
     ];
     public $selectedDelivery;
-
     public $total = 0;
 
 
 
 
+    // Mounted
     public function mount()
     {
         // Show Address
@@ -56,6 +55,7 @@ class Cart extends Component
     }
 
 
+    // Select Delivery
     public function saveChanges()
     {
         if ($this->selectedDelivery === 'faster') {
@@ -79,8 +79,10 @@ class Cart extends Component
                 'cost' => 13000
             ];
         }
+        $this->selectedDelivery = $this->dataDelivery;
     }
 
+    // Destroy Product
     public function destroyProduct($id)
     {
         $data = ModelsCart::find($id);
@@ -90,10 +92,53 @@ class Cart extends Component
         }
     }
 
+
+    // Checkout
+    public function checkout()
+    {
+        try {
+            // Generate code transactions
+            $codeTrx = Str::random(10);
+            // Add to table order
+            foreach ($this->datas as $data) {
+                Order::create([
+                    'user_id' => Auth::user()->id,
+                    'product_id' => (int) $data->product_id,
+                    'quantity' => (int) $data->quantity,
+                    'image' =>  $data->image,
+                    'price' => $data->price,
+                    'color' => $data->color,
+                    'order_type' => $this->selectedDelivery['name'],
+                    'estimation' => $this->selectedDelivery['estimation'],
+                    'cost' => (string) $this->selectedDelivery['cost'],
+                    'payment_method' => $this->selectPayment,
+                    'code' => $codeTrx
+                ]);
+            }
+            // Delete data forom 
+            foreach ($this->datas as $cartData) {
+                ModelsCart::where('id', $cartData->id)->delete();
+            }
+        } catch (ValidationException $e) {
+            $this->alert('error', 'Validation Error', [
+                'position' => 'center',
+                'timer' => 3000,
+                'toast' => false,
+                'timerProgressBar' => true,
+                'showConfirmButton' => true,
+                'confirmButtonText' => 'Ok',
+                'text' => 'Please choose Image, size and color',
+            ]);
+        }
+    }
+
+
+    // Render Component
     public function render()
     {
-        $datas = ModelsCart::orderBy('id', 'desc')->where('user_id', Auth::id())->get();
-        foreach ($datas as $data) {
+        // Get Size
+        $this->datas = ModelsCart::orderBy('id', 'desc')->where('user_id', Auth::id())->get();
+        foreach ($this->datas as $data) {
             $product = Product::find($data->product_id);
 
             if ($product) {
@@ -102,6 +147,8 @@ class Cart extends Component
                 $data->size = $size;
             }
         }
+
+        // Check Product
         $isCart = ModelsCart::where('user_id', Auth::id())->first();
         session()->forget('cart_count');
 
@@ -121,7 +168,7 @@ class Cart extends Component
 
 
         return view('livewire.pages.cart', [
-            'datas' => $datas,
+            'datas' => $this->datas,
             'isCart' => $isCart,
             'province' => $this->provinceId,
             'regency' => $this->regencyId,

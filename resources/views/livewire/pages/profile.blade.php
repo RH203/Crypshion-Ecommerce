@@ -36,11 +36,6 @@
                 <p class="text-md">{{ Auth::user()->address ?? '-' }}</p>
               </div>
               <hr class="mb-3">
-              <div class="mb-3">
-                <label for="" class="font-semibold text-gray-500">Address</label>
-                <p class="text-md">{{ $villageName->name }}, {{ $districtName->name }}, {{ $regencyName->name }},
-                  {{ $provinceName->name }}, {{ $zip_code }}</p>
-              </div>
             </div>
           </div>
         </div>

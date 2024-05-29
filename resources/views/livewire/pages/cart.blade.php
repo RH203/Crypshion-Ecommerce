@@ -11,13 +11,14 @@
           <div class="p-8 bg-white shadow-md rounded-xl">
             <div class="flex items-center justify-between mb-8">
               <h3 class="text-xl font-bold">Shipping Address</h3>
-              <a href="" class="block">
+              <a href="/profile" wire:navigate class="block">
                 <iconify-icon icon="lucide:edit" class="text-xl text-slate-500"></iconify-icon>
               </a>
             </div>
             <p class="my-2 text-lg text-slate-500">Jl. Kalikepiting No. 45, Blok N. No.2</p>
             <hr>
-            <p class="my-2 text-lg uppercase text-slate-500">Kota Surabaya, Jawa Timur, 67364</p>
+            <p class="my-2 text-lg uppercase text-slate-500"> {{ $village->name }},
+              {{ $district->name }}, {{ $regency->name }}, {{ $province->name }}, {{ $zipCode->zip_code }}</p>
           </div>
           <div class="p-8 bg-white shadow-md rounded-xl">
             <div class="flex items-center justify-between mb-4">
@@ -33,9 +34,11 @@
                 <iconify-icon icon="hugeicons:delivery-truck-02"></iconify-icon>
               </div>
               <div>
-                <p class="text-lg font-semibold">Reguler</p>
-                <p class="text-slate-500">Estimation : 18 - 20</p>
-                <p class=" text-slate-500">Rp. 10.000</p>
+                <p class="text-lg font-semibold">{{ !$dataDelivery['name'] ? 'Delivery' : $dataDelivery['name'] }}</p>
+                <p class="text-slate-500">Estimation :
+                  {{ !$dataDelivery['estimation'] ? '0 day' : $dataDelivery['estimation'] }}</p>
+                <p class=" text-slate-500">Rp.
+                  {{ !$dataDelivery['cost'] ? '0' : number_format($dataDelivery['cost'], 0, ',', '.') }}</p>
               </div>
             </div>
           </div>
@@ -97,30 +100,29 @@
             <div class="mt-5">
               <div class="flex justify-between mb-2 text-slate-800">
                 <h4 class="text-slate-500">Quantity Product</h4>
-                <h4 class="font-bold">2</h4>
+                <h4 class="font-bold">{{ $totalQty }}</h4>
               </div>
               <div class="flex justify-between mb-2 text-slate-800">
                 <h4 class="text-slate-500">Subtotal Product</h4>
-                <h4 class="font-bold">Rp 1.200.000</h4>
+                <h4 class="font-bold">Rp {{ number_format($subTotalProducts, 0, ',', '.') }}</h4>
               </div>
               <div class="flex justify-between mb-2 text-slate-800">
                 <h4 class=" text-slate-500">Total Delivery</h4>
-                <h4 class="font-bold">Rp 20.000</h4>
+                <h4 class="font-bold">Rp {{ number_format($dataDelivery['cost'], 0, ',', '.') }}</h4>
               </div>
               <div class="flex justify-between mb-2 text-slate-800">
                 <h4 class=" text-slate-500">Tax</h4>
-                <h4 class="font-bold">Rp 1.000</h4>
+                <h4 class="font-bold">Rp {{ number_format($tax, 0, ',', '.') }}</h4>
               </div>
               <div class="flex justify-between mb-2 text-slate-800">
                 <h4 class=" text-slate-500">Total</h4>
-                <h4 class="font-bold">Rp. 1.225.000</h4>
+                <h4 class="font-bold">Rp. {{ number_format($total, 0, ',', '.') }}</h4>
               </div>
             </div>
             <div class="mt-2">
-              <select name="" id="" class="w-full py-2">
-                <option selected disabled>Payment Method</option>
-                <option value="">Online Payment</option>
-                <option value="">Crypto Payment</option>
+              <select name="selectPayment" id="" wire:model.live='selectPayment' class="w-full py-2">
+                <option value="1">Online Payment</option>
+                <option value="2">Crypto Payment</option>
               </select>
 
               <div class="flex justify-between mt-4">
@@ -133,9 +135,21 @@
               </div>
             </div>
             <div class="mt-8">
-              <a href="" class="block py-3 font-semibold text-center text-white rounded-lg bg-primaryBg">
-                Check Out
-              </a>
+              @if ($selectPayment == '1')
+                <a href="" class="block py-3 font-semibold text-center text-white rounded-lg bg-primaryBg">
+                  Check Out
+                </a>
+              @endif
+              @if ($selectPayment == '2')
+                <a href=""
+                  class="block py-3 mb-3 font-semibold text-center text-white rounded-lg bg-primaryBg">
+                  Connect Wallet
+                </a>
+                <a href="" class="block py-3 font-semibold text-center text-white rounded-lg bg-primaryBg">
+                  Check Out
+                </a>
+              @endif
+
             </div>
           </div>
         </div>
@@ -159,7 +173,7 @@
           <h3 class="font-bold text-gray-800 e">
             Change Delivery Type
           </h3>
-          <button type="button"
+          <button type="button" wire:click="saveChanges"
             class="flex items-center justify-center text-sm font-semibold text-gray-800 border border-transparent rounded-full size-7 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none"
             data-hs-overlay="#hs-medium-modal">
             <span class="sr-only">Close</span>
@@ -175,43 +189,47 @@
           <p class="mt-1 text-gray-800">
           <div class="grid grid-cols-1 gap-2 md:grid-cols-3">
             <div class="">
-              <input type="radio" id="reguler" value="reguler" name="delivery_type" class="hidden">
+              <input type="radio" wire:model="selectedDelivery" id="faster" value="faster"
+                name="delivery_type" class="hidden">
+              <label for="faster"
+                class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
+                <p class="text-lg font-semibold">Faster</p>
+                <p class="text-slate-500">Estimation : 2 - 4 day</p>
+                <p class=" text-slate-500">Rp. 17.000</p>
+              </label>
+            </div>
+            <div class="">
+              <input type="radio" wire:model="selectedDelivery" id="reguler" value="reguler"
+                name="delivery_type" class="hidden">
               <label for="reguler"
                 class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
                 <p class="text-lg font-semibold">Reguler</p>
-                <p class="text-slate-500">Estimation : 18 - 24</p>
+                <p class="text-slate-500">Estimation : 3 - 5 day</p>
                 <p class="text-slate-500">Rp. 10.000</p>
               </label>
             </div>
             <div class="">
-              <input type="radio" id="economic" value="ecomonic" name="delivery_type" class="hidden">
+              <input type="radio" wire:model="selectedDelivery" id="economic" value="economic"
+                name="delivery_type" class="hidden">
               <label for="economic"
                 class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
                 <p class="text-lg font-semibold">Economic</p>
-                <p class="text-slate-500">Estimation : 18 - 26</p>
+                <p class="text-slate-500">Estimation : 4 - 8 day</p>
                 <p class=" text-slate-500">Rp. 7.000</p>
-              </label>
-            </div>
-            <div class="">
-              <input type="radio" id="faster" value="faster" name="delivery_type" class="hidden">
-              <label for="faster"
-                class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
-                <p class="text-lg font-semibold">Faster</p>
-                <p class="text-slate-500">Estimation : 18 - 20</p>
-                <p class=" text-slate-500">Rp. 17.000</p>
               </label>
             </div>
           </div>
           </p>
         </div>
         <div class="flex items-center justify-end px-4 py-3 border-t gap-x-2 dark:border-neutral-700">
-
-          <button type="button"
-            class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+          <button type="button" wire:click.live='saveChanges'
+            class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+            data-hs-overlay="#hs-medium-modal">
             Save changes
           </button>
         </div>
       </div>
     </div>
   </div>
+
 </div>

@@ -8,16 +8,15 @@
       </header>
 
       <div class="grid grid-cols-3 gap-5">
-
-
         <div class="p-5 bg-white shadow-lg rounded-xl">
-
           <header class="mb-5 ">
             <h1 class="text-xl font-semibold">Profile Account</h1>
           </header>
           <div class="grid-cols-1 gap-5 md:grid" wire:poll>
-            <div class="w-full h-auto mx-auto mb-8 overflow-hidden lg:mb-0 rounded-xl lg:basis-4/12">
-              <img src="{{ Auth::user()->avatar }}" class="w-full" alt="">
+            <div class="w-full mx-auto mb-8 overflow-hidden h-72 lg:mb-0 rounded-xl lg:basis-4/12">
+              <img
+                src="{{ $avatar ? $avatar->temporaryUrl() : asset('storage/file/avatar/' . Auth::user()->avatar) }}"class="object-cover w-full"
+                alt="">
             </div>
             <div class="text-center md:text-start lg:basis-8/12">
               <div class="mb-3">
@@ -101,26 +100,77 @@
                   </div>
                   <div class="mb-3">
                     <label for="province" class="text-sm text-slate-500">Province</label>
-                    <input type="text" name="province" id="province" class="w-full px-3 py-1 border rounded-md">
+                    <select name="provinceId" id="province" wire:model.live='provinceId'
+                      class="w-full px-3 py-1 border rounded-md js-example-basic-single">
+                      <option selected>Select Province</option>
+                      @foreach ($provinces as $province)
+                        <option value="{{ $province->id }}">{{ $province->name }}
+                        </option>
+                      @endforeach
+                    </select>
+                    @error('provinceId')
+                      <small class="italic text-red-600"><iconify-icon icon="quill:warning-alt"></iconify-icon>
+                        {{ $message }}</small>
+                    @enderror
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="mb-3">
+                    <label for="regency" class="text-sm text-slate-500">Regency</label>
+                    <select name="regencyId" id="regency" wire:model.live='regencyId'
+                      class="w-full px-3 py-1 border rounded-md js-example-basic-single">
+                      @foreach ($regencies as $regency)
+                        <option value="{{ $regency->id }}">{{ $regency->name }}
+                        </option>
+                      @endforeach
+                    </select>
+                    @error('regencyId')
+                      <small class="italic text-red-600"><iconify-icon icon="quill:warning-alt"></iconify-icon>
+                        {{ $message }}</small>
+                    @enderror
+                  </div>
+                  <div class="mb-3">
+                    <label for="district" class="text-sm text-slate-500">Distric</label>
+                    <select name="districtId" id="district" wire:model.live='districtId'
+                      class="w-full px-3 py-1 border rounded-md js-example-basic-single">
+                      @foreach ($districts as $district)
+                        <option value="{{ $district->id }}">{{ $district->name }}
+                        </option>
+                      @endforeach
+                    </select>
+                    @error('districtId')
+                      <small class="italic text-red-600"><iconify-icon icon="quill:warning-alt"></iconify-icon>
+                        {{ $message }}</small>
+                    @enderror
                   </div>
                 </div>
 
                 <div class="grid grid-cols-2 gap-3">
                   <div class="mb-3">
-                    <label for="regency" class="text-sm text-slate-500">Regence</label>
-                    <input type="text" name="regency" id="regency" class="w-full px-3 py-1 border rounded-md">
+                    <label for="village" class="text-sm text-slate-500">Village</label>
+                    <select name="villageId" id="village" wire:model.live='villageId'
+                      class="w-full px-3 py-1 border rounded-md js-example-basic-single">
+                      @foreach ($villages as $village)
+                        <option value="{{ $village->id }}">{{ $village->name }}
+                        </option>
+                      @endforeach
+                    </select>
+                    @error('villageId')
+                      <small class="italic text-red-600"><iconify-icon icon="quill:warning-alt"></iconify-icon>
+                        {{ $message }}</small>
+                    @enderror
                   </div>
                   <div class="mb-3">
-                    <label for="distric" class="text-sm text-slate-500">Distric</label>
-                    <input type="text" name="distric" id="distric" class="w-full px-3 py-1 border rounded-md">
+                    <label for="zipCode" class="text-sm text-slate-500">ZIP Code</label>
+                    <input type="text" name="zip_code" wire:model='zip_code' id="zipCode"
+                      class="w-full px-3 py-1 border rounded-md">
+                    @error('zip_code')
+                      <small class="italic text-red-600"><iconify-icon icon="quill:warning-alt"></iconify-icon>
+                        {{ $message }}</small>
+                    @enderror
                   </div>
                 </div>
 
-
-                <div class="mb-3">
-                  <label for="zipCode" class="text-sm text-slate-500">ZIP Code</label>
-                  <input type="text" name="zipCode" id="zipCode" class="w-full px-3 py-1 border rounded-md">
-                </div>
                 <div class="mb-3">
                   <label for="address" class="text-sm text-slate-500">Complete Address</label>
                   <textarea name="address" wire:model='address' id="address" cols="30" rows="5"
@@ -136,17 +186,23 @@
                   <input type="text" name="walletAddress" id="walletAddress"
                     class="w-full px-3 py-1 border rounded-md">
                 </div>
-                <label for="zipCode" class="text-sm text-slate-500">Photo Profile</label>
-                <div class="grid grid-cols-5 gap-3">
-                  <div class="col-span-4 mb-3">
-                    {{-- <input type="text" name="" id=""> --}}
-                    <input type="file" name="" id="photo-profile"
-                      class="w-full px-3 py-1 border rounded-md">
+                <label for="avatar" class="text-sm text-slate-500">Photo Profile</label>
+                <div>
+                  <div class="grid grid-cols-5 gap-3">
+                    <div class="col-span-4 mb-3">
+                      {{-- <input type="text" name="" id=""> --}}
+                      <input type="file" name="avatar" wire:model.live='avatar' id="avatar"
+                        class="w-full px-3 py-1 border rounded-md">
+                    </div>
+                    <label for="avatar"
+                      class="flex items-center justify-center w-full h-10 text-white rounded-md cursor-pointer bg-primaryBg">
+                      Browse
+                    </label>
                   </div>
-                  <label for="photo-profile"
-                    class="flex items-center justify-center w-full h-10 text-white rounded-md cursor-pointer bg-primaryBg">
-                    Browse
-                  </label>
+                  @error('avatar')
+                    <small class="italic text-red-600"><iconify-icon icon="quill:warning-alt"></iconify-icon>
+                      {{ $message }}</small>
+                  @enderror
                 </div>
 
 

@@ -151,59 +151,6 @@
                 @endif
 
               </div>
-              <div class="flex justify-between mb-2 text-slate-800">
-                <h4 class="text-slate-500">Subtotal Product</h4>
-                <h4 class="font-bold">Rp {{ number_format($subTotalProducts, 0, ',', '.') }}</h4>
-              </div>
-              <div class="flex justify-between mb-2 text-slate-800">
-                <h4 class=" text-slate-500">Total Delivery</h4>
-                <h4 class="font-bold">Rp {{ number_format($dataDelivery['cost'], 0, ',', '.') }}</h4>
-              </div>
-              <div class="flex justify-between mb-2 text-slate-800">
-                <h4 class=" text-slate-500">Tax</h4>
-                <h4 class="font-bold">Rp {{ number_format($tax, 0, ',', '.') }}</h4>
-              </div>
-              <div class="flex justify-between mb-2 text-slate-800">
-                <h4 class=" text-slate-500">Total</h4>
-                <h4 class="font-bold">Rp. {{ number_format($total, 0, ',', '.') }}</h4>
-              </div>
-            </div>
-            <div class="mt-2">
-
-              <select name="selectPayment" id="" wire:model.live='selectPayment' class="w-full py-2">
-                <option value="1">Online Payment</option>
-                <option value="2">Crypto Payment</option>
-
-              </select>
-
-              <div class="flex justify-between mt-4">
-                <img src="/img/payment/qris.png" alt="" class="h-4">
-                <img src="/img/payment/gopay.png" alt="" class="h-4">
-                <img src="/img/payment/shopeepay.png" alt="" class="h-4">
-                <img src="/img/payment/bca.png" alt="" class="h-4">
-                <img src="/img/payment/bni.webp" alt="" class="h-4">
-                <img src="/img/payment/briva.png" alt="" class="h-4">
-              </div>
-            </div>
-            <div class="mt-8">
-
-              @if ($paymentMethod == '1')
-                <a href="" class="block py-3 font-semibold text-center text-white rounded-lg bg-primaryBg">
-                  Check Out
-                </a>
-              @endif
-              @if ($paymentMethod == '2')
-                <p class="hidden" id="hide-address">
-                  Address : <span id="address"> Test </span>
-                </p>
-                <a href="#" wire:click.prevent="connectWallet" id="connect"
-                  class="block py-3 mb-2 font-semibold text-center text-white rounded-lg bg-primaryBg">
-                  Connect Wallet
-                </a>
-                <a href="#" id="checkout-crypto" class="hidden">
-                  Check Out
-                </a>
-              @endif
             </div>
           </div>
         </div>

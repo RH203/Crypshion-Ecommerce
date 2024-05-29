@@ -40,9 +40,6 @@ class Cart extends Component
   public $selectedDelivery;
   public $total = 0;
 
-
-
-
   // Mounted
   public function mount()
   {

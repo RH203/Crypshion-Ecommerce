@@ -121,7 +121,7 @@
                 </div>
                 <div class="flex justify-between mb-2 text-slate-800">
                   <h4 class=" text-slate-500">Total</h4>
-                  <h4 class="font-bold">Rp. {{ number_format($total, 0, ',', '.') }}</h4>
+                  <h4 class="font-bold" id="totalPrice">Rp. {{ number_format($total, 0, ',', '.') }}</h4>        {{-- Dsini Debug --}}
                 </div>
               </div>
               <div class="mt-2">
@@ -241,3 +241,7 @@
     </div>
   </form>
 </div>
+
+<script type="text/javascript">
+    window.totalPrice = @json($total);
+</script>

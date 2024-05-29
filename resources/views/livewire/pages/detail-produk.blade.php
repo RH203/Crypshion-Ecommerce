@@ -124,10 +124,17 @@
             <form wire:submit.prevent='addToCart' class="">
               <div class="flex gap-3 mt-3">
                 <div>
-                  <button type="submit"
-                    class="flex items-center px-10 py-3 font-semibold text-white rounded-lg w-52 bg-primaryBg">
-                    <iconify-icon icon="tdesign:cart" class="text-xl font-bold"></iconify-icon> &nbsp; Add to
-                    cart</button>
+                  @if ($isComplete)
+                    <button type="submit"
+                      class="flex items-center px-10 py-3 font-semibold text-white rounded-lg w-52 bg-primaryBg">
+                      <iconify-icon icon="tdesign:cart" class="text-xl font-bold"></iconify-icon> &nbsp; Add to
+                      cart</button>
+                  @else
+                    <a href="/profilea" wire:navigate
+                      class="flex items-center px-10 py-3 font-semibold text-white rounded-lg w-52 bg-primaryBg">
+                      <iconify-icon icon="tdesign:cart" class="text-xl font-bold"></iconify-icon> &nbsp; Add to
+                      cart</a>
+                  @endif
                 </div>
 
                 <!-- Input Number -->

@@ -124,10 +124,17 @@
             <form wire:submit.prevent='addToCart' class="">
               <div class="flex gap-3 mt-3">
                 <div>
-                  <button type="submit"
-                    class="flex items-center px-10 py-3 font-semibold text-white rounded-lg w-52 bg-primaryBg">
-                    <iconify-icon icon="tdesign:cart" class="text-xl font-bold"></iconify-icon> &nbsp; Add to
-                    cart</button>
+                  @if ($isComplete)
+                    <button type="submit"
+                      class="flex items-center px-10 py-3 font-semibold text-white rounded-lg w-52 bg-primaryBg">
+                      <iconify-icon icon="tdesign:cart" class="text-xl font-bold"></iconify-icon> &nbsp; Add to
+                      cart</button>
+                  @else
+                    <a href="/profilea" wire:navigate
+                      class="flex items-center px-10 py-3 font-semibold text-white rounded-lg w-52 bg-primaryBg">
+                      <iconify-icon icon="tdesign:cart" class="text-xl font-bold"></iconify-icon> &nbsp; Add to
+                      cart</a>
+                  @endif
                 </div>
 
                 <!-- Input Number -->
@@ -245,17 +252,5 @@
     </div>
     {{-- Best Seller Products End --}}
   </div>
-
-
-
-
-  {{-- Add to cart value start --}}
-  {{-- <form class="hidden">
-    <input type="text" name="user_id" wire:model='user_id' value="{{ auth()->user()->id }}" class="hidden">
-    <input type="text" name="product_id" wire:model='product_id' value="{{ session('product_' . $id) }}"
-      class="hidden">
-
-  </form> --}}
-  {{-- Add to cart value end --}}
 
 </div>

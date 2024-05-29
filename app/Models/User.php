@@ -14,7 +14,7 @@ class User extends Authenticatable
     use HasFactory, Notifiable, HasRoles;
 
 
-    const AVATAR = '/img/user/avatar.png';
+    const AVATAR = 'avatar.png';
 
     /**
      * The attributes that are mass assignable.

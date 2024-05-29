@@ -112,8 +112,8 @@
         @auth
           <div class="relative inline-flex mb-1 ms-3 hs-dropdown">
             <button id="hs-dropdown-with-header" type="button"
-              class="inline-flex items-center overflow-hidden text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-full shadow-sm w-7 h-7 hs-dropdown-toggle hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
-              <img src="{{ Auth::user()->avatar }}" alt="avatar" class="w-full">
+              class="inline-flex items-center overflow-hidden text-sm font-medium text-gray-800 bg-white rounded-full shadow-sm w-7 h-7 hs-dropdown-toggle hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+              <img src="{{ asset('storage/file/avatar/' . Auth::user()->avatar) }}" alt="avatar" class="w-full">
             </button>
 
             <div

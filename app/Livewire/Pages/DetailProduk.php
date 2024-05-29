@@ -3,6 +3,7 @@
 namespace App\Livewire\Pages;
 
 use App\Models\Cart;
+use App\Models\User;
 use App\Trait\Products;
 use DOMDocument;
 use Illuminate\Support\Facades\Auth;
@@ -34,7 +35,6 @@ class DetailProduk extends Component
   {
     $this->id = $id;
     $this->showProduct();
-
     // $this->products = $this->getProducts(5);
   }
 
@@ -95,6 +95,7 @@ class DetailProduk extends Component
       ];
 
       Cart::create($data);
+      $this->reset(['size', 'color', 'quantity']);
       // Update cart count in session
       $cartCount = session('cart_count', 0) + 1;
       session(['cart_count' => $cartCount]);
@@ -127,7 +128,22 @@ class DetailProduk extends Component
 
   public function render()
   {
+
+    $dataProfile = User::where('id', Auth::user()->id)
+      ->where(function ($query) {
+        $query->whereNull('phone_number')
+          ->orWhereNull('address')
+          ->orWhereNull('province_id');
+      })
+      ->first();
+
+    $completeProfile = true;
+    if ($dataProfile) {
+      $completeProfile = false;
+    }
+
     return view('livewire.pages.detail-produk', [
+      'isComplete' => $completeProfile,
       'datas' => $this->dataIcon,
       // 'products' => $this->products,
     ]);

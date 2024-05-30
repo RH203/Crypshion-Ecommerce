@@ -14,6 +14,7 @@ use Dotenv\Exception\ValidationException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
@@ -30,7 +31,7 @@ class Cart extends Component
   public $villageId;
   public $zipCode;
   public $totalQty = 0;
-  public $tax = 1000;  // Change it to 1 for test!
+  public $tax = 1;  // Change it to 1 for test!
   public $subTotalProducts = 0;
   public $dataDelivery = [
     'name' => '',
@@ -39,6 +40,8 @@ class Cart extends Component
   ];
   public $selectedDelivery;
   public $total = 0;
+
+  protected $listeners = ['Checkout' => 'checkout'];
 
   // Mounted
   public function mount()
@@ -93,7 +96,6 @@ class Cart extends Component
     }
   }
 
-
   // Checkout
   public function checkout()
   {
@@ -132,7 +134,6 @@ class Cart extends Component
       ]);
     }
   }
-
 
   // Render Component
   public function render()

@@ -243,5 +243,5 @@
 </div>
 
 <script type="text/javascript">
-    window.totalPrice = @json($total);
+  var total = <?php echo json_encode($total); ?>;
 </script>

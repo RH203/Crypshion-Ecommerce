@@ -69,6 +69,9 @@ class HelpCenterBotBobi extends Component
 
         Content::parse(part: '', role: Role::USER),
         Content::parse(part: '', role: Role::MODEL),
+
+        Content::parse(part: '', role: Role::USER),
+        Content::parse(part: '', role: Role::MODEL),
         // Payment Questions
         Content::parse(part: 'Apa metode pembayaran yang diterima oleh Crypshion?', role: Role::USER),
         Content::parse(part: 'Crypshion menerima pembayaran melalui Ewallet, Mobile Banking, dan Cryptocurrency', role: Role::MODEL),

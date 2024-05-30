@@ -26,6 +26,7 @@ class DetailProduk extends Component
   public $showImagePath;
   public $dataIcon;
   public $product;
+  public $completeProfile = true;
 
 
 
@@ -128,22 +129,24 @@ class DetailProduk extends Component
 
   public function render()
   {
+    if (Auth::check()) {
 
-    $dataProfile = User::where('id', Auth::user()->id)
-      ->where(function ($query) {
-        $query->whereNull('phone_number')
-          ->orWhereNull('address')
-          ->orWhereNull('province_id');
-      })
-      ->first();
-
-    $completeProfile = true;
-    if ($dataProfile) {
-      $completeProfile = false;
+      $dataProfile = User::where('id', Auth::user()->id)
+        ->where(function ($query) {
+          $query->whereNull('phone_number')
+            ->orWhereNull('address')
+            ->orWhereNull('province_id');
+        })
+        ->first();
+      $this->completeProfile = true;
+      if ($dataProfile) {
+        $this->completeProfile = false;
+      }
     }
 
+
     return view('livewire.pages.detail-produk', [
-      'isComplete' => $completeProfile,
+      'isComplete' => $this->completeProfile,
       'datas' => $this->dataIcon,
       // 'products' => $this->products,
     ]);

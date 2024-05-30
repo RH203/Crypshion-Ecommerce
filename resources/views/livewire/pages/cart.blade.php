@@ -62,7 +62,7 @@
                 <div class="flex items-center justify-between my-5">
                   <div class="flex">
                     <div class="w-40 h-full overflow-hidden rounded-lg md:h-40 bg-slate-200">
-                      <img src="{{ asset('storage/' . $data->image) }}" alt="" width="w-full"
+                      <img src="{{ asset('storage/' . $data->image) }}" alt="" width="w-full object-cover"
                         class="object-cover">
                     </div>
                     <div class="text-slate-800 ms-5">
@@ -121,7 +121,7 @@
                 </div>
                 <div class="flex justify-between mb-2 text-slate-800">
                   <h4 class=" text-slate-500">Total</h4>
-                  <h4 class="font-bold">Rp. {{ number_format($total, 0, ',', '.') }}</h4>
+                  <h4 class="font-bold" id="totalPrice">Rp. {{ number_format($total, 0, ',', '.') }}</h4>        {{-- Dsini Debug --}}
                 </div>
               </div>
               <div class="mt-2">
@@ -129,18 +129,17 @@
                   <option value="online">Online Payment</option>
                   <option value="crypto">Crypto Payment</option>
                 </select>
-
-                <div class="flex justify-between mt-4">
-                  <img src="/img/payment/qris.png" alt="" class="h-4">
-                  <img src="/img/payment/gopay.png" alt="" class="h-4">
-                  <img src="/img/payment/shopeepay.png" alt="" class="h-4">
-                  <img src="/img/payment/bca.png" alt="" class="h-4">
-                  <img src="/img/payment/bni.webp" alt="" class="h-4">
-                  <img src="/img/payment/briva.png" alt="" class="h-4">
-                </div>
               </div>
               <div class="mt-8">
                 @if ($selectPayment == 'online')
+                  <div class="flex justify-between mb-4">
+                    <img src="/img/payment/qris.png" alt="" class="h-4">
+                    <img src="/img/payment/gopay.png" alt="" class="h-4">
+                    <img src="/img/payment/shopeepay.png" alt="" class="h-4">
+                    <img src="/img/payment/bca.png" alt="" class="h-4">
+                    <img src="/img/payment/bni.webp" alt="" class="h-4">
+                    <img src="/img/payment/briva.png" alt="" class="h-4">
+                  </div>
                   <button type="submit"
                     class="block w-full py-3 font-semibold text-center text-white rounded-lg bg-primaryBg">
                     Check Out
@@ -148,7 +147,8 @@
                 @endif
                 @if ($selectPayment == 'crypto')
                   <p class="hidden" id="hide-address">
-                    Address : <span id="address"> Test </span>
+                    <span id="address" class="w-full px-2 py-1 overflow-hidden rounded-md bg-slate-300">
+                      Test </span>
                   </p>
                   <a href="#" wire:click.prevent="connectWallet" id="connect"
                     class="block py-3 mb-2 font-semibold text-center text-white rounded-lg bg-primaryBg">
@@ -241,3 +241,7 @@
     </div>
   </form>
 </div>
+
+<script type="text/javascript">
+    window.totalPrice = @json($total);
+</script>

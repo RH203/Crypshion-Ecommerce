@@ -31,114 +31,35 @@
                 <h3 class="text-xl font-bold">Product</h3>
               </header>
 
-              <div class="flex items-center justify-between my-5">
-                <div class="flex">
-                  <div class="w-48 h-full overflow-hidden rounded-lg md:h-40 bg-slate-200">
-                    <img src="/img/product/img-9.jpg" alt="" width="w-full">
-                  </div>
-                  <div class="text-slate-800 ms-5">
-                    <div class="w-full mb-1">
-                      <h4 class="font-semibold text-md">Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit,
-                        sed do ...
-                      </h4>
+              @foreach ($products as $product)
+                <div class="flex items-center justify-between my-5">
+                  <div class="flex">
+                    <div class="h-48 overflow-hidden rounded-lg w-72 md:h-40 bg-slate-200">
+                      <img src="{{ asset('storage/' . $product->image) }}" alt="" width="w-full object-cover">
                     </div>
-                    <p class="text-sm text-slate-500">T-Shirt</p>
-                    <div>
-                      <span
-                        class="inline-block px-5 py-0 text-sm border md:px-7 text-slate-500 border-slate-500">XL</span>
-                      <span
-                        class="inline-block px-5 py-0 text-sm border md:px-7 text-slate-500 border-slate-500">Maroon</span>
-                    </div>
-                    <div class="my-1 text-sm text-slate-500">Qty : <span>1</span> x</div>
-                    <div class="md:text-xl text-md">
-                      Rp. <span class="font-semibold">400.000</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <hr class="border">
-              <div class="flex items-center justify-between my-5">
-                <div class="flex">
-                  <div class="w-48 h-full overflow-hidden rounded-lg md:h-40 bg-slate-200">
-                    <img src="/img/product/img-9.jpg" alt="" width="w-full">
-                  </div>
-                  <div class="text-slate-800 ms-5">
-                    <div class="w-full mb-1">
-                      <h4 class="font-semibold text-md">Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit,
-                        sed do ...
-                      </h4>
-                    </div>
-                    <p class="text-sm text-slate-500">T-Shirt</p>
-                    <div>
-                      <span
-                        class="inline-block px-5 py-0 text-sm border md:px-7 text-slate-500 border-slate-500">XL</span>
-                      <span
-                        class="inline-block px-5 py-0 text-sm border md:px-7 text-slate-500 border-slate-500">Maroon</span>
-                    </div>
-                    <div class="my-1 text-sm text-slate-500">Qty : <span>1</span> x</div>
-                    <div class="md:text-xl text-md">
-                      Rp. <span class="font-semibold">400.000</span>
+                    <div class="text-slate-800 ms-5">
+                      <div class="w-full mb-1">
+                        <h4 class="font-semibold text-md">{{ Str::limit($product->product->title, 100) }}
+                        </h4>
+                      </div>
+                      <p class="text-sm text-slate-500">{{ $product->product->category->title }}</p>
+                      <div>
+                        <span
+                          class="inline-block px-5 py-0 text-sm border md:px-7 text-slate-500 border-slate-500">XL</span>
+                        <span
+                          class="inline-block px-5 py-0 text-sm border md:px-7 text-slate-500 border-slate-500">{{ $product->color }}</span>
+                      </div>
+                      <div class="my-1 text-sm text-slate-500">Qty : <span>{{ $product->quantity }}</span> x</div>
+                      <div class="md:text-xl text-md">
+                        Rp. <span class="font-semibold">{{ $product->price }}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <hr class="border">
-              <div class="flex items-center justify-between my-5">
-                <div class="flex">
-                  <div class="w-48 h-full overflow-hidden rounded-lg md:h-40 bg-slate-200">
-                    <img src="/img/product/img-9.jpg" alt="" width="w-full">
-                  </div>
-                  <div class="text-slate-800 ms-5">
-                    <div class="w-full mb-1">
-                      <h4 class="font-semibold text-md">Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit,
-                        sed do ...
-                      </h4>
-                    </div>
-                    <p class="text-sm text-slate-500">T-Shirt</p>
-                    <div>
-                      <span
-                        class="inline-block px-5 py-0 text-sm border md:px-7 text-slate-500 border-slate-500">XL</span>
-                      <span
-                        class="inline-block px-5 py-0 text-sm border md:px-7 text-slate-500 border-slate-500">Maroon</span>
-                    </div>
-                    <div class="my-1 text-sm text-slate-500">Qty : <span>1</span> x</div>
-                    <div class="md:text-xl text-md">
-                      Rp. <span class="font-semibold">400.000</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <hr class="border">
-              <div class="flex items-center justify-between my-5">
-                <div class="flex">
-                  <div class="w-48 h-full overflow-hidden rounded-lg md:h-40 bg-slate-200">
-                    <img src="/img/product/img-9.jpg" alt="" width="w-full">
-                  </div>
-                  <div class="text-slate-800 ms-5">
-                    <div class="w-full mb-1">
-                      <h4 class="font-semibold text-md">Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit,
-                        sed do ...
-                      </h4>
-                    </div>
-                    <p class="text-sm text-slate-500">T-Shirt</p>
-                    <div>
-                      <span
-                        class="inline-block px-5 py-0 text-sm border md:px-7 text-slate-500 border-slate-500">XL</span>
-                      <span
-                        class="inline-block px-5 py-0 text-sm border md:px-7 text-slate-500 border-slate-500">Maroon</span>
-                    </div>
-                    <div class="my-1 text-sm text-slate-500">Qty : <span>1</span> x</div>
-                    <div class="md:text-xl text-md">
-                      Rp. <span class="font-semibold">400.000</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <hr class="border">
+                <hr class="border">
+              @endforeach
+
+
             </div>
             {{-- Product end --}}
 
@@ -154,12 +75,12 @@
                 </header>
                 <div class="text-center">
                   <div class="w-32 h-32 mx-auto overflow-hidden rounded-full">
-                    <img src="/img/user/user-1.png" class="w-full" alt="">
+                    <img src="{{ asset('storage/file/avatar/' . Auth::user()->avatar) }}" class="w-full" alt="">
                   </div>
 
-                  <h4 class="mt-4 text-lg font-semibold">Irfan Yasin</h4>
-                  <p>irfanyasin@gmail.com</p>
-                  <p>+62 878 5996 7039</p>
+                  <h4 class="mt-4 text-lg font-semibold">{{ Auth::user()->name }}</h4>
+                  <p>{{ Auth::user()->email }}</p>
+                  <p>{{ Auth::user()->phone_number }}</p>
 
                 </div>
               </div>
@@ -169,9 +90,12 @@
                     <h3 class="text-xl font-bold">Shipping Address</h3>
                   </header>
                   <div>
-                    <p class="my-2 text-slate-500">Jl. Kalikepiting No. 45, Blok N. No.2</p>
+                    <p class="my-2 text-slate-500">{{ Auth::user()->address }}</p>
                     <hr>
-                    <p class="my-2 uppercase text-slate-500">Kota Surabaya, Jawa Timur, 67364</p>
+                    <p class="my-2 uppercase text-slate-500">{{ $village->name }},
+                      {{ $district->name }}, {{ $regency->name }}, {{ $province->name }},
+                      {{ Auth::user()->zip_code }}
+                    </p>
                   </div>
                 </div>
                 <div class="mb-10">
@@ -184,9 +108,9 @@
                         <iconify-icon icon="hugeicons:delivery-truck-02"></iconify-icon>
                       </div>
                       <div>
-                        <p class="text-lg font-semibold">Reguler</p>
-                        <p class="text-slate-500">Date : 18 - 20</p>
-                        <p class=" text-slate-500">Rp. 10.000</p>
+                        <p class="text-lg font-semibold">{{ $data->order_type }}</p>
+                        <p class="text-slate-500">Estimation : {{ $data->estimation }}</p>
+                        <p class=" text-slate-500">Rp. {{ number_format($data->cost, 0, ',', '.') }}</p>
                       </div>
                     </div>
                   </div>
@@ -218,7 +142,7 @@
                     </div>
                     <div class="flex justify-between mb-2 text-slate-800">
                       <h4 class=" text-slate-500">Payment Method</h4>
-                      <h4 class="font-bold">Online</h4>
+                      <h4 class="font-bold">{{ $data->payment_method }}</h4>
                     </div>
                   </div>
                 </div>

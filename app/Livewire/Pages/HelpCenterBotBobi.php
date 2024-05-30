@@ -67,11 +67,36 @@ class HelpCenterBotBobi extends Component
         Content::parse(part: 'Halo crypshion', role: Role::USER),
         Content::parse(part: 'Halo ' . Auth::user()->name . ', apa yang bisa saya bantu ?', role: Role::MODEL),
 
-        Content::parse(part: '', role: Role::USER),
-        Content::parse(part: '', role: Role::MODEL),
+        Content::parse(part: 'Apa itu Crypshion?', role: Role::USER),
+        Content::parse(part: 'rypshion adalah toko online yang menyediakan berbagai produk fashion berkualitas tinggi untuk pria dan wanita, termasuk pakaian, sepatu, dan aksesoris.', role: Role::MODEL),
 
-        Content::parse(part: '', role: Role::USER),
-        Content::parse(part: '', role: Role::MODEL),
+        Content::parse(part: 'Bagaimana cara membuat akun di Crypshion?', role: Role::USER),
+        Content::parse(part: 'Untuk membuat akun, klik tombol "Daftar" di pojok kanan atas halaman utama, lalu isi formulir pendaftaran dengan informasi yang diperlukan.', role: Role::MODEL),
+
+        Content::parse(part: 'Apakah saya perlu membuat akun untuk berbelanja di Crypshion?', role: Role::USER),
+        Content::parse(part: 'Iya, Anda tidak bisa berbelanja sebagai tamu. Namun, membuat akun akan memudahkan Anda melacak pesanan dan menyimpan riwayat belanja.', role: Role::MODEL),
+
+        Content::parse(part: 'Bagaimana cara menghubungi layanan pelanggan Crypshion?', role: Role::USER),
+        Content::parse(part: 'Anda bisa menghubungi layanan pelanggan Crypshion melalui email di support@crypshion.com atau melalui nomor telepon yang tertera di situs kami.', role: Role::MODEL),
+
+        Content::parse(part: 'Apakah Crypshion memiliki toko fisik?', role: Role::USER),
+        Content::parse(part: 'Saat ini, Crypshion hanya beroperasi secara online dan belum memiliki toko fisik.', role: Role::MODEL),
+
+        Content::parse(part: 'Bagaimana cara mencari produk di situs Crypshion?', role: Role::USER),
+        Content::parse(part: 'Anda bisa menggunakan fitur pencarian di bagian atas halaman untuk menemukan produk yang Anda cari atau menelusuri kategori yang tersedia di situs.', role: Role::MODEL),
+
+        Content::parse(part: 'Apakah Crypshion menawarkan program loyalitas atau keanggotaan?', role: Role::USER),
+        Content::parse(part: 'Ya, Crypshion memiliki program keanggotaan yang memberikan berbagai keuntungan seperti diskon eksklusif dan akses awal ke koleksi terbaru. Informasi lebih lanjut bisa Anda temukan di halaman "Program Keanggotaan" kami.', role: Role::MODEL),
+
+        Content::parse(part: 'Apakah informasi pribadi saya aman di Crypshion?', role: Role::USER),
+        Content::parse(part: 'Ya, Crypshion menggunakan teknologi enkripsi terbaru untuk melindungi informasi pribadi dan data pembayaran Anda.', role: Role::MODEL),
+
+        Content::parse(part: 'Bagaimana cara melihat status pesanan saya?', role: Role::USER),
+        Content::parse(part: 'Anda bisa melihat status pesanan Anda dengan masuk ke akun Crypshion Anda dan memilih "Riwayat Pesanan". Jika Anda berbelanja sebagai tamu, gunakan nomor pesanan dan email untuk melacak pesanan.', role: Role::MODEL),
+
+        Content::parse(part: 'Apakah Crypshion menyediakan gift card?', role: Role::USER),
+        Content::parse(part: 'Ya, Crypshion menyediakan gift card dalam berbagai nominal yang bisa dibeli di situs kami dan digunakan untuk berbelanja produk fashion di Crypshion.', role: Role::MODEL),
+
         // Payment Questions
         Content::parse(part: 'Apa metode pembayaran yang diterima oleh Crypshion?', role: Role::USER),
         Content::parse(part: 'Crypshion menerima pembayaran melalui Ewallet, Mobile Banking, dan Cryptocurrency', role: Role::MODEL),

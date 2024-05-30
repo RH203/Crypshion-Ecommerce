@@ -57,15 +57,14 @@
               <header>
                 <h3 class="text-xl font-bold">Product Cart</h3>
               </header>
-
               @foreach ($datas as $data)
                 <div class="flex items-center justify-between my-5">
                   <div class="flex">
-                    <div class="w-40 h-full overflow-hidden rounded-lg md:h-40 bg-slate-200">
+                    <div class="h-full overflow-hidden rounded-lg basis-3/12 md:h-40 bg-slate-200">
                       <img src="{{ asset('storage/' . $data->image) }}" alt="" width="w-full object-cover"
                         class="object-cover">
                     </div>
-                    <div class="text-slate-800 ms-5">
+                    <div class="basis-9/12 text-slate-800 ms-5">
                       <div class="w-10/12 mb-1 md:w-8/12">
                         <h4 class="font-semibold text-md">
                           {{ Str::limit($data->product->title, 60) }}
@@ -121,7 +120,8 @@
                 </div>
                 <div class="flex justify-between mb-2 text-slate-800">
                   <h4 class=" text-slate-500">Total</h4>
-                  <h4 class="font-bold" id="totalPrice">Rp. {{ number_format($total, 0, ',', '.') }}</h4>        {{-- Dsini Debug --}}
+                  <h4 class="font-bold" id="totalPrice">Rp. {{ number_format($total, 0, ',', '.') }}</h4>
+                  {{-- Dsini Debug --}}
                 </div>
               </div>
               <div class="mt-2">
@@ -146,10 +146,10 @@
                   </button>
                 @endif
                 @if ($selectPayment == 'crypto')
-                  <p class="hidden" id="hide-address">
+                  {{-- <p class="hidden" id="hide-address">
                     <span id="address" class="w-full px-2 py-1 overflow-hidden rounded-md bg-slate-300">
                       Test </span>
-                  </p>
+                  </p> --}}
                   <a href="#" wire:click.prevent="connectWallet" id="connect"
                     class="block py-3 mb-2 font-semibold text-center text-white rounded-lg bg-primaryBg">
                     Connect Wallet
@@ -163,11 +163,15 @@
           </div>
       </section>
     @else
-      <section class="my-20 text-center">
-        <iconify-icon icon="material-symbols:shopping-cart-off-outline"
-          class="text-9xl text-slate-500"></iconify-icon>
-        <h3 class="text-2xl text-slate-500">No Product In The Cart</h3>
-      </section>
+      <div class="w-11/12 mx-auto mb-10 md:w-6/12">
+        <div class="p-5 mt-10 bg-white shadow-lg rounded-xl">
+          <section class="my-20 text-center">
+            <iconify-icon icon="material-symbols:shopping-cart-off-outline"
+              class="text-9xl text-slate-500"></iconify-icon>
+            <h3 class="text-2xl text-slate-500">No Product In The Cart</h3>
+          </section>
+        </div>
+      </div>
     @endif
 
 

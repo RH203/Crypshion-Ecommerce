@@ -55,22 +55,23 @@ const initContract = async () => {
           .transfer(addrs, Price)
           .send({ from: account });
 
-        if (transaction.status) {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Transaction Success",
-            showConfirmButton: false,
-            timer: 1700,
-          });
-          // document.getElementById("hide-address").className = "hidden";
-          // document.getElementById("checkout-crypto").className = "hidden";
-          // document.getElementById("connect").className =
-          //   "block py-3 mb-2 font-semibold text-center text-white rounded-lg bg-primaryBg";
-          setTimeout(() => {
-            window.location.href = "/tracking-order";
-          }, 1720);
-        }
+          if (transaction.status) {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Transaction Success",
+              showConfirmButton: false,
+              timer: 1700,
+            });
+            // document.getElementById("hide-address").className = "hidden";
+            // document.getElementById("checkout-crypto").className = "hidden";
+            // document.getElementById("connect").className =
+            //   "block py-3 mb-2 font-semibold text-center text-white rounded-lg bg-primaryBg";
+            setTimeout(() => {
+              // window.Livewire.emit('checkout');
+              // window.location.href = "/tracking-order";
+            }, 1720);
+          }
         signout();
       } catch (error) {
         if (error.message.includes("User denied transaction signature")) {

@@ -12,10 +12,10 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-#[Title('Tracking Order')]
+#[Title('Orders')]
 #[Layout('layouts.app')]
 
-class TrackingOrder extends Component
+class Orders extends Component
 {
     public $products;
     public $data;
@@ -36,14 +36,25 @@ class TrackingOrder extends Component
         $this->villageId = Village::find(Auth::user()->village_id);
     }
 
-
     public function render()
     {
-        $this->products = Order::where('user_id', Auth::user()->id)->get();
-        $this->data = Order::where('user_id', Auth::user()->id)->first();
-        return view('livewire.pages.tracking-order', [
-            'products' => $this->products,
-            'data' => $this->data,
+        // Retrieve and group the orders by 'code' for the authenticated user, ordered by 'id' in descending order
+        $orders = Order::where('user_id', Auth::user()->id)
+            ->orderBy('id', 'DESC')
+            ->get()
+            ->groupBy('code');
+
+        // Map each group to the first item in the group
+        $filteredOrders = $orders->map(function ($group) {
+            return $group->first();
+        });
+
+        // Retrieve the first order for the authenticated user
+        $firstOrder = Order::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->first();
+
+        return view('livewire.pages.orders', [
+            'products' => $filteredOrders,
+            'data' => $firstOrder,
             'province' => $this->provinceId,
             'regency' => $this->regencyId,
             'district' => $this->districtId,

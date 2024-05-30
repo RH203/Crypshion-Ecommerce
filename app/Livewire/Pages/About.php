@@ -6,10 +6,12 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('About')]
+#[Layout('layouts.app')]
+
 class About extends Component
 {
-    #[Layout('layouts.app')]
-    #[Title('About')]
+
 
     public function render()
     {

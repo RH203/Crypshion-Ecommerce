@@ -30,7 +30,7 @@ class Cart extends Component
   public $villageId;
   public $zipCode;
   public $totalQty = 0;
-  public $tax = 1000;
+  public $tax = 1;
   public $subTotalProducts = 0;
   public $dataDelivery = [
     'name' => '',

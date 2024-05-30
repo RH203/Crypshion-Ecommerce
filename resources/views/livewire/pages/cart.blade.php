@@ -146,10 +146,10 @@
                   </button>
                 @endif
                 @if ($selectPayment == 'crypto')
-                  {{-- <p class="hidden" id="hide-address">
+                  <p class="hidden" id="hide-address">
                     <span id="address" class="w-full px-2 py-1 overflow-hidden rounded-md bg-slate-300">
                       Test </span>
-                  </p> --}}
+                  </p>
                   <a href="#" wire:click.prevent="connectWallet" id="connect"
                     class="block py-3 mb-2 font-semibold text-center text-white rounded-lg bg-primaryBg">
                     Connect Wallet

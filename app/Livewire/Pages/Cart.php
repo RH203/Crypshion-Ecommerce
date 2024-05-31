@@ -13,6 +13,7 @@ use App\Models\User;
 use Dotenv\Exception\ValidationException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -22,6 +23,8 @@ use Livewire\Component;
 
 class Cart extends Component
 {
+  use LivewireAlert;
+
   public $datas;
   public $selectPayment = 'online';
   public $provinceId;
@@ -97,7 +100,8 @@ class Cart extends Component
   // Checkout
   public function checkout()
   {
-    try {
+    if ($this->selectedDelivery) {
+
       // Generate code transactions
       $codeTrx = Str::random(10);
       // Add to table order
@@ -120,15 +124,18 @@ class Cart extends Component
       foreach ($this->datas as $cartData) {
         ModelsCart::where('id', $cartData->id)->delete();
       }
-    } catch (ValidationException $e) {
-      $this->alert('error', 'Validation Error', [
+
+      $this->redirect('tracking-order/' . $codeTrx);
+    } else {
+
+      $this->alert('error', 'Opps...', [
         'position' => 'center',
         'timer' => 3000,
         'toast' => false,
         'timerProgressBar' => true,
         'showConfirmButton' => true,
         'confirmButtonText' => 'Ok',
-        'text' => 'Please choose Image, size and color',
+        'text' => 'Please select type delivery',
       ]);
     }
   }

@@ -130,7 +130,7 @@
                   Profile
                 </a>
                 <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                  href="/tracking-order" wire:navigate>
+                  href="/orders" wire:navigate>
                   <iconify-icon icon="mdi:shopping-outline" class="text-lg"></iconify-icon>
                   My Orders
                 </a>

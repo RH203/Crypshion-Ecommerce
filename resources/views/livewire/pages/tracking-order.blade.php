@@ -34,24 +34,24 @@
               @foreach ($products as $product)
                 <div class="flex items-center justify-between my-5">
                   <div class="flex">
-                    <div class="h-48 overflow-hidden rounded-lg w-72 md:h-40 bg-slate-200">
+                    <div class="h-full overflow-hidden rounded-lg basis-4/12 w-72 md:h-40 bg-slate-200">
                       <img src="{{ asset('storage/' . $product->image) }}" alt="" width="w-full object-cover">
                     </div>
-                    <div class="text-slate-800 ms-5">
+                    <div class="basis-8/12 text-slate-800 ms-5">
                       <div class="w-full mb-1">
-                        <h4 class="font-semibold text-md">{{ Str::limit($product->product->title, 100) }}
+                        <h4 class="font-semibold text-md">{{ Str::limit($product->product->title, 70) }}
                         </h4>
                       </div>
                       <p class="text-sm text-slate-500">{{ $product->product->category->title }}</p>
                       <div>
                         <span
-                          class="inline-block px-5 py-0 text-sm border md:px-7 text-slate-500 border-slate-500">XL</span>
+                          class="inline-block px-5 py-0 text-sm border md:px-7 text-slate-500 border-slate-500">{{ $product['size'] }}</span>
                         <span
                           class="inline-block px-5 py-0 text-sm border md:px-7 text-slate-500 border-slate-500">{{ $product->color }}</span>
                       </div>
                       <div class="my-1 text-sm text-slate-500">Qty : <span>{{ $product->quantity }}</span> x</div>
                       <div class="md:text-xl text-md">
-                        Rp. <span class="font-semibold">{{ $product->price }}</span>
+                        Rp. <span class="font-semibold">{{ number_format($product->price, 0, ',', '.') }}</span>
                       </div>
                     </div>
                   </div>
@@ -65,26 +65,9 @@
 
 
 
-
-
             {{-- Detail order start --}}
             <div class="lg:basis-4/12">
-              <div class="p-5 mb-5 bg-white shadow-lg rounded-xl">
-                <header class="mb-3">
-                  <h3 class="text-xl font-bold">User</h3>
-                </header>
-                <div class="text-center">
-                  <div class="w-32 h-32 mx-auto overflow-hidden rounded-full">
-                    <img src="{{ asset('storage/file/avatar/' . Auth::user()->avatar) }}" class="w-full" alt="">
-                  </div>
-
-                  <h4 class="mt-4 text-lg font-semibold">{{ Auth::user()->name }}</h4>
-                  <p>{{ Auth::user()->email }}</p>
-                  <p>{{ Auth::user()->phone_number }}</p>
-
-                </div>
-              </div>
-              <div class="p-5 mb-5 bg-white shadow-lg rounded-xl">
+              <div class="p-5 bg-white shadow-lg rounded-xl">
                 <div class="mb-10">
                   <header class="mb-3">
                     <h3 class="text-xl font-bold">Shipping Address</h3>
@@ -115,7 +98,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="mb-10">
+                <div class="">
                   <header class="mb-3">
                     <h3 class="text-xl font-bold">Payment Detail</h3>
                   </header>
@@ -140,23 +123,22 @@
                       <h4 class=" text-slate-500">Total</h4>
                       <h4 class="font-bold">Rp. 1.225.000</h4>
                     </div>
-                    <div class="flex justify-between mb-2 text-slate-800">
+                    <div class="flex justify-between mb-4 text-slate-800">
                       <h4 class=" text-slate-500">Payment Method</h4>
                       <h4 class="font-bold">{{ $data->payment_method }}</h4>
+                    </div>
+                    <div class="flex justify-between text-slate-800">
+                      <a href="" class="block w-full py-2 text-center text-white rounded-lg bg-primaryBg">Cancel
+                        Order</a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
             {{-- Detail order end --}}
-
-
           </div>
-
         </div>
       </section>
-
     </div>
   </section>
 </div>

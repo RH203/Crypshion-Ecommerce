@@ -25,6 +25,7 @@ use App\Livewire\Pages\Index;
 use App\Livewire\Pages\Profile;
 use App\Livewire\Pages\TrackingOrder;
 use App\Livewire\Pages\Product;
+use App\Livewire\Pages\Orders as UserOrders;
 use Illuminate\Support\Facades\Route;
 
 
@@ -49,7 +50,8 @@ Route::middleware(['auth'])->group(function () {
 // User Route
 Route::middleware(['auth', 'role:user'])->group(function () {
   Route::get('/cart', Cart::class);
-  Route::get('/tracking-order', TrackingOrder::class);
+  Route::get('/orders', UserOrders::class);
+  Route::get('/tracking-order/{code}', TrackingOrder::class);
   Route::get('/profile', Profile::class)->name('profile');
   Route::get('/profile/change-password', ChangePassword::class);
   Route::get('/help-center', HelpCenter::class);

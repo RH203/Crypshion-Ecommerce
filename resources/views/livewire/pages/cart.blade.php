@@ -251,4 +251,33 @@
   <script type="text/javascript">
     window.totalPrice = @json($total);
   </script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var payButton = document.getElementById('checkout-btn');
+      payButton.addEventListener('click', function() {
+
+        // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token.
+        // Also, use the embedId that you defined in the div above, here.
+        window.snap.pay('{{ $snap_token }}', {
+          onSuccess: function(result) {
+            console.log("Payment success!");
+            console.log(result);
+            Livewire.emit('payment-success');
+          },
+          onPending: function(result) {
+            console.log("Waiting for payment!")
+            console.log(result);
+          },
+          onError: function(result) {
+            console.log("Payment failed!");
+            console.log(result);
+          },
+          onClose: function() {
+            console.log('Popup closed without finishing payment');
+          }
+        });
+      });
+    })
+  </script>
 @endpush

@@ -140,7 +140,7 @@
                   <img src="/img/payment/bni.webp" alt="" class="h-4">
                   <img src="/img/payment/briva.png" alt="" class="h-4">
                 </div>
-                <button type="submit"
+                <button type="button" wire:click.prevent='checkout' id="checkout-btn"
                   class="block w-full py-3 font-semibold text-center text-white rounded-lg bg-primaryBg">
                   Check Out
                 </button>

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('price');
             $table->string('color');
+            $table->string('snap_token')->nullable();
             $table->timestamps();
         });
     }

@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('order_id')->constrained();
-            $table->string('order_type');
-            $table->string('payment_method');
-            $table->string('status')->default('Waiting');
-            $table->string('code')->nullable();
+            $table->string('code_order');
+            $table->string('total_price');
+            $table->string('payment_status');
+            $table->string('snap_token')->nullable();
+            // $table->foreign('code_order')->references('code')->on('orders');
             $table->timestamps();
         });
     }

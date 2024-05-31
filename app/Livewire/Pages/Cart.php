@@ -121,8 +121,9 @@ class Cart extends Component
     }
   }
 
-  public function Testsss() {
-    echo("Testt");
+  public function Testsss()
+  {
+    echo ("Testt");
   }
 
   // Payment success
@@ -200,7 +201,7 @@ class Cart extends Component
 
     // Check Product
     $isCart = ModelsCart::where('user_id', Auth::id())->first();
-    // session()->forget('cart_count');
+    session()->forget('cart_count');
 
 
     // Get function calculate total

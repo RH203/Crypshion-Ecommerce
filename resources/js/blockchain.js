@@ -1,5 +1,5 @@
 import Web3, { errors } from "web3";
-import data from "../../dataECP.json";
+import data from "../../dataECP/dataECP.json";
 
 const ADDRS = data.ADDRS;
 const addrs = data.addrs;

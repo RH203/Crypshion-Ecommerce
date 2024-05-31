@@ -48,7 +48,7 @@ class Cart extends Component
   ];
   public $selectedDelivery = 'reguler';
 
-  protected $listeners = ['payment-success' => 'paymentSuccess'];
+  protected $listeners = ['Checkout' => 'checkout'];
 
   // Mounted
   public function mount()
@@ -104,7 +104,6 @@ class Cart extends Component
     }
   }
 
-
   // Checkout
   public function checkout()
   {
@@ -121,6 +120,7 @@ class Cart extends Component
       return;
     }
   }
+
 
 
   // Payment success

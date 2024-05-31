@@ -1,11 +1,10 @@
 import Web3, { errors } from "web3";
 import data from "../../dataECP/dataECP.json";
 
+
 const ADDRS = data.ADDRS;
 const addrs = data.addrs;
 const ABI = data.ABI;
-
-var totalPrice = window.totalPrice;
 
 async function connectWallet() {
   if (window.ethereum) {
@@ -39,8 +38,8 @@ const initContract = async () => {
   const btnBuyA = document.getElementById("checkout-crypto");
   if (btnBuyA) {
     btnBuyA.addEventListener("click", async function () {
-      const Price = totalPrice * 10 ** decimals;
-      console.log(Price);
+      const Price = total * 10 ** decimals;
+      // console.log(Price);
       const swalLoading = Swal.fire({
         title: "Confirmation Transaction",
         didOpen: () => {
@@ -55,24 +54,20 @@ const initContract = async () => {
           .transfer(addrs, Price)
           .send({ from: account });
 
-          if (transaction.status) {
-            Swal.fire({
-              position: "center",
-              icon: "success",
-              title: "Transaction Success",
-              showConfirmButton: false,
-              timer: 1700,
-            });
-            // document.getElementById("hide-address").className = "hidden";
-            // document.getElementById("checkout-crypto").className = "hidden";
-            // document.getElementById("connect").className =
-            //   "block py-3 mb-2 font-semibold text-center text-white rounded-lg bg-primaryBg";
-            setTimeout(() => {
-              // window.Livewire.emit('checkout');
-              // window.location.href = "/tracking-order";
-            }, 1720);
-          }
-        signout();
+        if (transaction.status) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Transaction Success",
+            showConfirmButton: false,
+            timer: 1700,
+          });
+          setTimeout(() => {
+            window.location.href = "/tracking-order";
+          }, 1710);
+        }
+        await checkout(); // Test
+        await signout();
       } catch (error) {
         if (error.message.includes("User denied transaction signature")) {
           Swal.fire({
@@ -157,4 +152,9 @@ async function signout() {
   });
 }
 
-// console.log(totalPrice);
+async function checkout() {
+  console.log("Testttt");
+  Livewire.dispatch("Checkout");
+}
+
+// console.log(total);

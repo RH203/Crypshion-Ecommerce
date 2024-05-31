@@ -249,3 +249,5 @@
 <script type="text/javascript">
   var total = <?php echo json_encode($total); ?>;
 </script>
+
+// Test test

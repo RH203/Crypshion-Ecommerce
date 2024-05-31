@@ -266,7 +266,7 @@
             Livewire.emit('payment-success');
           },
           onPending: function(result) {
-            console.log("Waiting for payment!");
+            console.log("Waiting for payment!")
             console.log(result);
           },
           onError: function(result) {

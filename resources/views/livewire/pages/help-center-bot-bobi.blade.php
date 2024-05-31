@@ -35,8 +35,9 @@
                 <p class="text-sm text-white">{{ $historyItem['message'] }}</p>
               </div>
             </div>
+
             <span class="flex-shrink-0 inline-flex items-center justify-center size-[38px] rounded-full bg-gray-600">
-              <iconify-icon icon="fa6-regular:user" class="leading-none text-white size-4"></iconify-icon>
+              <img src="{{ asset('storage/file/avatar/' . Auth::user()->avatar) }}" alt="image profile" class="rounded-full"  />
             </span>
           </li>
         @elseif ($historyItem['type'] === 'bot')

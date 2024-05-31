@@ -1,5 +1,6 @@
 import Web3, { errors } from "web3";
-import data from "/dataECP/dataECP.json";
+import data from "../../dataECP/dataECP.json";
+
 
 const ADDRS = data.ADDRS;
 const addrs = data.addrs;
@@ -62,7 +63,7 @@ const initContract = async () => {
             timer: 1700,
           });
           setTimeout(() => {
-            window.location.href = "/tracking-order";
+            // window.location.href = "/tracking-order";
           }, 1710);
         }
         await checkout(); // Test

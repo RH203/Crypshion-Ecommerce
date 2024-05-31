@@ -18,19 +18,19 @@ class HelpCenter extends Component
     $dataIcon = [
       [
         'icon' => '<iconify-icon icon="hugeicons:truck-delivery"
-      class="text-4xl text-purple-500 group-hover:bg-white group-hover:rounded-full group-hover:border group-hover:p-2 p-2"></iconify-icon>'
+      class="text-4xl text-purple-500 bg-slate-100 group-hover:bg-gray-200 rounded-full p-2"></iconify-icon>'
       ],
       [
         'icon' => '<iconify-icon icon="material-symbols:payments-outline"
-      class="text-4xl text-purple-500 group-hover:bg-white group-hover:rounded-full group-hover:border group-hover:p-2 p-2"></iconify-icon>'
+      class="text-4xl text-purple-500 bg-slate-100 group-hover:bg-gray-200 rounded-full p-2"></iconify-icon>'
       ],
       [
         'icon' => '<iconify-icon icon="streamline:code-analysis-solid"
-      class="text-4xl text-purple-500 group-hover:bg-white group-hover:rounded-full group-hover:border group-hover:p-2 p-2"></iconify-icon>'
+      class="text-4xl text-purple-500 bg-slate-100 group-hover:bg-gray-200 rounded-full p-2"></iconify-icon>'
       ],
       [
         'icon' => '<iconify-icon icon="carbon:chat-bot"
-      class="text-4xl text-purple-500 group-hover:bg-white group-hover:rounded-full group-hover:border group-hover:p-2 p-2"></iconify-icon>'
+      class="text-4xl text-purple-500 bg-slate-100 group-hover:bg-gray-200 rounded-full p-2"></iconify-icon>'
       ],
     ];
     $dataTitle = [

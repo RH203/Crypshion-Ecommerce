@@ -4,7 +4,7 @@
     <p class="mt-3 font-normal text-slate-500">Happy shopping at crypshion</p>
   </header>
   {{-- <form wire:submit.prevent='checkout' method="POST">
-    @csrf --}}
+  @csrf --}}
   @if ($isCart)
     <section class="">
       <div class="w-11/12 mx-auto md:w-10/12">
@@ -48,52 +48,6 @@
           </div>
         </div>
       </div>
-      <<<<<<< HEAD <div class="mt-2">
-        <select name="selectPayment" id="" wire:model.live='selectPayment' class="w-full py-2">
-          <option value="online">Online Payment</option>
-          <option value="crypto">Crypto Payment</option>
-        </select>
-</div>
-<div class="mt-8">
-  @if ($selectPayment == 'online')
-    <div class="flex justify-between mb-4">
-      <img src="/img/payment/qris.png" alt="" class="h-4">
-      <img src="/img/payment/gopay.png" alt="" class="h-4">
-      <img src="/img/payment/shopeepay.png" alt="" class="h-4">
-      <img src="/img/payment/bca.png" alt="" class="h-4">
-      <img src="/img/payment/bni.webp" alt="" class="h-4">
-      <img src="/img/payment/briva.png" alt="" class="h-4">
-    </div>
-    <button type="button" wire:click.prevent='checkout' id="checkout-btn"
-      class="block w-full py-3 font-semibold text-center text-white rounded-lg bg-primaryBg">
-      Check Out
-    </button>
-  @endif
-  @if ($selectPayment == 'crypto')
-    {{-- <p class="hidden" id="hide-address">
-                    <span id="address" class="w-full px-2 py-1 overflow-hidden rounded-md bg-slate-300">
-                      Test </span>
-                  </p> --}}
-    <a href="#" wire:click.prevent="connectWallet" id="connect"
-      class="block py-3 mb-2 font-semibold text-center text-white rounded-lg bg-primaryBg">
-      Connect Wallet
-    </a>
-    <a href="#" id="checkout-crypto" class="hidden">
-      Check Out
-    </a>
-  @endif
-</div>
-</div>
-</div>
-</section>
-@else
-<div class="w-11/12 mx-auto mb-10 md:w-6/12">
-  <div class="p-5 mt-10 bg-white shadow-lg rounded-xl">
-    <section class="my-20 text-center">
-      <iconify-icon icon="material-symbols:shopping-cart-off-outline" class="text-9xl text-slate-500"></iconify-icon>
-      <h3 class="text-2xl text-slate-500">No Product In The Cart</h3>
-      =======
-      >>>>>>> ece147428aa4e5d9cc0d3196b989fb1805b796c6
     </section>
 
     <section class="my-10">
@@ -218,109 +172,107 @@
         </section>
       </div>
     </div>
-    @endif
+  @endif
 
 
-    {{-- Modal --}}
-    <div id="hs-medium-modal"
-      class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none">
-      <div
-        class="m-3 mt-0 transition-all ease-out opacity-0 hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 md:max-w-2xl md:w-full md:mx-auto">
-        <div class="flex flex-col bg-white border shadow-sm pointer-events-auto rounded-xl">
-          <div class="flex items-center justify-between px-4 py-3 border-b d">
-            <h3 class="font-bold text-gray-800 e">
-              Change Delivery Type
-            </h3>
-            <button type="button" wire:click="saveChanges"
-              class="flex items-center justify-center text-sm font-semibold text-gray-800 border border-transparent rounded-full size-7 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none"
-              data-hs-overlay="#hs-medium-modal">
-              <span class="sr-only">Close</span>
-              <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M18 6 6 18"></path>
-                <path d="m6 6 12 12"></path>
-              </svg>
-            </button>
-          </div>
-          <div class="p-4 overflow-y-auto">
-            <p class="mt-1 text-gray-800">
-            <div class="grid grid-cols-1 gap-2 md:grid-cols-3">
-              <div class="">
-                <input type="radio" wire:model="selectedDelivery" id="faster" value="faster"
-                  name="delivery_type" class="hidden">
-                <label for="faster"
-                  class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
-                  <p class="text-lg font-semibold">Faster</p>
-                  <p class="text-slate-500">Estimation : 2 - 4 day</p>
-                  <p class=" text-slate-500">Rp. 35.000</p>
-                </label>
-              </div>
-              <div class="">
-                <input type="radio" wire:model="selectedDelivery" id="reguler" value="reguler"
-                  name="delivery_type" class="hidden">
-                <label for="reguler"
-                  class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
-                  <p class="text-lg font-semibold">Reguler</p>
-                  <p class="text-slate-500">Estimation : 4 - 7 day</p>
-                  <p class="text-slate-500">Rp. 27.000</p>
-                </label>
-              </div>
-              <div class="">
-                <input type="radio" wire:model="selectedDelivery" id="economic" value="economic"
-                  name="delivery_type" class="hidden">
-                <label for="economic"
-                  class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
-                  <p class="text-lg font-semibold">Economic</p>
-                  <p class="text-slate-500">Estimation : 7 - 13 day</p>
-                  <p class=" text-slate-500">Rp. 13.000</p>
-                </label>
-              </div>
+  {{-- Modal --}}
+  <div id="hs-medium-modal"
+    class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none">
+    <div
+      class="m-3 mt-0 transition-all ease-out opacity-0 hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 md:max-w-2xl md:w-full md:mx-auto">
+      <div class="flex flex-col bg-white border shadow-sm pointer-events-auto rounded-xl">
+        <div class="flex items-center justify-between px-4 py-3 border-b d">
+          <h3 class="font-bold text-gray-800 e">
+            Change Delivery Type
+          </h3>
+          <button type="button" wire:click="saveChanges"
+            class="flex items-center justify-center text-sm font-semibold text-gray-800 border border-transparent rounded-full size-7 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none"
+            data-hs-overlay="#hs-medium-modal">
+            <span class="sr-only">Close</span>
+            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M18 6 6 18"></path>
+              <path d="m6 6 12 12"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="p-4 overflow-y-auto">
+          <p class="mt-1 text-gray-800">
+          <div class="grid grid-cols-1 gap-2 md:grid-cols-3">
+            <div class="">
+              <input type="radio" wire:model="selectedDelivery" id="faster" value="faster"
+                name="delivery_type" class="hidden">
+              <label for="faster"
+                class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
+                <p class="text-lg font-semibold">Faster</p>
+                <p class="text-slate-500">Estimation : 2 - 4 day</p>
+                <p class=" text-slate-500">Rp. 35.000</p>
+              </label>
             </div>
-            </p>
+            <div class="">
+              <input type="radio" wire:model="selectedDelivery" id="reguler" value="reguler"
+                name="delivery_type" class="hidden">
+              <label for="reguler"
+                class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
+                <p class="text-lg font-semibold">Reguler</p>
+                <p class="text-slate-500">Estimation : 4 - 7 day</p>
+                <p class="text-slate-500">Rp. 27.000</p>
+              </label>
+            </div>
+            <div class="">
+              <input type="radio" wire:model="selectedDelivery" id="economic" value="economic"
+                name="delivery_type" class="hidden">
+              <label for="economic"
+                class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
+                <p class="text-lg font-semibold">Economic</p>
+                <p class="text-slate-500">Estimation : 7 - 13 day</p>
+                <p class=" text-slate-500">Rp. 13.000</p>
+              </label>
+            </div>
           </div>
-          <div class="flex items-center justify-end px-4 py-3 border-t gap-x-2 dark:border-neutral-700">
-            <button type="button" wire:click.live='saveChanges'
-              class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-              data-hs-overlay="#hs-medium-modal">
-              Save changes
-            </button>
-          </div>
+          </p>
+        </div>
+        <div class="flex items-center justify-end px-4 py-3 border-t gap-x-2 dark:border-neutral-700">
+          <button type="button" wire:click.live='saveChanges'
+            class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+            data-hs-overlay="#hs-medium-modal">
+            Save changes
+          </button>
         </div>
       </div>
     </div>
-    {{-- </form> --}}
-
   </div>
+  {{-- </form> --}}
 
-  @push('js')
-    <script type="text/javascript">
-      var total = <?php echo json_encode($total); ?>;
-      $(document).ready(function() {
-        var payButton = document.getElementById('checkout-btn');
-        payButton.addEventListener('click', () => {
+</div>
 
-          // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token.
-          // Also, use the embedId that you defined in the div above, here.
-          window.snap.pay('{{ $snap_token }}', {
-            onSuccess: function(result) {
-              console.log("Payment success!");
-              console.log(result);
-              Livewire.dispatch('Testsss');
-            },
-            onPending: function(result) {
-              console.log("Waiting for payment!")
-              console.log(result);
-            },
-            onError: function(result) {
-              console.log("Payment failed!");
-              console.log(result);
-            },
-            onClose: function() {
-              console.log('Popup closed without finishing payment');
-            }
-          });
-        });
+<script type="text/javascript">
+  var total = <?php echo json_encode($total); ?>;
+  $(document).ready(function() {
+    var payButton = document.getElementById('checkout-btn');
+    payButton.addEventListener('click', () => {
+
+      // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token.
+      // Also, use the embedId that you defined in the div above, here.
+      window.snap.pay('{{ $snap_token }}', {
+        onSuccess: function(result) {
+          console.log("Payment success!");
+          console.log(result);
+          Livewire.dispatch('Testsss');
+        },
+        onPending: function(result) {
+          console.log("Waiting for payment!")
+          console.log(result);
+        },
+        onError: function(result) {
+          console.log("Payment failed!");
+          console.log(result);
+        },
+        onClose: function() {
+          console.log('Popup closed without finishing payment');
+        }
       });
-    </script>
-  @endpush
+    });
+  })
+</script>

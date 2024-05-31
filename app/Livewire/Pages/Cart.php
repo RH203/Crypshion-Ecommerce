@@ -9,8 +9,10 @@ use App\Models\Api\Village;
 use App\Models\app\Product;
 use App\Models\Cart as ModelsCart;
 use App\Models\Order;
+use App\Models\Transaction;
 use App\Models\User;
 use Dotenv\Exception\ValidationException;
+use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -34,15 +36,17 @@ class Cart extends Component
   public $villageId;
   public $zipCode;
   public $totalQty = 0;
-  public $tax = 1;  // Change it to 1 for test!
+  public $tax = 1000;
   public $subTotalProducts = 0;
-  public $dataDelivery = [
-    'name' => '',
-    'estimation' => '',
-    'cost' => 0,
-  ];
-  public $selectedDelivery;
   public $total = 0;
+  public $snapToken;
+  public $codeTrx;
+  public $dataDelivery = [
+    'name' => 'Reguler',
+    'estimation' => '4 - 7 day',
+    'cost' => 27000
+  ];
+  public $selectedDelivery = 'reguler';
 
   protected $listeners = ['Checkout' => 'checkout'];
 
@@ -57,6 +61,7 @@ class Cart extends Component
     $this->zipCode = User::find(Auth::user()->id);
   }
 
+  // Connect Wallet Crypto
   public function connectWallet()
   {
     $this->dispatch('connect-wallet-event');
@@ -102,34 +107,7 @@ class Cart extends Component
   // Checkout
   public function checkout()
   {
-    if ($this->selectedDelivery) {
-
-      // Generate code transactions
-      $codeTrx = Str::random(10);
-      // Add to table order
-      foreach ($this->datas as $data) {
-        Order::create([
-          'user_id' => Auth::user()->id,
-          'product_id' => (int) $data->product_id,
-          'quantity' => (int) $data->quantity,
-          'image' =>  $data->image,
-          'price' => $data->price,
-          'color' => $data->color,
-          'order_type' => $this->selectedDelivery['name'],
-          'estimation' => $this->selectedDelivery['estimation'],
-          'cost' => (string) $this->selectedDelivery['cost'],
-          'payment_method' => $this->selectPayment,
-          'code' => $codeTrx
-        ]);
-      }
-      // Delete data forom
-      foreach ($this->datas as $cartData) {
-        ModelsCart::where('id', $cartData->id)->delete();
-      }
-
-      $this->redirect('tracking-order/' . $codeTrx);
-    } else {
-
+    if (!$this->selectedDelivery) {
       $this->alert('error', 'Opps...', [
         'position' => 'center',
         'timer' => 3000,
@@ -139,8 +117,71 @@ class Cart extends Component
         'confirmButtonText' => 'Ok',
         'text' => 'Please select type delivery',
       ]);
+      return;
     }
   }
+
+  public function Testsss() {
+    echo("Testt");
+  }
+
+  // Payment success
+  // #[On('payment-success')]
+
+  public function paymentSuccess()
+  {
+    Transaction::create([
+      'code_order' => $this->codeTrx,
+      'total_price' => $this->total,
+      'payment_status' => 'Success',
+      'snap_token' => $this->snapToken
+    ]);
+
+    // Add to table order
+    foreach ($this->datas as $data) {
+      Order::create([
+        'user_id' => Auth::user()->id,
+        'product_id' => (int) $data->product_id,
+        'quantity' => (int) $data->quantity,
+        'image' =>  $data->image,
+        'price' => $data->price,
+        'color' => $data->color,
+        'order_type' => $this->selectedDelivery['name'],
+        'estimation' => $this->selectedDelivery['estimation'],
+        'cost' => (string) $this->selectedDelivery['cost'],
+        'payment_method' => $this->selectPayment,
+        'code' => $this->codeTrx
+      ]);
+    }
+
+    $this->alert('success', 'Success', [
+      'position' => 'center',
+      'timer' => 3000,
+      'toast' => false,
+      'timerProgressBar' => true,
+      'showConfirmButton' => true,
+      'confirmButtonText' => 'Ok',
+      'text' => 'Payment Success',
+    ]);
+    return;
+  }
+
+
+  // Calculate Total
+  public function calculateTotal()
+  {
+    $this->subTotalProducts = 0;
+    $products = ModelsCart::where('user_id', Auth::user()->id)->get();
+    $this->totalQty = $products->sum('quantity');
+
+    foreach ($products as $item) {
+      $subtotal = $item->price * $item->quantity;
+      $this->subTotalProducts += $subtotal;
+    }
+
+    $this->total = $this->subTotalProducts + $this->dataDelivery['cost'] + $this->tax;
+  }
+
 
   // Render Component
   public function render()
@@ -159,23 +200,49 @@ class Cart extends Component
 
     // Check Product
     $isCart = ModelsCart::where('user_id', Auth::id())->first();
-    session()->forget('cart_count');
+    // session()->forget('cart_count');
 
 
-    // Calculate Subtotal
-    $this->subTotalProducts = 0;
-    $products = ModelsCart::where('user_id', Auth::user()->id)->get();
-    $this->totalQty = $products->sum('quantity');
+    // Get function calculate total
+    $this->calculateTotal();
 
-    foreach ($products as $item) {
-      $subtotal = $item->price * $item->quantity;
-      $this->subTotalProducts += $subtotal;
+    // Generate order code
+    $this->codeTrx = Str::random(10);
+
+    // Midtrans
+    \Midtrans\Config::$serverKey = config('midtrans.serverKey');
+    \Midtrans\Config::$isProduction = config('midtrans.isProduction');
+    \Midtrans\Config::$isSanitized = config('midtrans.isSanitized');
+    \Midtrans\Config::$is3ds = config('midtrans.is3ds');
+
+    $params = [
+      'transaction_details' => [
+        'order_id' => $this->codeTrx,
+        'gross_amount' => $this->total,
+      ],
+      'customer_details' => [
+        'first_name' => Auth::user()->name,
+        'email' => Auth::user()->email,
+      ],
+    ];
+
+    try {
+      $this->snapToken = \Midtrans\Snap::getSnapToken($params);
+    } catch (Exception $e) {
+      $this->alert('error', 'Error', [
+        'position' => 'center',
+        'timer' => 3000,
+        'toast' => false,
+        'timerProgressBar' => true,
+        'showConfirmButton' => true,
+        'confirmButtonText' => 'Ok',
+        'text' => 'Failed to generate payment token',
+      ]);
+      return;
     }
 
-    // Total
-    $this->total = ($this->subTotalProducts + $this->dataDelivery['cost'] + $this->tax);
 
-
+    // Return view component
     return view('livewire.pages.cart', [
       'datas' => $this->datas,
       'isCart' => $isCart,
@@ -190,6 +257,8 @@ class Cart extends Component
       'dataDelivery' => $this->dataDelivery,
       'tax' => $this->tax,
       'total' => $this->total,
+
+      'snap_token' => $this->snapToken
     ]);
   }
 }

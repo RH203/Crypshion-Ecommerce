@@ -48,7 +48,9 @@ class Cart extends Component
   ];
   public $selectedDelivery = 'reguler';
 
-  protected $listeners = ['Checkout' => 'checkout'];
+  protected $listeners = [
+    'Checkout' => 'paymentSuccess'
+    ];
 
   // Mounted
   public function mount()
@@ -121,10 +123,6 @@ class Cart extends Component
     }
   }
 
-  public function Testsss() {
-    echo("Testt");
-  }
-
   // Payment success
   // #[On('payment-success')]
 
@@ -136,7 +134,6 @@ class Cart extends Component
       'payment_status' => 'Success',
       'snap_token' => $this->snapToken
     ]);
-
     // Add to table order
     foreach ($this->datas as $data) {
       Order::create([

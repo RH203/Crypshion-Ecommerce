@@ -63,10 +63,10 @@ const initContract = async () => {
             timer: 1700,
           });
           setTimeout(() => {
-            // window.location.href = "/tracking-order";
+            window.location.href = "/orders";
           }, 1710);
         }
-        await checkout(); // Test
+        await checkout();
         await signout();
       } catch (error) {
         if (error.message.includes("User denied transaction signature")) {
@@ -77,7 +77,12 @@ const initContract = async () => {
             timer: 1500,
           });
         } else {
-          console.error("Something error: ", error);
+          Swal.fire({
+            icon: "error",
+            text: "Transaction Error, pls repeat again",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
       }
     });

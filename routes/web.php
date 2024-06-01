@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\Logout;
+use App\Http\Controllers\SessionController;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
 use App\Livewire\Pages\About;
@@ -59,6 +60,9 @@ Route::middleware(['auth', 'role:user'])->group(function () {
   Route::get('/help-center/delivery', HelpCenterDelivery::class);
   Route::get('/help-center/error-code', HelpCenterErrorCode::class);
   Route::get('/help-center/ask-bobi', HelpCenterBotBobi::class);
+
+  // Session
+  Route::post('/save-session', [SessionController::class, 'saveSession']);
 });
 
 // Admin Route

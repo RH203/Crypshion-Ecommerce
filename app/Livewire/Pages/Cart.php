@@ -48,7 +48,7 @@ class Cart extends Component
   ];
   public $selectedDelivery = 'reguler';
 
-  protected $listeners = ['Checkout' => 'checkout'];
+  protected $listeners = ['Checkout' => 'checkout', 'paymentSuccess', 'paymentCancel'];
 
   // Mounted
   public function mount()
@@ -115,20 +115,14 @@ class Cart extends Component
         'timerProgressBar' => true,
         'showConfirmButton' => true,
         'confirmButtonText' => 'Ok',
-        'text' => 'Please select type delivery',
+        'text' => 'Please selected delivery type',
       ]);
       return;
     }
   }
 
-  public function Testsss()
-  {
-    echo ("Testt");
-  }
 
-  // Payment success
-  // #[On('payment-success')]
-
+  // Payment Success
   public function paymentSuccess()
   {
     Transaction::create([
@@ -155,6 +149,13 @@ class Cart extends Component
       ]);
     }
 
+    // Delete data forom
+    foreach ($this->datas as $cartData) {
+      ModelsCart::where('id', $cartData->id)->delete();
+    }
+
+    $this->redirect('tracking-order/' . $this->codeTrx);
+
     $this->alert('success', 'Success', [
       'position' => 'center',
       'timer' => 3000,
@@ -166,6 +167,23 @@ class Cart extends Component
     ]);
     return;
   }
+
+
+  // Payment Cancel 
+  public function paymentCancel()
+  {
+    $this->alert('error', 'Canceled', [
+      'position' => 'center',
+      'timer' => 3000,
+      'toast' => false,
+      'timerProgressBar' => true,
+      'showConfirmButton' => true,
+      'confirmButtonText' => 'Ok',
+      'text' => 'Payment Canceled',
+    ]);
+    return;
+  }
+
 
 
   // Calculate Total

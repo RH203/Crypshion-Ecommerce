@@ -3,8 +3,7 @@
     <h1 class="text-4xl font-bold">My Cart</h1>
     <p class="mt-3 font-normal text-slate-500">Happy shopping at crypshion</p>
   </header>
-  {{-- <form wire:submit.prevent='checkout' method="POST">
-  @csrf --}}
+
   @if ($isCart)
     <section class="">
       <div class="w-11/12 mx-auto md:w-10/12">
@@ -16,7 +15,7 @@
                 <iconify-icon icon="lucide:edit" class="text-xl text-slate-500"></iconify-icon>
               </a>
             </div>
-            <p class="my-2 text-lg text-slate-500">Jl. Kalikepiting No. 45, Blok N. No.2</p>
+            <p class="my-2 text-lg text-slate-500">{{ Auth::user()->address }}</p>
             <hr>
             <p class="my-2 text-lg uppercase text-slate-500"> {{ $village->name }},
               {{ $district->name }}, {{ $regency->name }}, {{ $province->name }},
@@ -201,7 +200,7 @@
           <p class="mt-1 text-gray-800">
           <div class="grid grid-cols-1 gap-2 md:grid-cols-3">
             <div class="">
-              <input type="radio" wire:model="selectedDelivery" id="faster" value="faster"
+              <input type="radio" wire:model.live="selectedDelivery" id="faster" value="faster"
                 name="delivery_type" class="hidden">
               <label for="faster"
                 class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
@@ -211,7 +210,7 @@
               </label>
             </div>
             <div class="">
-              <input type="radio" wire:model="selectedDelivery" id="reguler" value="reguler"
+              <input type="radio" wire:model.live="selectedDelivery" id="reguler" value="reguler"
                 name="delivery_type" class="hidden">
               <label for="reguler"
                 class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
@@ -221,7 +220,7 @@
               </label>
             </div>
             <div class="">
-              <input type="radio" wire:model="selectedDelivery" id="economic" value="economic"
+              <input type="radio" wire:model.live="selectedDelivery" id="economic" value="economic"
                 name="delivery_type" class="hidden">
               <label for="economic"
                 class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
@@ -243,8 +242,6 @@
       </div>
     </div>
   </div>
-  {{-- </form> --}}
-
 </div>
 
 <script type="text/javascript">
@@ -252,14 +249,11 @@
   $(document).ready(function() {
     var payButton = document.getElementById('checkout-btn');
     payButton.addEventListener('click', () => {
-
-      // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token.
-      // Also, use the embedId that you defined in the div above, here.
       window.snap.pay('{{ $snap_token }}', {
         onSuccess: function(result) {
           console.log("Payment success!");
           console.log(result);
-          Livewire.dispatch('Testsss');
+          Livewire.dispatch('paymentSuccess');
         },
         onPending: function(result) {
           console.log("Waiting for payment!")
@@ -271,6 +265,7 @@
         },
         onClose: function() {
           console.log('Popup closed without finishing payment');
+          Livewire.dispatch('paymentCancel');
         }
       });
     });

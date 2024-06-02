@@ -35,6 +35,12 @@
                 </div>
                 <hr class="my-4">
               </a>
+            @else
+              <section class="my-20 text-center">
+                <iconify-icon icon="material-symbols:shopping-cart-off-outline"
+                  class="text-9xl text-slate-500"></iconify-icon>
+                <h3 class="text-2xl text-slate-500">No Product Orders</h3>
+              </section>
             @endif
           @endforeach
         @else

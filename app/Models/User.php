@@ -115,6 +115,17 @@ class User extends Authenticatable
 
 
     /**
+     * Get all of the rating for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function rating(): HasMany
+    {
+        return $this->hasMany(Rating::class, 'user_id');
+    }
+
+
+    /**
      * Get the province that owns the User
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

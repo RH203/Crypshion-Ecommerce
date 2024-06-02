@@ -26,7 +26,7 @@
                       </div>
                       </h1>
                       <p
-                        class="px-2 my-2 text-sm {{ $product->status == 'Confirmed' ? 'text-white bg-green-600' : '' }}{{ $product->status == 'Canceled' ? 'text-white bg-red-600' : '' }} rounded-full">
+                        class="px-2 my-2 text-sm {{ $product->status == 'Confirmed' ? 'text-white bg-purple-600' : '' }}{{ $product->status == 'Canceled' ? 'text-white bg-red-600' : '' }} rounded-full">
                         {{ $product->status }}</p>
                     </div>
                     <p class="text-sm text-slate-500">{{ $product->code }}</p>
@@ -35,12 +35,6 @@
                 </div>
                 <hr class="my-4">
               </a>
-            @else
-              <section class="my-20 text-center">
-                <iconify-icon icon="material-symbols:shopping-cart-off-outline"
-                  class="text-9xl text-slate-500"></iconify-icon>
-                <h3 class="text-2xl text-slate-500">No Product Orders</h3>
-              </section>
             @endif
           @endforeach
         @else

@@ -65,7 +65,7 @@
 
                     <td>
                       <p
-                        class="inline-block px-2 text-xs text-center {{ $product->status == 'Waiting' ? 'text-black bg-yellow-500' : '' }}{{ $product->status == 'Packaged' ? 'text-white bg-primaryBg' : '' }}{{ $product->status == 'Delivered' ? 'text-white bg-black' : '' }}{{ $product->status == 'Completed' || $product->status == 'Confirmed' ? 'text-white bg-green-600' : '' }}{{ $product->status == 'Canceled' ? 'text-white bg-red-600' : '' }} rounded-full">
+                        class="inline-block px-2 text-xs text-center {{ $product->status == 'Waiting' ? 'text-black bg-yellow-500' : '' }}{{ $product->status == 'Packaged' ? 'text-white bg-primaryBg' : '' }}{{ $product->status == 'Delivered' ? 'text-white bg-black' : '' }}{{ $product->status == 'Completed' ? 'text-white bg-green-600' : '' }}{{ $product->status == 'Canceled' ? 'text-white bg-red-600' : '' }}{{ $product->status == 'Confirmed' ? 'text-white bg-purple-600' : '' }} rounded-full">
                         {{ $product->status }}</p>
                     </td>
                     <td>

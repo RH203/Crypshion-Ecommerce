@@ -3,6 +3,7 @@
 namespace App\Livewire\Pages\App;
 
 use App\Models\app\Product as AppProduct;
+use App\Models\Notification;
 use App\Models\Order;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
@@ -67,6 +68,12 @@ class OrderShow extends Component
         if ($code) {
             Order::where('code', $code)->update(['status' => 'Packaged']);
             $this->loadOrders();
+
+            $customer = Order::where('code', $code)->first();
+            Notification::create([
+                'user_id' => $customer->user_id,
+                'status' => 'Packaged',
+            ]);
         }
     }
 
@@ -75,6 +82,12 @@ class OrderShow extends Component
         if ($code) {
             Order::where('code', $code)->update(['status' => 'Delivered']);
             $this->loadOrders();
+
+            $customer = Order::where('code', $code)->first();
+            Notification::create([
+                'user_id' => $customer->user_id,
+                'status' => 'Delivered',
+            ]);
         }
     }
 
@@ -83,6 +96,12 @@ class OrderShow extends Component
         if ($code) {
             Order::where('code', $code)->update(['status' => 'Completed']);
             $this->loadOrders();
+
+            $customer = Order::where('code', $code)->first();
+            Notification::create([
+                'user_id' => $customer->user_id,
+                'status' => 'Completed',
+            ]);
         }
     }
 

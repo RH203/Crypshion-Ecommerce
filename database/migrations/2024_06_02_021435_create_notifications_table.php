@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('notifications', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->enum('status', ['Packaged', 'Delevered', 'Completed']);
+            $table->enum('status', ['Packaged', 'Delivered', 'Completed']);
             $table->timestamps();
         });
     }

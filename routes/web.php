@@ -24,6 +24,8 @@ use App\Livewire\Pages\HelpCenterDelivery;
 use App\Livewire\Pages\HelpCenterErrorCode;
 use App\Livewire\Pages\HelpCenterPayment;
 use App\Livewire\Pages\Index;
+use App\Livewire\Pages\OrderHistory;
+use App\Livewire\Pages\OrderHistoryShow;
 use App\Livewire\Pages\Profile;
 use App\Livewire\Pages\TrackingOrder;
 use App\Livewire\Pages\Product;
@@ -53,6 +55,8 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth', 'role:user'])->group(function () {
   Route::get('/cart', Cart::class);
   Route::get('/orders', UserOrders::class);
+  Route::get('/order-history', OrderHistory::class);
+  Route::get('/order-history/{code}', OrderHistoryShow::class);
   Route::get('/tracking-order/{code}', TrackingOrder::class);
   Route::get('/profile', Profile::class)->name('profile');
   Route::get('/profile/change-password', ChangePassword::class);

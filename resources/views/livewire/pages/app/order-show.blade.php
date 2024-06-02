@@ -7,7 +7,7 @@
           <h2 class="text-lg font-semibold">Products</h2>
           @foreach ($customerData as $item)
             <p
-              class="px-2 text-xs {{ $item->status == 'Waiting' ? 'text-black bg-yellow-500' : '' }}{{ $item->status == 'Packaged' ? 'text-white bg-primaryBg' : '' }}{{ $item->status == 'Delivered' ? 'text-white bg-black' : '' }}{{ $item->status == 'Completed' ? 'text-white bg-green-600' : '' }} rounded-full">
+              class="px-2 text-xs {{ $item->status == 'Waiting' ? 'text-black bg-yellow-500' : '' }}{{ $item->status == 'Packaged' ? 'text-white bg-primaryBg' : '' }}{{ $item->status == 'Delivered' ? 'text-white bg-black' : '' }}{{ $item->status == 'Completed' || $item->status == 'Confirmed' ? 'text-white bg-green-600' : '' }}{{ $item->status == 'Canceled' ? 'text-white bg-red-600' : '' }} rounded-full">
               {{ $item->status }}</p>
           @endforeach
         </div>

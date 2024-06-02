@@ -2,21 +2,28 @@
 
 namespace App\Livewire\Components;
 
+use App\Models\Notification;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Navbar extends Component
 {
     public $cartCount;
+    public $notification;
+
     #[On('cart_count')]
     public function mount()
     {
-        // Set initial cart count from session
         $this->cartCount = session('cart_count', 0);
     }
 
+
     public function render()
     {
-        return view('livewire.components.navbar');
+        $this->notification = Notification::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->get();
+        return view('livewire.components.navbar', [
+            'notification' => $this->notification
+        ]);
     }
 }

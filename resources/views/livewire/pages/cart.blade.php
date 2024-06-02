@@ -32,46 +32,12 @@
             </div>
             <div class="flex items-center">
               <div>
-                <div class="grid grid-cols-1 gap-2 md:grid-cols-3">
-                  <div class="">
-                    <input type="radio" wire:model.live="selectedDelivery" id="faster" value="faster"
-                      name="delivery_type" class="hidden">
-                    <label for="faster"
-                      class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
-                      <p class="text-lg font-semibold">Faster</p>
-                      <p class="text-slate-500">Estimation : 2 - 4 day</p>
-                      <p class=" text-slate-500">Rp. 35.000</p>
-                    </label>
-                  </div>
-                  <div class="">
-                    <input type="radio" wire:model.live="selectedDelivery" id="reguler" value="reguler"
-                      name="delivery_type" class="hidden">
-                    <label for="reguler"
-                      class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
-                      <p class="text-lg font-semibold">Reguler</p>
-                      <p class="text-slate-500">Estimation : 4 - 7 day</p>
-                      <p class="text-slate-500">Rp. 27.000</p>
-                    </label>
-                  </div>
-                  <div class="">
-                    <input type="radio" wire:model.live="selectedDelivery" id="economic" value="economic"
-                      name="delivery_type" class="hidden">
-                    <label for="economic"
-                      class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
-                      <p class="text-lg font-semibold">Economic</p>
-                      <p class="text-slate-500">Estimation : 7 - 13 day</p>
-                      <p class=" text-slate-500">Rp. 13.000</p>
-                    </label>
-                  </div>
-                </div>
+                <select name="delivery" wire:model.live='delivery'>
+                  @foreach ($deliveries as $delivery)
+                    <option value="{{ $delivery->id }}">{{ $delivery->name }}</option>
+                  @endforeach
+                </select>
               </div>
-            </div>
-            <div>
-              <button type="button" wire:click.live='saveChanges'
-                class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-                data-hs-overlay="#hs-medium-modal">
-                Save changes
-              </button>
             </div>
           </div>
         </div>
@@ -139,8 +105,7 @@
               </div>
               <div class="flex justify-between mb-2 text-slate-800">
                 <h4 class=" text-slate-500">Total Delivery</h4>
-                <h4 class="font-bold">Rp {{ number_format($dataDelivery['cost'], 0, ',', '.') }}
-                </h4>
+                <h4 class="font-bold">Rp {{ number_format($deliveryCost, 0, ',', '.') }}</h4>
               </div>
               <div class="flex justify-between mb-2 text-slate-800">
                 <h4 class=" text-slate-500">Tax</h4>
@@ -168,10 +133,10 @@
                   <img src="/img/payment/bni.webp" alt="" class="h-4">
                   <img src="/img/payment/briva.png" alt="" class="h-4">
                 </div>
-                <button type="button" wire:click.prevent='checkout' id="checkout-btn" {{--  DEBUG  --}}
+                <a href="/checkout" id="checkout-btn" {{--  DEBUG  --}}
                   class="block w-full py-3 font-semibold text-center text-white rounded-lg bg-primaryBg">
                   Check Out
-                </button>
+                </a>
               @endif
               @if ($selectPayment == 'crypto')
                 <p class="hidden" id="hide-address">
@@ -209,28 +174,29 @@
 
 <script type="text/javascript">
   var total = <?php echo json_encode($total); ?>;
-  $(document).ready(function() {
-    var payButton = document.getElementById('checkout-btn');
-    payButton.addEventListener('click', () => {
-      window.snap.pay('{{ $snap_token }}', {
-        onSuccess: function(result) {
-          console.log("Payment success!");
-          console.log(result);
-          Livewire.dispatch('paymentSuccess');
-        },
-        onPending: function(result) {
-          console.log("Waiting for payment!")
-          console.log(result);
-        },
-        onError: function(result) {
-          console.log("Payment failed!");
-          console.log(result);
-        },
-        onClose: function() {
-          console.log('Popup closed without finishing payment');
-          Livewire.dispatch('paymentCancel');
-        }
-      });
-    });
-  })
+
+  // $(document).ready(function() {
+  //   var payButton = document.getElementById('checkout-btn');
+  //   payButton.addEventListener('click', () => {
+  //     window.snap.pay('{{ $snap_token }}', {
+  //       onSuccess: function(result) {
+  //         console.log("Payment success!");
+  //         console.log(result);
+  //         Livewire.dispatch('paymentSuccess');
+  //       },
+  //       onPending: function(result) {
+  //         console.log("Waiting for payment!")
+  //         console.log(result);
+  //       },
+  //       onError: function(result) {
+  //         console.log("Payment failed!");
+  //         console.log(result);
+  //       },
+  //       onClose: function() {
+  //         console.log('Popup closed without finishing payment');
+  //         Livewire.dispatch('paymentCancel');
+  //       }
+  //     });
+  //   });
+  // })
 </script>

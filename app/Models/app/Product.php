@@ -4,6 +4,7 @@ namespace App\Models\app;
 
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Rating;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -64,5 +65,15 @@ class Product extends Model
     public function order(): HasMany
     {
         return $this->hasMany(Order::class, 'product_id');
+    }
+
+    /**
+     * Get all of the rating for the Product
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function rating(): HasMany
+    {
+        return $this->hasMany(Rating::class, 'product_id');
     }
 }

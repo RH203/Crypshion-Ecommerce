@@ -21,7 +21,9 @@ class Navbar extends Component
 
     public function render()
     {
-        $this->notification = Notification::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->get();
+        if (Auth::check()) {
+            $this->notification = Notification::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->get();
+        }
         return view('livewire.components.navbar', [
             'notification' => $this->notification
         ]);

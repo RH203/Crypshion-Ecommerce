@@ -98,7 +98,17 @@ class Checkout extends Component
             'text' => 'Payment Success',
         ]);
 
-        Session::flush();
+        // Session::flush();
+        session()->forget('paymentMethod');
+        session()->forget('deliveryType');
+        session()->forget('deliveryEstimation');
+        session()->forget('deliveryCost');
+        session()->forget('totalQty');
+        session()->forget('subTotalProducts');
+        session()->forget('tax');
+        session()->forget('deliveryCost');
+        session()->forget('total');
+
         $this->redirect('tracking-order/' . $this->codeTrx);
 
 
@@ -117,13 +127,11 @@ class Checkout extends Component
             'confirmButtonText' => 'Ok',
             'text' => 'Payment Canceled',
         ]);
-        Session::flush();
         return;
     }
 
     public function render()
     {
-
         \Midtrans\Config::$serverKey = config('midtrans.serverKey');
         \Midtrans\Config::$isProduction = config('midtrans.isProduction');
         \Midtrans\Config::$isSanitized = config('midtrans.isSanitized');
@@ -166,7 +174,6 @@ class Checkout extends Component
                 $data->size = $size;
             }
         }
-
 
 
 

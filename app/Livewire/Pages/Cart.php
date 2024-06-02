@@ -59,6 +59,7 @@ class Cart extends Component
 
     $this->deliveries = Delivery::all();
 
+
     $this->calculateTotal();
   }
 

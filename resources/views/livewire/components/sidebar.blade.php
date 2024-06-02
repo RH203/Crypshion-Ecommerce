@@ -1,6 +1,6 @@
 <aside class="h-screen p-4 px-10 transition-all duration-500 bg-white shadow-lg basis-3/12">
-  <div class="flex justify-center mb-5">
-    <img src="/img/logo/secon-logo.png" alt="" class="w-8/12">
+  <div class="flex justify-center h-24 mb-5">
+    <img src="/img/logo/secon-logo.png" alt="" class="w-9/12">
   </div>
   <ul>
     <li>
@@ -17,7 +17,7 @@
     </li>
     <li>
       <a href="/app/orders" wire:navigate
-        class="flex items-center px-4 py-4 mb-2 bg-white rounded-md hover:bg-primaryBg {{ Request::is('app/orders') ? 'active' : '' }} hover:text-white">
+        class="flex items-center px-4 py-4 mb-2 bg-white rounded-md hover:bg-primaryBg {{ Request::is('app/orders') ? 'active' : '' }}{{ Request::is('app/orders/*') ? 'active' : '' }} hover:text-white">
         <iconify-icon icon="hugeicons:truck-delivery" class="text-2xl me-3"></iconify-icon>
         Orders</a>
     </li>

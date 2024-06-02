@@ -9,6 +9,7 @@ use App\Livewire\Pages\App\Category;
 use App\Livewire\Pages\App\Dashboard;
 use App\Livewire\Pages\App\Feedback;
 use App\Livewire\Pages\App\Orders;
+use App\Livewire\Pages\App\OrderShow;
 use App\Livewire\Pages\App\ProductAdd;
 use App\Livewire\Pages\App\ProductDetail;
 use App\Livewire\Pages\App\ProductEdit;
@@ -60,9 +61,6 @@ Route::middleware(['auth', 'role:user'])->group(function () {
   Route::get('/help-center/delivery', HelpCenterDelivery::class);
   Route::get('/help-center/error-code', HelpCenterErrorCode::class);
   Route::get('/help-center/ask-bobi', HelpCenterBotBobi::class);
-
-  // Session
-  Route::post('/save-session', [SessionController::class, 'saveSession']);
 });
 
 // Admin Route
@@ -74,6 +72,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/products/edit', ProductEdit::class);
     Route::get('/products/{id}/show', ProductDetail::class);
     Route::get('/orders', Orders::class);
+    Route::get('/orders/{code}', OrderShow::class);
     Route::get('/category', Category::class);
     Route::get('/feedback', Feedback::class);
   });

@@ -3,7 +3,14 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Models\Api\District;
+use App\Models\Api\Province;
+use App\Models\Api\Regency;
+use App\Models\Api\Village;
+use App\Models\app\Product;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -83,5 +90,69 @@ class User extends Authenticatable
     public function transaction(): HasMany
     {
         return $this->hasMany(Transaction::class, 'user_id');
+    }
+
+    /**
+     * Get all of the product for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function product(): HasMany
+    {
+        return $this->hasMany(Product::class, 'user_id');
+    }
+
+
+    /**
+     * Get all of the notification for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function notification(): HasMany
+    {
+        return $this->hasMany(Notification::class, 'user_id');
+    }
+
+
+    /**
+     * Get the province that owns the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function province(): BelongsTo
+    {
+        return $this->belongsTo(Province::class);
+    }
+
+    /**
+     * Get the regency that owns the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function regency(): BelongsTo
+    {
+        return $this->belongsTo(Regency::class);
+    }
+
+
+    /**
+     * Get the district that owns the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function district(): BelongsTo
+    {
+        return $this->belongsTo(District::class);
+    }
+
+
+    /**
+     * Get the village that owns the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function village(): BelongsTo
+    {
+        return $this->belongsTo(Village::class);
     }
 }

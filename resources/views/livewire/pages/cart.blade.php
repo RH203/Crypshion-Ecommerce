@@ -67,11 +67,11 @@
               </div>
             </div>
             <div>
-              {{-- <button type="button" wire:click.live='saveChanges'
+              <button type="button" wire:click.live='saveChanges'
                 class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
                 data-hs-overlay="#hs-medium-modal">
                 Save changes
-              </button> --}}
+              </button>
             </div>
           </div>
         </div>

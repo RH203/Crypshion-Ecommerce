@@ -48,7 +48,6 @@ class Cart extends Component
   ];
   public $selectedDelivery = 'reguler';
 
-
   protected $listeners = ['Checkout' => 'checkout', 'paymentSuccess', 'paymentCancel'];
 
   // Mounted
@@ -67,32 +66,32 @@ class Cart extends Component
   {
     $this->dispatch('connect-wallet-event');
   }
+
   // Select Delivery
-  public function selectDelivery()
+  public function saveChanges()
   {
-    switch ($this->selectedDelivery) {
-      case 'faster':
-        $this->dataDelivery = [
-          'name' => 'Faster',
-          'estimation' => '2 - 4 day',
-          'cost' => 35000
-        ];
-        break;
-      case 'reguler':
-        $this->dataDelivery = [
-          'name' => 'Reguler',
-          'estimation' => '4 - 7 day',
-          'cost' => 27000
-        ];
-        break;
-      case 'economic':
-        $this->dataDelivery = [
-          'name' => 'Economic',
-          'estimation' => '7 - 13 day',
-          'cost' => 13000
-        ];
-        break;
+    if ($this->selectedDelivery === 'faster') {
+      $this->dataDelivery = [
+        'name' => 'Faster',
+        'estimation' => '2 - 4 day',
+        'cost' => 35000
+      ];
     }
+    if ($this->selectedDelivery === 'reguler') {
+      $this->dataDelivery = [
+        'name' => 'Reguler',
+        'estimation' => '4 - 7 day',
+        'cost' => 27000
+      ];
+    }
+    if ($this->selectedDelivery === 'economic') {
+      $this->dataDelivery = [
+        'name' => 'Economic',
+        'estimation' => '7 - 13 day',
+        'cost' => 13000
+      ];
+    }
+    $this->selectedDelivery = $this->dataDelivery;
   }
 
   // Destroy Product
@@ -155,7 +154,6 @@ class Cart extends Component
       ModelsCart::where('id', $cartData->id)->delete();
     }
 
-    $this->redirect('tracking-order/' . $this->codeTrx);
 
     $this->alert('success', 'Success', [
       'position' => 'center',
@@ -166,6 +164,9 @@ class Cart extends Component
       'confirmButtonText' => 'Ok',
       'text' => 'Payment Success',
     ]);
+
+    $this->redirect('tracking-order/' . $this->codeTrx);
+
     return;
   }
 

@@ -14,6 +14,7 @@ use App\Models\User;
 use Exception;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
@@ -97,7 +98,9 @@ class Checkout extends Component
             'text' => 'Payment Success',
         ]);
 
+        Session::flush();
         $this->redirect('tracking-order/' . $this->codeTrx);
+
 
         return;
     }
@@ -114,6 +117,7 @@ class Checkout extends Component
             'confirmButtonText' => 'Ok',
             'text' => 'Payment Canceled',
         ]);
+        Session::flush();
         return;
     }
 

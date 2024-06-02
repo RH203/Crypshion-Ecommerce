@@ -86,14 +86,22 @@ class OrderHistoryShow extends Component
                 'timerProgressBar' => true,
                 'showConfirmButton' => true,
                 'confirmButtonText' => 'Ok',
-                'text' => 'Rated Successfully',
+                'text' => 'Rated Product Successfully',
             ]);
 
             // Update hasRating array
             $this->hasRating[$product_id] = true;
         } else {
             // Tampilkan pesan error jika tidak ada rating yang diberikan
-            dd("Rating tidak diberikan untuk produk ID $id");
+            $this->alert('error', 'Opps...', [
+                'position' => 'center',
+                'timer' => 3000,
+                'toast' => false,
+                'timerProgressBar' => true,
+                'showConfirmButton' => true,
+                'confirmButtonText' => 'Ok',
+                'text' => 'Please click on the star',
+            ]);
         }
     }
 

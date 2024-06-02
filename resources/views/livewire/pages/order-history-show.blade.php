@@ -82,8 +82,7 @@
                                   placeholder="Write a review here..."></textarea>
 
                                 <button type="submit"
-                                  class="px-5 py-2 text-xs text-white bg-green-600 rounded-md shadow-md">Send
-                                  Review</button>
+                                  class="px-5 py-2 text-xs text-white bg-green-600 rounded-md shadow-md">Submit</button>
                             @endif
                             </form>
                           @endif
@@ -166,8 +165,7 @@
                           @if (!$isGiveRate)
                             <a href="#" wire:click.prevent='giveRate'
                               class="flex items-center justify-center w-full py-2 text-center text-white rounded-lg bg-primaryBg">
-                              <iconify-icon icon="humbleicons:star"></iconify-icon> &nbsp; Give
-                              Rate </a>
+                              <iconify-icon icon="humbleicons:star"></iconify-icon> &nbsp; Rate Product</a>
                           @endif
                         @endif
                       </div>

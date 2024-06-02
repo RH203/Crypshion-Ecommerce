@@ -127,14 +127,9 @@
                         <h4 class="font-bold">{{ $data->payment_method }}</h4>
                       </div>
                       <div class="flex justify-between text-slate-800">
-                        @if ($data->status == 'Waiting')
-                          <a href="#" wire:click.prevent='cancelOrder("{{ $data->code }}")'
-                            class="block w-full py-2 text-center text-white rounded-lg bg-primaryBg">Cancel
-                            Order</a>
-                        @endif
-                        @if ($data->status == 'Completed')
-                          <a href="#" wire:click.prevent='confirmOrder("{{ $data->code }}")'
-                            class="block w-full py-2 text-center text-white bg-green-600 rounded-lg">Confirm Order</a>
+                        @if ($data->status == 'Confirmed')
+                          <a href="#" wire:click.prevent='giveRating("{{ $data->code }}")'
+                            class="block w-full py-2 text-center text-white rounded-lg bg-primaryBg">Give Rate</a>
                         @endif
                       </div>
                     </div>

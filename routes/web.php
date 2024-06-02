@@ -16,6 +16,7 @@ use App\Livewire\Pages\App\ProductEdit;
 use App\Livewire\Pages\App\Products;
 use App\Livewire\Pages\Cart;
 use App\Livewire\Pages\ChangePassword;
+use App\Livewire\Pages\Checkout;
 use App\Livewire\Pages\Contact;
 use App\Livewire\Pages\DetailProduk;
 use App\Livewire\Pages\HelpCenter;
@@ -54,6 +55,7 @@ Route::middleware(['auth'])->group(function () {
 // User Route
 Route::middleware(['auth', 'role:user'])->group(function () {
   Route::get('/cart', Cart::class);
+  Route::get('/checkout', Checkout::class);
   Route::get('/orders', UserOrders::class);
   Route::get('/order-history', OrderHistory::class);
   Route::get('/order-history/{code}', OrderHistoryShow::class);

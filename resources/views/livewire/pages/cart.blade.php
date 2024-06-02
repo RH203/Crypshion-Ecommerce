@@ -31,18 +31,47 @@
               </button>
             </div>
             <div class="flex items-center">
-              <div class="text-7xl me-6">
-                <iconify-icon icon="hugeicons:delivery-truck-02"></iconify-icon>
-              </div>
               <div>
-                <p class="text-lg font-semibold">
-                  {{ !$dataDelivery['name'] ? 'Delivery' : $dataDelivery['name'] }}</p>
-                <p class="text-slate-500">Estimation :
-                  {{ !$dataDelivery['estimation'] ? '0 day' : $dataDelivery['estimation'] }}</p>
-                <p class=" text-slate-500">Rp.
-                  {{ !$dataDelivery['cost'] ? '0' : number_format($dataDelivery['cost'], 0, ',', '.') }}
-                </p>
+                <div class="grid grid-cols-1 gap-2 md:grid-cols-3">
+                  <div class="">
+                    <input type="radio" wire:model.live="selectedDelivery" id="faster" value="faster"
+                      name="delivery_type" class="hidden">
+                    <label for="faster"
+                      class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
+                      <p class="text-lg font-semibold">Faster</p>
+                      <p class="text-slate-500">Estimation : 2 - 4 day</p>
+                      <p class=" text-slate-500">Rp. 35.000</p>
+                    </label>
+                  </div>
+                  <div class="">
+                    <input type="radio" wire:model.live="selectedDelivery" id="reguler" value="reguler"
+                      name="delivery_type" class="hidden">
+                    <label for="reguler"
+                      class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
+                      <p class="text-lg font-semibold">Reguler</p>
+                      <p class="text-slate-500">Estimation : 4 - 7 day</p>
+                      <p class="text-slate-500">Rp. 27.000</p>
+                    </label>
+                  </div>
+                  <div class="">
+                    <input type="radio" wire:model.live="selectedDelivery" id="economic" value="economic"
+                      name="delivery_type" class="hidden">
+                    <label for="economic"
+                      class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
+                      <p class="text-lg font-semibold">Economic</p>
+                      <p class="text-slate-500">Estimation : 7 - 13 day</p>
+                      <p class=" text-slate-500">Rp. 13.000</p>
+                    </label>
+                  </div>
+                </div>
               </div>
+            </div>
+            <div>
+              <button type="button" wire:click.live='saveChanges'
+                class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+                data-hs-overlay="#hs-medium-modal">
+                Save changes
+              </button>
             </div>
           </div>
         </div>
@@ -173,75 +202,9 @@
     </div>
   @endif
 
-
   {{-- Modal --}}
-  <div id="hs-medium-modal"
-    class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none">
-    <div
-      class="m-3 mt-0 transition-all ease-out opacity-0 hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 md:max-w-2xl md:w-full md:mx-auto">
-      <div class="flex flex-col bg-white border shadow-sm pointer-events-auto rounded-xl">
-        <div class="flex items-center justify-between px-4 py-3 border-b d">
-          <h3 class="font-bold text-gray-800 e">
-            Change Delivery Type
-          </h3>
-          <button type="button" wire:click="saveChanges"
-            class="flex items-center justify-center text-sm font-semibold text-gray-800 border border-transparent rounded-full size-7 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none"
-            data-hs-overlay="#hs-medium-modal">
-            <span class="sr-only">Close</span>
-            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="M18 6 6 18"></path>
-              <path d="m6 6 12 12"></path>
-            </svg>
-          </button>
-        </div>
-        <div class="p-4 overflow-y-auto">
-          <p class="mt-1 text-gray-800">
-          <div class="grid grid-cols-1 gap-2 md:grid-cols-3">
-            <div class="">
-              <input type="radio" wire:model.live="selectedDelivery" id="faster" value="faster"
-                name="delivery_type" class="hidden">
-              <label for="faster"
-                class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
-                <p class="text-lg font-semibold">Faster</p>
-                <p class="text-slate-500">Estimation : 2 - 4 day</p>
-                <p class=" text-slate-500">Rp. 35.000</p>
-              </label>
-            </div>
-            <div class="">
-              <input type="radio" wire:model.live="selectedDelivery" id="reguler" value="reguler"
-                name="delivery_type" class="hidden">
-              <label for="reguler"
-                class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
-                <p class="text-lg font-semibold">Reguler</p>
-                <p class="text-slate-500">Estimation : 4 - 7 day</p>
-                <p class="text-slate-500">Rp. 27.000</p>
-              </label>
-            </div>
-            <div class="">
-              <input type="radio" wire:model.live="selectedDelivery" id="economic" value="economic"
-                name="delivery_type" class="hidden">
-              <label for="economic"
-                class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
-                <p class="text-lg font-semibold">Economic</p>
-                <p class="text-slate-500">Estimation : 7 - 13 day</p>
-                <p class=" text-slate-500">Rp. 13.000</p>
-              </label>
-            </div>
-          </div>
-          </p>
-        </div>
-        <div class="flex items-center justify-end px-4 py-3 border-t gap-x-2 dark:border-neutral-700">
-          <button type="button" wire:click.live='saveChanges'
-            class="inline-flex items-center px-3 py-2 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-lg gap-x-2 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-            data-hs-overlay="#hs-medium-modal">
-            Save changes
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+
+
 </div>
 
 <script type="text/javascript">

@@ -4,11 +4,11 @@
 
 
       <header class="text-center">
-        <h1 class="text-4xl font-bold">Tracking Orders</h1>
+        <h1 class="text-4xl font-bold">Detail Order History</h1>
         <p class="mt-3 font-normal text-slate-500">Monitoring the order process until completion</p>
       </header>
 
-      @if ($data->status != 'Canceled' && $data->status != 'Confirmed')
+      @if ($data->status === 'Canceled' || $data->status === 'Confirmed')
         <!-- Stepper -->
         <div class="container-fluid" wire:poll>
           <br /><br />

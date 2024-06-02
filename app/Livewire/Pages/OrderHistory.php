@@ -8,14 +8,9 @@ use App\Models\Api\Regency;
 use App\Models\Api\Village;
 use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
-use Livewire\Attributes\Layout;
-use Livewire\Attributes\Title;
 use Livewire\Component;
 
-#[Title('Orders')]
-#[Layout('layouts.app')]
-
-class Orders extends Component
+class OrderHistory extends Component
 {
     public $firstOrders;
 
@@ -46,7 +41,7 @@ class Orders extends Component
             return $group->first();
         });
 
-        return view('livewire.pages.orders', [
+        return view('livewire.pages.order-history', [
             'products' => $this->firstOrders,
             'province' => $this->province,
             'regency' => $this->regency,

@@ -14,10 +14,10 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-#[Title('Tracking Order')]
+#[Title('Order History Show')]
 #[Layout('layouts.app')]
 
-class TrackingOrder extends Component
+class OrderHistoryShow extends Component
 {
     use LivewireAlert;
 
@@ -118,7 +118,7 @@ class TrackingOrder extends Component
         $this->total = $this->subTotalProducts + $this->tax;
 
 
-        return view('livewire.pages.tracking-order', [
+        return view('livewire.pages.order-history-show', [
             'products' => $this->products,
             'data' => $this->data,
             'province' => $this->provinceId,

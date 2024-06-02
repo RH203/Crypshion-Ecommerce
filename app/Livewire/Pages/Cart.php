@@ -39,7 +39,7 @@ class Cart extends Component
   public $tax = 1000;
   public $subTotalProducts = 0;
   public $total = 0;
-  public $snapToken;
+  public $snapToken = null;
   public $codeTrx;
   public $dataDelivery = [
     'name' => 'Reguler',
@@ -154,7 +154,6 @@ class Cart extends Component
       ModelsCart::where('id', $cartData->id)->delete();
     }
 
-    $this->redirect('tracking-order/' . $this->codeTrx);
 
     $this->alert('success', 'Success', [
       'position' => 'center',
@@ -165,6 +164,9 @@ class Cart extends Component
       'confirmButtonText' => 'Ok',
       'text' => 'Payment Success',
     ]);
+
+    $this->redirect('tracking-order/' . $this->codeTrx);
+
     return;
   }
 

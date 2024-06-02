@@ -39,23 +39,15 @@ class Cart extends Component
   public $tax = 1000;
   public $subTotalProducts = 0;
   public $total = 0;
-  public $snapToken;
+  public $snapToken = null;
   public $codeTrx;
-  public $dataDelivery = [
-    'name' => 'Reguler',
-    'estimation' => '4 - 7 day',
-    'cost' => 27000
-  ];
-  public $selectedDelivery = 'reguler';
+  public $dataDelivery = [];
+  public $selectedDelivery;
 
-  protected $listeners = [
-    'Checkout' => 'paymentSuccess'
-    ];
+  protected $listeners = ['Checkout' => 'checkout', 'paymentSuccess', 'paymentCancel'];
 
-  // Mounted
   public function mount()
   {
-    // Show Address
     $this->provinceId = Province::find(Auth::user()->province_id);
     $this->regencyId = Regency::find(Auth::user()->regency_id);
     $this->districtId = District::find(Auth::user()->district_id);
@@ -63,50 +55,57 @@ class Cart extends Component
     $this->zipCode = User::find(Auth::user()->id);
   }
 
-  // Connect Wallet Crypto
   public function connectWallet()
   {
     $this->dispatch('connect-wallet-event');
   }
 
-  // Select Delivery
-  public function saveChanges()
+  public function selectDelivery()
   {
-    if ($this->selectedDelivery === 'faster') {
-      $this->dataDelivery = [
-        'name' => 'Faster',
-        'estimation' => '2 - 4 day',
-        'cost' => 35000
-      ];
+    $this->dataDelivery = [];
+
+    switch ($this->selectedDelivery) {
+      case 'faster':
+        $this->dataDelivery = [
+          'name' => 'Faster',
+          'estimation' => '2 - 4 day',
+          'cost' => 35000
+        ];
+        break;
+      case 'reguler':
+        $this->dataDelivery = [
+          'name' => 'Reguler',
+          'estimation' => '4 - 7 day',
+          'cost' => 27000
+        ];
+        break;
+      case 'economic':
+        $this->dataDelivery = [
+          'name' => 'Economic',
+          'estimation' => '7 - 13 day',
+          'cost' => 13000
+        ];
+        break;
     }
-    if ($this->selectedDelivery === 'reguler') {
-      $this->dataDelivery = [
-        'name' => 'Reguler',
-        'estimation' => '4 - 7 day',
-        'cost' => 27000
-      ];
-    }
-    if ($this->selectedDelivery === 'economic') {
-      $this->dataDelivery = [
-        'name' => 'Economic',
-        'estimation' => '7 - 13 day',
-        'cost' => 13000
-      ];
-    }
-    $this->selectedDelivery = $this->dataDelivery;
   }
 
-  // Destroy Product
+  public function updateDelivery()
+  {
+    $this->selectDelivery();
+    $this->calculateTotal();
+  }
+
   public function destroyProduct($id)
   {
     $data = ModelsCart::find($id);
 
     if ($data) {
       $data->delete();
+
+      $this->calculateTotal();
     }
   }
 
-  // Checkout
   public function checkout()
   {
     if (!$this->selectedDelivery) {
@@ -117,14 +116,11 @@ class Cart extends Component
         'timerProgressBar' => true,
         'showConfirmButton' => true,
         'confirmButtonText' => 'Ok',
-        'text' => 'Please select type delivery',
+        'text' => 'Please selected delivery type',
       ]);
       return;
     }
   }
-
-  // Payment success
-  // #[On('payment-success')]
 
   public function paymentSuccess()
   {
@@ -134,7 +130,7 @@ class Cart extends Component
       'payment_status' => 'Success',
       'snap_token' => $this->snapToken
     ]);
-    // Add to table order
+
     foreach ($this->datas as $data) {
       Order::create([
         'user_id' => Auth::user()->id,
@@ -151,6 +147,12 @@ class Cart extends Component
       ]);
     }
 
+    foreach ($this->datas as $cartData) {
+      ModelsCart::where('id', $cartData->id)->delete();
+    }
+
+    $this->redirect('tracking-order/' . $this->codeTrx);
+
     $this->alert('success', 'Success', [
       'position' => 'center',
       'timer' => 3000,
@@ -163,10 +165,25 @@ class Cart extends Component
     return;
   }
 
+  public function paymentCancel()
+  {
+    $this->alert('error', 'Canceled', [
+      'position' => 'center',
+      'timer' => 3000,
+      'toast' => false,
+      'timerProgressBar' => true,
+      'showConfirmButton' => true,
+      'confirmButtonText' => 'Ok',
+      'text' => 'Payment Canceled',
+    ]);
+    return;
+  }
 
-  // Calculate Total
   public function calculateTotal()
   {
+    $this->selectDelivery();
+
+    $this->total = 0;
     $this->subTotalProducts = 0;
     $products = ModelsCart::where('user_id', Auth::user()->id)->get();
     $this->totalQty = $products->sum('quantity');
@@ -176,11 +193,11 @@ class Cart extends Component
       $this->subTotalProducts += $subtotal;
     }
 
-    $this->total = $this->subTotalProducts + $this->dataDelivery['cost'] + $this->tax;
+    $est = $this->dataDelivery['cost'] ?? 1000; // Nilai default jika tidak ada dataDelivery
+
+    $this->total = $this->subTotalProducts + $est + $this->tax;
   }
 
-
-  // Render Component
   public function render()
   {
     // Get Size
@@ -194,23 +211,30 @@ class Cart extends Component
         $data->size = $size;
       }
     }
+    // $this->selectedDelivery = 'faster';   // DEBUG
+    if (!in_array($this->selectedDelivery, ['economic', 'reguler', 'faster'])) {
+      $this->selectedDelivery = 'economic'; // Set default if invalid or not set
+    }
+    if (!in_array($this->selectedDelivery, ['economic', 'reguler', 'faster'])) {
+      $this->selectedDelivery = 'reguler'; // Set default if invalid or not set
+    }
+    if (!in_array($this->selectedDelivery, ['economic', 'reguler', 'faster'])) {
+      $this->selectedDelivery = 'economic'; // Set default if invalid or not set
+    }
 
     // Check Product
     $isCart = ModelsCart::where('user_id', Auth::id())->first();
-    // session()->forget('cart_count');
+    session()->forget('cart_count');
 
-
-    // Get function calculate total
-    $this->calculateTotal();
-
-    // Generate order code
     $this->codeTrx = Str::random(10);
+    json_encode($this->codeTrx);
 
-    // Midtrans
     \Midtrans\Config::$serverKey = config('midtrans.serverKey');
     \Midtrans\Config::$isProduction = config('midtrans.isProduction');
     \Midtrans\Config::$isSanitized = config('midtrans.isSanitized');
     \Midtrans\Config::$is3ds = config('midtrans.is3ds');
+
+    $this->updateDelivery();
 
     $params = [
       'transaction_details' => [
@@ -238,8 +262,6 @@ class Cart extends Component
       return;
     }
 
-
-    // Return view component
     return view('livewire.pages.cart', [
       'datas' => $this->datas,
       'isCart' => $isCart,

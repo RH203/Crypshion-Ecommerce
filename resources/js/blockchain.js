@@ -63,7 +63,7 @@ const initContract = async () => {
             timer: 1700,
           });
           setTimeout(() => {
-            window.location.href = "/orders";
+            window.location.href = `tracking-order/${codeTrx}`;
           }, 1710);
         }
         await checkout();

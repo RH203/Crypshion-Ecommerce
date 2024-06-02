@@ -16,7 +16,9 @@ use Livewire\Component;
 class Product extends Component
 {
     use Products;
+
     public $products;
+    public $search;
 
     public function mount()
     {
@@ -25,6 +27,10 @@ class Product extends Component
 
     public function render()
     {
+        AppProduct::orderBy('id', 'DESC')
+            ->where('title', 'LIKE', '%' . $this->search . '%')
+            ->get();
+
         return view('livewire.pages.product', [
             'products' => $this->products
         ]);

@@ -54,9 +54,8 @@
             @foreach ($datas as $data)
               <div class="flex items-center justify-between my-5">
                 <div class="flex">
-                  <div class="h-full overflow-hidden rounded-lg basis-3/12 md:h-40 bg-slate-200">
-                    <img src="{{ asset('storage/' . $data->image) }}" alt="" width="w-full object-cover"
-                      class="object-cover">
+                  <div class="w-full overflow-hidden rounded-lg basis-3/12 md:h-full bg-slate-200">
+                    <img src="{{ asset('storage/' . $data->image) }}" alt="" class="object-cover w-full h-full">
                   </div>
                   <div class="basis-9/12 text-slate-800 ms-5">
                     <div class="w-10/12 mb-1 md:w-8/12">
@@ -133,7 +132,7 @@
                   <img src="/img/payment/bni.webp" alt="" class="h-4">
                   <img src="/img/payment/briva.png" alt="" class="h-4">
                 </div>
-                <a href="/checkout" id="checkout-btn" {{--  DEBUG  --}}
+                <a href="/checkout" {{--  DEBUG  --}}
                   class="block w-full py-3 font-semibold text-center text-white rounded-lg bg-primaryBg">
                   Check Out
                 </a>

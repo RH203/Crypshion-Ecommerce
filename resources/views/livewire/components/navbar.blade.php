@@ -25,59 +25,49 @@
             aria-labelledby="hs-dropdown-with-icons">
             @auth
               <div class="py-2 first:pt-0 last:pb-0">
-                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
-                  href="#">
-                  <div class="flex items-center">
-                    <iconify-icon icon="gg:check-o" class="text-4xl text-green-500"></iconify-icon>
-                    <div class="ms-3">
-                      <h4 class="font-semibold">Completed</h4>
-                      Your order has arrived at its destination
-                    </div>
-                  </div>
-                </a>
-                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
-                  href="#">
-                  <div class="flex items-center">
-                    <iconify-icon icon="hugeicons:truck-delivery" class="text-4xl text-purple-500"></iconify-icon>
-                    <div class="ms-3">
-                      <h4 class="font-semibold">Delivered</h4>
-                      Your order is being delivered
-                    </div>
-                  </div>
+                @foreach ($notification as $notif)
+                  @if ($notif->status == 'Packaged')
+                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
+                      href="#">
+                      <div class="flex items-center">
+                        <iconify-icon icon="ph:package" class="text-4xl text-blue-500"></iconify-icon>
+                        <div class="ms-3">
+                          <h4 class="font-semibold">{{ $notif->status }}</h4>
+                          Your order has been packed by the seller <br>
+                          <small class="text-xs">{{ $notif->created_at->diffForHumans() }}</small>
+                        </div>
+                      </div>
+                    </a>
+                  @elseif($notif->status == 'Delivered')
+                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
+                      href="#">
+                      <div class="flex items-center">
+                        <iconify-icon icon="hugeicons:truck-delivery" class="text-4xl text-purple-500"></iconify-icon>
+                        <div class="ms-3">
+                          <h4 class="font-semibold">{{ $notif->status }}</h4>
+                          Your order is being delivered <br>
+                          <small class="text-xs">{{ $notif->created_at->diffForHumans() }}</small>
+                        </div>
+                      </div>
+                    </a>
+                  @elseif ($notif->status == 'Completed')
+                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
+                      href="#">
+                      <div class="flex items-center">
+                        <iconify-icon icon="gg:check-o" class="text-4xl text-green-500"></iconify-icon>
+                        <div class="ms-3">
+                          <h4 class="font-semibold">{{ $notif->status }}</h4>
+                          Your order has arrived at its destination <br>
+                          <small class="text-xs">{{ $notif->created_at->diffForHumans() }}</small>
+                        </div>
+                      </div>
+                    </a>
+                  @endif
+                @endforeach
 
-                </a>
-                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
-                  href="#">
-                  <div class="flex items-center">
-                    <iconify-icon icon="ph:package" class="text-4xl text-blue-500"></iconify-icon>
-                    <div class="ms-3">
-                      <h4 class="font-semibold">Packaged</h4>
-                      Your order has been packed by the seller
-                    </div>
-                  </div>
-                </a>
-                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
-                  href="#">
-                  <div class="flex items-center">
-                    <iconify-icon icon="ph:package" class="text-4xl text-blue-500"></iconify-icon>
-                    <div class="ms-3">
-                      <h4 class="font-semibold">Packaged</h4>
-                      Your order has been packed by the seller
-                    </div>
-                  </div>
-                </a>
-                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
-                  href="#">
-                  <div class="flex items-center">
-                    <iconify-icon icon="ph:package" class="text-4xl text-blue-500"></iconify-icon>
-                    <div class="ms-3">
-                      <h4 class="font-semibold">Packaged</h4>
-                      Your order has been packed by the seller
-                    </div>
-                  </div>
-                </a>
               </div>
             @endauth
+
 
             @guest
               <div class="flex items-center justify-center py-2 first:pt-0 last:pb-0">
@@ -135,7 +125,7 @@
                   My Orders
                 </a>
                 <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                  href="/tracking-order">
+                  href="/order-history" wire:navigate>
                   <iconify-icon icon="system-uicons:box-open" class="text-lg"></iconify-icon>
                   Order History
                 </a>

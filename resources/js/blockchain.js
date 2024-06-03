@@ -1,7 +1,6 @@
 import Web3, { errors } from "web3";
 import data from "../../dataECP/dataECP.json";
 
-
 const ADDRS = data.ADDRS;
 const addrs = data.addrs;
 const ABI = data.ABI;
@@ -162,4 +161,6 @@ async function checkout() {
   Livewire.dispatch("Checkout");
 }
 
-// console.log(total);
+console.log(total);
+
+console.log("TOTALLLLLL");

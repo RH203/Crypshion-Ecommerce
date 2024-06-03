@@ -4,11 +4,11 @@
 
 
       <header class="text-center">
-        <h1 class="text-4xl font-bold">Tracking Orders</h1>
+        <h1 class="text-4xl font-bold">Detail Order History</h1>
         <p class="mt-3 font-normal text-slate-500">Monitoring the order process until completion</p>
       </header>
 
-      @if ($data->status != 'Canceled' && $data->status != 'Confirmed')
+      @if ($data->status === 'Canceled' || $data->status === 'Confirmed')
         <!-- Stepper -->
         <div class="container-fluid" wire:poll>
           <br /><br />
@@ -52,6 +52,40 @@
                         <div class="my-1 text-sm text-slate-500">Qty : <span>{{ $product->quantity }}</span> x</div>
                         <div class="md:text-xl text-md">
                           Rp. <span class="font-semibold">{{ number_format($product->price, 0, ',', '.') }}</span>
+                        </div>
+                        <div class="mt-5">
+                          @if ($isGiveRate == true)
+                            @if (!$hasRating[$product->product_id])
+                              <form
+                                wire:submit.prevent='submitRating({{ $product->id }}, {{ $product->product_id }},"{{ $product->code }}")'>
+                                <!-- Rating -->
+                                <div class="flex flex-row-reverse items-center justify-end">
+                                  @for ($i = 5; $i >= 1; $i--)
+                                    <input id="rating-{{ $product->id }}-{{ $i }}" type="radio"
+                                      class="hidden peer" name="rating-{{ $product->id }}"
+                                      wire:model='ratings.{{ $product->id }}' value="{{ $i }}">
+                                    <label for="rating-{{ $product->id }}-{{ $i }}"
+                                      class="text-gray-300 cursor-pointer peer-checked:text-yellow-400 dark:peer-checked:text-yellow-600 dark:text-neutral-600">
+                                      <svg class="flex-shrink-0 size-5" xmlns="http://www.w3.org/2000/svg"
+                                        width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path
+                                          d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
+                                        </path>
+                                      </svg>
+                                    </label>
+                                  @endfor
+                                </div>
+                                <!-- End Rating -->
+
+                                <textarea name="review" wire:model='review.{{ $product->id }}'
+                                  class="w-full p-2 mt-3 text-sm border rounded-md placeholder:text-xs border-slate-500" cols="30" rows="3"
+                                  placeholder="Write a review here..."></textarea>
+
+                                <button type="submit"
+                                  class="px-5 py-2 text-xs text-white bg-green-600 rounded-md shadow-md">Submit</button>
+                            @endif
+                            </form>
+                          @endif
                         </div>
                       </div>
                     </div>
@@ -127,14 +161,12 @@
                         <h4 class="font-bold">{{ $data->payment_method }}</h4>
                       </div>
                       <div class="flex justify-between text-slate-800">
-                        @if ($data->status == 'Waiting')
-                          <a href="#" wire:click.prevent='cancelOrder("{{ $data->code }}")'
-                            class="block w-full py-2 text-center text-white rounded-lg bg-primaryBg">Cancel
-                            Order</a>
-                        @endif
-                        @if ($data->status == 'Completed')
-                          <a href="#" wire:click.prevent='confirmOrder("{{ $data->code }}")'
-                            class="block w-full py-2 text-center text-white bg-green-600 rounded-lg">Confirm Order</a>
+                        @if ($data->status == 'Confirmed' && !$hasRating[$product->product_id])
+                          @if (!$isGiveRate)
+                            <a href="#" wire:click.prevent='giveRate'
+                              class="flex items-center justify-center w-full py-2 text-center text-white rounded-lg bg-primaryBg">
+                              <iconify-icon icon="humbleicons:star"></iconify-icon> &nbsp; Rate Product</a>
+                          @endif
                         @endif
                       </div>
                     </div>

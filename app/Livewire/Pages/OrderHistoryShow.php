@@ -6,40 +6,42 @@ use App\Models\Api\District;
 use App\Models\Api\Province;
 use App\Models\Api\Regency;
 use App\Models\Api\Village;
-use App\Models\app\Product;
+use App\Models\app\Product as AppProduct;
 use App\Models\Order;
+use App\Models\Product;
+use App\Models\Rating;
 use Illuminate\Support\Facades\Auth;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-#[Title('Tracking Order')]
+#[Title('Order History Show')]
 #[Layout('layouts.app')]
-
-class TrackingOrder extends Component
+class OrderHistoryShow extends Component
 {
     use LivewireAlert;
 
     public $products;
     public $data;
-
     public $provinceId;
     public $regencyId;
     public $districtId;
     public $villageId;
-
     public $totalQty = 0;
     public $tax = 1000;
     public $subTotalProducts = 0;
     public $total = 0;
     public $code;
+    public $isGiveRate = false;
+    public $ratings = [];
+    public $reviews = [];
+    public $hasRating = [];
 
-
-    // Mounted
     public function mount($code)
     {
         $this->code = $code;
+
         // Show Address
         $this->provinceId = Province::find(Auth::user()->province_id);
         $this->regencyId = Regency::find(Auth::user()->regency_id);
@@ -48,15 +50,34 @@ class TrackingOrder extends Component
 
         $this->products = Order::where('code', $code)->get();
         $this->data = Order::where('code', $code)->first();
+
+        foreach ($this->products as $product) {
+            $ratingExists = Rating::where('code', $code)->where('product_id', $product->product_id)->exists();
+            $this->hasRating[$product->product_id] = $ratingExists;
+        }
     }
 
-
-
-    public function cancelOrder($code)
+    public function giveRate()
     {
-        if ($code) {
-            Order::where('code', $code)->update(['status' => 'Canceled']);
+        $this->isGiveRate = true;
+    }
 
+    public function submitRating($id, $product_id, $code)
+    {
+        $rating = $this->ratings[$id] ?? null;
+        $review = $this->reviews[$id] ?? '';
+
+        if ($rating) {
+            Rating::create([
+                'user_id' => Auth::user()->id,
+                'product_id' => $product_id,
+                'rating' => $rating,
+                'review' => $review,
+                'code' => $code
+            ]);
+
+            // $this->ratings[$id] = null;
+            // $this->reviews[$id] = '';
 
             $this->alert('success', 'Success', [
                 'position' => 'center',
@@ -65,39 +86,29 @@ class TrackingOrder extends Component
                 'timerProgressBar' => true,
                 'showConfirmButton' => true,
                 'confirmButtonText' => 'Ok',
-                'text' => 'Order Canceled',
+                'text' => 'Rated Product Successfully',
             ]);
 
-            // $this->redirect('tracking-order/' . $this->codeTrx);
-        }
-    }
-
-
-    public function confirmOrder($code)
-    {
-        if ($code) {
-            Order::where('code', $code)->update(['status' => 'Confirmed']);
-
-
-            $this->alert('success', 'Success', [
+            // Update hasRating array
+            $this->hasRating[$product_id] = true;
+        } else {
+            // Tampilkan pesan error jika tidak ada rating yang diberikan
+            $this->alert('error', 'Opps...', [
                 'position' => 'center',
                 'timer' => 3000,
                 'toast' => false,
                 'timerProgressBar' => true,
                 'showConfirmButton' => true,
                 'confirmButtonText' => 'Ok',
-                'text' => 'Order Confirmed',
+                'text' => 'Please click on the star',
             ]);
-
-            // $this->redirect('tracking-order/' . $this->codeTrx);
         }
     }
-
 
     public function render()
     {
         foreach ($this->products as $data) {
-            $product = Product::find($data->product_id);
+            $product = AppProduct::find($data->product_id);
             if ($product) {
                 $prices = json_decode($product->prices, true);
                 $size = array_search($data->price, $prices);
@@ -117,8 +128,7 @@ class TrackingOrder extends Component
 
         $this->total = $this->subTotalProducts + $this->tax;
 
-
-        return view('livewire.pages.tracking-order', [
+        return view('livewire.pages.order-history-show', [
             'products' => $this->products,
             'data' => $this->data,
             'province' => $this->provinceId,
@@ -129,6 +139,8 @@ class TrackingOrder extends Component
             'subTotalProducts' => $this->subTotalProducts,
             'tax' => $this->tax,
             'total' => $this->total,
+            'isGiveRate' => $this->isGiveRate,
+            'hasRating' => $this->hasRating
         ]);
     }
 }

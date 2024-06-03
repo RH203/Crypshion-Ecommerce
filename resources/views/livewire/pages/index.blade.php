@@ -102,6 +102,7 @@
           @foreach ($products as $product)
             <livewire:components.card-product image="{{ asset('storage/' . $product->first_image) }}"
               title="{{ Str::limit($product->title, 45) }}" description="{{ Str::limit($product->description, 60) }}"
+              rating="{{ $averageRatings[$product->id] ?? 0 }}"
               price="{{ isset($product->first_price) ? number_format($product->first_price, 0, ',', '.') : '' }}"
               productId="{{ $product->id }}" url="/products/{{ $product->id }}/show" />
           @endforeach

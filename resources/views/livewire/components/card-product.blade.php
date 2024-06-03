@@ -12,11 +12,14 @@
         <div class="flex items-center justify-between">
           <div class="flex items-center">
             <div id="icon" class="text-md">
-              <iconify-icon icon="material-symbols:star-rounded" class="text-yellow-500 "></iconify-icon>
-              <iconify-icon icon="material-symbols:star-rounded" class="text-yellow-500 "></iconify-icon>
-              <iconify-icon icon="material-symbols:star-rounded" class="text-yellow-500 "></iconify-icon>
-              <iconify-icon icon="material-symbols:star-half-rounded" class="text-yellow-500 "></iconify-icon>
-              <iconify-icon icon="ic:round-star-border" class="text-yellow-500 "></iconify-icon>
+              @php
+                $roundedRating = round($rating);
+              @endphp
+
+              @for ($i = 1; $i <= 5; $i++)
+                <iconify-icon icon="{{ $i <= $roundedRating ? 'solar:star-bold' : 'solar:star-line-duotone' }}"
+                  class="text-warning text-md text-primary"></iconify-icon>
+              @endfor
             </div>
             {{-- <small class="mb-1 text-yellow-500 ms-1">3.5</small> --}}
           </div>

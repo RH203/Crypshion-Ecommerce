@@ -3,6 +3,7 @@
 namespace App\Livewire\Components;
 
 use App\Models\app\Product;
+use App\Models\Rating;
 use Illuminate\Support\Facades\Storage;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -21,7 +22,7 @@ class CardProduct extends Component
   public $url;
 
 
-  public function mount($productId = null, $image, $title, $description, $price, $rating = 3.5, $url = '#')
+  public function mount($productId = null, $image, $title, $description, $price, $rating = 0, $url = '#')
   {
     $this->productId = $productId;
     $this->image = $image;
@@ -54,8 +55,22 @@ class CardProduct extends Component
   }
 
 
+  // public function getRatings()
+  // {
+  //   $ratings = Rating::whereBetween('rating', [1, 5])->get();
+
+  //   $averageRatings = $ratings->groupBy('product_id')->map(function ($productRatings) {
+  //     return $productRatings->avg('rating');
+  //   });
+
+  //   return $averageRatings;
+  // }
+
+
   public function render()
   {
-    return view('livewire.components.card-product');
+    return view('livewire.components.card-product', [
+      // 'averageRatings' => $this->getRatings(),
+    ]);
   }
 }

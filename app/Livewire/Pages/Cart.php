@@ -93,6 +93,13 @@ class Cart extends Component
     session(['tax' => $this->tax]);
     session(['deliveryCost' => $this->deliveryCost]);
     session(['total' => $this->total]);
+
+    $this->dispatch('deliveryUpdated', [
+      'total' => $this->total,
+      'deliveryType' => $selectedDelivery->name,
+      'deliveryCost' => $selectedDelivery->cost,
+      'deliveryEstimation' => $selectedDelivery->estimation,
+    ]);
   }
 
 

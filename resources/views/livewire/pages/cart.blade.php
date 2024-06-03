@@ -179,28 +179,12 @@
 <script type="text/javascript">
   var total = <?php echo json_encode($total); ?>;
 
-  // $(document).ready(function() {
-  //   var payButton = document.getElementById('checkout-btn');
-  //   payButton.addEventListener('click', () => {
-  //     window.snap.pay('{{ $snap_token }}', {
-  //       onSuccess: function(result) {
-  //         console.log("Payment success!");
-  //         console.log(result);
-  //         Livewire.dispatch('paymentSuccess');
-  //       },
-  //       onPending: function(result) {
-  //         console.log("Waiting for payment!")
-  //         console.log(result);
-  //       },
-  //       onError: function(result) {
-  //         console.log("Payment failed!");
-  //         console.log(result);
-  //       },
-  //       onClose: function() {
-  //         console.log('Popup closed without finishing payment');
-  //         Livewire.dispatch('paymentCancel');
-  //       }
-  //     });
-  //   });
-  // })
+  document.addEventListener('livewire:init', function() {
+    Livewire.on('deliveryUpdated', function(data) {
+      console.log('Total:', data[0]['deliveryCost']);
+      console.log('Delivery Type:', data[0]['deliveryType']);
+      console.log('Delivery Cost:', data[0]['deliveryCost']);
+      console.log('Delivery Estimation:', data[0]['deliveryEstimation']);
+    });
+  });
 </script>

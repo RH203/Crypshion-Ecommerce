@@ -92,6 +92,10 @@
                   <h4 class="font-bold">Rp {{ number_format(session('subTotalProducts'), 0, ',', '.') }}</h4>
                 </div>
                 <div class="flex justify-between mb-2 text-slate-800">
+                  <h4 class=" text-slate-500">Total Delivery</h4>
+                  <h4 class="font-bold">Rp {{ number_format(session('deliveryCost'), 0, ',', '.') }}</h4>
+                </div>
+                <div class="flex justify-between mb-2 text-slate-800">
                   <h4 class=" text-slate-500">Tax</h4>
                   <h4 class="font-bold">Rp {{ number_format(session('tax'), 0, ',', '.') }}</h4>
                 </div>

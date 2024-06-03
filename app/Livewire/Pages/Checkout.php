@@ -82,11 +82,27 @@ class Checkout extends Component
                 'payment_method' => session('paymentMethod'),
                 'code' => $this->codeTrx
             ]);
+
+            $product = Product::find($data->product_id);
+
+            if ($product) {
+                $newStock = $product->stock - $data->quantity;
+
+                if ($newStock < 0) {
+                    throw new Exception('Insufficient stock for product ID: ' . $data->product_id);
+                }
+
+                $product->stock = $newStock;
+                $product->save();
+            } else {
+                throw new Exception('Product not found for ID: ' . $data->product_id);
+            }
         }
 
         foreach ($this->datas as $cartData) {
             Cart::where('id', $cartData->id)->delete();
         }
+
 
         $this->alert('success', 'Success', [
             'position' => 'center',

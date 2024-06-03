@@ -77,7 +77,7 @@
                                 </div>
                                 <!-- End Rating -->
 
-                                <textarea name="review" wire:model='review.{{ $product->id }}'
+                                <textarea name="review" wire:model='reviews.{{ $product->id }}'
                                   class="w-full p-2 mt-3 text-sm border rounded-md placeholder:text-xs border-slate-500" cols="30" rows="3"
                                   placeholder="Write a review here..."></textarea>
 

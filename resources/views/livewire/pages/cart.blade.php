@@ -24,19 +24,23 @@
           <div class="p-8 bg-white shadow-md rounded-xl">
             <div class="flex items-center justify-between mb-4">
               <h3 class="text-xl font-bold">Delivery Type</h3>
-              <button type="button"
-                class="inline-flex items-center text-sm font-semibold border border-transparent rounded-lg gap-x-2 disabled:opacity-50 disabled:pointer-events-none"
-                data-hs-overlay="#hs-medium-modal">
-                <iconify-icon icon="lucide:edit" class="text-xl text-slate-500"></iconify-icon>
-              </button>
             </div>
             <div class="flex items-center">
               <div>
-                <select name="delivery" wire:model.live='delivery'>
+                <div class="grid grid-cols-1 gap-2 md:grid-cols-3">
                   @foreach ($deliveries as $delivery)
-                    <option value="{{ $delivery->id }}">{{ $delivery->name }}</option>
+                    <div class="">
+                      <input type="radio" wire:model.live="delivery" id="{{ $delivery->id }}"
+                        value="{{ $delivery->id }}" name="delivery" class="hidden">
+                      <label for="{{ $delivery->id }}"
+                        class="block p-3 border-2 rounded-lg border-label checked:border-blue-600 hover:cursor-pointer">
+                        <p class="text-lg font-semibold">{{ $delivery->name }}</p>
+                        <p class="text-slate-500">Estimation : {{ $delivery->estimation }} day</p>
+                        <p class=" text-slate-500">Rp. {{ number_format($delivery->cost, 0, ',', '.') }}</p>
+                      </label>
+                    </div>
                   @endforeach
-                </select>
+                </div>
               </div>
             </div>
           </div>
@@ -55,7 +59,8 @@
               <div class="flex items-center justify-between my-5">
                 <div class="flex">
                   <div class="w-full overflow-hidden rounded-lg basis-3/12 md:h-full bg-slate-200">
-                    <img src="{{ asset('storage/' . $data->image) }}" alt="" class="object-cover w-full h-full">
+                    <img src="{{ asset('storage/' . $data->image) }}" alt=""
+                      class="object-cover w-full h-full">
                   </div>
                   <div class="basis-9/12 text-slate-800 ms-5">
                     <div class="w-10/12 mb-1 md:w-8/12">

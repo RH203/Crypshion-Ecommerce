@@ -1,8 +1,8 @@
 <div class="my-10">
   <div class="w-11/12 mx-auto lg:w-6/12">
     <header class="text-center">
-      <h1 class="text-4xl font-bold">Order Histories</h1>
-      <p class="mt-3 font-normal text-slate-500">Monitoring the order process until completion</p>
+      <h1 class="text-4xl font-bold">Order History</h1>
+      <p class="mt-3 font-normal text-slate-500">History of your orders</p>
     </header>
 
     <section class="p-5 mt-10 bg-white shadow-lg rounded-xl">

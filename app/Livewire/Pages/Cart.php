@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Livewire\Pages;
+require 'Checkout.php';
 
 use App\Models\Api\District;
 use App\Models\Api\Province;
@@ -26,6 +27,7 @@ use Livewire\Component;
 class Cart extends Component
 {
   use LivewireAlert;
+  use CheckoutTrait;
 
   public $datas;
   public $selectPayment = 'online';
@@ -46,7 +48,7 @@ class Cart extends Component
   public $deliveryCost = 0;
   public $selectedDelivery;
 
-  protected $listeners = ['Checkout' => 'checkout'];
+  protected $listeners = ['execute' => 'checkout'];
 
   public function mount()
   {
@@ -58,6 +60,7 @@ class Cart extends Component
 
     $this->deliveries = Delivery::all();
 
+    $this->codeTrx = Str::random(10);
     $this->calculateTotal();
   }
 
@@ -90,6 +93,13 @@ class Cart extends Component
     session(['tax' => $this->tax]);
     session(['deliveryCost' => $this->deliveryCost]);
     session(['total' => $this->total]);
+
+    $this->dispatch('deliveryUpdated', [
+      'total' => $this->total,
+      'deliveryType' => $selectedDelivery->name,
+      'deliveryCost' => $selectedDelivery->cost,
+      'deliveryEstimation' => $selectedDelivery->estimation,
+    ]);
   }
 
   // Calculate Total
@@ -138,6 +148,7 @@ class Cart extends Component
       ]);
       return;
     }
+    $this->paymentSuccess();
   }
 
   // Render Component

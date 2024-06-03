@@ -61,9 +61,9 @@ const initContract = async () => {
             showConfirmButton: false,
             timer: 1700,
           });
-          setTimeout(() => {
-            window.location.href = `tracking-order/${codeTrx}`;
-          }, 1710);
+          // setTimeout(() => {
+          //   window.location.href = `tracking-order/${code}`;
+          // }, 1710);
         }
         await checkout();
         await signout();
@@ -157,10 +157,6 @@ async function signout() {
 }
 
 async function checkout() {
-  console.log("Testttt");
-  Livewire.dispatch("Checkout");
+  Livewire.dispatch('execute');
+  console.log("Testtt");
 }
-
-console.log(total);
-
-console.log("TOTALLLLLL");

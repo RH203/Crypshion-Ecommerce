@@ -35,7 +35,7 @@
                   <div class="flex items-center justify-between my-5">
                     <div class="flex">
                       <div class="h-full overflow-hidden rounded-lg basis-4/12 w-72 md:h-40 bg-slate-200">
-                        <img src="{{ asset('storage/' . $product->image) }}" alt="" width="w-full object-cover">
+                        <img src="{{ asset('storage/' . $product->image) }}" alt="" class="object-cover w-full">
                       </div>
                       <div class="basis-8/12 text-slate-800 ms-5">
                         <div class="w-full mb-1">
@@ -127,11 +127,6 @@
                         <h4 class="font-bold">{{ $data->payment_method }}</h4>
                       </div>
                       <div class="flex justify-between text-slate-800">
-                        @if ($data->status == 'Waiting')
-                          <a href="#" wire:click.prevent='cancelOrder("{{ $data->code }}")'
-                            class="block w-full py-2 text-center text-white rounded-lg bg-primaryBg">Cancel
-                            Order</a>
-                        @endif
                         @if ($data->status == 'Completed')
                           <a href="#" wire:click.prevent='confirmOrder("{{ $data->code }}")'
                             class="block w-full py-2 text-center text-white bg-green-600 rounded-lg">Confirm Order</a>

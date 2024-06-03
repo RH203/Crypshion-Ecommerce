@@ -24,7 +24,7 @@
             {{-- <small class="mb-1 text-yellow-500 ms-1">3.5</small> --}}
           </div>
           <span class="hidden text-xs text-slate-500 md:block">
-            100+ Sold
+            {{ $sold }} Sold
           </span>
         </div>
         <div class="flex justify-between font-sm mibold text-md text-slate-800">

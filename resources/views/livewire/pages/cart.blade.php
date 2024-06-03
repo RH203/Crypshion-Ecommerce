@@ -19,7 +19,7 @@
             <hr>
             <p class="my-2 text-lg uppercase text-slate-500"> {{ $village->name }},
               {{ $district->name }}, {{ $regency->name }}, {{ $province->name }},
-              {{ $zipCode->zip_code }}</p>
+              {{ $zipCode }}</p>
           </div>
           <div class="p-8 bg-white shadow-md rounded-xl">
             <div class="flex items-center justify-between mb-4">
@@ -137,7 +137,7 @@
                   <img src="/img/payment/bni.webp" alt="" class="h-4">
                   <img src="/img/payment/briva.png" alt="" class="h-4">
                 </div>
-                <a href="/checkout" {{--  DEBUG  --}}
+                <a href="#" wire:click.prevent='checkout' {{--  DEBUG  --}}
                   class="block w-full py-3 font-semibold text-center text-white rounded-lg bg-primaryBg">
                   Check Out
                 </a>

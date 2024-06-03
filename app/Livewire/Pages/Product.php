@@ -3,50 +3,51 @@
 namespace App\Livewire\Pages;
 
 use App\Models\app\Product as AppProduct;
+use App\Models\Order;
 use App\Models\Rating;
 use App\Trait\Products;
-use Livewire\Attributes\Layout;
-use Livewire\Attributes\Title;
+use Livewire\Attributes\Url;
 use Livewire\Component;
-
-
-#[Layout('layouts.app')]
-#[Title('Product')]
-
 
 class Product extends Component
 {
     use Products;
 
     public $products;
-    public $search;
+
+    #[Url()]
+    public $search = '';
 
     public function mount()
     {
         $this->products = $this->getProducts(null);
     }
 
-    public function render()
+    public function searchProduct()
     {
-
-        $products = AppProduct::all();
-
-        // // $totalSold = [];
-        $averageRatings = [];
-
-        foreach ($products as $product) {
-            // $totalSold[$product->id] = Transaction::where(['product_id' => $product->id, 'status' => 'Done'])->sum('quantity');
-            $averageRatings[$product->id] = Rating::where('product_id', $product->id)->avg('rating');
-        }
-
-
-        AppProduct::orderBy('id', 'DESC')
-            ->where('title', 'LIKE', '%' . $this->search . '%')
+        $filteredProducts = AppProduct::latest()
+            ->where('title', 'like', "%{$this->search}%")
             ->get();
 
+        return $filteredProducts;
+    }
+
+    public function render()
+    {
+        $filteredProducts = $this->searchProduct();
+
+        $averageRatings = [];
+        $soldQuantities = [];
+
+        foreach ($filteredProducts as $product) {
+            $averageRatings[$product->id] = Rating::where('product_id', $product->id)->avg('rating');
+            $soldQuantities[$product->id] = Order::where('product_id', $product->id)->sum('quantity');
+        }
+
         return view('livewire.pages.product', [
-            'products' => $this->products,
+            'products' => $filteredProducts,
             'averageRatings' => $averageRatings,
+            'soldQuantities' => $soldQuantities,
         ]);
     }
 }

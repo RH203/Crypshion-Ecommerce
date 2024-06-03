@@ -45,60 +45,65 @@ class Cart extends Component
   public $delivery;
   public $deliveryCost = 0;
 
+  public $selectedDelivery;
+
   protected $listeners = ['Checkout' => 'checkout'];
 
-  // Mounted
   public function mount()
   {
     // Show Address
-    $this->provinceId = Province::find(Auth::user()->province_id);
-    $this->regencyId = Regency::find(Auth::user()->regency_id);
-    $this->districtId = District::find(Auth::user()->district_id);
-    $this->villageId = Village::find(Auth::user()->village_id);
-    $this->zipCode = User::find(Auth::user()->id);
+    $user = Auth::user();
+    $this->provinceId = Province::find($user->province_id);
+    $this->regencyId = Regency::find($user->regency_id);
+    $this->districtId = District::find($user->district_id);
+    $this->villageId = Village::find($user->village_id);
+    $this->zipCode = $user->zip_code;
 
     $this->deliveries = Delivery::all();
 
-
     $this->calculateTotal();
+    $this->dataSession();
   }
-
 
   public function connectWallet()
   {
     $this->dispatch('connect-wallet-event');
   }
 
-
-
   public function updatedDelivery($value)
   {
-    $selectedDelivery = Delivery::find($value);
-    if ($selectedDelivery) {
-      $this->deliveryCost = $selectedDelivery->cost;
+    $this->selectedDelivery = Delivery::find($value);
+    if ($this->selectedDelivery) {
+      $this->deliveryCost = $this->selectedDelivery->cost;
     } else {
       $this->deliveryCost = 0;
     }
 
-    // Hitung total kembali setelah mengubah pengiriman
+    // Recalculate total after changing delivery
     $this->calculateTotal();
 
-    // Simpan data ke sesi
-    session(['paymentMethod' => $this->selectPayment]);
-    session(['deliveryType' => $selectedDelivery->name]);
-    session(['deliveryEstimation' => $selectedDelivery->estimation]);
-    session(['deliveryCost' => $selectedDelivery->cost]);
-    session(['totalQty' => $this->totalQty]);
-    session(['subTotalProducts' => $this->subTotalProducts]);
-    session(['tax' => $this->tax]);
-    session(['deliveryCost' => $this->deliveryCost]);
-    session(['total' => $this->total]);
+    // Save data to session
+    $this->dataSession();
 
     $this->dispatch('deliveryUpdated', [
       'total' => $this->total,
-      'deliveryType' => $selectedDelivery->name,
-      'deliveryCost' => $selectedDelivery->cost,
-      'deliveryEstimation' => $selectedDelivery->estimation,
+      'deliveryType' => $this->selectedDelivery->name,
+      'deliveryCost' => $this->selectedDelivery->cost,
+      'deliveryEstimation' => $this->selectedDelivery->estimation,
+    ]);
+  }
+
+  public function dataSession()
+  {
+    session([
+      'paymentMethod' => $this->selectPayment,
+      'deliveryType' => $this->selectedDelivery['name'] ?? 'Reguler',
+      'deliveryEstimation' => $this->selectedDelivery['estimation'] ?? '5 - 8',
+      'deliveryCost' => $this->selectedDelivery['cost'] ?? 27000,
+      'totalQty' => $this->totalQty,
+      'subTotalProducts' => $this->subTotalProducts,
+      'tax' => $this->tax,
+      'total' => $this->total,
     ]);
   }
 
@@ -131,8 +136,8 @@ class Cart extends Component
   // Checkout
   public function checkout()
   {
-    if (!$this->delivery) {
-      $this->alert('error', 'Opps...', [
+    if (!$this->selectedDelivery) {
+      $this->alert('error', 'Oops...', [
         'position' => 'center',
         'timer' => 3000,
         'toast' => false,
@@ -143,6 +148,10 @@ class Cart extends Component
       ]);
       return;
     }
+
+    $this->redirect('checkout');
+
+    // Additional checkout logic here...
   }
 
   // Render Component
@@ -170,14 +179,11 @@ class Cart extends Component
       'district' => $this->districtId,
       'village' => $this->villageId,
       'zipCode' => $this->zipCode,
-
       'totalQty' => $this->totalQty,
       'subTotalProducts' => $this->subTotalProducts,
       'tax' => $this->tax,
       'total' => $this->total,
-
       'snap_token' => $this->snapToken,
-
       'deliveries' => $this->deliveries,
     ]);
   }

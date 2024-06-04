@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Auth\Logout;
-use App\Http\Controllers\SessionController;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
 use App\Livewire\Pages\About;
@@ -42,6 +41,8 @@ Route::get('/about', About::class);
 Route::get('/contact', Contact::class);
 Route::get('/products/{id}/show', DetailProduk::class);
 Route::get('/products', Product::class);
+Route::get('/category/{id}', PagesCategory::class);
+
 
 
 // Guest Route
@@ -67,7 +68,6 @@ Route::middleware(['auth', 'role:user'])->group(function () {
   Route::get('/tracking-order/{code}', TrackingOrder::class);
   Route::get('/profile', Profile::class)->name('profile');
   Route::get('/profile/change-password', ChangePassword::class);
-  Route::get('/category/{id}', PagesCategory::class);
   Route::get('/help-center', HelpCenter::class);
   Route::get('/help-center/payment', HelpCenterPayment::class);
   Route::get('/help-center/delivery', HelpCenterDelivery::class);

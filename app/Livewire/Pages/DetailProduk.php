@@ -2,7 +2,10 @@
 
 namespace App\Livewire\Pages;
 
+use App\Models\app\Product;
 use App\Models\Cart;
+use App\Models\Order;
+use App\Models\Rating;
 use App\Models\User;
 use App\Trait\Products;
 use DOMDocument;
@@ -144,11 +147,36 @@ class DetailProduk extends Component
       }
     }
 
+    // get rating
+    $product = Product::find($this->id);
+    $averageRatings = Rating::where('product_id', $product->id)->avg('rating');
+
+    // Sold Quantity
+    if ($product) {
+      $soldQuantity = Order::where('product_id', $product->id)
+        ->sum('quantity');
+    } else {
+      $soldQuantity = 0;
+    }
+
+    // Review
+    $ratingProductCount = Rating::where('product_id', $this->id)->whereNotNull('review')->get();
+    $reviewCount = 0;
+    foreach ($ratingProductCount as $review) {
+      if ($review->review != null) {
+        $reviewCount++;
+      }
+    }
+
 
     return view('livewire.pages.detail-produk', [
       'isComplete' => $this->completeProfile,
       'datas' => $this->dataIcon,
       // 'products' => $this->products,
+      'averageRatings' => $averageRatings,
+      'sold' => $soldQuantity,
+      'ratingProductCount' => $ratingProductCount,
+      'reviewCount' => $reviewCount,
     ]);
   }
 }

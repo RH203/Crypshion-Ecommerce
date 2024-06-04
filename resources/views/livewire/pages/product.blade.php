@@ -88,7 +88,7 @@
     <section class="my-12">
       <div class="flex items-center justify-end">
         <div class="relative">
-          <input type="search" wire:model.live='search' name="search" id=""
+          <input type="search" wire:model.live.debounce.300ms='search' name="search" id=""
             class="w-full px-3 py-2 pl-10 border-2 rounded-lg border-primary md:w-80" placeholder="Search...">
           <iconify-icon icon="uil:search" class="absolute text-2xl left-3 top-2 text-slate-500"></iconify-icon>
         </div>
@@ -102,6 +102,8 @@
         @foreach ($products as $product)
           <livewire:components.card-product image="{{ asset('storage/' . $product->first_image) }}"
             title="{{ Str::limit($product->title, 45) }}" description="{{ Str::limit($product->description, 60) }}"
+            rating="{{ isset($averageRatings[$product->id]) ? $averageRatings[$product->id] : 0 }}"
+            sold="{{ isset($soldQuantities[$product->id]) ? $soldQuantities[$product->id] : 0 }}"
             price="{{ isset($product->first_price) ? number_format($product->first_price, 0, ',', '.') : '' }}"
             productId="{{ $product->id }}" url="/products/{{ $product->id }}/show" />
         @endforeach

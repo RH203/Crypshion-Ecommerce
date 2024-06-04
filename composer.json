@@ -11,6 +11,7 @@
         "google-gemini-php/laravel": "^1.0",
         "jantinnerezo/livewire-alert": "^3.0",
         "laravel/framework": "^11.0",
+        "laravel/socialite": "^5.14",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.4",
         "midtrans/midtrans-php": "^2.5",

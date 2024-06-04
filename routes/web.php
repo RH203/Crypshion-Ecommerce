@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Auth\Logout;
 use App\Http\Controllers\SessionController;
 use App\Livewire\Auth\Login;
@@ -46,6 +47,9 @@ Route::get('/products', Product::class);
 Route::middleware(['guest'])->group(function () {
   Route::get('/login', Login::class)->name('login');
   Route::get('/register', Register::class);
+
+  Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
+  Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('auth.google.callback');
 });
 
 Route::middleware(['auth'])->group(function () {

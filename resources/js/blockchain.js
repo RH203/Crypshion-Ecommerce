@@ -156,6 +156,20 @@ async function signout() {
 }
 
 async function checkout() {
-  Livewire.dispatch('Checkout');
+  Livewire.dispatch("Checkout");
   // console.log("Testtt");
 }
+
+var total;
+var costD;
+document.addEventListener("livewire:init", function () {
+  Livewire.on("deliveryUpdated", function (data) {
+    // console.log("Total:", data[0]["deliveryCost"]);
+    // console.log("Delivery Type:", data[0]["deliveryType"]);
+    // console.log("Delivery Cost:", data[0]["deliveryCost"]);
+    // console.log("Delivery Estimation:", data[0]["deliveryEstimation"]);
+    costD = data[0]["deliveryCost"];
+    total = costP + costD;
+  });
+});
+

@@ -11,7 +11,7 @@
             <div class="flex justify-center h-full">
               <div
                 class="relative self-center w-full h-full text-4xl text-gray-800 transition duration-700 dark:text-white">
-                <img src="/img/carousel-inner-1.png" alt="" class="object-cover w-full h-full">
+                <img src="/img/carousel-inner-3.png" alt="" class="object-cover w-full h-full">
               </div>
             </div>
           </div>
@@ -25,7 +25,7 @@
           <div class="hs-carousel-slide">
             <div class="flex justify-center h-full">
               <span class="self-center w-full h-full text-4xl text-gray-800 transition duration-700 dark:text-white">
-                <img src="/img/carousel-inner-3.png" alt="" class="object-cover w-full h-full">
+                <img src="/img/carousel-inner-1.png" alt="" class="object-cover w-full h-full">
               </span>
             </div>
           </div>
@@ -169,7 +169,7 @@
 
 
     {{-- Promo section start --}}
-    <section class="lg:pt-24 lg:py-0 md:py-10 py-24 bg-[#23856D] my-20">
+    {{-- <section class="lg:pt-24 lg:py-0 md:py-10 py-24 bg-[#23856D] my-20">
       <div class="w-10/12 mx-auto">
         <div class="grid grid-cols-2">
           <div class="flex items-center text-white">
@@ -191,7 +191,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
     {{-- Promo section end --}}
 
 
@@ -211,7 +211,7 @@
               <p class="text-xl font-normal text-slate-400">We know how large objects will act, <br>
                 but things on a small scale.</p>
               <div class="mt-8">
-                <a href=""
+                <a href="/products" wire:navigate
                   class="inline-block px-8 py-4 font-bold text-white uppercase rounded-lg bg-successBg">Buy Now</a>
                 <a href=""
                   class="inline-block px-8 py-4 font-bold uppercase border rounded-lg text-success border-success">Read
@@ -263,11 +263,13 @@
             the two major realms of Classical physics: Newtonian mechanics </p>
 
           <div class="relative w-11/12 mx-auto my-8 md:w-6/12">
-            <input type="text" name="" id=""
-              class="w-full px-4 py-5 font-normal rounded-lg placeholder:font-light text-slate-800"
-              placeholder="Your Email">
-            <button
-              class="absolute flex items-center justify-center px-5 py-4 font-semibold text-white rounded-lg top-1 right-1 bg-primaryBg">Subscribe</button>
+            <form wire:submit.prevent='subscribe'>
+              <input type="email" wire:model='email' name="email" id=""
+                class="w-full px-4 py-5 font-normal rounded-lg placeholder:font-light text-slate-800"
+                placeholder="Your Email">
+              <button type="submit"
+                class="absolute flex items-center justify-center px-5 py-4 font-semibold text-white rounded-lg top-1 right-1 bg-primaryBg">Subscribe</button>
+            </form>
           </div>
 
           <h1 class="mb-10 text-3xl font-semibold capitalize md:text-5xl">Designing Better Experience</h1>

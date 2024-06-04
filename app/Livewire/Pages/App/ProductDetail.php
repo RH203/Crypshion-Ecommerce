@@ -3,6 +3,8 @@
 namespace App\Livewire\Pages\App;
 
 use App\Models\app\Product;
+use App\Models\Order;
+use App\Models\Rating;
 use App\Trait\Products;
 use Illuminate\Support\Facades\Cache;
 use Livewire\Attributes\Layout;
@@ -49,9 +51,35 @@ class ProductDetail extends Component
 
     public function render()
     {
+
+        // get rating
+        $product = Product::find($this->id);
+        $averageRatings = Rating::where('product_id', $product->id)->avg('rating');
+
+        // Sold Quantity
+        if ($product) {
+            $soldQuantity = Order::where('product_id', $product->id)
+                ->sum('quantity');
+        } else {
+            $soldQuantity = 0;
+        }
+
+        // Review
+        $ratingProductCount = Rating::where('product_id', $this->id)->whereNotNull('review')->get();
+        $reviewCount = 0;
+        foreach ($ratingProductCount as $review) {
+            if ($review->review != null) {
+                $reviewCount++;
+            }
+        }
+
         return view('livewire.pages.app.product-detail', [
             'product' => $this->product,
-            'size' => $this->size
+            'size' => $this->size,
+            'averageRatings' => $averageRatings,
+            'sold' => $soldQuantity,
+            'ratingProductCount' => $ratingProductCount,
+            'reviewCount' => $reviewCount,
         ]);
     }
 }

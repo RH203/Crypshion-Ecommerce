@@ -1,4 +1,4 @@
-<header class="flex flex-wrap w-full py-4 text-sm sm:justify-start sm:flex-nowrap">
+<header class="flex flex-wrap w-full py-4 text-sm bg-white sm:justify-start sm:flex-nowrap">
   <nav class="max-w-[85rem] w-full mx-auto px-4 flex flex-wrap basis-full items-center justify-between"
     aria-label="Global">
     <a class="flex-none text-xl font-semibold sm:order-1 dark:text-white" href="#">
@@ -186,27 +186,27 @@
             class="hs-dropdown-menu transition-[opacity,margin] z-10 duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-2 dark:divide-neutral-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
             aria-labelledby="hs-dropdown-hover-event">
             <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-              href="#">
-              T-Shirt
+              href="/category/{{ 1 }}" wire:navigate>
+              Clothes
             </a>
             <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-              href="#">
+              href="/category/{{ 2 }}" wire:navigate>
               Trousers
             </a>
             <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-              href="#">
+              href="/category/{{ 3 }}" wire:navigate>
               Shoe
             </a>
             <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-              href="#">
+              href="/category/{{ 4 }}" wire:navigate>
               Jacket
             </a>
             <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-              href="#">
+              href="/category/{{ 5 }}" wire:navigate>
               Hat
             </a>
             <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-              href="#">
+              href="/category/{{ 6 }}" wire:navigate>
               Bag
             </a>
           </div>

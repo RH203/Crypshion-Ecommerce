@@ -6,12 +6,13 @@ use Livewire\Component;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 
+#[Layout('layouts.app')]
+#[Title('Help Center Delivery')]
+
 class HelpCenterDelivery extends Component
 {
-  #[Layout('layouts.app')]
-  #[Title('Help Center Delivery')]
-    public function render()
-    {
-        return view('livewire.pages.help-center-delivery');
-    }
+  public function render()
+  {
+    return view('livewire.pages.help-center-delivery');
+  }
 }

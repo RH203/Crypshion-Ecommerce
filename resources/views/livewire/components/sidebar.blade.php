@@ -27,17 +27,17 @@
         <iconify-icon icon="majesticons:radio-list-line" class="text-2xl me-3"></iconify-icon>
         Category</a>
     </li>
-    <li>
+    {{-- <li>
       <a href="/app/feedback" wire:navigate
         class="flex items-center px-4 py-4 mb-2 bg-white rounded-md hover:bg-primaryBg {{ Request::is('app/feedback') ? 'active' : '' }} hover:text-white">
         <iconify-icon icon="material-symbols:feedback-outline" class="text-2xl me-3"></iconify-icon>
         Feedback</a>
-    </li>
+    </li> --}}
     <li>
-      <a href="/app/help-center" wire:navigate
-        class="flex items-center px-4 py-4 mb-2 bg-white rounded-md hover:bg-primaryBg {{ Request::is('app/help-center') ? 'active' : '' }} hover:text-white">
-        <iconify-icon icon="material-symbols:help-outline" class="text-2xl me-3"></iconify-icon>
-        Help Center</a>
+      <a href="/app/subscribes" wire:navigate
+        class="flex items-center px-4 py-4 mb-2 bg-white rounded-md hover:bg-primaryBg {{ Request::is('app/subscribes') ? 'active' : '' }} hover:text-white">
+        <iconify-icon icon="fluent:mail-add-24-regular" class="text-2xl me-3"></iconify-icon>
+        Subscribes</a>
     </li>
   </ul>
 </aside>

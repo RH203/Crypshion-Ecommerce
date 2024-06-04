@@ -38,6 +38,19 @@
         <div class="{{ Request::is('login') ? 'pt-32' : 'pt-12' }}">
           <div class="w-10/12 mx-auto lg:w-6/12 md:w-8/12">
             <img src="/img/logo/logo.png" alt="Logo" class="w-4/12 mx-auto">
+            <div class="mb-6">
+              <a href="{{ route('auth.google') }}"
+                class="flex items-center justify-center w-full py-4 font-semibold bg-white border rounded-md shadow-lg">
+                <iconify-icon icon="flat-color-icons:google" class="text-2xl me-2"></iconify-icon> <span
+                  class="text-slate-500">Sign In With
+                  Google</span>
+              </a>
+            </div>
+            <div class="relative py-3">
+              <span class="absolute top-0 block w-10 text-center translate-x-1/2 bg-white right-1/2">Or</span>
+              <hr class="border">
+            </div>
+
             {{ $slot }}
           </div>
         </div>

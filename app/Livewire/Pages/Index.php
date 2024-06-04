@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Pages;
 
+use App\Models\app\Category;
 use App\Models\app\Product;
 use App\Models\Order;
 use App\Models\Rating;
@@ -22,10 +23,12 @@ class Index extends Component
     use Products;
     public $products;
     public $email;
+    public $categoryData;
 
     public function mount()
     {
         $this->products = $this->getProducts(5);
+        $this->categoryData = Category::all();
     }
 
     public function subscribe()
@@ -70,7 +73,8 @@ class Index extends Component
         return view('livewire.pages.index', [
             'products' => $this->products,
             'averageRatings' => $averageRatings,
-            'soldQuantities' => $soldQuantities
+            'soldQuantities' => $soldQuantities,
+            'category' => $this->categoryData
         ]);
     }
 }

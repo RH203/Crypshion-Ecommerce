@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Auth\Logout;
-use App\Http\Controllers\SessionController;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
 use App\Livewire\Pages\About;
@@ -16,6 +15,7 @@ use App\Livewire\Pages\App\ProductDetail;
 use App\Livewire\Pages\App\ProductEdit;
 use App\Livewire\Pages\App\Products;
 use App\Livewire\Pages\Cart;
+use App\Livewire\Pages\Category as PagesCategory;
 use App\Livewire\Pages\ChangePassword;
 use App\Livewire\Pages\Checkout;
 use App\Livewire\Pages\Contact;
@@ -41,6 +41,8 @@ Route::get('/about', About::class);
 Route::get('/contact', Contact::class);
 Route::get('/products/{id}/show', DetailProduk::class);
 Route::get('/products', Product::class);
+Route::get('/category/{id}', PagesCategory::class);
+
 
 
 // Guest Route

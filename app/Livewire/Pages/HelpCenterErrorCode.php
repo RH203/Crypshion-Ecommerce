@@ -6,12 +6,13 @@ use Livewire\Component;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 
+#[Layout('layouts.app')]
+#[Title('Help Center Error Code')]
+
 class HelpCenterErrorCode extends Component
 {
-  #[Layout('layouts.app')]
-  #[Title('Help Center Error Code')]
-    public function render()
-    {
-        return view('livewire.pages.help-center-error-code');
-    }
+  public function render()
+  {
+    return view('livewire.pages.help-center-error-code');
+  }
 }

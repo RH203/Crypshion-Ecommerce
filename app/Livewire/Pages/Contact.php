@@ -6,10 +6,13 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
+
+#[Layout('layouts.app')]
+#[Title('Contact')]
+
 class Contact extends Component
 {
-    #[Layout('layouts.app')]
-    #[Title('Contact')]
+
 
     public function render()
     {

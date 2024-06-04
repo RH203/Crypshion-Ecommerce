@@ -14,6 +14,7 @@ use App\Livewire\Pages\App\ProductAdd;
 use App\Livewire\Pages\App\ProductDetail;
 use App\Livewire\Pages\App\ProductEdit;
 use App\Livewire\Pages\App\Products;
+use App\Livewire\Pages\App\Subscribe;
 use App\Livewire\Pages\Cart;
 use App\Livewire\Pages\Category as PagesCategory;
 use App\Livewire\Pages\ChangePassword;
@@ -87,5 +88,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/orders/{code}', OrderShow::class);
     Route::get('/category', Category::class);
     Route::get('/feedback', Feedback::class);
+    Route::get('/subscribes', Subscribe::class);
   });
 });

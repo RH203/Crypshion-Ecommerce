@@ -16,6 +16,7 @@ use App\Livewire\Pages\App\ProductDetail;
 use App\Livewire\Pages\App\ProductEdit;
 use App\Livewire\Pages\App\Products;
 use App\Livewire\Pages\Cart;
+use App\Livewire\Pages\Category as PagesCategory;
 use App\Livewire\Pages\ChangePassword;
 use App\Livewire\Pages\Checkout;
 use App\Livewire\Pages\Contact;
@@ -66,6 +67,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
   Route::get('/tracking-order/{code}', TrackingOrder::class);
   Route::get('/profile', Profile::class)->name('profile');
   Route::get('/profile/change-password', ChangePassword::class);
+  Route::get('/category/{id}', PagesCategory::class);
   Route::get('/help-center', HelpCenter::class);
   Route::get('/help-center/payment', HelpCenterPayment::class);
   Route::get('/help-center/delivery', HelpCenterDelivery::class);

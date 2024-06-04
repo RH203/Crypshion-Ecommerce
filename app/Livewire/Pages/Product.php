@@ -5,8 +5,13 @@ namespace App\Livewire\Pages;
 use App\Models\app\Product as AppProduct;
 use App\Models\Order;
 use App\Models\Rating;
+use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 use Livewire\Attributes\Url;
 use Livewire\Component;
+
+#[Title('Products')]
+#[Layout('layouts.app')]
 
 class Product extends Component
 {

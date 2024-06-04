@@ -8,7 +8,13 @@ use App\Models\Api\Regency;
 use App\Models\Api\Village;
 use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 use Livewire\Component;
+
+
+#[Title('Order History')]
+#[Layout('layouts.app')]
 
 class OrderHistory extends Component
 {

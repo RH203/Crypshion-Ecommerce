@@ -10,11 +10,12 @@ use Gemini\Data\Content;
 use Gemini\Enums\Role;
 use Illuminate\Support\Facades\Auth;
 
+
+#[Layout('layouts.app')]
+#[Title('Help Center Bot Bobi')]
+
 class HelpCenterBotBobi extends Component
 {
-  #[Layout('layouts.app')]
-  #[Title('Help Center Bot Bobi')]
-
   public $question = '';
   public $historyChat = [];
 

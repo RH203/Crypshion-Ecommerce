@@ -9,11 +9,13 @@ class CardCategory extends Component
 
     public $image;
     public $title;
+    public $url;
 
-    public function mount($image, $title)
+    public function mount($image, $title, $url = '#')
     {
         $this->image = $image;
         $this->title = $title;
+        $this->url = $url;
     }
 
     public function render()

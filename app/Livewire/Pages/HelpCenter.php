@@ -6,31 +6,31 @@ use Livewire\Component;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 
+
+#[Layout('layouts.app')]
+#[Title('Help Center')]
+
 class HelpCenter extends Component
 {
-
-
-  #[Layout('layouts.app')]
-  #[Title('Help Center')]
 
   public function render()
   {
     $dataIcon = [
       [
         'icon' => '<iconify-icon icon="hugeicons:truck-delivery"
-      class="text-4xl text-purple-500 bg-slate-100 group-hover:bg-gray-200 rounded-full p-2"></iconify-icon>'
+      class="p-2 text-4xl text-purple-500 rounded-full bg-slate-100 group-hover:bg-gray-200"></iconify-icon>'
       ],
       [
         'icon' => '<iconify-icon icon="material-symbols:payments-outline"
-      class="text-4xl text-purple-500 bg-slate-100 group-hover:bg-gray-200 rounded-full p-2"></iconify-icon>'
+      class="p-2 text-4xl text-purple-500 rounded-full bg-slate-100 group-hover:bg-gray-200"></iconify-icon>'
       ],
       [
         'icon' => '<iconify-icon icon="streamline:code-analysis-solid"
-      class="text-4xl text-purple-500 bg-slate-100 group-hover:bg-gray-200 rounded-full p-2"></iconify-icon>'
+      class="p-2 text-4xl text-purple-500 rounded-full bg-slate-100 group-hover:bg-gray-200"></iconify-icon>'
       ],
       [
         'icon' => '<iconify-icon icon="carbon:chat-bot"
-      class="text-4xl text-purple-500 bg-slate-100 group-hover:bg-gray-200 rounded-full p-2"></iconify-icon>'
+      class="p-2 text-4xl text-purple-500 rounded-full bg-slate-100 group-hover:bg-gray-200"></iconify-icon>'
       ],
     ];
     $dataTitle = [

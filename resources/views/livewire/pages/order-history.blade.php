@@ -1,16 +1,16 @@
 <div class="my-10">
   <div class="w-11/12 mx-auto lg:w-6/12">
     <header class="text-center">
-      <h1 class="text-4xl font-bold">My Orders</h1>
-      <p class="mt-3 font-normal text-slate-500">Monitoring the order process until completion</p>
+      <h1 class="text-4xl font-bold">Order History</h1>
+      <p class="mt-3 font-normal text-slate-500">History of your orders</p>
     </header>
 
     <section class="p-5 mt-10 bg-white shadow-lg rounded-xl">
       <div class="gap-3">
         @if ($products && $products->isNotEmpty())
           @foreach ($products as $product)
-            @if ($product->status != 'Canceled' && $product->status != 'Confirmed')
-              <a href="/tracking-order/{{ $product->code }}" wire:navigate class="block">
+            @if ($product->status == 'Canceled' || $product->status == 'Confirmed')
+              <a href="/order-history/{{ $product->code }}" wire:navigate class="block">
                 <div class="flex gap-4">
                   <div class="h-full overflow-hidden rounded-lg basis-4/12 md:h-40 bg-slate-200">
                     <img src="{{ asset('storage/' . $product->image) }}" alt=""
@@ -26,7 +26,7 @@
                       </div>
                       </h1>
                       <p
-                        class="px-2 my-2 text-sm {{ $product->status == 'Waiting' ? 'text-black bg-yellow-500' : '' }}{{ $product->status == 'Packaged' ? 'text-white bg-primaryBg' : '' }}{{ $product->status == 'Delivered' ? 'text-white bg-black' : '' }}{{ $product->status == 'Completed' ? 'text-white bg-green-600' : '' }} rounded-full">
+                        class="px-2 my-2 text-sm {{ $product->status == 'Confirmed' ? 'text-white bg-purple-600' : '' }}{{ $product->status == 'Canceled' ? 'text-white bg-red-600' : '' }} rounded-full">
                         {{ $product->status }}</p>
                     </div>
                     <p class="text-sm text-slate-500">{{ $product->code }}</p>

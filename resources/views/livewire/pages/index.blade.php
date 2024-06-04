@@ -108,7 +108,7 @@
         </div>
 
         <div class="mt-10 text-center">
-          <a href="/products"
+          <a href="/products" wire:navigate
             class="inline-block px-8 py-4 font-bold text-white uppercase border rounded-lg bg-primaryBg">Read
             More &rightarrow;</a>
         </div>

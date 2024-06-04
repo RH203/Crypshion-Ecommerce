@@ -11,7 +11,7 @@
             <div class="flex justify-center h-full">
               <div
                 class="relative self-center w-full h-full text-4xl text-gray-800 transition duration-700 dark:text-white">
-                <img src="/img/carousel-inner-1.png" alt="" class="object-cover w-full h-full">
+                <img src="/img/carousel-inner-3.png" alt="" class="object-cover w-full h-full">
               </div>
             </div>
           </div>
@@ -25,7 +25,7 @@
           <div class="hs-carousel-slide">
             <div class="flex justify-center h-full">
               <span class="self-center w-full h-full text-4xl text-gray-800 transition duration-700 dark:text-white">
-                <img src="/img/carousel-inner-3.png" alt="" class="object-cover w-full h-full">
+                <img src="/img/carousel-inner-1.png" alt="" class="object-cover w-full h-full">
               </span>
             </div>
           </div>

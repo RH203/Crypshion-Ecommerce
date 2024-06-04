@@ -210,9 +210,9 @@
                 but things on a small scale.</p>
               <div class="mt-8">
                 <a href="/products" wire:navigate
-                  class="inline-block px-8 py-4 font-bold text-white uppercase rounded-lg bg-successBg">Buy Now</a>
+                  class="inline-block px-8 py-4 font-bold text-white uppercase rounded-lg bg-primaryBg">Buy Now</a>
                 <a href=""
-                  class="inline-block px-8 py-4 font-bold uppercase border rounded-lg text-success border-success">Read
+                  class="inline-block px-8 py-4 font-bold uppercase border rounded-lg text-primary border-primary">Read
                   More</a>
               </div>
             </div>

@@ -5,7 +5,9 @@ namespace App\Livewire\Pages;
 use App\Models\app\Product;
 use App\Models\Order;
 use App\Models\Rating;
+use App\Models\Subscribe;
 use App\Trait\Products;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -15,33 +17,39 @@ use Livewire\Component;
 
 class Index extends Component
 {
+    use LivewireAlert;
+
     use Products;
     public $products;
-    // public $averageRatings;
+    public $email;
 
     public function mount()
     {
         $this->products = $this->getProducts(5);
     }
 
-    // public function getRatings()
-    // {
-    //     $ratings = Rating::whereBetween('rating', [1, 5])->get();
-    //     $averageRatings = $ratings->groupBy('product_id')->map(function ($productRatings) {
-    //         return $productRatings->avg('rating');
-    //     });
-    //     return $averageRatings;
-    // }
+    public function subscribe()
+    {
+        $this->validate([
+            'email' => 'required|unique:subscribes,email'
+        ]);
 
+        Subscribe::create([
+            'email' => $this->email
+        ]);
 
+        $this->alert('success', 'Success', [
+            'position' => 'center',
+            'timer' => 3000,
+            'toast' => false,
+            'timerProgressBar' => true,
+            'showConfirmButton' => true,
+            'confirmButtonText' => 'Ok',
+            'text' => 'Thanks for subscribe',
+        ]);
 
-
-    // return view('pages.app.menu', [
-    //     'data' => Menu::all(),
-    //     'totalSold' => $totalSold,
-    //     'averageRatings' => $averageRatings,
-    // ]);
-
+        $this->reset('email');
+    }
 
     public function render()
     {

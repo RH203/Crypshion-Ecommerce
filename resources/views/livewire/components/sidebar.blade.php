@@ -34,10 +34,10 @@
         Feedback</a>
     </li>
     <li>
-      <a href="/app/help-center" wire:navigate
+      <a href="/app/subscribes" wire:navigate
         class="flex items-center px-4 py-4 mb-2 bg-white rounded-md hover:bg-primaryBg {{ Request::is('app/help-center') ? 'active' : '' }} hover:text-white">
         <iconify-icon icon="material-symbols:help-outline" class="text-2xl me-3"></iconify-icon>
-        Help Center</a>
+        Subscribes</a>
     </li>
   </ul>
 </aside>

@@ -37,9 +37,9 @@
           <div class="my-3">
             <span class="text-slate-500">{{ session('product_' . $id . '.stock') }} Stock</span>
             <span class="mx-2">|</span>
-            <span class="text-slate-500">135 Sold</span>
+            <span class="text-slate-500">{{ $sold }} Sold</span>
             <span class="mx-2">|</span>
-            <span class="text-slate-500">56 Reviews</span>
+            <span class="text-slate-500">{{ $ratingProductCount->count() }} Ratings</span>
           </div>
           {{-- Stock, Sold and reviews end --}}
 
@@ -52,11 +52,14 @@
           {{-- Ratings start --}}
           <div class="flex items-center mt-3">
             <div id="icon" class="text-4xl">
-              <iconify-icon icon="material-symbols:star-rounded" class="text-yellow-500 "></iconify-icon>
-              <iconify-icon icon="material-symbols:star-rounded" class="text-yellow-500 "></iconify-icon>
-              <iconify-icon icon="material-symbols:star-rounded" class="text-yellow-500 "></iconify-icon>
-              <iconify-icon icon="material-symbols:star-half-rounded" class="text-yellow-500 "></iconify-icon>
-              <iconify-icon icon="ic:round-star-border" class="text-yellow-500 "></iconify-icon>
+              @php
+                $roundedRating = round($averageRatings);
+              @endphp
+
+              @for ($i = 1; $i <= 5; $i++)
+                <iconify-icon icon="{{ $i <= $roundedRating ? 'solar:star-bold' : 'solar:star-line-duotone' }}"
+                  class="text-warning text-md text-primary"></iconify-icon>
+              @endfor
             </div>
           </div>
           {{-- Raings end --}}
@@ -133,7 +136,7 @@
                   class="inline-flex items-center px-3 py-4 text-sm text-gray-500 border-b-2 border-transparent hs-tab-active:font-semibold hs-tab-active:bg-transparent hs-tab-active:border-primary hs-tab-active:text-primary gap-x-2 whitespace-nowrap hover:text-primary focus:outline-none focus:text-primary disabled:opacity-50 disabled:pointer-events-none"
                   id="tabs-with-underline-item-2" data-hs-tab="#tabs-with-underline-2"
                   aria-controls="tabs-with-underline-2" role="tab">
-                  Reviews
+                  Reviews <span>({{ $reviewCount }})</span>
                 </button>
               </nav>
             </div>
@@ -148,31 +151,13 @@
                 aria-labelledby="tabs-with-underline-item-2">
                 <p class="text-gray-500">
                 <div class="grid grid-cols-3 gap-3">
-                  <livewire:components.card-testimonial
-                    message="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
-                  sequi vero, suscipit dolor voluptatum
-                  deserunt natus consequatur nam tempore quo!"
-                    image="/img/user/user-1.png" name="Irfan Yasin" label="Programmer" rating="5" />
-                  <livewire:components.card-testimonial
-                    message="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
-                  sequi vero, suscipit dolor voluptatum
-                  deserunt natus consequatur nam tempore quo!"
-                    image="/img/user/user-1.png" name="Irfan Yasin" label="Programmer" rating="5" />
-                  <livewire:components.card-testimonial
-                    message="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
-                  sequi vero, suscipit dolor voluptatum
-                  deserunt natus consequatur nam tempore quo!"
-                    image="/img/user/user-1.png" name="Irfan Yasin" label="Programmer" rating="5" />
-                  <livewire:components.card-testimonial
-                    message="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
-                  sequi vero, suscipit dolor voluptatum
-                  deserunt natus consequatur nam tempore quo!"
-                    image="/img/user/user-1.png" name="Irfan Yasin" label="Programmer" rating="5" />
-                  <livewire:components.card-testimonial
-                    message="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
-                  sequi vero, suscipit dolor voluptatum
-                  deserunt natus consequatur nam tempore quo!"
-                    image="/img/user/user-1.png" name="Irfan Yasin" label="Programmer" rating="5" />
+                  @foreach ($ratingProductCount as $review)
+                    @if ($review->review != null)
+                      <livewire:components.card-testimonial message="{{ $review->review }}"
+                        image="{{ asset('storage/file/avatar/' . $review->user->avatar) }}"
+                        name="{{ $review->user->name }}" label="Customer" rating="{{ $review->rating }}" />
+                    @endif
+                  @endforeach
                 </div>
                 </p>
               </div>

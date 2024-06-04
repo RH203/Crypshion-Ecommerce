@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Livewire\Pages;
-require 'Checkout.php';
 
 use App\Models\Api\District;
 use App\Models\Api\Province;
@@ -13,6 +12,7 @@ use App\Models\Delivery;
 use App\Models\Order;
 use App\Models\Transaction;
 use App\Models\User;
+use App\Trait\PaymentS;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -22,12 +22,14 @@ use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
+
 #[Layout('layouts.app')]
 #[Title('Cart')]
+
 class Cart extends Component
 {
   use LivewireAlert;
-  use CheckoutTrait;
+  use PaymentS;
 
   public $datas;
   public $selectPayment = 'online';
@@ -46,22 +48,25 @@ class Cart extends Component
   public $deliveries;
   public $delivery;
   public $deliveryCost = 0;
+
   public $selectedDelivery;
 
-  protected $listeners = ['execute' => 'checkout'];
+  protected $listeners = ['Checkout' => 'PayS'];
 
   public function mount()
   {
-    $this->provinceId = Province::find(Auth::user()->province_id);
-    $this->regencyId = Regency::find(Auth::user()->regency_id);
-    $this->districtId = District::find(Auth::user()->district_id);
-    $this->villageId = Village::find(Auth::user()->village_id);
-    $this->zipCode = User::find(Auth::user()->id);
-
+    // Show Address
+    $user = Auth::user();
+    $this->provinceId = Province::find($user->province_id);
+    $this->regencyId = Regency::find($user->regency_id);
+    $this->districtId = District::find($user->district_id);
+    $this->villageId = Village::find($user->village_id);
+    $this->zipCode = $user->zip_code;
+    $this->codeTrx = Str::random(10);
     $this->deliveries = Delivery::all();
 
-    $this->codeTrx = Str::random(10);
     $this->calculateTotal();
+    $this->dataSession();
   }
 
   public function connectWallet()
@@ -69,38 +74,47 @@ class Cart extends Component
     $this->dispatch('connect-wallet-event');
   }
 
-
+  public function PayS(){
+    $this->paymentSuccess();
+  }
 
   public function updatedDelivery($value)
   {
-    $selectedDelivery = Delivery::find($value);
-    if ($selectedDelivery) {
-      $this->deliveryCost = $selectedDelivery->cost;
+    $this->selectedDelivery = Delivery::find($value);
+    if ($this->selectedDelivery) {
+      $this->deliveryCost = $this->selectedDelivery->cost;
     } else {
       $this->deliveryCost = 0;
     }
 
-    // Hitung total kembali setelah mengubah pengiriman
+    // Recalculate total after changing delivery
     $this->calculateTotal();
 
-    // Simpan data ke sesi
-    session(['paymentMethod' => $this->selectPayment]);
-    session(['deliveryType' => $selectedDelivery->name]);
-    session(['deliveryEstimation' => $selectedDelivery->estimation]);
-    session(['deliveryCost' => $selectedDelivery->cost]);
-    session(['totalQty' => $this->totalQty]);
-    session(['subTotalProducts' => $this->subTotalProducts]);
-    session(['tax' => $this->tax]);
-    session(['deliveryCost' => $this->deliveryCost]);
-    session(['total' => $this->total]);
+    // Save data to session
+    $this->dataSession();
 
     $this->dispatch('deliveryUpdated', [
       'total' => $this->total,
-      'deliveryType' => $selectedDelivery->name,
-      'deliveryCost' => $selectedDelivery->cost,
-      'deliveryEstimation' => $selectedDelivery->estimation,
+      'deliveryType' => $this->selectedDelivery->name,
+      'deliveryCost' => $this->selectedDelivery->cost,
+      'deliveryEstimation' => $this->selectedDelivery->estimation,
     ]);
   }
+
+  public function dataSession()
+  {
+    session([
+      'paymentMethod' => $this->selectPayment,
+      'deliveryType' => $this->selectedDelivery['name'] ?? 'Reguler',
+      'deliveryEstimation' => $this->selectedDelivery['estimation'] ?? '5 - 8',
+      'deliveryCost' => $this->selectedDelivery['cost'] ?? 27000,
+      'totalQty' => $this->totalQty,
+      'subTotalProducts' => $this->subTotalProducts,
+      'tax' => $this->tax,
+      'total' => $this->total,
+    ]);
+  }
+
 
   // Calculate Total
   public function calculateTotal()
@@ -117,27 +131,21 @@ class Cart extends Component
     $this->total = $this->subTotalProducts + $this->tax + $this->deliveryCost;
   }
 
-  public function updateDelivery()
-  {
-    $this->selectDelivery();
-    $this->calculateTotal();
-  }
-
+  // Destroy Product
   public function destroyProduct($id)
   {
     $data = ModelsCart::find($id);
 
     if ($data) {
       $data->delete();
-
-      $this->calculateTotal();
     }
   }
 
+  // Checkout
   public function checkout()
   {
-    if (!$this->delivery) {
-      $this->alert('error', 'Opps...', [
+    if (!$this->selectedDelivery) {
+      $this->alert('error', 'Oops...', [
         'position' => 'center',
         'timer' => 3000,
         'toast' => false,
@@ -148,7 +156,7 @@ class Cart extends Component
       ]);
       return;
     }
-    $this->paymentSuccess();
+    $this->redirect('checkout');
   }
 
   // Render Component
@@ -165,16 +173,8 @@ class Cart extends Component
       }
     }
 
-    // $this->selectedDelivery = 'faster';   // DEBUG
-    if (!in_array($this->selectedDelivery, ['economic', 'reguler', 'faster'])) {
-      $this->selectedDelivery = 'economic'; // Set default if invalid or not set
-    }
-    if (!in_array($this->selectedDelivery, ['economic', 'reguler', 'faster'])) {
-      $this->selectedDelivery = 'reguler'; // Set default if invalid or not set
-    }
-    if (!in_array($this->selectedDelivery, ['economic', 'reguler', 'faster'])) {
-      $this->selectedDelivery = 'economic'; // Set default if invalid or not set
-    }
+    // $dataSession = session()->all();
+    // dd($dataSession);
 
     $isCart = ModelsCart::where('user_id', Auth::id())->first();
     session()->forget('cart_count');
@@ -187,13 +187,11 @@ class Cart extends Component
       'district' => $this->districtId,
       'village' => $this->villageId,
       'zipCode' => $this->zipCode,
-
       'totalQty' => $this->totalQty,
       'subTotalProducts' => $this->subTotalProducts,
       'tax' => $this->tax,
       'total' => $this->total,
       'snap_token' => $this->snapToken,
-
       'deliveries' => $this->deliveries,
     ]);
   }

@@ -61,12 +61,11 @@ const initContract = async () => {
             showConfirmButton: false,
             timer: 1700,
           });
-          // setTimeout(() => {
-          //   window.location.href = `tracking-order/${code}`;
-          // }, 1710);
+          setTimeout(() => {
+            checkout();
+          }, 1800);
+          await signout();
         }
-        await checkout();
-        await signout();
       } catch (error) {
         if (error.message.includes("User denied transaction signature")) {
           Swal.fire({
@@ -157,6 +156,6 @@ async function signout() {
 }
 
 async function checkout() {
-  Livewire.dispatch('execute');
-  console.log("Testtt");
+  Livewire.dispatch('Checkout');
+  // console.log("Testtt");
 }

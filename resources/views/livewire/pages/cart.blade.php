@@ -19,7 +19,7 @@
             <hr>
             <p class="my-2 text-lg uppercase text-slate-500"> {{ $village->name }},
               {{ $district->name }}, {{ $regency->name }}, {{ $province->name }},
-              {{ $zipCode->zip_code }}</p>
+              {{ $zipCode }}</p>
           </div>
           <div class="p-8 bg-white shadow-md rounded-xl">
             <div class="flex items-center justify-between mb-4">
@@ -137,7 +137,7 @@
                   <img src="/img/payment/bni.webp" alt="" class="h-4">
                   <img src="/img/payment/briva.png" alt="" class="h-4">
                 </div>
-                <a href="/checkout" {{--  DEBUG  --}}
+                <a href="#" wire:click.prevent='checkout' {{--  DEBUG  --}}
                   class="block w-full py-3 font-semibold text-center text-white rounded-lg bg-primaryBg">
                   Check Out
                 </a>
@@ -180,12 +180,19 @@
   var total;
   document.addEventListener('livewire:init', function() {
     Livewire.on('deliveryUpdated', function(data) {
-      console.log('Total:', data[0]['deliveryCost']);
-      console.log('Delivery Type:', data[0]['deliveryType']);
-      console.log('Delivery Cost:', data[0]['deliveryCost']);
-      console.log('Delivery Estimation:', data[0]['deliveryEstimation']);
+      // console.log('Total:', data[0]['deliveryCost']);
+      // console.log('Delivery Type:', data[0]['deliveryType']);
+      // console.log('Delivery Cost:', data[0]['deliveryCost']);
+      // console.log('Delivery Estimation:', data[0]['deliveryEstimation']);
       total = data[0]['deliveryCost'];
-      console.log(total);
+      // console.log(total);
     });
   });
+
+  // document.addEventListener('livewire:init', () => {
+  //   Livewire.on('SuccessPayment', (ex) => {
+  //     console.log(ex);
+  //     console.log("Test");
+  //   })
+  // })
 </script>

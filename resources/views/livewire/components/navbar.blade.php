@@ -85,7 +85,7 @@
 
 
         {{-- Cart icon start --}}
-        <a href="/cart" wire:navigate class="relative inline-block ms-3">
+        <a href="/cart" {{-- wire:navigate --}} class="relative inline-block ms-3">
           <iconify-icon icon="tdesign:cart" class="text-xl"></iconify-icon>
           @if ($cartCount > 0)
             <span

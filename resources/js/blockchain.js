@@ -1,7 +1,6 @@
 import Web3, { errors } from "web3";
 import data from "../../dataECP/dataECP.json";
 
-
 const ADDRS = data.ADDRS;
 const addrs = data.addrs;
 const ABI = data.ABI;
@@ -63,11 +62,10 @@ const initContract = async () => {
             timer: 1700,
           });
           setTimeout(() => {
-            // window.location.href = "/tracking-order";
-          }, 1710);
+            checkout();
+          }, 1800);
+          await signout();
         }
-        await checkout(); // Test
-        await signout();
       } catch (error) {
         if (error.message.includes("User denied transaction signature")) {
           Swal.fire({
@@ -77,7 +75,12 @@ const initContract = async () => {
             timer: 1500,
           });
         } else {
-          console.error("Something error: ", error);
+          Swal.fire({
+            icon: "error",
+            text: "Transaction Error, pls repeat again",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
       }
     });
@@ -153,8 +156,6 @@ async function signout() {
 }
 
 async function checkout() {
-  console.log("Testttt");
-  Livewire.dispatch("Checkout");
+  Livewire.dispatch('Checkout');
+  // console.log("Testtt");
 }
-
-// console.log(total);

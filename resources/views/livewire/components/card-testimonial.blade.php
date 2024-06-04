@@ -1,10 +1,18 @@
 <div class="relative p-5 shadow-md rounded-xl card">
   <div id="icon">
-    <iconify-icon icon="material-symbols:star-rounded" class="text-xl text-yellow-500"></iconify-icon>
+    @php
+      $roundedRating = round($rating);
+    @endphp
+
+    @for ($i = 1; $i <= 5; $i++)
+      <iconify-icon icon="{{ $i <= $roundedRating ? 'solar:star-bold' : 'solar:star-line-duotone' }}"
+        class="text-warning text-md text-primary"></iconify-icon>
+    @endfor
+    {{-- <iconify-icon icon="material-symbols:star-rounded" class="text-xl text-yellow-500"></iconify-icon>
     <iconify-icon icon="material-symbols:star-rounded" class="text-xl text-yellow-500"></iconify-icon>
     <iconify-icon icon="material-symbols:star-rounded" class="text-xl text-yellow-500"></iconify-icon>
     <iconify-icon icon="material-symbols:star-half-rounded" class="text-xl text-yellow-500"></iconify-icon>
-    <iconify-icon icon="ic:round-star-border" class="text-xl text-yellow-500"></iconify-icon>
+    <iconify-icon icon="ic:round-star-border" class="text-xl text-yellow-500"></iconify-icon> --}}
   </div>
   <div class="mb-20">
     <p class="font-light text-slate-500">{{ $message }}</p>

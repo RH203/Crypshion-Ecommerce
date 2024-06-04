@@ -173,18 +173,26 @@
 
   {{-- Modal --}}
 
-
 </div>
 
 <script type="text/javascript">
-  var total = <?php echo json_encode($total); ?>;
-
+  // var total = <?php echo json_encode($total); ?>;
+  var total;
   document.addEventListener('livewire:init', function() {
     Livewire.on('deliveryUpdated', function(data) {
-      console.log('Total:', data[0]['deliveryCost']);
-      console.log('Delivery Type:', data[0]['deliveryType']);
-      console.log('Delivery Cost:', data[0]['deliveryCost']);
-      console.log('Delivery Estimation:', data[0]['deliveryEstimation']);
+      // console.log('Total:', data[0]['deliveryCost']);
+      // console.log('Delivery Type:', data[0]['deliveryType']);
+      // console.log('Delivery Cost:', data[0]['deliveryCost']);
+      // console.log('Delivery Estimation:', data[0]['deliveryEstimation']);
+      total = data[0]['deliveryCost'];
+      // console.log(total);
     });
   });
+
+  // document.addEventListener('livewire:init', () => {
+  //   Livewire.on('SuccessPayment', (ex) => {
+  //     console.log(ex);
+  //     console.log("Test");
+  //   })
+  // })
 </script>

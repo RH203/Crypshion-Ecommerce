@@ -12,6 +12,7 @@ use App\Models\Delivery;
 use App\Models\Order;
 use App\Models\Transaction;
 use App\Models\User;
+use App\Trait\PaymentS;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -21,11 +22,14 @@ use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
+
 #[Layout('layouts.app')]
 #[Title('Cart')]
+
 class Cart extends Component
 {
   use LivewireAlert;
+  use PaymentS;
 
   public $datas;
   public $selectPayment = 'online';
@@ -47,7 +51,7 @@ class Cart extends Component
 
   public $selectedDelivery;
 
-  protected $listeners = ['Checkout' => 'checkout'];
+  protected $listeners = ['Checkout' => 'PayS'];
 
   public function mount()
   {
@@ -58,7 +62,7 @@ class Cart extends Component
     $this->districtId = District::find($user->district_id);
     $this->villageId = Village::find($user->village_id);
     $this->zipCode = $user->zip_code;
-
+    $this->codeTrx = Str::random(10);
     $this->deliveries = Delivery::all();
 
     $this->calculateTotal();
@@ -68,6 +72,10 @@ class Cart extends Component
   public function connectWallet()
   {
     $this->dispatch('connect-wallet-event');
+  }
+
+  public function PayS(){
+    $this->paymentSuccess();
   }
 
   public function updatedDelivery($value)
@@ -148,10 +156,7 @@ class Cart extends Component
       ]);
       return;
     }
-
     $this->redirect('checkout');
-
-    // Additional checkout logic here...
   }
 
   // Render Component
@@ -167,6 +172,9 @@ class Cart extends Component
         $data->size = $size;
       }
     }
+
+    // $dataSession = session()->all();
+    // dd($dataSession);
 
     $isCart = ModelsCart::where('user_id', Auth::id())->first();
     session()->forget('cart_count');

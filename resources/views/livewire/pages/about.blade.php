@@ -14,7 +14,7 @@
             <span class="inline-block text-slate-500">We know how large objects will act, but things on</span>
             <span class="block text-slate-500">a small scale are quite different.</span>
           </p>
-          <a href="" class="inline-block px-8 py-3 mb-20 font-semibold text-white rounded-md bg-primaryBg">Get
+          <a href="/products" wire:navigate class="inline-block px-8 py-3 mb-20 font-semibold text-white rounded-md bg-primaryBg">Get
             Quote
             Now</a>
         </div>
@@ -154,7 +154,7 @@
               during the first quarter of the 20th
             </span>
             <span>
-              <a href=""
+              <a href="/" wire:navigate
                 class="inline-block px-8 py-4 mt-10 font-bold text-white uppercase border border-white rounded-lg">Read
                 More</a>
             </span>

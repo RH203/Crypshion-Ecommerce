@@ -10,7 +10,7 @@
   @enderror
   <div class="mb-7">
     <input type="text" name="name" wire:model='name'
-      class="w-full px-5 py-3 border-[#23A6F0] border-b-2 bg-transparent rounded-xl placeholder:font-light placeholder:text-slate-400 focus:outline-0"
+      class="w-full px-5 py-3 bg-white border shadow-lg border-primary rounded-xl placeholder:font-light placeholder:text-slate-400 focus:outline-0"
       placeholder="Fullname">
     @error('name')
       <small class="italic text-red-600"><iconify-icon icon="quill:warning-alt"></iconify-icon>
@@ -19,7 +19,7 @@
   </div>
   <div class="mb-7">
     <input type="email" name="email" wire:model='email'
-      class="w-full px-5 py-3 border-[#23A6F0] border-b-2 bg-transparent rounded-xl placeholder:font-light placeholder:text-slate-400 focus:outline-0"
+      class="w-full px-5 py-3 bg-white border shadow-lg border-primary rounded-xl placeholder:font-light placeholder:text-slate-400 focus:outline-0"
       placeholder="Email Address">
     @error('email')
       <small class="italic text-red-600"><iconify-icon icon="quill:warning-alt"></iconify-icon>
@@ -28,7 +28,7 @@
   </div>
   <div class="mb-7">
     <input type="password" name="password" wire:model='password'
-      class="w-full px-5 py-3 border-[#23A6F0] border-b-2 bg-transparent rounded-xl placeholder:font-light placeholder:text-slate-400 focus:outline-0"
+      class="w-full px-5 py-3 bg-white border shadow-lg border-primary rounded-xl placeholder:font-light placeholder:text-slate-400 focus:outline-0"
       placeholder="Password">
     @error('password')
       <small class="italic text-red-600"><iconify-icon icon="quill:warning-alt"></iconify-icon>
@@ -37,7 +37,7 @@
   </div>
   <div class="mb-5">
     <input type="password" name="confirmPassword" wire:model='confirmPassword'
-      class="w-full px-5 py-3 border-[#23A6F0] border-b-2 bg-transparent rounded-xl placeholder:font-light placeholder:text-slate-400 focus:outline-0"
+      class="w-full px-5 py-3 bg-white border shadow-lg border-primary rounded-xl placeholder:font-light placeholder:text-slate-400 focus:outline-0"
       placeholder="Confirm Password">
     @error('confirmPassword')
       <small class="italic text-red-600"><iconify-icon icon="quill:warning-alt"></iconify-icon>
@@ -45,7 +45,8 @@
     @enderror
   </div>
   <div class="mb-5">
-    <button type="submit" class="h-14 w-full rounded-lg font-bold text-white text-xl bg-[#23A6F0]">Sign Up</button>
+    <button type="submit" class="h-14 shadow-lg w-full rounded-lg font-bold text-white text-xl bg-[#23A6F0]">Sign
+      Up</button>
   </div>
   <div class="text-center">
     <span>Already have an account? <a href="/login" wire:navigate class="text-[#23A6F0] font-bold">Sign

@@ -5,8 +5,10 @@
         class="object-cover w-full h-full transition duration-500 ease-linear group-hover:scale-110">
     </div>
     <div class="p-4 content">
-      <h4 class="text-sm font-semibold text-slate-800">{{ $title }}</h4>
-      <p class="my-2 text-xs font-light text-slate-500">{{ $description }}</p>
+      <h4 class="hidden text-sm font-semibold text-slate-800 lg:block">{{ Str::limit($title, 45) }}</h4>
+      <h4 class="block text-sm font-semibold text-slate-800 lg:hidden">{{ Str::limit($title, 23) }}</h4>
+      <p class="hidden my-2 text-xs font-light text-slate-500 lg:block">{{ Str::limit($description, 60) }}</p>
+      <p class="block my-2 text-xs font-light text-slate-500 lg:hidden">{{ Str::limit($description, 35) }}</p>
 
       <div class="absolute w-full pr-8 bottom-4">
         <div class="flex items-center justify-between">

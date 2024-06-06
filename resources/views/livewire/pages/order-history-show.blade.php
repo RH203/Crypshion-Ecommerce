@@ -34,20 +34,22 @@
                 @foreach ($products as $product)
                   <div class="flex items-center justify-between my-5">
                     <div class="flex">
-                      <div class="h-full overflow-hidden rounded-lg basis-4/12 w-72 md:h-40 bg-slate-200">
+                      <div class="w-full h-full overflow-hidden rounded-lg basis-4/12 md:w-72 md:h-40 bg-slate-200">
                         <img src="{{ asset('storage/' . $product->image) }}" alt="" width="w-full object-cover">
                       </div>
                       <div class="basis-8/12 text-slate-800 ms-5">
                         <div class="w-full mb-1">
-                          <h4 class="font-semibold text-md">{{ Str::limit($product->product->title, 70) }}
-                          </h4>
+                          <h4 class="hidden font-semibold text-md lg:block">
+                            {{ Str::limit($product->product->title, 70) }}</h4>
+                          <h4 class="block text-sm font-semibold md:text-md lg:hidden">
+                            {{ Str::limit($product->product->title, 35) }}</h4>
                         </div>
                         <p class="text-sm text-slate-500">{{ $product->product->category->title }}</p>
                         <div>
                           <span
-                            class="inline-block px-5 py-0 text-sm border md:px-7 text-slate-500 border-slate-500">{{ $product['size'] }}</span>
+                            class="inline-block px-5 py-0 text-xs border md:text-sm md:px-7 text-slate-500 border-slate-500">{{ $product['size'] }}</span>
                           <span
-                            class="inline-block px-5 py-0 text-sm border md:px-7 text-slate-500 border-slate-500">{{ $product->color }}</span>
+                            class="inline-block px-5 py-0 text-xs border md:text-sm md:px-7 text-slate-500 border-slate-500">{{ $product->color }}</span>
                         </div>
                         <div class="my-1 text-sm text-slate-500">Qty : <span>{{ $product->quantity }}</span> x</div>
                         <div class="md:text-xl text-md">

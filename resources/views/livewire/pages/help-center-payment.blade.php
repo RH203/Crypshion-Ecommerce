@@ -6,8 +6,8 @@
     </div>
     <hr class="border-gray-800 mt-4">
     {{-- Title End --}}
-
-    {{-- Accordion Start --}}
+    
+{{-- Accordion Start --}}  
     <div class="w-full mt-10">
       <div class="hs-accordion-group">
         <div
@@ -27,21 +27,41 @@
               stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14"></path>
             </svg>
-            Accordion #1
+            Crypto Payment
           </button>
           <div id="hs-basic-bordered-collapse-one"
             class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300"
             aria-labelledby="hs-bordered-heading-one">
             <div class="pb-4 px-5 ">
               <p class="text-blueNavy">
-                <em>This is the third item's accordion body.</em> It is hidden by default, until the collapse plugin
-                adds the appropriate classes that we use to style each element. These classes control the overall
-                appearance, as well as the showing and hiding via CSS transitions.
+                Bagaimana cara kerja pembayaran dengan crypto di Crypshion?
+              <ul class="marker:text-blue-600 list-disc ps-5 space-y-2 text-sm text-gray-600 mt-3">
+                <li>
+                  Saat checkout, Anda dapat memilih opsi "Payment with Crypto"
+                </li>
+                <li>
+                  Anda akan diarahkan ke gateway pembayaran crypto kami
+                </li>
+                <li>
+                  Anda dapat memilih cryptocurrency yang ingin Anda gunakan dan menyelesaikan pembayaran.
+                </li>
+                <li class="">
+                  Jika Anda masih mengalami masalah, silakan hubungi tim support kami melalui link berikut
+                  <div class="flex gap-2">
+                    <p><a class="text-blue-600 hover:text-blue-500 opacity-90"
+                        href="https://wa.me/+6282229878219">Whatapp</a></p>
+                    <p><a class="text-blue-600 hover:text-blue-500 opacity-90"
+                        href="mailto:example@example.com?subject=Subject of the Email&body=Hello, this is the body of the email.">Email</a>
+                    </p>
+                  </div>
+                </li>
+              </ul>
               </p>
             </div>
           </div>
         </div>
 
+        {{-- Invalid Payment Start --}}
         <div
           class="hs-accordion active hs-accordion-active:bg-transparent border-2 -mt-px first:rounded-t-lg last:rounded-b-lg"
           id="hs-bordered-heading-one">
@@ -59,21 +79,42 @@
               stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14"></path>
             </svg>
-            Accordion #1
+            Invalid Payment
           </button>
           <div id="hs-basic-bordered-collapse-one"
             class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300"
             aria-labelledby="hs-bordered-heading-one">
             <div class="pb-4 px-5 ">
               <p class="text-blueNavy">
-                <em>This is the third item's accordion body.</em> It is hidden by default, until the collapse plugin
-                adds the appropriate classes that we use to style each element. These classes control the overall
-                appearance, as well as the showing and hiding via CSS transitions.
+                Solusi untuk kesalahan pembayaran?
+              <ul class="marker:text-blue-600 list-disc ps-5 space-y-2 text-sm text-gray-600 mt-3">
+                <li>
+                  Cek URL yang Anda masukkan untuk memastikan tidak ada kesalahan pengetikan
+                </li>
+                <li>
+                  Pastikan Anda memiliki akses internet ke halaman yang Anda coba akses
+                </li>
+                <li>
+                  Coba refresh halaman atau coba akses kembali beberapa saat lagi setelah transaksi.
+                </li>
+                <li class="">
+                  Jika Anda masih mengalami masalah, silakan hubungi tim support kami melalui link berikut
+                  <div class="flex gap-2">
+                    <p><a class="text-blue-600 hover:text-blue-500 opacity-90"
+                        href="https://wa.me/+6282229878219">Whatapp</a></p>
+                    <p><a class="text-blue-600 hover:text-blue-500 opacity-90"
+                        href="mailto:example@example.com?subject=Subject of the Email&body=Hello, this is the body of the email.">Email</a>
+                    </p>
+                  </div>
+                </li>
+              </ul>
               </p>
             </div>
           </div>
         </div>
+        {{-- Invalid Payment End --}}
 
+        {{-- Crypto Payment Start --}}
         <div
           class="hs-accordion active hs-accordion-active:bg-transparent border-2 -mt-px first:rounded-t-lg last:rounded-b-lg"
           id="hs-bordered-heading-one">
@@ -91,22 +132,40 @@
               stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14"></path>
             </svg>
-            Accordion #1
+            Crypto Payment
           </button>
           <div id="hs-basic-bordered-collapse-one"
             class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300"
             aria-labelledby="hs-bordered-heading-one">
             <div class="pb-4 px-5 ">
               <p class="text-blueNavy">
-                <em>This is the third item's accordion body.</em> It is hidden by default, until the collapse plugin
-                adds the appropriate classes that we use to style each element. These classes control the overall
-                appearance, as well as the showing and hiding via CSS transitions.
+                Apakah ada biaya untuk pembayaran dengan crypto di Crypshion?
+              <ul class="marker:text-blue-600 list-disc ps-5 space-y-2 text-sm text-gray-600 mt-3">
+                <li>
+                  Tidak ada biaya tambahan untuk pembayaran dengan crypto di Crypshion
+                </li>
+                <li>
+                  Harga produk yang Anda beli akan ditampilkan dalam rupiah dan secara otomatis dikonversi ke cryptocurrency yang Anda pilih berdasarkan nilai tukar pasar saat ini.
+                </li>
+                <li class="">
+                  Jika Anda masih mengalami masalah, silakan hubungi tim support kami melalui link berikut
+                  <div class="flex gap-2">
+                    <p><a class="text-blue-600 hover:text-blue-500 opacity-90"
+                        href="https://wa.me/+6282229878219">Whatapp</a></p>
+                    <p><a class="text-blue-600 hover:text-blue-500 opacity-90"
+                        href="mailto:example@example.com?subject=Subject of the Email&body=Hello, this is the body of the email.">Email</a>
+                    </p>
+                  </div>
+                </li>
+              </ul>
               </p>
             </div>
           </div>
         </div>
+        {{-- Crypto Payment End --}}
       </div>
     </div>
     {{-- Accordion End --}}
-  </div>
+    </div>
 </div>
+

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Pages;
+namespace App\Trait;
 
 use App\Models\Api\District;
 use App\Models\Api\Province;
@@ -14,16 +14,9 @@ use App\Models\User;
 use Exception;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
-use Livewire\Attributes\Layout;
-use Livewire\Attributes\Title;
-use Livewire\Component;
 
-#[Title('Checkout')]
-#[Layout('layouts.app')]
-
-class Checkout extends Component
+trait PaymentS
 {
 
   use LivewireAlert;
@@ -40,8 +33,6 @@ class Checkout extends Component
   public $total = 0;
   public $snapToken = null;
   public $codeTrx;
-
-  protected $listeners = ['paymentSuccess', 'paymentCancel'];
 
 
   public function mount()
@@ -125,80 +116,7 @@ class Checkout extends Component
 
     $this->redirect('tracking-order/' . $this->codeTrx);
 
+
     return;
-  }
-
-  // Payment Cancel
-  public function paymentCancel()
-  {
-    $this->alert('error', 'Canceled', [
-      'position' => 'center',
-      'timer' => 3000,
-      'toast' => false,
-      'timerProgressBar' => true,
-      'showConfirmButton' => true,
-      'confirmButtonText' => 'Ok',
-      'text' => 'Payment Canceled',
-    ]);
-    return;
-  }
-
-  public function render()
-  {
-    \Midtrans\Config::$serverKey = config('midtrans.serverKey');
-    \Midtrans\Config::$isProduction = config('midtrans.isProduction');
-    \Midtrans\Config::$isSanitized = config('midtrans.isSanitized');
-    \Midtrans\Config::$is3ds = config('midtrans.is3ds');
-
-    $params = [
-      'transaction_details' => [
-        'order_id' => $this->codeTrx,
-        'gross_amount' => session('total'),
-      ],
-      'customer_details' => [
-        'first_name' => Auth::user()->name,
-        'email' => Auth::user()->email,
-      ],
-    ];
-
-    try {
-      $this->snapToken = \Midtrans\Snap::getSnapToken($params);
-    } catch (Exception $e) {
-      $this->alert('error', 'Error', [
-        'position' => 'center',
-        'timer' => 3000,
-        'toast' => false,
-        'timerProgressBar' => true,
-        'showConfirmButton' => true,
-        'confirmButtonText' => 'Ok',
-        'text' => 'Failed to generate payment token',
-      ]);
-      return;
-    }
-
-
-    $this->datas = Cart::orderBy('id', 'desc')->where('user_id', Auth::id())->get();
-    foreach ($this->datas as $data) {
-      $product = Product::find($data->product_id);
-
-      if ($product) {
-        $prices = json_decode($product->prices, true);
-        $size = array_search($data->price, $prices);
-        $data->size = $size;
-      }
-    }
-
-    return view('livewire.pages.checkout', [
-      'datas' => $this->datas,
-
-      'province' => $this->provinceId,
-      'regency' => $this->regencyId,
-      'district' => $this->districtId,
-      'village' => $this->villageId,
-      'zipCode' => $this->zipCode,
-      'code' => $this->codeTrx,
-
-      'snap_token' => $this->snapToken,
-    ]);
   }
 }

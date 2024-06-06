@@ -15,18 +15,18 @@ class ProductSeeder extends Seeder
     {
         $dataProduct = [
             [
-                'title' => 'CELANA PRIA CHINO Slim fit Panjang Kerja kantor Santai Liburan Cowok Gentleman Boy Skinnyhtytth',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+                'title' => 'Mens Chino Pants - Slim Fit - Long - Office Wear - Casual - Vacation - Gentlemen',
+                'description' => 'Upgrade your wardrobe with our versatile Mens Slim Fit Chino Pants. Perfect for the office, casual outings, or vacation, these pants are designed for the modern gentleman.',
                 'category_id' => 2,
                 'sizes' => json_encode(['XS', 'S', 'M', 'L', 'XL']),
                 'prices' => json_encode([
-                    'XS' => '1',
-                    'S' => '2',
-                    'M' => '3',
-                    'L' => '4',
-                    'XL' => '5',
+                    'XS' => '120000',
+                    'S' => '120000',
+                    'M' => '150000',
+                    'L' => '150000',
+                    'XL' => '150000',
                 ]),
-                'colors' => json_encode(['maroon', 'green', 'yellow', 'navy']),
+                'colors' => json_encode(['Maroon', 'Green', 'Yellow', 'Navy']),
                 'images' => json_encode([
                     'product-dummy/cc-1.jpg',
                     'product-dummy/cc-2.jpg',
@@ -36,22 +36,15 @@ class ProductSeeder extends Seeder
                     'product-dummy/cc-6.jpg',
                     'product-dummy/cc-7.jpg'
                 ]),
-                'stock' => 2500
+                'stock' => 17
             ],
             [
-                'title' => 'NEW ARRIVAL - Tas Ransel Pria Xavier - Tas Kantor - Tas Sekolah - Daily Backpack',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud',
+                'title' => 'NEW ARRIVAL - Mens Xavier Backpack - Office Bag - School Bag - Daily Backpack',
+                'description' => 'Upgrade your daily essentials with our stylish and functional Xavier Backpack. Perfect for the office, school, or everyday use, this backpack combines practicality with modern design',
                 'category_id' => 6,
-                'sizes' => json_encode(['38', '39', '40', '41', '42', '43']),
-                'prices' => json_encode([
-                    '38' => '1',
-                    '39' => '2',
-                    '40' => '3',
-                    '41' => '4',
-                    '42' => '5',
-                    '43' => '6',
+                'prices' => json_encode([ '345000'
                 ]),
-                'colors' => json_encode(['maroon', 'green', 'yellow', 'navy']),
+                'colors' => json_encode(['Maroon', 'Green', 'Yellow', 'Navy']),
                 'images' => json_encode([
                     'product-dummy/tas-1.jpg',
                     'product-dummy/tas-2.jpg',
@@ -64,11 +57,17 @@ class ProductSeeder extends Seeder
                     'product-dummy/tas-9.jpg',
                     'product-dummy/tas-10.jpg'
                 ]),
-                'stock' => 3000
+                'stock' => 30
             ],
             [
-                'title' => 'Topi Gunung Rimba Tali Hiking Hutan Camping Hat Tali Hitam Cream Hijau Army Coklat Biru Navy Merah Kuning Abu Grey LorengOutbound',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud',
+                'title' => 'Mountain Hiking Hat with Strap, Available in Black, Cream, Green, Army, Brown, Navy Blue, Red, Yellow, Grey, and Camouflage for Outdoor Adventures',
+                'description' => 'Prepare for your next outdoor adventure with our Mountain Hiking Hats with Strap. Available in a variety of colors, these hats are perfect for hiking, camping, and all your outdoor activities.
+
+                🔥 Why Youll Love Our Hiking Hats:
+                -Adventure-Ready Design: Ideal hiking, camping, and exploring the great outdoors.
+                -Secure Fit: Equipped with a strap to ensure a snug fit during all your activities.
+                -Multiple Colors: Choose from Black, Cream, Green, Army, Brown, Navy Blue, Red, Yellow, Grey, and Camouflage your style.
+                -Durable and Comfortable: Made with high-quality materials to withstand rugged outdoor conditions providing comfort.',
                 'category_id' => 5,
                 'sizes' => json_encode(['5', '6', '7', '8', '9', '10']),
                 'prices' => json_encode([
@@ -79,7 +78,7 @@ class ProductSeeder extends Seeder
                     '9' => '70000',
                     '10' => '75000',
                 ]),
-                'colors' => json_encode(['navy', 'white', 'dark green', 'gray', 'black', 'cream']),
+                'colors' => json_encode(['Navy', 'White', 'Dark Green', 'Gray', 'Black', 'Cream']),
                 'images' => json_encode([
                     'product-dummy/tc-1.jpg',
                     'product-dummy/tc-2.jpg',
@@ -89,11 +88,11 @@ class ProductSeeder extends Seeder
                     'product-dummy/tc-6.jpg',
                     'product-dummy/tc-7.jpg',
                 ]),
-                'stock' => 1400
+                'stock' => 14
             ],
             [
-                'title' => '[Bahan Premium] Topi Baseball Polos Cakop Ring Besi Termurah Cewek Cowok Topi Bisbol POLOSANT.ID',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud',
+                'title' => 'Plain Baseball Cap with Metal Ring, Most Affordable for Men and Women, Available at POLOSANT.ID',
+                'description' => 'Add a touch of cool to your look with our Plain Baseball Caps with Metal Ring. Perfect for both men and women, these caps are a must-have accessory for any casual outfit.',
                 'category_id' => 5,
                 'sizes' => json_encode(['8', '9', '10', '11']),
                 'prices' => json_encode([
@@ -102,7 +101,7 @@ class ProductSeeder extends Seeder
                     '10' => '50000',
                     '11' => '55000',
                 ]),
-                'colors' => json_encode(['navy', 'white', 'dark green', 'gray', 'black', 'cream', 'brown']),
+                'colors' => json_encode(['Navy', 'White', 'Dark Green', 'Gray', 'Black', 'Cream', 'Brown']),
                 'images' => json_encode([
                     'product-dummy/tpc-1.jpg',
                     'product-dummy/tpc-2.jpg',
@@ -112,11 +111,12 @@ class ProductSeeder extends Seeder
                     'product-dummy/tpc-6.jpg',
                     'product-dummy/tpc-7.jpg',
                 ]),
-                'stock' => 2300
+                'stock' => 23
             ],
             [
-                'title' => 'Keeping Sepatu Sneakers Pria Putih Sepatu Pria Kets Lari Sepatu Olahraga Cowok Kekinian Dewasa Casual Jogging Running Sport Shoes',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud',
+                'title' => 'Mens White Sneakers / Mens Casual Running Shoes / Modern Sports Shoes for Jogging and Running',
+                'description' => 'Step up your footwear game with our best-selling white sneakers. Whether you’re hitting the gym, going for a run, or just hanging out with friends, these sneakers are your perfect choice.
+                🛒 Shop Now and Stay Ahead in Style!',
                 'category_id' => 3,
                 'sizes' => json_encode(['37', '38', '39', '40', '41', '42']),
                 'prices' => json_encode([
@@ -127,7 +127,7 @@ class ProductSeeder extends Seeder
                     '41' => '260000',
                     '42' => '300000',
                 ]),
-                'colors' => json_encode(['navy', 'white', 'dark green', 'gray', 'black', 'cream', 'brown']),
+                'colors' => json_encode(['Navy', 'White', 'Dark Green', 'Gray', 'Black', 'Cream', 'Brown']),
                 'images' => json_encode([
                     'product-dummy/so-1.jpg',
                     'product-dummy/so-2.jpg',
@@ -140,11 +140,11 @@ class ProductSeeder extends Seeder
                     'product-dummy/so-9.jpg',
                     'product-dummy/so-10.jpg',
                 ]),
-                'stock' => 2300
+                'stock' => 3
             ],
             [
-                'title' => 'Sepatu Pantofel pria / Sepatu sekolah / Sepatu Kantor pria / Sepatu kerja hitam / Sepatu formal/ sepatu pantofel',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud',
+                'title' => 'Mens Loafers / School Shoes / Office Shoes / Black Work Shoes / Formal Shoes / Loafers',
+                'description' => 'Introducing our latest collection of Mens Loafers and Formal Shoes—the perfect blend of style and sophistication for every occasion, whether its school, the office, or formal events.',
                 'category_id' => 3,
                 'sizes' => json_encode(['37', '38', '39', '40', '41', '42']),
                 'prices' => json_encode([
@@ -155,7 +155,7 @@ class ProductSeeder extends Seeder
                     '41' => '260000',
                     '42' => '300000',
                 ]),
-                'colors' => json_encode(['black', 'brown']),
+                'colors' => json_encode(['Black', 'Brown']),
                 'images' => json_encode([
                     'product-dummy/sc-1.jpg',
                     'product-dummy/sc-2.jpg',
@@ -166,11 +166,11 @@ class ProductSeeder extends Seeder
                     'product-dummy/sc-7.jpg',
                     'product-dummy/sc-8.jpg',
                 ]),
-                'stock' => 2300
+                'stock' => 57
             ],
             [
-                'title' => 'MOVE - TSHIRT BAJU KAOS DISTRO PREMIUM COMBED PRIA WANITA CEWEK COWOK STREETWEAR KEKINIAN KEREN TERLARIS',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud',
+                'title' => 'Premium Combed Distro T-Shirts for Men and Women, Trendy Streetwear, Best-Selling',
+                'description' => 'Elevate your streetwear game with our best-selling premium combed T-shirts. Whether youre hanging out with friends or hitting the streets, these tees are your perfect choice.',
                 'category_id' => 1,
                 'sizes' => json_encode(['S', 'M', 'L', 'XL', 'XXL']),
                 'prices' => json_encode([
@@ -180,7 +180,7 @@ class ProductSeeder extends Seeder
                     'XL' => '220000',
                     'XXL' => '260000',
                 ]),
-                'colors' => json_encode(['black', 'brown', 'maroon', 'navy', 'green', 'gray']),
+                'colors' => json_encode(['Black', 'Brown', 'Maroon', 'Navy', 'Green', 'Gray']),
                 'images' => json_encode([
                     'product-dummy/bc-1.jpg',
                     'product-dummy/bc-2.jpg',
@@ -194,11 +194,11 @@ class ProductSeeder extends Seeder
                     'product-dummy/bc-10.jpg',
                     'product-dummy/bc-11.jpg',
                 ]),
-                'stock' => 2300
+                'stock' => 120
             ],
             [
-                'title' => 'jaket pria formal casual TERBARU jaket kantor TERLARIS',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud',
+                'title' => 'Latest Mens Formal Casual Jackets, Best-Selling Office Jackets',
+                'description' => 'Upgrade your office wardrobe with our best-selling formal casual jackets. Whether youre heading to an important meeting or a casual get-together, these jackets are your perfect go-to choice.',
                 'category_id' => 4,
                 'sizes' => json_encode(['L', 'M', 'XL', 'XXL']),
                 'prices' => json_encode([
@@ -207,7 +207,7 @@ class ProductSeeder extends Seeder
                     'XL' => '170000',
                     'XXL' => '190000',
                 ]),
-                'colors' => json_encode(['black', 'brown', 'maroon', 'navy', 'green', 'gray']),
+                'colors' => json_encode(['Black', 'Brown', 'Maroon', 'Navy', 'Green', 'Gray']),
                 'images' => json_encode([
                     'product-dummy/jc-1.jpg',
                     'product-dummy/jc-2.jpg',
@@ -221,7 +221,132 @@ class ProductSeeder extends Seeder
                     'product-dummy/jc-10.jpg',
                     'product-dummy/jc-11.jpg',
                 ]),
-                'stock' => 2300
+                'stock' => 150
+            ],
+            [
+                'title' => 'AUTOMET Womens Tops Casual Dressy Basic T Shirts Loose Fit Crewneck Cap Sleeve Tee Summer Outfits 2024',
+                'description' => 'This womens cute T-shirts is suitable for resort wear, spring, concert, festival, night out, going out, beach, date night, vacation, workout, gym, make you comfy in your casual life. You can freely pair it with flat shoes and jeans.',
+                'category_id' => 1,
+                'sizes' => json_encode(['L', 'M', 'XL', 'XXL']),
+                'prices' => json_encode([
+                    'L' => '359000',
+                    'M' => '400000',
+                    'XL' => '400000',
+                    'XXL' => '420000',
+                ]),
+                'colors' => json_encode(['Maroon', 'Navy', 'Green', 'Gray']),
+                'images' => json_encode([
+                    'product-dummy/maroon.jpg',
+                    'product-dummy/navy.jpg',
+                    'product-dummy/green.jpg',
+                    'product-dummy/grey.jpg'
+                ]),
+                'stock' => 25
+            ],
+            [
+                'title' => 'Hanes Men Ecosmart Fleece Sweatshirt, Cotton-blend Pullover, Crewneck Sweatshirt for Men, 1 Or 2 Pack Available',
+                'description' => 'About this item :
+                    -FLEECE TO FEEL GOOD ABOUT - Hanes EcoSmart midweight sweatshirt is made with cotton sourced from American farms.
+                    -CLASSIC SILHOUETTE - Basic crewneck sweatshirt shaping for that versatile look you love.
+                    -MADE TO LAST - Double-needle stitching at the neck and armholes adds extra quality and sturdiness.
+                    -STAYS SOFT - Thick, sturdy fleece stays warm and cozy.
+                    -CONVENIENT TEARAWAY TAGS - Say bye-bye to itchy tags.
+                    -COLD WATER WASH - Hanes recommends machine washing this sweatshirt cold water to reduce energy usage.',
+                'category_id' => 4,
+                'sizes' => json_encode(['L', 'M', 'XL', 'XXL']),
+                'prices' => json_encode([
+                    'L' => '590000',
+                    'M' => '590000',
+                    'XL' => '600000',
+                    'XXL' => '600000',
+                ]),
+                'colors' => json_encode(['Green', 'Gray']),
+                'images' => json_encode([
+                    'product-dummy/c7green.jpg',
+                    'product-dummy/c7gray.jpg',
+                ]),
+                'stock' => 5
+            ],
+            [
+                'title' => 'Trendy Queen Womens Long Sleeve Shirts Basic Spring Crop Tops Fall Fashion Layering Slim Fitted Y2k Tops',
+                'description' => 'Material - This long sleeve shirt is made of 88% polyester,12% spandex. Llight weight, super soft and high-stretch fabric with a second-skin feel.Design - Cropped and stretch fitted style,crew neck, tight underscrubs layer,you can wear it regularly or fold it up like a crop top,cute,slim fit,casual y2k style',
+                'category_id' => 1,
+                'sizes' => json_encode(['L', 'M', 'XL', 'XXL']),
+                'prices' => json_encode([
+                    'L' => '450000',
+                    'M' => '460000',
+                    'XL' => '460000',
+                    'XXL' => '460000',
+                ]),
+                'colors' => json_encode(['Black']),
+                'images' => json_encode([
+                    'product-dummy/c8crop.jpg'
+                ]),
+                'stock' => 25
+            ],
+            [
+                'title' => 'PRETTYGARDEN Womens Fashion Sweater Long Sleeve Casual Ribbed Knit Winter Pullover Sweaters Blouse Top',
+                'description' => 'Womens Fall Fashion 2023! This Knit Pullover Sweater Is A Fantastic Piece To Wear In Cold Days. Classic Lantern Sleeves Are Elegant And Retro, Not Only Keeping Warm, But Also Classic And Fashionable Styles. This Pullover Sweater Has Many Colors For Choice: White Fall Sweaters For Women/ Light Apricot Casual Fall Sweater For Women/ Khaki Jumper Casual Knitted Sweaters/ Sky Blue Lantern Sleeve Sweater For Women/ Grey Womens Fall Tops/ Wine Red Knitted Winter Blouse/ Navy Winter Sweaters For Women/ Black Cozy Long Sleeve Knit Sweater',
+                'category_id' => 1,
+                'sizes' => json_encode(['L']),
+                'prices' => json_encode([
+                    'L' => '569000',
+                ]),
+                'colors' => json_encode(['Orange', 'Black', 'Bean Green', 'Sky Blue']),
+                'images' => json_encode([
+                    'product-dummy/c9orange.jpg',
+                    'product-dummy/c9black.jpg',
+                    'product-dummy/c9bg.jpg',
+                    'product-dummy/c9sb.jpg',
+                ]),
+                'stock' => 21
+            ],
+            [
+                'title' => 'Amazon Essentials Mens Water-Resistant Insulated Snow Bib Overall',
+                'description' => 'Adjustable elastic suspenders, front D-ring gear attachment, boot gaiters with boot hook, elasticated hook and loop adjustable waist tab for a secure fit and a full length center front zipper with snap closure.',
+                'category_id' => 1,
+                'sizes' => json_encode(['L']),
+                'prices' => json_encode([
+                    'L' => '1500000',
+                ]),
+                'colors' => json_encode(['Navy']),
+                'images' => json_encode([
+                    'product-dummy/gg.jpg'
+                ]),
+                'stock' => 15
+            ],
+            [
+                'title' => 'Amazon Essentials Men Classic-Fit Stretch Golf Pant (Available in Big & Tall)',
+                'description' => 'Train in confidence with these lightweight golf pants featuring a moisture-wicking, gentle stretch and wrinkle-resistant fabric',
+                'category_id' => 2,
+                'sizes' => json_encode(['L']),
+                'prices' => json_encode([
+                    'L' => '267000',
+                ]),
+                'colors' => json_encode(['Navy', 'Choco Burn']),
+                'images' => json_encode([
+                    'product-dummy/c10nv.jpg',
+                    'product-dummy/c10cb.jpg'
+                ]),
+                'stock' => 15
+            ],
+            [
+                'title' => 'Carhartt Men Loose Fit Heavyweight Short-Sleeve Pocket T-Shirt',
+                'description' => 'About this item : Rib-knit crewneck, Side-seamed construction minimizes twisting, Left-chest pocket with sewn-on Carhartt label, Tagless neck label.',
+                'category_id' => 1,
+                'sizes' => json_encode(['L', 'XLL', 'XXLL']),
+                'prices' => json_encode([
+                    'L' => '890000',
+                    'XLL'  => '890000',
+                    'XXL' => '890000',
+                ]),
+                'colors' => json_encode(['Apple Butter', 'Black', 'Brite Lime']),
+                'images' => json_encode([
+                    'product-dummy/c11apple.jpg',
+                    'product-dummy/c11blk.jpg',
+                    'product-dummy/c11bl.jpg'
+                ]),
+                'stock' => 15
             ],
         ];
 

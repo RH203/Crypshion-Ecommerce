@@ -73,7 +73,7 @@
         </div>
       </div>
       <div class="relative flex justify-center h-52 bg-white-400">
-        <img src="/img/product2/col-md-4 (5).png" alt="">
+        <img src="/img/product2/col1.png" alt="">
         <div class="absolute flex items-center justify-center w-full h-full ">
           <p class="font-bold text-white">
             CLOTHS <span class="block font-normal">

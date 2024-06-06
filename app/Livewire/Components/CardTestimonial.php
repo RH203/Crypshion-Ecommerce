@@ -12,7 +12,7 @@ class CardTestimonial extends Component
     public $name;
     public $label;
 
-    public function mount($rating = null, $message, $image, $name, $label = 'Best User')
+    public function mount($rating = 0, $message, $image, $name, $label = 'Best User')
     {
         $this->rating = $rating;
         $this->message = $message;

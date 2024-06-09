@@ -101,7 +101,7 @@
       <div class="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-5">
         @foreach ($products as $product)
           <livewire:components.card-product image="{{ asset('storage/' . $product->first_image) }}"
-            title="{{ Str::limit($product->title, 45) }}" description="{{ Str::limit($product->description, 60) }}"
+            title="{{ $product->title }}" description="{{ $product->description }}"
             rating="{{ isset($averageRatings[$product->id]) ? $averageRatings[$product->id] : 0 }}"
             sold="{{ isset($soldQuantities[$product->id]) ? $soldQuantities[$product->id] : 0 }}"
             price="{{ isset($product->first_price) ? number_format($product->first_price, 0, ',', '.') : '' }}"

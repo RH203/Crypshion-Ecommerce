@@ -1,10 +1,10 @@
 <div>
 
-  <div class="w-10/12 mx-auto my-10">
+  <div class="w-11/12 mx-auto my-10 md:w-10/12">
     {{-- Detail product section start --}}
-    <section class="grid grid-cols-5 gap-5">
+    <section class="grid grid-cols-1 gap-5 lg:grid-cols-5">
       {{-- Image display start --}}
-      <div class="col-span-2">
+      <div class="lg:col-span-2">
         @if (session('product_' . $id . '.first_image') || session('showImagePath'))
           <div class="w-full mt-0 overflow-hidden rounded-lg bg-slate-200 h-96">
             <img src="{{ asset('storage/' . (session('showImagePath') ?? session('product_' . $id . '.first_image'))) }}"
@@ -26,7 +26,7 @@
       </div>
       {{-- Image display end --}}
 
-      <div class="col-span-3">
+      <div class="lg:col-span-3">
         {{-- Stock, Sold and reviews start --}}
         <h1 class="text-3xl font-semibold">{{ session('product_' . $id . '.title') }}</h1>
         <div class="my-3">
@@ -207,7 +207,7 @@
         </div>
         <div id="horizontal-alignment-2" class="hidden" role="tabpanel"
           aria-labelledby="horizontal-alignment-item-2">
-          <div class="grid grid-cols-3 gap-3">
+          <div class="grid grid-cols-1 gap-3 lg:grid-cols-3">
             @foreach ($ratingProductCount as $review)
               @if ($review->review != null)
                 <livewire:components.card-testimonial message="{{ $review->review }}"

@@ -92,16 +92,15 @@ trait PaymentS
       Cart::where('id', $cartData->id)->delete();
     }
 
-
-    $this->alert('success', 'Success', [
-      'position' => 'center',
-      'timer' => 3000,
-      'toast' => false,
-      'timerProgressBar' => true,
-      'showConfirmButton' => true,
-      'confirmButtonText' => 'Ok',
-      'text' => 'Payment Success',
-    ]);
+    // $this->alert('success', 'Success', [
+    //   'position' => 'center',
+    //   'timer' => 3000,
+    //   'toast' => false,
+    //   'timerProgressBar' => true,
+    //   'showConfirmButton' => true,
+    //   'confirmButtonText' => 'Ok',
+    //   'text' => 'Payment Success',
+    // ]);
 
     // Session::flush();
     session()->forget('paymentMethod');

@@ -36,6 +36,8 @@
   <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
     data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}"></script>
 
+  {{-- <link rel="stylesheet" href="/build/assets/app-BPwK3pI7.css"> --}}
+
 
   {{-- Vite --}}
   @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -63,6 +65,8 @@
   <x-livewire-alert::scripts />
   {{-- Iconify --}}
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
+
+  {{-- <script src="/build/assets/app-CvQSPBlQ.js"></script> --}}
 
   {{-- Script JS --}}
   @stack('js')

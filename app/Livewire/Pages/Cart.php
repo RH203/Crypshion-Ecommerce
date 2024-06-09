@@ -74,7 +74,8 @@ class Cart extends Component
     $this->dispatch('connect-wallet-event');
   }
 
-  public function PayS(){
+  public function PayS()
+  {
     $this->paymentSuccess();
   }
 

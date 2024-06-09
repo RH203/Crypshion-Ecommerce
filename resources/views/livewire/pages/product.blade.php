@@ -26,7 +26,7 @@
         <img src="/img/product2/col-md-4 (4).png" alt="">
         <div class="absolute flex items-center justify-center w-full h-full ">
           <p class="font-bold text-white">
-            CLOTHS <span class="block font-normal">
+            CLOTHES <span class="block font-normal">
               5 items
             </span>
           </p>
@@ -36,7 +36,7 @@
         <img src="/img/product2/col-md-4 (3).png" alt="">
         <div class="absolute flex items-center justify-center w-full h-full ">
           <p class="font-bold text-white">
-            CLOTHS <span class="block font-normal">
+            TROUSERS <span class="block font-normal">
               5 items
             </span>
           </p>
@@ -46,7 +46,7 @@
         <img src="/img/product2/col-md-4 (2).png" alt="">
         <div class="absolute flex items-center justify-center w-full h-full ">
           <p class="font-bold text-white">
-            CLOTHS <span class="block font-normal">
+            SHOE <span class="block font-normal">
               5 items
             </span>
           </p>
@@ -56,8 +56,8 @@
         <img src="/img/product2/col-md-4 (1).png" alt="">
         <div class="absolute flex items-center justify-center w-full h-full ">
           <p class="font-bold text-white">
-            CLOTHS <span class="block font-normal">
-              5 items
+            JACKET <span class="block font-normal">
+              10 items
             </span>
           </p>
         </div>
@@ -66,8 +66,8 @@
         <img src="/img/product2/col-md-4 (5).png" alt="">
         <div class="absolute flex items-center justify-center w-full h-full ">
           <p class="font-bold text-white">
-            CLOTHS <span class="block font-normal">
-              5 items
+            HAT <span class="block font-normal">
+              4 items
             </span>
           </p>
         </div>
@@ -76,7 +76,7 @@
         <img src="/img/product2/col1.png" alt="">
         <div class="absolute flex items-center justify-center w-full h-full ">
           <p class="font-bold text-white">
-            CLOTHS <span class="block font-normal">
+            BAG <span class="block font-normal">
               5 items
             </span>
           </p>

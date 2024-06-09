@@ -67,7 +67,7 @@
                                       class="hidden peer" name="rating-{{ $product->id }}"
                                       wire:model='ratings.{{ $product->id }}' value="{{ $i }}">
                                     <label for="rating-{{ $product->id }}-{{ $i }}"
-                                      class="text-gray-300 cursor-pointer peer-checked:text-yellow-400 dark:peer-checked:text-yellow-600 dark:text-neutral-600">
+                                      class="text-gray-300 cursor-pointer peer-checked:text-primary dark:peer-checked:text-primary dark:text-neutral-300">
                                       <svg class="flex-shrink-0 size-5" xmlns="http://www.w3.org/2000/svg"
                                         width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                         <path
@@ -84,7 +84,7 @@
                                   placeholder="Write a review here..."></textarea>
 
                                 <button type="submit"
-                                  class="px-5 py-2 text-xs text-white bg-green-600 rounded-md shadow-md">Submit</button>
+                                  class="px-5 py-2 text-xs text-white rounded-md shadow-md bg-primaryBg">Submit</button>
                             @endif
                             </form>
                           @endif

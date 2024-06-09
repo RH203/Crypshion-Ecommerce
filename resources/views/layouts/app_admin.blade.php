@@ -58,7 +58,7 @@
                   <h4 class="me-3">Welcome, <span class="font-semibold">{{ Auth::user()->name }}</span></h4>
                   <button id="hs-dropdown-with-header" type="button"
                     class="inline-flex items-center w-10 h-10 overflow-hidden text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-full shadow-sm hs-dropdown-toggle hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
-                    <img src="{{ Auth::user()->avatar }}" alt="avatar" class="w-full">
+                    <img src="{{ asset('storage/file/avatar/' . Auth::user()->avatar) }}" alt="avatar" class="w-full">
                   </button>
                 </div>
                 <div

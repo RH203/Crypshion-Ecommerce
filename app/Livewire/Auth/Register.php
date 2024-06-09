@@ -3,6 +3,7 @@
 namespace App\Livewire\Auth;
 
 use App\Models\User;
+use App\Models\UserSession;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -61,6 +62,12 @@ class Register extends Component
         ]);
 
         $user->assignRole('user');
+
+        UserSession::create([
+            'user_id' => Auth::user()->id,
+            'login_at' => now(),
+            'logout_at' => null
+        ]);
         Auth::login($user);
         return redirect()->intended('/');
     }

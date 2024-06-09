@@ -3,6 +3,7 @@
 namespace App\Livewire\Auth;
 
 use App\Models\User;
+use App\Models\UserSession;
 use Illuminate\Support\Facades\Auth;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Layout;
@@ -30,9 +31,19 @@ class Login extends Component
         if (Auth::attempt($credentials)) {
             session()->regenerate();
             if (Auth::user()->hasRole('admin')) {
+                UserSession::create([
+                    'user_id' => Auth::user()->id,
+                    'login_at' => now(),
+                    'logout_at' => null
+                ]);
                 return redirect()->intended('app/dashboard');
             }
             if (Auth::user()->hasRole('user')) {
+                UserSession::create([
+                    'user_id' => Auth::user()->id,
+                    'login_at' => now(),
+                    'logout_at' => null
+                ]);
                 return redirect()->intended('/');
             }
         } else {

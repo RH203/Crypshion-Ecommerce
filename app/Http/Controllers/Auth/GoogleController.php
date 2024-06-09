@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\UserSession;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,6 +28,11 @@ class GoogleController extends Controller
 
             if ($findUser) {
                 Auth::login($findUser);
+                UserSession::create([
+                    'user_id' => Auth::user()->id,
+                    'login_at' => now(),
+                    'logout_at' => null
+                ]);
                 return redirect()->intended('/');
             } else {
                 $user = User::updateOrCreate(
@@ -39,7 +45,11 @@ class GoogleController extends Controller
                     ]
                 );
                 $user->assignRole('user');
-
+                UserSession::create([
+                    'user_id' => Auth::user()->id,
+                    'login_at' => now(),
+                    'logout_at' => null
+                ]);
                 Auth::login($user);
                 return redirect()->intended('/');
             }

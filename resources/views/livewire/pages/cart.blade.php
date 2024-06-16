@@ -58,7 +58,7 @@
             @foreach ($datas as $data)
               <div class="flex items-center justify-between my-5">
                 <div class="flex">
-                  <div class="w-full overflow-hidden rounded-lg basis-5/12 md:basis-3/12 md:h-full bg-slate-200">
+                  <div class="w-full overflow-hidden rounded-lg basis-5/12 md:basis-3/12 md:h-40 bg-slate-200">
                     <img src="{{ asset('storage/' . $data->image) }}" alt=""
                       class="object-cover w-full h-full">
                   </div>

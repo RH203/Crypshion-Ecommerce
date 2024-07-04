@@ -1,23 +1,14 @@
 # Rules Contributor
 ## File Creation
-- Membuat file view di dalam folder livewire dengan menjalankan perintah ini `php artisan make:livewire nama_folde.nama_file`
-- Gunakan layout `app` di dalam class livewire yang terletak di direktori `app/Livewire/nama_folder/nama_file.php`
+- Membuat file view di dalam folder livewire dengan menjalankan perintah ini `php artisan make:livewire nama-folder.nama-file`
+- Gunakan layout `app` untuk tampilan role user/admin/super-admin di dalam class livewire yang terletak di direktori `app/Livewire/NamaFolder/nama_file.php`
 - Tambahkan Title di dalam class livewire yang terletak di direktori  `app/Livewire/nama_folder/nama_file.php`
 
 ## Writing Rules
 - Nama route tidak boleh di singkat gunakan tanda `-` ketika ada spasi : `contoh : /home-page`
-- Segala sesuatu yang berhubungan dengan gambar simpan di dalam folder `public/img/`
+- Segala sesuatu yang berhubungan dengan gambar simpan di dalam folder `public/assets/images/`
 - Jika ingin mengcustom style pada css silahkan simpan di dalam `function & directive` tailwind atau `tailwind.config.js`
-- Penulisan code di dalan viewnya cukup contentnya saja tidak perlu menulis header html
-
-## Component Rules
-### Container
-Untuk membuat container silahkan gunakan width `w-10/12` dengan position center 
-```html
-<div class="w-10/12 mx-auto">
-  ...
-</div>
-```
+- Penulisan code di dalan viewnya cukup contentnya saja tidak perlu menulis header html karena menggunakan sistem layouting
 
 ### Font 
 Menggunakan font `poppins`
@@ -43,18 +34,15 @@ Usage
 
 ```
 
-### Layoting
-Gunakan Grid dan flexbox untuk megatur penempatan element.
-- Jadikan grid sebagai mengatur banyaknya layout atau colomn yang akan dibuat
-- Sedangkan flex untuk mengatur posisi content didalamnya 
-
-
-
 ### Breakpoint 
 Silahkan gunakan breakpoint disini untuk membuat respoinsive design
 
 ![image](https://github.com/alirfanyasin/Crypshion-Ecommerce/assets/77270380/6e2e10b2-5b14-482f-a140-47871e513ffe)
 
+
+## Aturan Penamaan Branch
+- `nama/feature` contoh `irfan/create-presence`
+- `feature/nama` contoh `create-presence/irfan`
 
 
 
@@ -63,13 +51,13 @@ Silahkan gunakan breakpoint disini untuk membuat respoinsive design
 - Jangan pernah menghapus folder atau file apapun yg sudah ada atau bawaan dari laravel
 - Jika ingin melakukan `git push` dan pull request pada project ini silahkan lakukan `git pull` ke branch `main` terlebih dahulu di lokal komputer
 - Jika terjadi konflik silahkan perbaiki terlebih dahulu sebelum `push` ke project
-- Jika sudah selesai semua silahkan berikan `commit` yang jelas dan `pull request` ke branch `develop`
+- Jika sudah selesai semua silahkan berikan `commit` yang jelas dan `pull request` ke branch anda sendiri
 
 
 ## Instalation
 Clone Repository
 ```sh
-git clone https://github.com/alirfanyasin/Crypshion-Ecommerce.git
+git clone https://github.com/CODER-Telkom-University-Surabaya.git
 ```
 Tulis perintah dibawah in untuk menginstal depedensi yang di perlukan 
 ```sh
@@ -86,6 +74,13 @@ cp .env.example .env
 Setelah itu lakukan generate key
 ```sh
 php artisan key:generate
+```
+
+Jalankan migration dan seeder
+```sh
+php artisan migrate
+
+php artisan migrate:fresh --seed
 ```
 
 ## Running Project
